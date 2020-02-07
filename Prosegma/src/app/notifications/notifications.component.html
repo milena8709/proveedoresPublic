@@ -1,0 +1,73 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Inscripción Proveedor</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="col-md-12">
+                            <div class="form-group" *ngFor="let order of campoTextField; let i = index">
+                                <label>{{order}}</label>
+                                <input type="text" class="form-control" [(ngModel)]="order" name="order" placeholder="" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group" *ngFor="let order of campoCombo; let i = index">
+                                <div>
+                                    <label>{{order}}</label>
+                                    <select class="form-control">
+                                        <option value="0">Seleccione una opción</option>
+                                        <option value="compras">Compras</option>
+                                        <option value="almacenista">Almacenista</option>
+                                        <option value="proveedor">Proveedor</option>
+                                    </select> </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group" *ngFor="let order of campoTexto; let i = index">
+                                <label>{{order}}</label>
+                                <input type="text" class="form-control" [(ngModel)]="order" name="order" placeholder="" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group" *ngFor="let order of campoCheck; let i = index">
+                                <label>{{order}}</label>
+                                <input type="text" class="form-control" [(ngModel)]="order" name="order" placeholder="" value="">
+                            </div>
+                        </div>
+
+                        <span></span>
+                        <div class="col-md-12">
+                            <div>
+                                <input type="checkbox" id="exampleCheck1">
+                                <label>Aceptar politicas de privacidad</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div>
+                                <input type="checkbox" id="exampleCheck1">
+                                <label>He leido y acepto las politicas de tratamiento de datos</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4  pl-1">
+                            <a href="/classification" class="btn btn-primary btn-block">
+                                Guardar
+                            </a>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
