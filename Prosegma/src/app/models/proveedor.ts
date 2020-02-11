@@ -1,6 +1,8 @@
+import { Datos } from './dato';
 export interface Proveedor {
 
     idProveedor?: number;
-    razonSocial?: string;
-    nit?: number;
+    licitacion?: string;
+    datos?: Datos[];
+    documento: Blob;
 }

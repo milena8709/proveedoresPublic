@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import * as Chartist from 'chartist';
 import { CamposproveedorService } from '../../services/camposproveedor.service';
+import { DialogService } from '../dialog/dialog.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -9,14 +11,17 @@ import { CamposproveedorService } from '../../services/camposproveedor.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  ngOnInit(): void {
+  }
 
+  constructor(private modalService: NgbModal, private dialogService: DialogService) {
 
-
-constructor(private camposServices: CamposproveedorService) {
+  }
+  /*constructor(private camposServices: CamposproveedorService) {
 }
 
   ngOnInit() {
 
-  }
+  }*/
 
 }

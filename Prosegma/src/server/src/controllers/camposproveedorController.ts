@@ -20,9 +20,25 @@ class CamposProveedorController {
     }
 
 
+    public async getInscripcion (req: Request, res: Response) {
+        const id =  await db.query('SELECT MAX(idinscripcion) as id FROM inscripcion');
+        if (id.length > 0) {
+            return res.json(id);
+        }
+        res.status(404).json({text: 'El campo no existe'});
+    }
+
+
    public async create (req: Request, res: Response): Promise<void> {
-        console.log(req.body);
-        await db.query('INSERT INTO usuarios SET ?', [req.body]);
+        console.log(req.body.datos[0]);
+        // tslint:disable-next-line: forin
+        for (const dato of req.body.datos) {
+            console.log('create proveedor' + dato);
+            await db.query('INSERT INTO datos SET ?', [dato]);
+        }
+        const licitacion = { 'nombrelicitacion': req.body.licitacion};
+        await db.query('INSERT INTO licitacion SET ?', [licitacion]);
+        await db.query('INSERT INTO inscripcion SET ?', [{'idProveedor': req.body.idProveedor}]);
         res.json({text: 'Usuario guardado exitosamente'});
     }
 

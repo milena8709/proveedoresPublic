@@ -12,7 +12,7 @@ class CatalagoController {
     public async getCatalogoById (req: Request, res: Response) {
         const { id } = req.params;
         console.log(id);
-        const catalogo =  await db.query('SELECT * FROM catalogo where idcatalogo = ?', [id]);
+        const catalogo =  await db.query('SELECT * FROM catalogo where idcamposproveedor = ?', [id]);
         if (catalogo.length > 0) {
             return res.json(catalogo);
         }

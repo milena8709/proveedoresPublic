@@ -6,59 +6,65 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="title">Inscripción Proveedor</h5>
+                    <div>En esta sección usted debe ingresar todos los campos solicitados</div>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form id="formulario">
                         <div class="col-md-12">
-                            <div class="form-group" *ngFor="let order of campoTextField; let i = index">
-                                <label>{{order}}</label>
-                                <input type="text" class="form-control" [(ngModel)]="order" name="order" placeholder="" value="">
+                            <div class="form-group">
+                                <label>Cotización</label>
+                                <input type="text" class="form-control" [(ngModel)]="licitacion" name="licitacion" placeholder="Ingrese el número de la cotización si aplica" value="">
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-group" *ngFor="let order of campoCombo; let i = index">
+                            <div class="form-group" *ngFor="let orderText of campoTextField; let i = index">
+                                <label>{{orderText.label}}</label>
+                                <input type="text" class="form-control" name="i" [(ngModel)]="orderText.nombre" placeholder="dd" value="ddd">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div *ngFor="let orderCombo of campoCombo; let ix = index">
                                 <div>
-                                    <label>{{order}}</label>
-                                    <select class="form-control">
-                                        <option value="0">Seleccione una opción</option>
-                                        <option value="compras">Compras</option>
-                                        <option value="almacenista">Almacenista</option>
-                                        <option value="proveedor">Proveedor</option>
+                                    <label>{{orderCombo.label}}</label>
+                                    <select class="form-control" (ngModelChange)="selectChange($event, orderCombo.id)" [(ngModel)]="orderCombo.nombre" name="ix">
+                                        <option *ngFor="let itemCatalogo of orderCombo.catalogo; let idx = index">{{itemCatalogo.nombre}}</option>
                                     </select> </div>
 
 
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="form-group" *ngFor="let order of campoTexto; let i = index">
-                                <label>{{order}}</label>
-                                <input type="text" class="form-control" [(ngModel)]="order" name="order" placeholder="" value="">
+                            <div class="form-group" *ngFor="let texto of campoTexto; let i = index">
+                                <label>{{texto.label}}</label>
+                                <input type="text" class="form-control" [(ngModel)]="texto.nombre" name="texto.label" placeholder="" value="">
                             </div>
                         </div>
+                        <!--
                         <div class="col-md-12">
                             <div class="form-group" *ngFor="let order of campoCheck; let i = index">
-                                <label>{{order}}</label>
-                                <input type="text" class="form-control" [(ngModel)]="order" name="order" placeholder="" value="">
+                                <div>
+                                    <label>{{order.label}}</label>
+                                    <select class="form-control">
+                                        <option value="i" *ngFor="let itemCatalogo of order.catalogo; let i = index">{{itemCatalogo.nombre}}</option>
+                                        
+                                    </select> </div>
+
+
                             </div>
-                        </div>
+                        </div>*/-->
 
                         <span></span>
                         <div class="col-md-12">
                             <div>
-                                <input type="checkbox" id="exampleCheck1">
-                                <label>Aceptar politicas de privacidad</label>
+                                <input type="checkbox" id="checkpoliticas" [(ngModel)]="checkpoliticas" name="checkpoliticas" [checked]="checkpoliticas">
+                                <label (click)="openModalPoliticas(formulario)">Aceptar politicas de privacidad</label>
                             </div>
                         </div>
 
-                        <div class="col-md-12">
-                            <div>
-                                <input type="checkbox" id="exampleCheck1">
-                                <label>He leido y acepto las politicas de tratamiento de datos</label>
-                            </div>
-                        </div>
+
 
                         <div class="col-md-4  pl-1">
-                            <a href="/classification" class="btn btn-primary btn-block">
+                            <a (click)="guardar()" class="btn btn-primary btn-block">
                                 Guardar
                             </a>
                         </div>

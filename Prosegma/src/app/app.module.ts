@@ -16,6 +16,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule, MatButtonModule } from '@angular/material';
+import { DialogTemplateComponent } from './dialog-template/dialog-template.component';
 
 
 @NgModule({
@@ -34,13 +36,19 @@ import { BrowserModule } from '@angular/platform-browser';
   FormsModule,
   ReactiveFormsModule,
   MatInputModule,
-  MatFormFieldModule
-  ],
+  MatFormFieldModule,
+  MatDialogModule,
+  MatFormFieldModule,
+   MatButtonModule,
+    MatInputModule  ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    DialogTemplateComponent
+
     ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[DialogTemplateComponent]
 })
 export class AppModule { }

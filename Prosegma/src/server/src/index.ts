@@ -8,6 +8,8 @@ const corse = require('cors');
 import { Application } from 'express';
 import camposProveedorRoutes from './routes/camposproveedorRoutes';
 import catalogoRoutes from './routes/catalogoRoutes';
+import clasificacionRoutes from './routes/clasificacionRoutes';
+import documentacionRoutes from './routes/documentacionRoutes';
 
 
 class Server {
@@ -32,6 +34,8 @@ routes(): void {
     // this.app.use(camposProveedorRoutes);
     this.app.use('/api/campos', camposProveedorRoutes);
     this.app.use('/api/catalogo', catalogoRoutes);
+    this.app.use('/api/clasificacion', clasificacionRoutes);
+    this.app.use('/api/documentacion', documentacionRoutes);
 // tslint:disable-next-line: no-console
 
 }

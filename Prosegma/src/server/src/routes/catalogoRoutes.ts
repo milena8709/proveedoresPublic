@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import {usuarioController} from '../controllers/usuarioController';
 import { catalagoController } from '../controllers/catalogosController';
+import { clasificacionController } from '../controllers/clasificacionController';
 
 class CamposProveedorRoutes {
 
