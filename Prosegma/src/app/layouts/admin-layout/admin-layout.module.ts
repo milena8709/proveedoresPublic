@@ -26,6 +26,17 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CamposproveedorService } from '../../../services/camposproveedor.service';
+import { EvaluationService } from '../../../services/evaluation.service';
+
+import { TittleComponent } from '../../tittle/tittle.component';
+import { BuscarEvaluacionesComponent } from '../../table-list/buscar-evaluaciones/buscar-evaluaciones.component';
+import { BuscarProveedoresComponent } from '../../table-list/buscar-proveedores/buscar-proveedores.component';
+import { SeleccionarProveedoresComponent } from '../../table-list/seleccionar-proveedores/seleccionar-proveedores.component';
+import { CriteriosEvalauacionComponent } from '../../table-list/criterios-evalauacion/criterios-evalauacion.component';
+import { CalificacionCriterioComponent } from '../../table-list/calificacion-criterio/calificacion-criterio.component';
+import { ResultadoEvaluacionComponent } from '../../table-list/resultado-evaluacion/resultado-evaluacion.component';
+
+
 
 @NgModule({
   imports: [
@@ -38,12 +49,14 @@ import { CamposproveedorService } from '../../../services/camposproveedor.servic
     HttpClientModule
   ],
   providers: [
-    CamposproveedorService
+    CamposproveedorService,
+    EvaluationService
   ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
     TableListComponent,
+    TittleComponent,
     UpgradeComponent,
     TypographyComponent,
     IconsComponent,
@@ -55,7 +68,13 @@ import { CamposproveedorService } from '../../../services/camposproveedor.servic
     AhpComponent,
     MatClassificationComponent,
     TransactionComponent,
-    MaterialdetailComponent
+    MaterialdetailComponent,
+    BuscarEvaluacionesComponent,
+    BuscarProveedoresComponent,
+    SeleccionarProveedoresComponent,
+    CriteriosEvalauacionComponent,
+    CalificacionCriterioComponent,
+    ResultadoEvaluacionComponent
   ]
 })
 
