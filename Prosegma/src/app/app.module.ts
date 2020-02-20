@@ -19,7 +19,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { DialogTemplateComponent } from './dialog-template/dialog-template.component';
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -45,7 +44,6 @@ import { DialogTemplateComponent } from './dialog-template/dialog-template.compo
     AppComponent,
     AdminLayoutComponent,
     DialogTemplateComponent
-
     ],
   providers: [],
   bootstrap: [AppComponent],

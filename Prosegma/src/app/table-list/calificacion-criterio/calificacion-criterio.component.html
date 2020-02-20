@@ -1,42 +1,17 @@
 <p><strong>Calificacion Criterios</strong></p>
 
-
-<div class="table-responsive">
-        <table class="table">
-            <thead class=" text-primary">
-                <th>
-                    Atributo
-                </th>
-                <th>
-                    Calificacion
-                </th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        Estes es criiterio agregado anteiormente
-                    </td>
-                    <td>
-                        6
-                    </td>
-                </tr>
-                <tr>
-                        <td>
-                            Criterio 2
-                        </td>
-                        <td>
-                            3
-                        </td>
-                 </tr>
-                 <tr>
-                    <td>
-                            Criterio 3
-                        </td>
-                        <td>
-                        1
-                        </td>
-                    </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="container m-5">
+    <form>
+        <div style="width: 50%;" *ngFor="let criterio of criterios; let i = index" class="form-group row">
+            <label class="col-sm-2 col-form-label"> {{ criterio.criterio }}</label>
+            <div class="col-sm-10">
+                <input class="form-control"
+                type="text"
+                placeholder="peso"
+                required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Siguiente</button>
+    </form>
+</div>
       

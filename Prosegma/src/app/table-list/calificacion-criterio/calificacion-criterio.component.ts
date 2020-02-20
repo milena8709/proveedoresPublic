@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { CriteriosService } from '../../../services/criterios.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-calificacion-criterio',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalificacionCriterioComponent implements OnInit {
 
-  constructor() { }
+  @Output() sendProvider = new EventEmitter();
+
+  criterios: any[] = [];
+
+  constructor(private criteriosService: CriteriosService) { }
 
   ngOnInit() {
+    this.criteriosService.getEvaluation().subscribe( (resp) => {
+      this.criterios = resp;
+    });
   }
+
 
 }

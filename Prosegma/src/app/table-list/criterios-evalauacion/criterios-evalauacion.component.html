@@ -15,15 +15,15 @@
                 </th>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let criterio of criterios; let i = index">
                     <td>
-                        1
+                        {{criterio.criterio}}
                     </td>
                     <td>
-                        Esta es la descripcion del criterio de fds
+                        {{criterio.descripcion}}
                     </td>
                     <td>
-                        25%
+                        {{criterio.peso}}
                     </td>
                 </tr>
             </tbody>

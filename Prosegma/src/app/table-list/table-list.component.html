@@ -3,52 +3,81 @@
     <div class="row">
         <div class="col-md-12">
 
-             <div class="card">
+            <div *ngIf="firstStep" class="card">
+                <form (ngSubmit)="createEvaluation(form)" #form="ngForm">
+                    <div class="card-header">
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Titulo de la evaluacion</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Titulo"  name="tittle"  [(ngModel)]="header.tittle" #tittle="ngModel">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Descripcion</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Descripcion"  name="description"  [(ngModel)]="header.description" #description="ngModel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <hr>
+                        <app-buscar-evaluaciones></app-buscar-evaluaciones>
+                        <hr>
+                        <app-seleccionar-proveedores (sendProvider)="selectedProvider($event)"></app-seleccionar-proveedores>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Siguiente</button>
+                </form>
+            </div>
+
+           <div class="card" *ngIf="secondStep">
                 <div class="card-header">
-                    <app-tittle></app-tittle>
+                    <app-title [show]="secondStep" [titleEvaluation]="header.tittle" [descriptionEvaluation]="header.description"></app-title>
                 </div>
 
                 <div class="card-body">
                     <hr>
-                    <app-buscar-evaluaciones></app-buscar-evaluaciones>
-                    <hr>
-                    <app-buscar-proveedores></app-buscar-proveedores>
-                    <hr>
-                    <app-seleccionar-proveedores></app-seleccionar-proveedores>
+                    <app-criterios-evalauacion></app-criterios-evalauacion>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Siguiente</button>
+                <button class="btn btn-primary" (click)="changeCardsecond()">Siguiente</button>
+                <button class="btn btn-primary" (click)="changeCard()">Atras</button>
             </div>
 
-          <!-- <div class="card">
-                    <div class="card-header">
-                        <app-tittle></app-tittle>
-                    </div>
-    
-                    <div class="card-body">
-                        <hr>
-                        <app-criterios-evalauacion></app-criterios-evalauacion>
-                    </div>
-    
-                    <button type="submit" class="btn btn-primary">Siguiente</button>
-            </div>-->
-
-           <!-- <div class="card">
-                    <div class="card-header">
-                        <app-tittle></app-tittle>
-                    </div>
-    
-                    <div class="card-body">
-                        <hr>
-                        <app-calificacion-criterio></app-calificacion-criterio>
-                    </div>
-    
-                    <button type="submit" class="btn btn-primary">Siguiente</button>
-            </div>-->
-
-            <!--<div class="card">
+            <div class="card" *ngIf="thirdStep">
                 <div class="card-header">
-                    <app-tittle></app-tittle>
+                    <app-title></app-title>
+                </div>
+                <form (ngSubmit)="createCreteria(formData)" #formData="ngForm">
+                    <div class="card-body">
+                        <hr>
+                    <!-- <app-calificacion-criterio></app-calificacion-criterio> -->
+                        <p><strong>Calificacion Criterios</strong></p>
+
+                        <div class="container m-5">
+                            
+                                <div style="width: 50%;" *ngFor="let criterio of criterios; let i = index" class="form-group row">
+                                    <label class="col-sm-2 col-form-label"> {{ criterio.criterio }}</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control"
+                                        type="text"
+                                        placeholder="#"
+                                        [name]="i + 1"
+                                        [(ngModel)]="criteriosDescription[i + 1]"
+                                        [ngModelOptions]="{standalone: false}">
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Siguiente</button><!--(click)="changeCardthird()"-->
+                    <button class="btn btn-primary" (click)="changeCardsecond()">Atras</button>
+            </form>
+            </div>
+
+            <div class="card" *ngIf="fourStep">
+                <div class="card-header">
+                    <app-title></app-title>
                 </div>
 
                 <div class="card-body">
@@ -56,8 +85,9 @@
                     <app-resultado-evaluacion></app-resultado-evaluacion>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Siguiente</button>
-            </div>-->
+                <button type="submit" class="btn btn-primary" >Guardar</button>
+                <button type="submit" class="btn btn-primary" (click)="changeCardthird()">atras</button>
+            </div>
 
 
         </div>

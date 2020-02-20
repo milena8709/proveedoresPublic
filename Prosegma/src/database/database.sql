@@ -425,8 +425,7 @@ CREATE TABLE `prosegma`.`evaluacion_proveedor` (
   INDEX `id_proveedor_idx` (`id_proveedor` ASC) VISIBLE,
   CONSTRAINT `id_proveedor`
     FOREIGN KEY (`id_proveedor`)
-    REFERENCES `prosegma`.`proveedor` (`idproveedor`);
-
+    REFERENCES `prosegma`.`proveedor` (`idproveedor`));
 
 CREATE TABLE `prosegma`.`criterios_evaluacion` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -447,7 +446,11 @@ CREATE TABLE `prosegma`.`criterios_evaluacion` (
     REFERENCES `prosegma`.`evaluacion_proveedor` (`id`),
   CONSTRAINT `id_criterio`
     FOREIGN KEY (`id`)
-    REFERENCES `prosegma`.`criterios_evaluacion` (`id`);
+    REFERENCES `prosegma`.`criterios_evaluacion` (`id`));
+
+ALTER TABLE `prosegma`.`evaluacion_proveedor` 
+CHANGE COLUMN `fecha_creacion` `fecha_creacion` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

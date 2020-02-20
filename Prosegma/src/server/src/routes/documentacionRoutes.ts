@@ -20,8 +20,6 @@ class DocumentacionRoutes {
         this.router.delete('/:id', documentacionController.delete);
     }
 
-    
-
 }
 
 const documentacionRoutes = new DocumentacionRoutes();

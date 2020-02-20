@@ -10,15 +10,15 @@ class EvaluationRoutes {
 
     constructor() {
         console.log('ingreso al router evaluationController');
-this.config();
+        this.config();
 
     }
 
     config(): void {
-        this.router.get('/proveedores', evaluationController.list);
-        /*this.router.get('/:id', camposProveedorController.getCamposById);
-        this.router.post('/', camposProveedorController.create);
-        this.router.put('/:id', camposProveedorController.update);
+        this.router.get('/', evaluationController.list);
+        this.router.get('/:id/:name', evaluationController.getProveedorById);
+        this.router.post('/', evaluationController.createEvaluation);
+        /*this.router.put('/:id', camposProveedorController.update);
         this.router.delete('/:id', camposProveedorController.delete);*/
     }
 }

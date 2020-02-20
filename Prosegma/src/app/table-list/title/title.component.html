@@ -3,7 +3,7 @@
         <p><strong>Titulo de la evaluacion</strong></p>
     </div>
     <div class="col-md-6">
-        <p>Este es el titulo de la evaluacion</p>
+        <p>{{ titleEvaluation }}</p>
     </div>
 </div>
 <div class="row">
@@ -11,25 +11,25 @@
         <p><strong>Descripcion</strong></p>
     </div>
     <div class="col-md-6">
-        <p>Esta es una pequena descripcion del proyectos
+        <p>{{ descriptionEvaluation }}
+        </p>
+    </div>
+</div>
+<div *ngIf="show" class="row">
+    <div class="col-md-6">
+        <p><strong>Semeste</strong></p>
+    </div>
+    <div class="col-md-6">
+        <p>{{ semestre }}
         </p>
     </div>
 </div>
 <!--<div class="row">
     <div class="col-md-6">
-        <p><strong>Semeste</strong></p>
+        <p><strong>Provedor evaluado</strong></p>
     </div>
     <div class="col-md-6">
-        <p>Primer Semestre
+        <p>Juanito Perez
         </p>
     </div>
 </div>-->
-<div class="row">
-        <div class="col-md-6">
-            <p><strong>Provedor evaluado</strong></p>
-        </div>
-        <div class="col-md-6">
-            <p>Juanito Perez
-            </p>
-        </div>
-    </div>

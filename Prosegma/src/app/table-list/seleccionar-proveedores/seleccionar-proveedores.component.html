@@ -1,5 +1,22 @@
 <p><strong>Buscar Proveedores</strong></p>
 
+<form (ngSubmit)="buscar(forma)" #forma="ngForm">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>NIT/CC</label>
+            <input type="text" class="form-control" placeholder="NIT/CC" name="id"  [(ngModel)]="usuario.id" #id="ngModel">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Nombre proveedor</label>
+            <input type="text" class="form-control"  placeholder="Nombre del proveedor" name="proveedor"  [(ngModel)]="usuario.name" #name="ngModel">
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm"><small>Buscar</small></button>
+    </div>
+</form>
+
+<hr>
+<p><strong>Seleccionar Proveedores</strong></p>
+
 
 <div class="table-responsive">
         <table class="table">
@@ -15,19 +32,19 @@
                 </th>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let proveedor of proveedores; let i = index">
                     <td>
-                        423423
+                        {{proveedor.idproveedor}}
                     </td>
                     <td>
-                        m3
+                        {{proveedor.razon_social}}
                     </td>
                     <td>
                         <div class="form-check">
                             <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" checked>
-                            <span class="form-check-sign"></span>
-                        </label>
+                                <input #rolInput class="form-check-input" type="checkbox" (click)="selectProvider(proveedor.idproveedor, rolInput.checked)">
+                                <span class="form-check-sign"></span>
+                            </label>
                         </div>
                     </td>
                 </tr>

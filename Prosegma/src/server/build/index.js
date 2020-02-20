@@ -11,6 +11,8 @@ const camposproveedorRoutes_1 = __importDefault(require("./routes/camposproveedo
 const catalogoRoutes_1 = __importDefault(require("./routes/catalogoRoutes"));
 const clasificacionRoutes_1 = __importDefault(require("./routes/clasificacionRoutes"));
 const documentacionRoutes_1 = __importDefault(require("./routes/documentacionRoutes"));
+const evaluationRoutes_1 = __importDefault(require("./routes/evaluationRoutes"));
+const criteriosRoutes_1 = __importDefault(require("./routes/criteriosRoutes"));
 class Server {
     constructor() {
         this.app = express();
@@ -25,12 +27,15 @@ class Server {
         this.app.use(express.urlencoded({ extended: false }));
     }
     routes() {
-        console.log('llega aqui index.ts');
+        console.log('llega aqui indexddddd.ts');
         // this.app.use(camposProveedorRoutes);
         this.app.use('/api/campos', camposproveedorRoutes_1.default);
         this.app.use('/api/catalogo', catalogoRoutes_1.default);
         this.app.use('/api/clasificacion', clasificacionRoutes_1.default);
         this.app.use('/api/documentacion', documentacionRoutes_1.default);
+        // routes evaluacion
+        this.app.use('/api/evaluation', evaluationRoutes_1.default);
+        this.app.use('/api/criterios', criteriosRoutes_1.default);
         // tslint:disable-next-line: no-console
     }
     start() {

@@ -11,6 +11,7 @@ import catalogoRoutes from './routes/catalogoRoutes';
 import clasificacionRoutes from './routes/clasificacionRoutes';
 import documentacionRoutes from './routes/documentacionRoutes';
 import evaluationRoutes from './routes/evaluationRoutes';
+import criteriosRoutes from './routes/criteriosRoutes';
 
 class Server {
 
@@ -37,9 +38,10 @@ routes(): void {
     this.app.use('/api/clasificacion', clasificacionRoutes);
     this.app.use('/api/documentacion', documentacionRoutes);
 
-    //routes evaluacion
+    // routes evaluacion
     this.app.use('/api/evaluation', evaluationRoutes);
-// tslint:disable-next-line: no-console
+    this.app.use('/api/criterios', criteriosRoutes);
+    // tslint:disable-next-line: no-console
 
 }
 
