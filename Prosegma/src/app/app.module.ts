@@ -18,6 +18,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { DialogTemplateComponent } from './dialog-template/dialog-template.component';
+import { DialogOkTemplateComponent } from './dialog-ok-template/dialog-ok-template.component';
+import { DocumentsComponent } from './documents/documents.component';
+
 
 
 @NgModule({
@@ -31,7 +34,7 @@ import { DialogTemplateComponent } from './dialog-template/dialog-template.compo
     NgbModule,
     ToastrModule.forRoot(),
     BrowserModule,
-  AppRoutingModule,
+    AppRoutingModule,
   BrowserAnimationsModule,
   FormsModule,
   ReactiveFormsModule,
@@ -44,11 +47,10 @@ import { DialogTemplateComponent } from './dialog-template/dialog-template.compo
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    DialogTemplateComponent
-
-    ],
+    DialogTemplateComponent,
+    DialogOkTemplateComponent    ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[DialogTemplateComponent]
+  entryComponents:[DialogTemplateComponent, DialogOkTemplateComponent]
 })
 export class AppModule { }

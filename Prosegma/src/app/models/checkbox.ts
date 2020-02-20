@@ -1,5 +1,6 @@
 export interface Checkbox {
-    id:number;
+    id: number;
     label?: string;
     catalogo?: any[];
+    obligatorio?: boolean;
 }

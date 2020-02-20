@@ -3,16 +3,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// import express, { Application } from 'express';
-const express = require('express');
 const morgan = require('morgan');
 const corse = require('cors');
+const express = require('express');
 const camposproveedorRoutes_1 = __importDefault(require("./routes/camposproveedorRoutes"));
 const catalogoRoutes_1 = __importDefault(require("./routes/catalogoRoutes"));
 const clasificacionRoutes_1 = __importDefault(require("./routes/clasificacionRoutes"));
 const documentacionRoutes_1 = __importDefault(require("./routes/documentacionRoutes"));
 class Server {
     constructor() {
+        this.bodyParser = require('body-parser');
+        this.formidable = require('express-formidable');
         this.app = express();
         this.config();
         this.routes();
@@ -22,6 +23,7 @@ class Server {
         this.app.use(morgan('dev'));
         this.app.use(corse());
         this.app.use(express.json());
+        this.app.use(this.bodyParser.urlencoded({ extended: false }));
         this.app.use(express.urlencoded({ extended: false }));
     }
     routes() {
@@ -31,6 +33,7 @@ class Server {
         this.app.use('/api/catalogo', catalogoRoutes_1.default);
         this.app.use('/api/clasificacion', clasificacionRoutes_1.default);
         this.app.use('/api/documentacion', documentacionRoutes_1.default);
+        this.app.use('/api/documentacion/save', documentacionRoutes_1.default);
         // tslint:disable-next-line: no-console
     }
     start() {

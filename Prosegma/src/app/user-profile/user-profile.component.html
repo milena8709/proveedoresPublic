@@ -4,34 +4,88 @@
     <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">
-                    <h5 class="title">Buscar Proveedor</h5>
-                </div>
                 <div class="card-body">
                     <form>
-
-                        <div class="col-md-12 pr-1">
+                        <div class="col-md-12">
                             <div>
-                                <label>Licitación/Orden Compra</label>
-                                <select class="form-control">
-                                <option value="0">Seleccione una opción</option>
-                                <option value="licitacion1">Licitación 1</option>
-                                <option value="licitacion2">Licitación 2</option>
-                                <option value="licitacion3">Licitación 3</option>
-                            </select> </div>
-                        </div>
-                        <div class="col-md-12 pr-1">
-                            <div class="form-group">
-                                <label>Clasificación</label>
-                                <input type="text" class="form-control" placeholder="Clasificación">
+                                <label>Titulo de selección</label>
+                                <input type="text" class="form-control" placeholder="">
                             </div>
                         </div>
-                        <div class=" col-md-3 pl-1 text-white ">
-                            <a class="btn btn-primary btn-block ">
-                              Guardar
-                          </a>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Descripción</label>
+                                <input type="text" class="form-control" placeholder="descripcion">
+                            </div>
                         </div>
                     </form>
+
+                    <div class="card-header">
+                        <h5 class="title">Buscar Proveedor</h5>
+                    </div>
+                    <div class="card-body">
+                        <form #formulario="ngForm">
+
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <i class="fas fa-search" aria-hidden="true"></i><label>Segmento</label>
+                                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" name="segmento" [(ngModel)]="segmento">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <i class="fas fa-search" aria-hidden="true"></i><label>Familia</label>
+                                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" name="familia" [(ngModel)]="familia">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <i class="fas fa-search" aria-hidden="true"></i><label>Clase</label>
+                                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" name="clase" [(ngModel)]="clase">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <i class="fas fa-search" aria-hidden="true"></i><label>Producto</label>
+                                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" name="producto" [(ngModel)]="producto">
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div>
+                                    <label>Titulo de selección</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    <input type="text" class="form-control" placeholder="descripcion">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3  pl-1">
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" (click)="buscar()">Buscar</button>
+                                </div>
+                            </div>
+                            <div class="col-md-3  pl-1">
+                                <div class="form-group">
+                                    <a (click)="clear(formulario)" class="btn btn-primary btn-block text-white">Limpiar</a>
+                                </div>
+                            </div>
+                            <div class="col-md-3  pl-1">
+                                <div class="form-group">
+                                    <a href="/notifications" class="btn btn-primary btn-block">atrás</a>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,7 +110,10 @@
                                         Nombre
                                     </th>
                                     <th>
-                                        Seleccionar
+                                        Adicionar para seleccion AHP
+                                    </th>
+                                    <th>
+                                        Seleccionar proveedor sin AHP
                                     </th>
                                 </thead>
                                 <tbody>
@@ -75,6 +132,14 @@
                                             </label>
                                             </div>
                                         </td>
+                                        <td>
+                                            <div class="form-check ">
+                                                <label class="form-check-label ">
+                                            <input class="form-check-input " type="checkbox" checked>
+                                            <span class="form-check-sign "></span>
+                                            </label>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -82,6 +147,14 @@
                                         </td>
                                         <td>
                                             Proveedor de prueba 2
+                                        </td>
+                                        <td>
+                                            <div class="form-check ">
+                                                <label class="form-check-label ">
+                                          <input class="form-check-input " type="checkbox" checked>
+                                          <span class="form-check-sign "></span>
+                                        </label>
+                                            </div>
                                         </td>
                                         <td>
                                             <div class="form-check ">

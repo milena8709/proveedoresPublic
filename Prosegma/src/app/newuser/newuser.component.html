@@ -1,0 +1,43 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Registro de usuario</h5>
+                    <label class="col-md-12 pr-1">Ingrese todos los datos solicitados</label>
+                </div>
+                <div class="card-body">
+                    <form enctype="multipart/form-data" action="api/documentacion">
+                        <div class="col-md-12 pr-1">
+                            <label class="col-md-12 pr-1">NIT/CC, ingrese su NIT  o su cédula si es persona natural:</label>
+                            <input type="text" class="form-control" name="i" [(ngModel)]="identificacion" value="" required #id="ngModel">
+
+                        </div>
+                        <div class="col-md-12 pr-1">
+                            <label class="col-md-12 pr-1">Nombre de la empresa o nombre de la persona  (si es persona natural)
+                            </label>
+                            <input type="text" class="form-control" name="i" [(ngModel)]="nombre" value="" required #name="ngModel">
+                        </div>
+                        <div class="col-md-12 pr-1">
+                            <label class="col-md-12 pr-1">Correo:</label>
+                            <input type="text" class="form-control" name="i" [(ngModel)]="correo" value="" required #i="ngModel">
+                        </div>
+                        <div class="col-md-12 pr-1">
+                            <label class="col-md-12 pr-1">Contraseña de mínimo 8 caracteres:</label>
+                            <input type="password" class="form-control" name="i" [(ngModel)]="password" value="" required #in="ngModel">
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-md-4  pl-1">
+                            <a href="" class="btn btn-primary btn-block" (click)="showNotification('top','left')">
+                                Guardar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

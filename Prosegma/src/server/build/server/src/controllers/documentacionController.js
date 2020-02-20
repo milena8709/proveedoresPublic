@@ -16,6 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class DocumentacionController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('listar usuarios documentacion');
             const usuarios = yield database_1.default.query('SELECT * FROM usuarios');
             return res.json(usuarios);
         });

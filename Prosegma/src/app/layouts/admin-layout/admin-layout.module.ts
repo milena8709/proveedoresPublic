@@ -26,6 +26,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CamposproveedorService } from '../../../services/camposproveedor.service';
+import { NewuserComponent } from '../../newuser/newuser.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { CamposproveedorService } from '../../../services/camposproveedor.servic
     AhpComponent,
     MatClassificationComponent,
     TransactionComponent,
-    MaterialdetailComponent
+    MaterialdetailComponent,
+    NewuserComponent
   ]
 })
 

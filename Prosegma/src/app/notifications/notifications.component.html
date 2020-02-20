@@ -9,28 +9,50 @@
                     <div>En esta sección usted debe ingresar todos los campos solicitados</div>
                 </div>
                 <div class="card-body">
-                    <form id="formulario">
+                    <form id="formulario" #formulario="ngForm" (ngSubmit)="saveInscripcion(formulario)">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Cotización</label>
                                 <input type="text" class="form-control" [(ngModel)]="licitacion" name="licitacion" placeholder="Ingrese el número de la cotización si aplica" value="">
                             </div>
+                            <div class="form-group">
+                                <label>Razón Social</label>
+                                <input type="text" class="form-control" [(ngModel)]="razonsocial" name="razonsocial" placeholder="Ingrese razon social" value="" required #nombre="ngModel">
+                            </div>
+                            <div class="form-group">
+                                <label>NIT/CC</label>
+                                <input type="text" class="form-control" [(ngModel)]="identificacion" name="identificacion" placeholder="Ingrese el número de la identificacion si aplica" value="" required #id="ngModel">
+                            </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group" *ngFor="let orderText of campoTextField; let i = index">
                                 <label>{{orderText.label}}</label>
-                                <input type="text" class="form-control" name="i" [(ngModel)]="orderText.nombre" placeholder="dd" value="ddd">
+                                <div *ngIf="orderText.obligatorio; else notShow">
+                                    <input type="text" class="form-control" name="i" [(ngModel)]="orderText.nombre" value="" required #i="ngModel">
+                                </div>
+
+                                <ng-template #notShow>
+                                    <input type="text" class="form-control" name="i" [(ngModel)]="orderText.nombre" value="">
+                                </ng-template>
+
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div *ngFor="let orderCombo of campoCombo; let ix = index">
                                 <div>
                                     <label>{{orderCombo.label}}</label>
-                                    <select class="form-control" (ngModelChange)="selectChange($event, orderCombo.id)" [(ngModel)]="orderCombo.nombre" name="ix">
-                                        <option *ngFor="let itemCatalogo of orderCombo.catalogo; let idx = index">{{itemCatalogo.nombre}}</option>
-                                    </select> </div>
+                                    <div *ngIf="orderCombo.obligatorio; else notShow_combo">
+                                        <select class="form-control" (ngModelChange)="selectChange($event, orderCombo.id)" [(ngModel)]="orderCombo.nombre" name="orderCombo.label" required #dat="ngModel">
+                                            <option *ngFor="let itemCatalogo of orderCombo.catalogo; let idx = index">{{itemCatalogo.nombre}}</option>
+                                        </select>
+                                    </div>
 
-
+                                    <ng-template #notShow_combo>
+                                        <select class="form-control" (ngModelChange)="selectChange($event, orderCombo.id)" [(ngModel)]="orderCombo.nombre" name="ix" #dat="ngModel">
+                                            <option *ngFor="let itemCatalogo of orderCombo.catalogo; let idx = index">{{itemCatalogo.nombre}}</option>
+                                        </select>
+                                    </ng-template>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -64,9 +86,10 @@
 
 
                         <div class="col-md-4  pl-1">
-                            <a (click)="guardar()" class="btn btn-primary btn-block">
+                            <!--a (click)="guardar()" class="btn btn-primary btn-block">
                                 Guardar
-                            </a>
+                            </a-->
+                            <button class="btn btn-primary btn-block">guardar</button>
                         </div>
                     </form>
 

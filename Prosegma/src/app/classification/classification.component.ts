@@ -3,10 +3,13 @@ import { CamposproveedorService } from '../../services/camposproveedor.service';
 
 import { Routes, RouterModule, Router } from '@angular/router';
 import { DocumentsComponent } from '../documents/documents.component';
+import { NgForm } from '@angular/forms';
+import { DialogService } from '../dialog/dialog.service';
+import { Respuesta } from '../models/respuesta';
 
 
 const rutas: Routes = [
-  { path: 'documentation/:clasificacion', component: DocumentsComponent }
+  { path: 'documentation', component: DocumentsComponent }
 ];
 
 @NgModule({
@@ -41,17 +44,24 @@ export class ClassificationComponent implements OnInit {
   checkData = false;
 
   data: any = [];
+  respuesta: any = {
+    text: '',
+    id: 0
+  };
   clasificacionDatos: any = [];
 
-  constructor( private clasificacionService: CamposproveedorService, private router: Router) { }
+  constructor( private clasificacionService: CamposproveedorService, private router: Router, private dialogService: DialogService) { }
 
   ngOnInit() {
   }
 
 
-  buscar() {
-   // tslint:disable-next-line: prefer-const
+  clear(userForm: NgForm) {
+    userForm.reset();
 
+  }
+
+  buscar() {
    const parametros = {
     segmento: (this.segmento === undefined ? '' : this.segmento),
     familia: (this.familia === undefined ? '' : this.familia),
@@ -76,13 +86,22 @@ export class ClassificationComponent implements OnInit {
   }
 
   guardarClasificacion() {
-    this.clasificacionService.saveClasificacion(this.clasificacionDatos).subscribe(
-      res => {
-         console.log(res);
-         this.router.navigateByUrl('/documentation', this.clasificacionDatos);
-      },
-      err => console.error(err)
-      );
+    if (this.clasificacionDatos.length > 0) {
+      this.clasificacionService.saveClasificacion(this.clasificacionDatos).subscribe(
+        res => {
+           console.log(res);
+           // this.router.navigateByUrl('/documentation');
+           this.respuesta = res;
+           this.router.navigate(['/documentation'], { queryParams: { id:  this.respuesta.id } });
+
+        },
+        err => console.error(err)
+        );
+    } else {
+      this.dialogService.openModalOk('Error', 'Existen campos obligatorios, por favor verificar', () => {
+        // tslint:disable-next-line: no-unused-expression
+      });
+    }
   }
 
 }

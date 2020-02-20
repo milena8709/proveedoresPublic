@@ -3,7 +3,10 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Field } from '../models/field';
 import { CamposproveedorService } from '../../services/camposproveedor.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { DialogService } from '../dialog/dialog.service';
 
 @Component({
   selector: 'app-documents',
@@ -12,8 +15,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class DocumentsComponent implements OnInit {
+  values: any;
+  value: any;
+  uploadedFiles: Array<File>;
+  documento: {};
+  documentos: any[];
+   contador = 0;
 
-  constructor(private toastr: ToastrService, private service: CamposproveedorService) {}
+// tslint:disable-next-line: member-ordering
+
+  // tslint:disable-next-line: max-line-length
+  constructor(private dialogService: DialogService, private router: Router, private http: HttpClient, private toastr: ToastrService, private service: CamposproveedorService, private route: ActivatedRoute) {}
   indice: number;
   campoField: any[] = [];
   itemtexto: any = {};
@@ -21,9 +33,17 @@ export class DocumentsComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
 
-    this.service.getDocumentacion(10).subscribe(
+  ngOnInit(): void {
+    this.values = this.route
+    .queryParams
+    .subscribe(params => {
+      // Defaults to 0 if no query param provided.
+      this.value = +params['id'] || 0;
+    });
+
+    console.log('value' + this.value + 'values' + this.values);
+    this.service.getDocumentacion(this.value).subscribe(
       res => {
       this.campoField = (res);
       this.crearCampos();
@@ -36,27 +56,83 @@ export class DocumentsComponent implements OnInit {
   crearCampos() {
     this.indice = 0;
     for (const campo of this.campoField) {
-         this.itemtexto.id = campo.idcamposproveedor;
-         this.itemtexto.label = campo.label;
-         this.itemtexto.nombre =  campo.label;
-         this.campoTexto.push(this.itemtexto);
-         this[campo.label] = '';
-      this.indice++;
+      this.itemtexto = {};
+      if (campo !== null) {
+        this.itemtexto.id = campo.iddocumentos;
+        this.itemtexto.label = campo.nombredocumento;
+        this.itemtexto.nombre =  campo.nombredocumento;
+        this.itemtexto.obligatorio =  campo.obligatorio;
+        this.campoTexto.push(this.itemtexto);
+        this.indice++;
+        this[campo.label] = '';
+      }
+
     }
   }
 
-  public cargandoArchivo(files: FileList) {
-
-    // tslint:disable-next-line: indent
-		this.service.postFileImagen(files[0]).subscribe(
-    res => {
-      console.log(<any>res);
-    },
-    error => {
-      console.log(<any>error);
+  public uploadFile(e) {
+    if (this.uploadedFiles === undefined) {
+      this.uploadedFiles = new Array<File>();
     }
-  );
+    this.uploadedFiles.push(e.target.files[0]);
+
+    if (this.uploadedFiles.length > 0) {
+
+
+
+    this.documento = {
+      ruta_documento : '/file',
+      id_inscripcion: this.value,
+      id_documento: e.target.name
+    };
+    if (this.documentos === undefined) {
+      this.documentos = new Array<any>();
+    }
+      this.documentos.push(this.documento);
+      if (this.documentos.length > 0) {
+        this.documentos = this.documentos.filter((valorActual: any, indiceActual: any, arreglo: any[]) => {
+          // tslint:disable-next-line: max-line-length
+        return arreglo.findIndex(valorDelArreglo => JSON.stringify(valorDelArreglo) === JSON.stringify(valorActual)) === indiceActual;
+      });
+      }
+
+
+    // this.uploadedFiles.push(e.target.files[0]);
+  }
 }
+
+  public saveFile() {
+
+      for (let index = 0; index < this.uploadedFiles.length; index++) {
+      const formData = new FormData();
+        formData.append('uploads[]', this.uploadedFiles[index], this.uploadedFiles[index].name);
+        this.http.post('http://localhost:3010/api/documentacion', formData,
+        ).subscribe((d) => {});
+
+
+        this.service.postFileImagen(this.documentos).subscribe(
+          res => {
+            this.contador++;
+            // tslint:disable-next-line: max-line-length
+            if (this.contador <= 1) {
+              // tslint:disable-next-line: max-line-length
+              this.dialogService.openModalOk('Información', 'Su inscripcion se encuentra en estado: Esperando respuesta de aceptación ', () => {
+                // tslint:disable-next-line: no-unused-expression
+                this.router.navigateByUrl('/dashboard');
+              });
+            }
+
+
+          },
+          err => {
+             this.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+          }
+          );
+      }
+  }
+
+
+
 
   showNotification(from, align) {
 
