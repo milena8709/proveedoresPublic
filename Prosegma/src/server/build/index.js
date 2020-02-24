@@ -13,6 +13,7 @@ const clasificacionRoutes_1 = __importDefault(require("./routes/clasificacionRou
 const documentacionRoutes_1 = __importDefault(require("./routes/documentacionRoutes"));
 const evaluationRoutes_1 = __importDefault(require("./routes/evaluationRoutes"));
 const criteriosRoutes_1 = __importDefault(require("./routes/criteriosRoutes"));
+const providersRoutes_1 = __importDefault(require("./routes/providersRoutes"));
 class Server {
     constructor() {
         this.app = express();
@@ -36,6 +37,7 @@ class Server {
         // routes evaluacion
         this.app.use('/api/evaluation', evaluationRoutes_1.default);
         this.app.use('/api/criterios', criteriosRoutes_1.default);
+        this.app.use('/api/provider', providersRoutes_1.default);
         // tslint:disable-next-line: no-console
     }
     start() {

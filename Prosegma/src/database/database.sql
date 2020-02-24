@@ -434,22 +434,30 @@ CREATE TABLE `prosegma`.`criterios_evaluacion` (
   `peso` DOUBLE NULL,
   PRIMARY KEY (`id`));
 
-  CREATE TABLE `prosegma`.`datos_seleccion` (
+CREATE TABLE `prosegma`.`datos_evaluacion` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `id_evaluacion` INT NULL,
-  `id_criterio` INT NULL,
+  `id_evaluacion` INT NOT NULL,
+  `id_criterio` INT NOT NULL,
   `calificacion_criterio` DOUBLE NULL,
   PRIMARY KEY (`id`),
+  INDEX `id_criterio_idx` (`id_criterio` ASC) VISIBLE,
   INDEX `id_evaluacion_idx` (`id_evaluacion` ASC) VISIBLE,
+  CONSTRAINT `id_criterio`
+    FOREIGN KEY (`id_criterio`)
+    REFERENCES `prosegma`.`criterios_evaluacion` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `id_evaluacion`
     FOREIGN KEY (`id_evaluacion`)
-    REFERENCES `prosegma`.`evaluacion_proveedor` (`id`),
-  CONSTRAINT `id_criterio`
-    FOREIGN KEY (`id`)
-    REFERENCES `prosegma`.`criterios_evaluacion` (`id`));
+    REFERENCES `prosegma`.`evaluacion_proveedor` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
 
 ALTER TABLE `prosegma`.`evaluacion_proveedor` 
 CHANGE COLUMN `fecha_creacion` `fecha_creacion` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ;
+
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

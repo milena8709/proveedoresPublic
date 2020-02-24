@@ -8,7 +8,7 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <p><strong>Descripcion</strong></p>
+        <p><strong>Descripción</strong></p>
     </div>
     <div class="col-md-6">
         <p>{{ descriptionEvaluation }}
@@ -24,12 +24,12 @@
         </p>
     </div>
 </div>
-<!--<div class="row">
+<div class="row" *ngIf="showProvider">
     <div class="col-md-6">
         <p><strong>Provedor evaluado</strong></p>
     </div>
     <div class="col-md-6">
-        <p>Juanito Perez
+        <p>{{ provider }}
         </p>
     </div>
-</div>-->
+</div>

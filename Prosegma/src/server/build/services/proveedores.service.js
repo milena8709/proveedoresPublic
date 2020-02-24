@@ -7,29 +7,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-let EvaluationService = class EvaluationService {
+let ProvidersService = class ProvidersService {
     constructor(http) {
         this.http = http;
-        API_URI_PROVEEDORES = 'http://localhost:3010/api/evaluation';
-    }
-    getCampoProveedor() {
-        console.log(this.API_URI_PROVEEDORES);
-        return this.http.get(`${this.API_URI_PROVEEDORES}`);
+        API_URI_PROVIDERS = 'http://localhost:3010/api/provider';
     }
 
-    createEvaluation(proveedor) {
-        return this.http.post(`${this.API_URI_PROVEEDORES}`, proveedor);
+    getProveedorById(reques) {
+        console.log(this.API_URI_PROVIDERS);
+        console.log('reques1 :: ' + JSON.stringify(reques));
+        let id = reques.idProveedor;
+        let name = reques.socialReason;
+        if (reques.idProveedor === '' || reques.idProveedor === null) {
+            id = ' ';
+        }
+        if (reques.socialReason === '' || reques.socialReason === null) {
+            name = ' ';
+        }
+        return this.http.get(`${this.API_URI_PROVIDERS}/${id}/${name}/`);
     }
 
-    getEvaluation(evaluation){
-        console.log(evaluation);
-        return this.http.get(`${this.API_URI_PROVEEDORES}/getEvaluation/${evaluation.idProvider}/${evaluation.name}/${evaluation.date}/${evaluation.semester}`);
-    }
     
 };
-EvaluationService = __decorate([
+ProvidersService = __decorate([
     core_1.Injectable({
         providedIn: 'root'
     })
-], EvaluationService);
-exports.EvaluationService = EvaluationService;
+], ProvidersService);
+exports.ProvidersService = ProvidersService;

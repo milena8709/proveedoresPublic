@@ -35,6 +35,8 @@ import { CalificacionCriterioComponent } from '../../table-list/calificacion-cri
 import { ResultadoEvaluacionComponent } from '../../table-list/resultado-evaluacion/resultado-evaluacion.component';
 import { TitleComponent } from '../../table-list/title/title.component';
 import { CriteriosService } from '../../../services/criterios.service';
+import { MostrarEvaluacionesComponent } from '../../table-list/mostrar-evaluaciones/mostrar-evaluaciones.component';
+import { ProvidersService } from '../../../services/proveedores.service';
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { CriteriosService } from '../../../services/criterios.service';
   providers: [
     CamposproveedorService,
     EvaluationService,
-    CriteriosService
+    CriteriosService,
+    ProvidersService
   ],
   declarations: [
     DashboardComponent,
@@ -73,7 +76,8 @@ import { CriteriosService } from '../../../services/criterios.service';
     CriteriosEvalauacionComponent,
     CalificacionCriterioComponent,
     ResultadoEvaluacionComponent,
-    TitleComponent
+    TitleComponent,
+    MostrarEvaluacionesComponent
   ]
 })
 

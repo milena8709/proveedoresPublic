@@ -10,6 +10,8 @@
             <label>Nombre proveedor</label>
             <input type="text" class="form-control"  placeholder="Nombre del proveedor" name="proveedor"  [(ngModel)]="usuario.name" #name="ngModel">
         </div>
+    </div>
+    <div style="text-align: right;">
         <button type="submit" class="btn btn-primary btn-sm"><small>Buscar</small></button>
     </div>
 </form>
@@ -32,7 +34,7 @@
                 </th>
             </thead>
             <tbody>
-                <tr *ngFor="let proveedor of proveedores; let i = index">
+                <tr *ngFor="let proveedor of providers; let i = index">
                     <td>
                         {{proveedor.idproveedor}}
                     </td>
@@ -42,7 +44,7 @@
                     <td>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input #rolInput class="form-check-input" type="checkbox" (click)="selectProvider(proveedor.idproveedor, rolInput.checked)">
+                                <input #rolInput class="form-check-input" type="checkbox" (click)="selectProvider(proveedor.idproveedor, rolInput.checked); selectedName(proveedor.razon_social,rolInput.checked)" [checked]="checked">
                                 <span class="form-check-sign"></span>
                             </label>
                         </div>
@@ -51,4 +53,8 @@
             </tbody>
         </table>
     </div>
+
+
+
+
       

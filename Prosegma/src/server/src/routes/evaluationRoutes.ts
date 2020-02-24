@@ -16,8 +16,9 @@ class EvaluationRoutes {
 
     config(): void {
         this.router.get('/', evaluationController.list);
-        this.router.get('/:id/:name', evaluationController.getProveedorById);
+        // this.router.get('/id', evaluationController.getProveedorById);
         this.router.post('/', evaluationController.createEvaluation);
+        this.router.post('/getEvaluacion', evaluationController.createEvaluation);
         /*this.router.put('/:id', camposProveedorController.update);
         this.router.delete('/:id', camposProveedorController.delete);*/
     }
