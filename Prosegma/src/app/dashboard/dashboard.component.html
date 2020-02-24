@@ -2,50 +2,38 @@
 </div>
 <div class="main-content">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
                     <h5 class="title">Iniciar Sesión</h5>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form id="sesion" #sesion="ngForm" (ngSubmit)="login(sesion)">
                         <div class="row">
-                            <div class="col-md-6 pr-1">
-                                <div class="form-group">
-                                    <label>NIT/CC</label>
-                                    <input type="text" class="form-control" placeholder="NIT/CC">
-                                </div>
-                            </div>
-                            <div class="col-md-6 pr-1">
-                                <div class="form-group">
-                                    <label>Nombres</label>
-                                    <input type="text" class="form-control" placeholder="Nombres" value="">
-                                </div>
-                            </div>
-                            <div class="col-md-6 pr-1">
-                                <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input type="text" class="form-control" placeholder="Apellidos" value="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 pr-1">
+                            <div class="col-md-8 pr-1">
                                 <div class="form-group">
                                     <label>Usuario</label>
-                                    <input type="text" class="form-control" placeholder="Usuario" value="">
+                                    <input type="text" name="usuario" class="form-control" placeholder="Usuario" ngModel>
                                 </div>
                             </div>
-                            <div class="col-md-6 pr-1">
+                            <div class="col-md-8 pr-1">
                                 <div class="form-group">
-                                    <label for="email">Correo electronico</label>
-                                    <input name="email" id="email" type="email" class="form-control" placeholder="Correo electronico">
+                                    <label>Contraseña</label>
+                                    <input type="password" name="password" class="form-control" placeholder="Contraseña" ngModel>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1 ">
+                                <div class="form-group ">
+                                    <br>
+                                    <a href="/newuser " class="text-dark ">¿No tiene cuenta?, registrese aquí</a>
+
                                 </div>
                             </div>
 
                         </div>
-                        <div class="col-md-4  pl-1">
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-block">Crear cuenta</button>
+                        <div class="col-md-4 pl-1 ">
+                            <div class="form-group ">
+                                <button class="btn btn-primary btn-block ">Iniciar Sesión</button>
                             </div>
                         </div>
 
