@@ -37,6 +37,7 @@ import { TitleComponent } from '../../table-list/title/title.component';
 import { CriteriosService } from '../../../services/criterios.service';
 import { MostrarEvaluacionesComponent } from '../../table-list/mostrar-evaluaciones/mostrar-evaluaciones.component';
 import { ProvidersService } from '../../../services/proveedores.service';
+import { GestionarTareaComponent } from '../../upgrade/gestionar-tarea/gestionar-tarea.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { ProvidersService } from '../../../services/proveedores.service';
     CalificacionCriterioComponent,
     ResultadoEvaluacionComponent,
     TitleComponent,
-    MostrarEvaluacionesComponent
+    MostrarEvaluacionesComponent,
+    GestionarTareaComponent
   ]
 })
 
