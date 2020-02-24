@@ -13,7 +13,7 @@ export class NewuserComponent implements OnInit {
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private toastr: ToastrService, private camposServices: CamposproveedorService, private dialogService: DialogService, private router: Router) {
+  constructor() {
   }
 
   ngOnInit() {
