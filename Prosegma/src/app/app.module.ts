@@ -48,7 +48,7 @@ import { DocumentsComponent } from './documents/documents.component';
     AppComponent,
     AdminLayoutComponent,
     DialogTemplateComponent,
-    DialogOkTemplateComponent    ],
+    DialogOkTemplateComponent  ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents:[DialogTemplateComponent, DialogOkTemplateComponent]

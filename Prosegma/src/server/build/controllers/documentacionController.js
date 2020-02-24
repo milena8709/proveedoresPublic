@@ -83,7 +83,7 @@ class DocumentacionController {
                 if (element !== undefined) {
                     yield database_1.default.query('INSERT INTO documentos_inscripcion SET ?', [element]);
                     idinscripcion = element.id_inscripcion;
-                    yield database_1.default.query('UPDATE proveedor SET estado = 2 WHERE idproveedor = (SELECT idproveedor as id FROM inscripcion where idinscripcion = ' + idinscripcion + ')');
+                    yield database_1.default.query('UPDATE proveedor SET estado = "2" WHERE idproveedor = (SELECT idproveedor as id FROM inscripcion where idinscripcion = ' + idinscripcion + ')');
                 }
             }
             // tslint:disable-next-line: max-line-length

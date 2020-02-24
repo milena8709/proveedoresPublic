@@ -9,13 +9,12 @@ class CamposProveedorRoutes {
 
     constructor() {
         console.log('ingreso al router camposProveedor');
-this.config();
+        this.config();
 
     }
 
     config(): void {
-        this.router.get('/', camposProveedorController.list);
-        this.router.get('/:id', camposProveedorController.getCamposById);
+        this.router.get('/', camposProveedorController.getCampos);
         this.router.post('/', camposProveedorController.create);
         this.router.put('/:id', camposProveedorController.update);
         this.router.delete('/:id', camposProveedorController.delete);

@@ -9,13 +9,13 @@
                         <div class="col-md-12">
                             <div>
                                 <label>Titulo de selección</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" placeholder="" name="tituloSeleccion" [(ngModel)]="titulo">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <input type="text" class="form-control" placeholder="descripcion">
+                                <input type="text" class="form-control" placeholder="descripcion" name="descripcionSelec" [(ngModel)]="descripcion">
                             </div>
                         </div>
                     </form>
@@ -29,42 +29,42 @@
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <i class="fas fa-search" aria-hidden="true"></i><label>Segmento</label>
-                                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" name="segmento" [(ngModel)]="segmento">
+                                    <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" name="segmento" [(ngModel)]="segmento">
 
                                 </div>
                             </div>
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <i class="fas fa-search" aria-hidden="true"></i><label>Familia</label>
-                                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" name="familia" [(ngModel)]="familia">
+                                    <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" name="familia" [(ngModel)]="familia">
 
                                 </div>
                             </div>
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <i class="fas fa-search" aria-hidden="true"></i><label>Clase</label>
-                                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" name="clase" [(ngModel)]="clase">
+                                    <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" name="clase" [(ngModel)]="clase">
 
                                 </div>
                             </div>
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <i class="fas fa-search" aria-hidden="true"></i><label>Producto</label>
-                                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" name="producto" [(ngModel)]="producto">
+                                    <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" name="producto" [(ngModel)]="producto">
 
                                 </div>
                             </div>
 
                             <div class="col-md-12">
                                 <div>
-                                    <label>Titulo de selección</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <label>NIT/CC</label>
+                                    <input type="text" class="form-control" placeholder="" name="nit_cc" [(ngModel)]="nit">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Descripción</label>
-                                    <input type="text" class="form-control" placeholder="descripcion">
+                                    <label>Cotización</label>
+                                    <input type="text" class="form-control" placeholder="" name="cotizacionSeleccion" [(ngModel)]="cotizacion">
                                 </div>
                             </div>
 
@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-md-3  pl-1">
                                 <div class="form-group">
-                                    <a href="/notifications" class="btn btn-primary btn-block">atrás</a>
+                                    <a href="/dashboard" class="btn btn-primary btn-block">atrás</a>
                                 </div>
                             </div>
 
@@ -117,52 +117,37 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let item of proveedores; let i=index">
                                         <td>
-                                            9500621
+                                            {{item.nit}}
                                         </td>
                                         <td>
-                                            Proveedor de prueba
+                                            {{item.nombre}}
                                         </td>
                                         <td>
                                             <div class="form-check ">
                                                 <label class="form-check-label ">
-                                            <input class="form-check-input " type="checkbox" checked>
+                                            <input class="form-check-input " type="checkbox"  (change)="changeConAHP(item)" [(ngModel)]="item.conAhp">
                                             <span class="form-check-sign "></span>
                                             </label>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="form-check ">
+                                            <div class="form-check " *ngIf="item.conAhp; else notShow_check">
                                                 <label class="form-check-label ">
-                                            <input class="form-check-input " type="checkbox" checked>
+                                            <input class="form-check-input " type="checkbox" (change)="changeSinAHP(item)"  [(ngModel)]="!item.conAhp" disabled>
                                             <span class="form-check-sign "></span>
                                             </label>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            1234567
-                                        </td>
-                                        <td>
-                                            Proveedor de prueba 2
-                                        </td>
-                                        <td>
-                                            <div class="form-check ">
-                                                <label class="form-check-label ">
-                                          <input class="form-check-input " type="checkbox" checked>
-                                          <span class="form-check-sign "></span>
-                                        </label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-check ">
-                                                <label class="form-check-label ">
-                                          <input class="form-check-input " type="checkbox" checked>
-                                          <span class="form-check-sign "></span>
-                                        </label>
-                                            </div>
+
+                                            <ng-template #notShow_check>
+                                                <div class="form-check ">
+                                                    <label class="form-check-label ">
+                                                    <input class="form-check-input " type="checkbox" (change)="changeSinAHP(item)"  [(ngModel)]="!item.conAhp" >
+                                                    <span class="form-check-sign "></span>
+                                                    </label>
+                                                </div>
+                                            </ng-template>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -170,9 +155,9 @@
                         </div>
                     </div>
                     <div class="col-md-3 pl-1 ">
-                        <a href="/criterion " class="btn btn-primary btn-block ">
+                        <a (click)="saveSeleccionProveedor()" class="btn btn-primary btn-block text-white">
                           Guardar
-                      </a>
+                        </a>
                     </div>
                 </div>
             </div>

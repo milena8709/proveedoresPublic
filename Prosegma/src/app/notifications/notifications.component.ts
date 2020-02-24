@@ -260,7 +260,7 @@ export class NotificationsComponent implements OnInit {
               });
             }
           } else {
-            this.dialogService.openModalOk('Error', 'Existen campos obligatorios, por favor verificar', () => {
+            this.dialogService.openModalOk('Error', 'Por favor diligenciar todos los campos obligatorios', () => {
               // tslint:disable-next-line: no-unused-expression
             });
           }

@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CamposproveedorService } from '../../../services/camposproveedor.service';
 import { NewuserComponent } from '../../newuser/newuser.component';
+import { ResultSeleccionComponent } from '../../result-seleccion/result-seleccion.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { NewuserComponent } from '../../newuser/newuser.component';
     MatClassificationComponent,
     TransactionComponent,
     MaterialdetailComponent,
-    NewuserComponent
+    NewuserComponent,
+    ResultSeleccionComponent
   ]
 })
 

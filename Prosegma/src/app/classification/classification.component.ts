@@ -79,7 +79,7 @@ export class ClassificationComponent implements OnInit {
 
   change(indice: any) {
     if ( this.clasificacionDatos.indexOf(indice) >= 0) {
-      this.clasificacionDatos = this.clasificacionDatos.filter(function(i) { return i !== indice });
+      this.clasificacionDatos = this.clasificacionDatos.filter(function(i) { return i !== indice; });
     } else {
       this.clasificacionDatos.push(indice);
     }

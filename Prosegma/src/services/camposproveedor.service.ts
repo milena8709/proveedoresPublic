@@ -13,11 +13,15 @@ import { CamposProveedor } from '../app/models/camposproveedor';
 export class CamposproveedorService {
 
 
+
   API_URI_CAMPOS = 'http://localhost:3010/api/campos';
   API_URI_CATALOGO = 'http://localhost:3010/api/catalogo';
   API_URI_CLASIFICACION = 'http://localhost:3010/api/clasificacion';
   API_URI_CLASIFICACION_SAVE = 'http://localhost:3010/api/clasificacion/save';
   API_URI_CLASIFICACION_DOC = 'http://localhost:3010/api/documentacion/save';
+  API_URI_SELECCION_PROVEEDOR = 'http://localhost:3010/api/seleccion';
+
+  proveedores: any = [];
 
 
   constructor(private http: HttpClient) {
@@ -67,4 +71,33 @@ getDocumentacion(id: number):  Observable<any> {
   return this.http.post(`${this.API_URI_CLASIFICACION_DOC}`, file);
 }
 
+getSeleccionProveedor(filtros: any): Observable<object>  {
+  return this.http.post(`${this.API_URI_SELECCION_PROVEEDOR}`, filtros);
+}
+
+saveProveedoresSeleccionados(proveedoresSeleccionados: any): Observable<object>  {
+  return this.http.post(`${this.API_URI_SELECCION_PROVEEDOR}/save`, proveedoresSeleccionados);
+}
+
+
+
+getCriterios() {
+  return this.http.get(`${this.API_URI_SELECCION_PROVEEDOR}`);
+}
+
+
+saveResultProveedores(proveedores: any[], id: any): Observable<object>  {
+return this.http.put(`${this.API_URI_SELECCION_PROVEEDOR}/save/${id}`, proveedores);
+}
+
+
+// ******************************************* /
+
+setProveedores(proveedoresConAHP: any) {
+  this.proveedores = proveedoresConAHP;
+}
+
+getProveedores() {
+  return this.proveedores;
+}
 }

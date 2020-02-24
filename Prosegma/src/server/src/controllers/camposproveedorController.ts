@@ -4,17 +4,12 @@ import db from '../database';
 
 class CamposProveedorController {
 
-    public async list (req: Request, res: Response) {
-        const usuarios = await db.query('SELECT * FROM usuarios');
-        return res.json(usuarios);
-    }
 
-    public async getCamposById (req: Request, res: Response) {
-        const { id } = req.params;
-        console.log(id);
-        const usuarios =  await db.query('SELECT * FROM camposproveedor where idproveedor = ?', [id]);
-        if (usuarios.length > 0) {
-            return res.json(usuarios);
+    public async getCampos (req: Request, res: Response) {
+        console.log('get campos');
+        const campos =  await db.query('SELECT * FROM camposproveedor');
+        if (campos.length > 0) {
+            return res.json(campos);
         }
         res.status(404).json({text: 'El campo no existe'});
     }
@@ -30,15 +25,18 @@ class CamposProveedorController {
 
 
    public async create (req: Request, res: Response): Promise<void> {
-        console.log(req.body.datos[0]);
-        // tslint:disable-next-line: forin
+
+    console.log('dato-' + req.body.datos);
+        await db.query('INSERT INTO inscripcion SET ?', [{'idProveedor': req.body.idProveedor}]);
+        const id =  await db.query('SELECT MAX(idinscripcion) as id FROM inscripcion');
         for (const dato of req.body.datos) {
-            console.log('create proveedor' + dato);
+            dato.idinscripcion = id[0].id;
+           console.log('INSERT INTO datos SET ?', [dato]);
             await db.query('INSERT INTO datos SET ?', [dato]);
         }
-        const licitacion = { 'nombrelicitacion': req.body.licitacion};
-        await db.query('INSERT INTO licitacion SET ?', [licitacion]);
-        await db.query('INSERT INTO inscripcion SET ?', [{'idProveedor': req.body.idProveedor}]);
+      //  const licitacion = { 'nombrelicitacion': req.body.licitacion};
+      //  await db.query('INSERT INTO licitacion SET ?', [licitacion]);
+
         res.json({text: 'Usuario guardado exitosamente'});
     }
 
