@@ -15,6 +15,7 @@ import saveSeleccionRoutes from './routes/saveSeleccionRoutes';
 import evaluationRoutes from './routes/evaluationRoutes';
 import criteriosRoutes from './routes/criteriosRoutes';
 import providersRoutes from './routes/providersRoutes';
+import registroUsuario from './routes/registroUsuario';
 
 
 class Server {
@@ -59,6 +60,7 @@ routes(): void {
     this.app.use('/api/criterios', criteriosRoutes);
     this.app.use('/api/provider', providersRoutes);
     // tslint:disable-next-line: no-console
+    this.app.use('/api/usuario', registroUsuario);
 
 }
 

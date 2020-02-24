@@ -15,6 +15,7 @@ const saveSeleccionRoutes_1 = __importDefault(require("./routes/saveSeleccionRou
 const evaluationRoutes_1 = __importDefault(require("./routes/evaluationRoutes"));
 const criteriosRoutes_1 = __importDefault(require("./routes/criteriosRoutes"));
 const providersRoutes_1 = __importDefault(require("./routes/providersRoutes"));
+const registroUsuario_1 = __importDefault(require("./routes/registroUsuario"));
 class Server {
     constructor() {
         this.bodyParser = require('body-parser');
@@ -47,6 +48,7 @@ class Server {
         this.app.use('/api/criterios', criteriosRoutes_1.default);
         this.app.use('/api/provider', providersRoutes_1.default);
         // tslint:disable-next-line: no-console
+        this.app.use('/api/usuario', registroUsuario_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

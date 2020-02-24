@@ -5,7 +5,7 @@ const seleccionController_1 = require("../controllers/seleccionController");
 class SeleccionRoutes {
     constructor() {
         this.router = express_1.Router();
-        console.log('ingreso al router camposProveedor');
+        console.log('ingreso al router seleccionRoutes');
         this.config();
     }
     config() {

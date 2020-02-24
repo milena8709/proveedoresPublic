@@ -7,11 +7,11 @@ class RegistroUsuario {
     public router: Router = Router();
 
     constructor() {
-this.config();
-
+     this.config();
     }
 
     config(): void {
+        this.router.get('/:usuario/:password', usuarioController.getUsuario);
       /*  this.router.get('/', usuarioController.list);
         this.router.get('/:id', usuarioController.getUsuarioById);
         this.router.post('/', usuarioController.create);

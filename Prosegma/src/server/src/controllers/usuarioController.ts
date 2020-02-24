@@ -3,6 +3,9 @@ import {Request, Response} from 'express';
 import db from '../database';
 
 class UsuarioController {
+    getUsuario(arg0: string, getUsuario: any) {
+        throw new Error("Method not implemented.");
+    }
 
     public async list (req: Request, res: Response) {
         const usuarios = await db.query('SELECT * FROM usuarios');

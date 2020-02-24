@@ -11,6 +11,7 @@ import { CamposProveedor } from '../app/models/camposproveedor';
 })
 
 export class CamposproveedorService {
+ 
 
 
 
@@ -20,6 +21,7 @@ export class CamposproveedorService {
   API_URI_CLASIFICACION_SAVE = 'http://localhost:3010/api/clasificacion/save';
   API_URI_CLASIFICACION_DOC = 'http://localhost:3010/api/documentacion/save';
   API_URI_SELECCION_PROVEEDOR = 'http://localhost:3010/api/seleccion';
+  API_URI_USUARIO = 'http://localhost:3010/api/usuario';
 
   proveedores: any = [];
 
@@ -90,6 +92,10 @@ saveResultProveedores(proveedores: any[], id: any): Observable<object>  {
 return this.http.put(`${this.API_URI_SELECCION_PROVEEDOR}/save/${id}`, proveedores);
 }
 
+
+logIn(login: any) {
+  return this.http.get(`${this.API_URI_USUARIO}/${login.usuario}/${login.password}`);
+}
 
 // ******************************************* /
 

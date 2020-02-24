@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   }
 
   // tslint:disable-next-line: max-line-length
-  constructor(private modalService: NgbModal, private camposServices: CamposproveedorService, private dialogService: DialogService, private router: Router) {
+  constructor(private modalService: NgbModal, private services: CamposproveedorService, private dialogService: DialogService, private router: Router) {
 
   }
 
@@ -26,9 +26,11 @@ export class DashboardComponent implements OnInit {
   login(userForm: NgForm) {
     console.log('login', userForm);
     if (userForm.valid) {
-
+      this.services.logIn(userForm.value);
     } else {
-
+      this.dialogService.openModalOk('Error', 'Por favor diligenciar todos los campos obligatorios', () => {
+        // tslint:disable-next-line: no-unused-expression
+      });
     }
   }
   /*constructor(private camposServices: CamposproveedorService) {
