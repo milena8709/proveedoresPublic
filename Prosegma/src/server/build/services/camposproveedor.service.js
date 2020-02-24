@@ -16,11 +16,9 @@ let CamposproveedorService = class CamposproveedorService {
         this.API_URI_CLASIFICACION_SAVE = 'http://localhost:3010/api/clasificacion/save';
         this.API_URI_CLASIFICACION_DOC = 'http://localhost:3010/api/documentacion';
     }
-    getCampoProveedor() {
+    getCamposProveedor() {
+        var id = 1;
         console.log(this.API_URI_CAMPOS);
-        return this.http.get(`${this.API_URI_CAMPOS}`);
-    }
-    getCamposProveedor(id) {
         return this.http.get(`${this.API_URI_CAMPOS}/${id}`);
     }
     getCatalogoById(id) {

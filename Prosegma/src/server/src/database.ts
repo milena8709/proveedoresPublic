@@ -7,7 +7,7 @@ const pool =  mysql.createPool(keys.database);
 pool.getConnection()
     .then((connection: any) => {
       pool.releaseConnection(connection);
-        console.log('Se establecio la conexión a la BD');
+        console.log('Se establecio la conexión a la BD' + keys.database.host);
 
     });
 

@@ -8,22 +8,18 @@
                     <h5 class="title">Documentos</h5>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="col-md-12 pr-1" *ngFor="let orderText of campoTexto; let i = index">
-                            <label class="col-md-12 pr-1">Documento 1</label>
+                    <form action="api/documentacion" method="POST" enctype="multipart/form-data">
+                        <div class="col-md-12 pr-1 border-bottom" *ngFor="let doc of campoTexto; let i = index">
+                            <label>{{doc.label}}</label>
                             <div class="col-md-12 pr-1">
-                                <textarea rows="2" cols="50" class="form-group" placeholder="descripción" value=""></textarea>
+                                <input type="file" enctype="multipart/form-data" class="form-control" (change)="uploadFile($event)" [(name)]="doc.id" required>
+                                <br>
                             </div>
                         </div>
-                        <div class="col-md-12 pr-1">
-                            <input type="file" class="/inputfile" name="archivos1[]" (change)="cargandoArchivo($event.target.files)">
-                        </div>
-
-
                         <br>
                         <br>
                         <div class="col-md-4  pl-1">
-                            <a href="" class="btn btn-primary btn-block" (click)="showNotification('top','left')">
+                            <a class="btn btn-primary btn-block" (click)="saveFile()">
                                 Guardar
                             </a>
                         </div>

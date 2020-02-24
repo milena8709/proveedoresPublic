@@ -3,4 +3,5 @@ export interface Combobox {
     label?: string;
     catalogo?: any[];
     nombre?: string;
+    obligatorio?: boolean;
 }

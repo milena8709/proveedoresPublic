@@ -18,7 +18,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { DialogTemplateComponent } from './dialog-template/dialog-template.component';
+import { DialogOkTemplateComponent } from './dialog-ok-template/dialog-ok-template.component';
+import { DocumentsComponent } from './documents/documents.component';
+
 import { MostrarEvaluacionesComponent } from './table-list/mostrar-evaluaciones/mostrar-evaluaciones.component';
+
 
 @NgModule({
   imports: [
@@ -31,7 +35,7 @@ import { MostrarEvaluacionesComponent } from './table-list/mostrar-evaluaciones/
     NgbModule,
     ToastrModule.forRoot(),
     BrowserModule,
-  AppRoutingModule,
+    AppRoutingModule,
   BrowserAnimationsModule,
   FormsModule,
   ReactiveFormsModule,
@@ -44,10 +48,12 @@ import { MostrarEvaluacionesComponent } from './table-list/mostrar-evaluaciones/
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    DialogTemplateComponent
-    ],
+    DialogTemplateComponent,
+    DialogOkTemplateComponent  ],
+
+
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[DialogTemplateComponent]
+  entryComponents:[DialogTemplateComponent, DialogOkTemplateComponent]
 })
 export class AppModule { }

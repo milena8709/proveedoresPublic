@@ -10,7 +10,7 @@
                 <div class="col-md-12">En esta sección usted debe seleccionar todos los productos que ofrezca, ingrese en los siguientes campos el código o el nombre del segmento, familia, clase o producto.</div>
                 <br>
                 <div class="card-body">
-                    <form>
+                    <form #formulario="ngForm">
 
                         <div class="col-md-6 pr-1">
                             <div class="form-group">
@@ -45,6 +45,16 @@
                         <div class="col-md-3  pl-1">
                             <div class="form-group">
                                 <button class="btn btn-primary btn-block" (click)="buscar()">Buscar</button>
+                            </div>
+                        </div>
+                        <div class="col-md-3  pl-1">
+                            <div class="form-group">
+                                <a (click)="clear(formulario)" class="btn btn-primary btn-block text-white">Limpiar</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3  pl-1">
+                            <div class="form-group">
+                                <a href="/notifications" class="btn btn-primary btn-block">atrás</a>
                             </div>
                         </div>
                     </form>
@@ -135,7 +145,7 @@
                         </div>
                     </div>
                     <div class="col-md-3  pl-1">
-                        <a (click)="guardarClasificacion()" class="btn btn-primary btn-block">
+                        <a (click)="guardarClasificacion()" class="btn btn-primary btn-block text-white">
                             Guardar
                         </a>
                     </div>

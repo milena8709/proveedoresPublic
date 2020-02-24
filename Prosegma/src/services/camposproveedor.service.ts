@@ -13,24 +13,25 @@ import { CamposProveedor } from '../app/models/camposproveedor';
 export class CamposproveedorService {
 
 
+
   API_URI_CAMPOS = 'http://localhost:3010/api/campos';
   API_URI_CATALOGO = 'http://localhost:3010/api/catalogo';
   API_URI_CLASIFICACION = 'http://localhost:3010/api/clasificacion';
   API_URI_CLASIFICACION_SAVE = 'http://localhost:3010/api/clasificacion/save';
-  API_URI_CLASIFICACION_DOC = 'http://localhost:3010/api/documentacion';
+  API_URI_CLASIFICACION_DOC = 'http://localhost:3010/api/documentacion/save';
+  API_URI_SELECCION_PROVEEDOR = 'http://localhost:3010/api/seleccion';
+
+  proveedores: any = [];
 
 
   constructor(private http: HttpClient) {
    }
 
 
-    getCampoProveedor(): Observable<any> {
-      console.log(this.API_URI_CAMPOS);
-      return this.http.get(`${this.API_URI_CAMPOS}`);
-   }
 
-   getCamposProveedor(id: number):  Observable<CamposProveedor> {
-    return this.http.get(`${this.API_URI_CAMPOS}/${id}`);
+   getCamposProveedor():  Observable<CamposProveedor> {
+    console.log(this.API_URI_CAMPOS);
+    return this.http.get(`${this.API_URI_CAMPOS}/`);
    }
 
 
@@ -42,6 +43,7 @@ export class CamposproveedorService {
 
 
    saveProveedor(proveedor: Proveedor): Observable<any>  {
+    console.log('proveedor: ', [proveedor]);
     return this.http.post(`${this.API_URI_CAMPOS}`, proveedor);
    }
 
@@ -65,8 +67,37 @@ getDocumentacion(id: number):  Observable<any> {
   return this.http.get(`${this.API_URI_CLASIFICACION_DOC}/${id}`);
  }
 
- postFileImagen(file: any): Observable<object>  {
+ postFileImagen(file:any): Observable<object>  {
   return this.http.post(`${this.API_URI_CLASIFICACION_DOC}`, file);
 }
 
+getSeleccionProveedor(filtros: any): Observable<object>  {
+  return this.http.post(`${this.API_URI_SELECCION_PROVEEDOR}`, filtros);
+}
+
+saveProveedoresSeleccionados(proveedoresSeleccionados: any): Observable<object>  {
+  return this.http.post(`${this.API_URI_SELECCION_PROVEEDOR}/save`, proveedoresSeleccionados);
+}
+
+
+
+getCriterios() {
+  return this.http.get(`${this.API_URI_SELECCION_PROVEEDOR}`);
+}
+
+
+saveResultProveedores(proveedores: any[], id: any): Observable<object>  {
+return this.http.put(`${this.API_URI_SELECCION_PROVEEDOR}/save/${id}`, proveedores);
+}
+
+
+// ******************************************* /
+
+setProveedores(proveedoresConAHP: any) {
+  this.proveedores = proveedoresConAHP;
+}
+
+getProveedores() {
+  return this.proveedores;
+}
 }

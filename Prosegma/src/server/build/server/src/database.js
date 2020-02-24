@@ -16,6 +16,6 @@ const pool = mysql.createPool(keys_1.default.database);
 pool.getConnection()
     .then((connection) => {
     pool.releaseConnection(connection);
-    console.log('Se establecio la conexión a la BD');
+    console.log('Se establecio la conexión a la BD' + keys_1.default.database.host);
 });
 exports.default = pool;

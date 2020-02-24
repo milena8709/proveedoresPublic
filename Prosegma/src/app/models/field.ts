@@ -1,5 +1,6 @@
 export interface Field {
-    id: number;
+    id?: string;
     label?: string;
     nombre?: string;
+    obligatorio?: boolean;
 }

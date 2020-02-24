@@ -16,8 +16,11 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'Selección Proveedor',  icon: 'users_single-02', class: '' },
     { path: '/table-list', title: 'Evaluación Proveedor',  icon: 'design_bullet-list-67', class: '' },
     { path: '/typography', title: 'Entrada Materiales',  icon: 'text_caps-small', class: '' },
-    { path: '/upgrade', title: 'Revisión Proveedores',  icon: 'objects_spaceship', class: 'active active-pro' }
-];
+    { path: '/upgrade', title: 'Revisión Proveedores',  icon: 'objects_spaceship', class: 'active active-pro' },
+    { path: '/newuser', title: 'Nuevo Usuario',  icon: 'objects_spaceship', class: 'active active-pro' },
+    { path: '/resultSeleccion', title: 'Resultado Selección',  icon: 'objects_spaceship', class: 'active active-pro' }
+
+  ];
 
 @Component({
   selector: 'app-sidebar',
