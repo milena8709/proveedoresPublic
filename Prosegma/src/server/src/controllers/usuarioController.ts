@@ -3,13 +3,22 @@ import {Request, Response} from 'express';
 import db from '../database';
 
 class UsuarioController {
-    getUsuario(arg0: string, getUsuario: any) {
-        throw new Error("Method not implemented.");
-    }
+    
 
     public async list (req: Request, res: Response) {
         const usuarios = await db.query('SELECT * FROM usuarios');
         res.json(usuarios);
+    }
+
+    public async getUsuario (req: Request, res: Response) {
+        const { usuario } = req.params;
+        const { password } = req.params;
+        
+        const usuarios =  await db.query('SELECT * FROM usuarios where idusuario = ?', [id]);
+        if (usuarios.length > 0) {
+            return res.json(usuarios[0]);
+        }
+        res.status(404).json({text: 'El usuario no existe'});
     }
 
     public async getUsuarioById (req: Request, res: Response) {

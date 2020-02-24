@@ -14,13 +14,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
 class UsuarioController {
-    getUsuario(arg0, getUsuario) {
-        throw new Error("Method not implemented.");
-    }
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const usuarios = yield database_1.default.query('SELECT * FROM usuarios');
             res.json(usuarios);
+        });
+    }
+    getUsuario(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { usuario } = req.params;
+            const { password } = req.params;
+            const usuarios = yield database_1.default.query('SELECT * FROM usuarios where idusuario = ?', [id]);
+            if (usuarios.length > 0) {
+                return res.json(usuarios[0]);
+            }
+            res.status(404).json({ text: 'El usuario no existe' });
         });
     }
     getUsuarioById(req, res) {
