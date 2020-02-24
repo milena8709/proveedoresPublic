@@ -7,9 +7,14 @@ import camposProveedorRoutes from './routes/camposproveedorRoutes';
 import catalogoRoutes from './routes/catalogoRoutes';
 import clasificacionRoutes from './routes/clasificacionRoutes';
 import documentacionRoutes from './routes/documentacionRoutes';
+
 import { Application } from 'express';
 import seleccionRoutes from './routes/seleccionRoutes';
 import saveSeleccionRoutes from './routes/saveSeleccionRoutes';
+
+import evaluationRoutes from './routes/evaluationRoutes';
+import criteriosRoutes from './routes/criteriosRoutes';
+import providersRoutes from './routes/providersRoutes';
 
 
 class Server {
@@ -35,18 +40,25 @@ config(): void {
 }
 
 routes(): void {
-    console.log('llega aqui index.ts');
+    console.log('llega aqui indexddddd.ts');
     // this.app.use(camposProveedorRoutes);
     this.app.use('/api/campos', camposProveedorRoutes);
     this.app.use('/api/catalogo', catalogoRoutes);
     this.app.use('/api/clasificacion', clasificacionRoutes);
     this.app.use('/api/documentacion', documentacionRoutes);
+
     this.app.use('/api/documentacion/save', documentacionRoutes);
     this.app.use('/api/seleccion', seleccionRoutes);
 
     this.app.use('/api/seleccion/save', saveSeleccionRoutes);
 
 // tslint:disable-next-line: no-console
+
+    // routes evaluacion
+    this.app.use('/api/evaluation', evaluationRoutes);
+    this.app.use('/api/criterios', criteriosRoutes);
+    this.app.use('/api/provider', providersRoutes);
+    // tslint:disable-next-line: no-console
 
 }
 

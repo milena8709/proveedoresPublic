@@ -1,19 +1,107 @@
-<div class="panel-header panel-header-sm">
-</div>
-<div class="main-content">
+
+<div class="main-content m-3">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title"> PAGINA EN CONSTRUCCION</h4>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
 
+            <div *ngIf="firstStep" class="card justify-content-center">
+                <form (ngSubmit)="createEvaluation(form)" #form="ngForm">
+                    <div class="card-header">
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Titulo de la evaluación</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Titulo"  name="tittle"  [(ngModel)]="header.tittle" #tittle="ngModel">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Descripción</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Descripcion"  name="description"  [(ngModel)]="header.description" #description="ngModel">
+                            </div>
+                        </div>
                     </div>
+                    <div class="card-body">
+                        <hr>
+                        <app-buscar-evaluaciones (showComponent)="showSearch($event)"></app-buscar-evaluaciones>
+                        <hr>
+                        <app-seleccionar-proveedores *ngIf="showSearchEvaluation" (sendSocialReason)="takeNameProvider($event)" (sendProvider)="selectedProvider($event)"></app-seleccionar-proveedores>
+                        <app-mostrar-evaluaciones  *ngIf="!showSearchEvaluation"></app-mostrar-evaluaciones>
+                    </div>
+                    <div *ngIf="showSearchEvaluation" style="text-align: right; margin: 10px;">
+                        <button type="submit" class="btn btn-primary">Siguiente</button>
+                    </div>
+                    <div *ngIf="!showSearchEvaluation" style="text-align: right; margin: 10px;">
+                        <button class="btn btn-primary" (click)="noShowSearch()" >Atras</button>
+                    </div>
+                </form>
+            </div>`
+
+           <div class="card justify-content-center" *ngIf="secondStep">
+                <div class="card-header">
+                    <app-title [show]="secondStep" [titleEvaluation]="header.tittle" [descriptionEvaluation]="header.description"></app-title>
+                </div>
+
+                <div class="card-body">
+                    <hr>
+                    <app-criterios-evalauacion></app-criterios-evalauacion>
+                </div>
+                <div style="display: flex; justify-content: space-between; width: 100%; padding: 15px;">
+                    <button class="btn btn-primary" (click)="changeCard()">Atras</button>
+                    <button class="btn btn-primary" (click)="changeCardsecond()">Siguiente</button>
+                </div>
+                
+            </div>
+
+            <div class="card justify-content-center" *ngIf="thirdStep">
+                <div class="card-header">
+                    <app-title [provider]="nameProvider" [showProvider]="thirdStep" [titleEvaluation]="header.tittle" [descriptionEvaluation]="header.description"></app-title>
+                </div>
+                <form (ngSubmit)="createCreteria(formData)" #formData="ngForm">
+                    <div class="card-body">
+                        <hr>
+                    <!-- <app-calificacion-criterio></app-calificacion-criterio> -->
+                        <p><strong>Calificación Criterios</strong></p>
+
+                        <div class="container m-5">
+                            
+                                <div style="width: 50%;" *ngFor="let criterio of criterios; let i = index;" class="form-group row">
+                                    <label class="col-sm-2 col-form-label">{{ criterio.criterio }}</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control"
+                                        type="text"
+                                        placeholder="#"
+                                        [name]="i + 1"
+                                        [(ngModel)]="criteriosDescription[i + 1]"
+                                        [ngModelOptions]="{standalone: false}">
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    <hr>
+                    <div style="display: flex; justify-content: space-between; width: 100%; padding: 15px;">
+                        <button class="btn btn-primary" (click)="changeCardsecond()">Atras</button>
+                        <button type="submit" class="btn btn-primary">Siguiente</button>
+                    </div>
+            </form>
+            </div>
+
+            <div class="card justify-content-center" *ngIf="fourStep">
+                <div class="card-header">
+                    <app-title [provider]="nameProvider" [showProvider]="fourStep" [titleEvaluation]="header.tittle" [descriptionEvaluation]="header.description"></app-title>
+                </div>
+
+                <div class="card-body">
+                    <hr>
+                    <app-resultado-evaluacion [message]="messageData" [criteriaScore]="criterios" [resultTotal]="totalScore" [resultCriteria]="data"></app-resultado-evaluacion>
+                </div>
+                <div style="display: flex; justify-content: space-between; width: 100%; padding: 15px;">
+                    <button type="submit" class="btn btn-primary" (click)="changeCardthird()">Atras</button>
+                    <button (click)="guardar()" type="submit" class="btn btn-primary" >Guardar</button>
                 </div>
             </div>
-        </div>
 
+
+        </div>
     </div>
 </div>

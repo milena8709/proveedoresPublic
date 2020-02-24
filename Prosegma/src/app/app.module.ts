@@ -21,6 +21,7 @@ import { DialogTemplateComponent } from './dialog-template/dialog-template.compo
 import { DialogOkTemplateComponent } from './dialog-ok-template/dialog-ok-template.component';
 import { DocumentsComponent } from './documents/documents.component';
 
+import { MostrarEvaluacionesComponent } from './table-list/mostrar-evaluaciones/mostrar-evaluaciones.component';
 
 
 @NgModule({
@@ -47,8 +48,13 @@ import { DocumentsComponent } from './documents/documents.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+<<<<<<< HEAD
     DialogTemplateComponent,
     DialogOkTemplateComponent  ],
+=======
+    DialogTemplateComponent
+    ],
+>>>>>>> cdf5dbb4e52a4a9640b527190fd020a314c7643c
   providers: [],
   bootstrap: [AppComponent],
   entryComponents:[DialogTemplateComponent, DialogOkTemplateComponent]

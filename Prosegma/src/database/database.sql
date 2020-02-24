@@ -412,6 +412,54 @@ ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuario_perfil` FOREIGN KEY (`idperfil`) REFERENCES `perfil` (`idperfil`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
+--Creacion de tablas para evaluaciones
+
+CREATE TABLE `prosegma`.`evaluacion_proveedor` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(200) NULL,
+  `descripcion` VARCHAR(500) NULL,
+  `fecha_creacion` DATETIME NULL,
+  `calificacion_total` DOUBLE NULL,
+  `id_proveedor` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `id_proveedor_idx` (`id_proveedor` ASC) VISIBLE,
+  CONSTRAINT `id_proveedor`
+    FOREIGN KEY (`id_proveedor`)
+    REFERENCES `prosegma`.`proveedor` (`idproveedor`));
+
+CREATE TABLE `prosegma`.`criterios_evaluacion` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `criterio` VARCHAR(200) NULL,
+  `descripcion` VARCHAR(500) NULL,
+  `peso` DOUBLE NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `prosegma`.`datos_evaluacion` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_evaluacion` INT NOT NULL,
+  `id_criterio` INT NOT NULL,
+  `calificacion_criterio` DOUBLE NULL,
+  PRIMARY KEY (`id`),
+  INDEX `id_criterio_idx` (`id_criterio` ASC) VISIBLE,
+  INDEX `id_evaluacion_idx` (`id_evaluacion` ASC) VISIBLE,
+  CONSTRAINT `id_criterio`
+    FOREIGN KEY (`id_criterio`)
+    REFERENCES `prosegma`.`criterios_evaluacion` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `id_evaluacion`
+    FOREIGN KEY (`id_evaluacion`)
+    REFERENCES `prosegma`.`evaluacion_proveedor` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+ALTER TABLE `prosegma`.`evaluacion_proveedor` 
+CHANGE COLUMN `fecha_creacion` `fecha_creacion` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ;
+
+
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

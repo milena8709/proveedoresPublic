@@ -48,9 +48,9 @@ export class CamposproveedorService {
    }
 
 
- UpdateProveedor(id: string , proveedor: Proveedor) {
-  this.http.put(`${this.API_URI_CAMPOS}/${id}`, proveedor);
- }
+   UpdateProveedor(id: string , proveedor: Proveedor) {
+    this.http.put(`${this.API_URI_CAMPOS}/${id}`, proveedor);
+   }
 
 
 

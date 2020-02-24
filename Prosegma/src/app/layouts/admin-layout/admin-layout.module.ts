@@ -29,6 +29,19 @@ import { CamposproveedorService } from '../../../services/camposproveedor.servic
 import { NewuserComponent } from '../../newuser/newuser.component';
 import { ResultSeleccionComponent } from '../../result-seleccion/result-seleccion.component';
 
+import { EvaluationService } from '../../../services/evaluation.service';
+
+import { BuscarEvaluacionesComponent } from '../../table-list/buscar-evaluaciones/buscar-evaluaciones.component';
+import { SeleccionarProveedoresComponent } from '../../table-list/seleccionar-proveedores/seleccionar-proveedores.component';
+import { CriteriosEvalauacionComponent } from '../../table-list/criterios-evalauacion/criterios-evalauacion.component';
+import { CalificacionCriterioComponent } from '../../table-list/calificacion-criterio/calificacion-criterio.component';
+import { ResultadoEvaluacionComponent } from '../../table-list/resultado-evaluacion/resultado-evaluacion.component';
+import { TitleComponent } from '../../table-list/title/title.component';
+import { CriteriosService } from '../../../services/criterios.service';
+import { MostrarEvaluacionesComponent } from '../../table-list/mostrar-evaluaciones/mostrar-evaluaciones.component';
+import { ProvidersService } from '../../../services/proveedores.service';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +53,10 @@ import { ResultSeleccionComponent } from '../../result-seleccion/result-seleccio
     HttpClientModule
   ],
   providers: [
-    CamposproveedorService
+    CamposproveedorService,
+    EvaluationService,
+    CriteriosService,
+    ProvidersService
   ],
   declarations: [
     DashboardComponent,
@@ -59,7 +75,14 @@ import { ResultSeleccionComponent } from '../../result-seleccion/result-seleccio
     TransactionComponent,
     MaterialdetailComponent,
     NewuserComponent,
-    ResultSeleccionComponent
+    ResultSeleccionComponent,
+    BuscarEvaluacionesComponent,
+    SeleccionarProveedoresComponent,
+    CriteriosEvalauacionComponent,
+    CalificacionCriterioComponent,
+    ResultadoEvaluacionComponent,
+    TitleComponent,
+    MostrarEvaluacionesComponent
   ]
 })
 

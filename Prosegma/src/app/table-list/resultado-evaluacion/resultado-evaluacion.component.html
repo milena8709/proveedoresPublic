@@ -1,0 +1,43 @@
+<p><strong>Resultado total de la evaluación</strong></p>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <thead class=" text-primary">
+            <th>
+                Atributo
+            </th>
+            <th>
+                Calificación total
+            </th>
+            <th>
+                Notas
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let criterio of resultCriteria; let i = index;">
+                <td>
+                    {{ criterio.criteria }}
+                </td>
+                <td>
+                    {{ criterio.scoreResult | number : '1.2-2'}}
+                </td>
+                <td>
+                    {{ criterio.notes }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Total
+                </td>
+                <td>
+                    {{ resultTotal | number : '1.2-2' }}
+                </td>
+                <td>
+                    {{ message }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+      

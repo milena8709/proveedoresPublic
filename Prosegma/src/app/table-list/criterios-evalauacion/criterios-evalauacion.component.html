@@ -1,0 +1,32 @@
+<p><strong>Criterios de evaluación</strong></p>
+
+
+<div class="table-responsive">
+        <table class="table">
+            <thead class=" text-primary">
+                <th>
+                    Criterio
+                </th>
+                <th>
+                    Descripción
+                </th>
+                <th>
+                    Peso
+                </th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let criterio of criterios; let i = index">
+                    <td>
+                        {{criterio.criterio}}
+                    </td>
+                    <td>
+                        {{criterio.descripcion}}
+                    </td>
+                    <td>
+                        {{criterio.peso}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+      

@@ -12,6 +12,9 @@ const clasificacionRoutes_1 = __importDefault(require("./routes/clasificacionRou
 const documentacionRoutes_1 = __importDefault(require("./routes/documentacionRoutes"));
 const seleccionRoutes_1 = __importDefault(require("./routes/seleccionRoutes"));
 const saveSeleccionRoutes_1 = __importDefault(require("./routes/saveSeleccionRoutes"));
+const evaluationRoutes_1 = __importDefault(require("./routes/evaluationRoutes"));
+const criteriosRoutes_1 = __importDefault(require("./routes/criteriosRoutes"));
+const providersRoutes_1 = __importDefault(require("./routes/providersRoutes"));
 class Server {
     constructor() {
         this.bodyParser = require('body-parser');
@@ -29,7 +32,7 @@ class Server {
         this.app.use(express.urlencoded({ extended: false }));
     }
     routes() {
-        console.log('llega aqui index.ts');
+        console.log('llega aqui indexddddd.ts');
         // this.app.use(camposProveedorRoutes);
         this.app.use('/api/campos', camposproveedorRoutes_1.default);
         this.app.use('/api/catalogo', catalogoRoutes_1.default);
@@ -38,6 +41,11 @@ class Server {
         this.app.use('/api/documentacion/save', documentacionRoutes_1.default);
         this.app.use('/api/seleccion', seleccionRoutes_1.default);
         this.app.use('/api/seleccion/save', saveSeleccionRoutes_1.default);
+        // tslint:disable-next-line: no-console
+        // routes evaluacion
+        this.app.use('/api/evaluation', evaluationRoutes_1.default);
+        this.app.use('/api/criterios', criteriosRoutes_1.default);
+        this.app.use('/api/provider', providersRoutes_1.default);
         // tslint:disable-next-line: no-console
     }
     start() {

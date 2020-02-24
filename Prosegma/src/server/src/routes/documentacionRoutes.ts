@@ -37,7 +37,6 @@ class DocumentacionRoutes {
     });
     }
 
-
 }
 
 const documentacionRoutes = new DocumentacionRoutes();

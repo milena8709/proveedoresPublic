@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-6">
+        <p><strong>Titulo de la evaluacion</strong></p>
+    </div>
+    <div class="col-md-6">
+        <p>{{ titleEvaluation }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p><strong>Descripción</strong></p>
+    </div>
+    <div class="col-md-6">
+        <p>{{ descriptionEvaluation }}
+        </p>
+    </div>
+</div>
+<div *ngIf="show" class="row">
+    <div class="col-md-6">
+        <p><strong>Semeste</strong></p>
+    </div>
+    <div class="col-md-6">
+        <p>{{ semestre }}
+        </p>
+    </div>
+</div>
+<div class="row" *ngIf="showProvider">
+    <div class="col-md-6">
+        <p><strong>Provedor evaluado</strong></p>
+    </div>
+    <div class="col-md-6">
+        <p>{{ provider }}
+        </p>
+    </div>
+</div>
