@@ -4,64 +4,72 @@
             <div class="card">
 
 
-<form (ngSubmit)="buscar(forma)" #forma="ngForm">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label>NIT/CC</label>
-            <input type="text" class="form-control" placeholder="NIT/CC" name="id"  [(ngModel)]="usuario.id" #id="ngModel">
-        </div>
-        <div class="form-group col-md-6">
-            <label>Nombre proveedor</label>
-            <input type="text" class="form-control"  placeholder="Nombre del proveedor" name="proveedor"  [(ngModel)]="usuario.name" #name="ngModel">
-        </div>
-    </div>
-    <div style="text-align: right;">
-        <button type="submit" class="btn btn-primary btn-sm"><small>Buscar</small></button>
-    </div>
-</form>
-
-
-</div>
-</div>
-</div>
-</div>
-
-
-<div class="panel-header panel-header-sm">
-</div>
-<div class="main-content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="title">Gestión de Materiales</h5>
-                </div>
-                <div class="card-body">
-                    <div class="col-md-4  pl-1">
-                        
-                    <form (ngSubmit)="buscar(forma)" #forma="ngForm">
+                <p><strong>Buscar proveedores</strong></p>
+                <div class="form-row">
+                    <form (ngSubmit)="seachTask(form)" #form="ngForm">
                         <div class="form-row">
-                            <div class="form-group col-md-2">
-                                <label>NIT/CC</label>
-                                <input type="text" class="form-control" placeholder="NIT/CC" name="id"  [(ngModel)]="usuario.id" #id="ngModel">
+                            <div class="form-group col-md-3">
+                                <label for="nitcc">NIT/CC</label>
+                                <input type="text" class="form-control" placeholder="NIT/CC" name="nit"  [(ngModel)]="supplier.id" #id="ngModel">
                             </div>
-                            <div class="form-group col-md-2">
-                                <label>Nombre del proveedor</label>
-                                <input type="text" class="form-control"  placeholder="Nombre del proveedor" name="proveedor"  [(ngModel)]="usuario.name" #name="ngModel">
+                            <div class="form-group col-md-3">
+                                <label for="nombreProveedor">Nombre proveedor</label>
+                                <input type="text" class="form-control" placeholder="Nombre del proveedor" name="nombreProveedor"  [(ngModel)]="supplier.name" #name="ngModel">
                             </div>
-                            <div class="form-group col-md-2">
-                                <label>Estado del proveedor</label>
-                                <input type="text" class="form-control"  placeholder="Estado del proveedor" name="estadoProveedor"  [(ngModel)]="tarea.estado" #name="ngModel">
+                            <div class="form-group col-md-3">
+                                <label for="estadoTare">Estado</label>
+                                <input type="text" class="form-control" placeholder="Estado" name="estadoTarea"  [(ngModel)]="task.state" #date="ngModel">
                             </div>
+                        
                         </div>
                         <div style="text-align: right;">
                             <button type="submit" class="btn btn-primary btn-sm"><small>Buscar</small></button>
                         </div>
                     </form>
-                    </div>
-
                 </div>
-            </div>
-        </div>
-    </div>
+            
+                
+                <p><strong>Listado de tareas</strong></p>
+                
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                NIT/CC
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Estado
+                            </th>
+                            
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    123
+                                </td>
+                                <td>
+                                    Jacobo
+                                </td>
+                                <td>
+                                    Activa
+                                </td>
+                               
+                                <td>
+                                    <button class="btn btn-warning mr-1">
+                                        Ir a tarea
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
 </div>
+</div>
+</div>
+</div>
+
+
