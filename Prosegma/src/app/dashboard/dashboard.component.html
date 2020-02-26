@@ -5,10 +5,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">Iniciar Sesión</h5>
+                    <h5 class="title">{{title}}</h5>
                 </div>
                 <div class="card-body">
-                    <form id="sesion" #sesion="ngForm" (ngSubmit)="login(sesion)">
+                    <form id="sesion" #sesion="ngForm" (ngSubmit)="login(sesion)" [hidden]="autenticado">
                         <div class="row">
                             <div class="col-md-8 pr-1">
                                 <div class="form-group">
@@ -42,4 +42,5 @@
             </div>
         </div>
     </div>
+
 </div>
