@@ -12,6 +12,7 @@ class RegistroUsuario {
 
     config(): void {
         this.router.get('/:usuario/:password', usuarioController.getUsuario);
+        this.router.post('/', usuarioController.create);
       /*  this.router.get('/', usuarioController.list);
         this.router.get('/:id', usuarioController.getUsuarioById);
         this.router.post('/', usuarioController.create);

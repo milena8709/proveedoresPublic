@@ -12,7 +12,8 @@ class EvaluationRoutes {
         this.router.get('/', evaluationcontroller_1.evaluationController.list);
         // this.router.get('/id', evaluationController.getProveedorById);
         this.router.post('/', evaluationcontroller_1.evaluationController.createEvaluation);
-        this.router.post('/getEvaluacion', evaluationcontroller_1.evaluationController.createEvaluation);
+        this.router.get('/getEvaluacion/:id/:razon_social/:year/:semester/', evaluationcontroller_1.evaluationController.getEvaluation);
+        this.router.get('/getEvaluacionByDetail/:id/:titulo/:year/', evaluationcontroller_1.evaluationController.getEvaluationByDetail);
         /*this.router.put('/:id', camposProveedorController.update);
         this.router.delete('/:id', camposProveedorController.delete);*/
     }

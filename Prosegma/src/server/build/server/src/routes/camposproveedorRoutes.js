@@ -9,7 +9,8 @@ class CamposProveedorRoutes {
         this.config();
     }
     config() {
-        this.router.get('/id', camposproveedorController_1.camposProveedorController.getCampos);
+        this.router.get('/', camposproveedorController_1.camposProveedorController.list);
+        this.router.get('/:id', camposproveedorController_1.camposProveedorController.getCamposById);
         this.router.post('/', camposproveedorController_1.camposProveedorController.create);
         this.router.put('/:id', camposproveedorController_1.camposProveedorController.update);
         this.router.delete('/:id', camposproveedorController_1.camposProveedorController.delete);

@@ -24,11 +24,14 @@ class UsuarioController {
         return __awaiter(this, void 0, void 0, function* () {
             const { usuario } = req.params;
             const { password } = req.params;
-            const usuarios = yield database_1.default.query('SELECT * FROM usuarios where idusuario = ?', [id]);
+            console.log('usuario -', 'SELECT * FROM usuarios where usuario = "' + usuario + '" and clave = "' + password + '"');
+            const usuarios = yield database_1.default.query('SELECT * FROM usuarios where usuario = "' + usuario + '" and clave = "' + password + '"');
             if (usuarios.length > 0) {
                 return res.json(usuarios[0]);
             }
-            res.status(404).json({ text: 'El usuario no existe' });
+            else {
+                return res.status(404).json({ text: 'El usuario no existe, o sus credenciales no coinciden, por favor revise nuevamente' });
+            }
         });
     }
     getUsuarioById(req, res) {
@@ -45,7 +48,10 @@ class UsuarioController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.body);
-            yield database_1.default.query('INSERT INTO usuarios SET ?', [req.body]);
+            // tslint:disable-next-line: max-line-length
+            yield database_1.default.query('INSERT INTO proveedor (idproveedor, razon_social) values ("' + req.body.nit + '","' + req.body.razon_social + '")');
+            // tslint:disable-next-line: max-line-length
+            yield database_1.default.query('INSERT INTO usuarios (usuario, clave, idperfil,id_proveedor,correo) values ("' + req.body.nit + '", "' + req.body.clave + '",1, "' + req.body.nit + '", "' + req.body.correo + '")');
             res.json({ text: 'Usuario guardado exitosamente' });
         });
     }
