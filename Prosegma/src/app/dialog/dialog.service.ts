@@ -34,4 +34,29 @@ export class DialogService {
       }
     });
   }
+  openModalDetalles(title:string, message: any[], yes:Function = null, no:Function = null) {
+    const dialogConfig = new MatDialogConfig();
+
+    // dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+        title: title,
+        message: message[0].criterio
+    };
+    dialogConfig.minWidth = 400;
+
+    const dialogRef = this.dialog.open(DialogTemplateComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        if(yes){
+          yes();
+        }
+      } else {
+        if (no) {
+          no();
+        }
+      }
+    });
+  }
 }

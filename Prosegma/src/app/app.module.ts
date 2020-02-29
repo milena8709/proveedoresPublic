@@ -18,7 +18,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { DialogTemplateComponent } from './dialog-template/dialog-template.component';
-import { MostrarEvaluacionesComponent } from './table-list/mostrar-evaluaciones/mostrar-evaluaciones.component';
 
 @NgModule({
   imports: [

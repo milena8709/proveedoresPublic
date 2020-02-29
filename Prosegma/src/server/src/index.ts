@@ -13,6 +13,7 @@ import documentacionRoutes from './routes/documentacionRoutes';
 import evaluationRoutes from './routes/evaluationRoutes';
 import criteriosRoutes from './routes/criteriosRoutes';
 import providersRoutes from './routes/providersRoutes';
+import transactionsRoutes from './routes/transactionsRoutes';
 
 class Server {
 
@@ -43,8 +44,8 @@ routes(): void {
     this.app.use('/api/evaluation', evaluationRoutes);
     this.app.use('/api/criterios', criteriosRoutes);
     this.app.use('/api/provider', providersRoutes);
+    this.app.use('/api/materials', transactionsRoutes);
     // tslint:disable-next-line: no-console
-    
 }
 
 start(): void {

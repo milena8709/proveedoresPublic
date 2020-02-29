@@ -8,12 +8,13 @@ import { Provider } from '../../models/provider';
 import { ProvidersService } from '../../../services/proveedores.service';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
-  selector: 'app-seleccionar-proveedores',
-  templateUrl: './seleccionar-proveedores.component.html',
-  styleUrls: ['./seleccionar-proveedores.component.scss']
+  selector: 'app-find-proveedores',
+  templateUrl: './find-proveedores.component.html',
+  styleUrls: ['./find-proveedores.component.scss']
 })
-export class SeleccionarProveedoresComponent implements OnInit {
+export class FindProveedoresComponent implements OnInit {
 
   // @Input() providerSearch: any[] = [];
 
@@ -38,7 +39,7 @@ export class SeleccionarProveedoresComponent implements OnInit {
 
    count = 0;
    checked = false;
-   
+
   constructor(private toastr: ToastrService,private evaluationService: EvaluationService, private providersService: ProvidersService, private router: Router) {
   }
 
@@ -46,7 +47,6 @@ export class SeleccionarProveedoresComponent implements OnInit {
       const data = new Provider();
       this.evaluationService.getProveedor().subscribe( (resp) => {
         this.providers = resp;
-        console.log('Estos son los proveedores' + this.proveedores[0]);
       });
   }
 
@@ -56,9 +56,9 @@ export class SeleccionarProveedoresComponent implements OnInit {
       this.count += 1;
       if ( this.count === 2) {
         this.checked = false;
-        this.showNotification('top', 'center');
+        this.showNotification('top','center');
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['/table-list']);
+        this.router.navigate(['/matclassification']);
       });
       }
     } else {
@@ -66,7 +66,6 @@ export class SeleccionarProveedoresComponent implements OnInit {
       this.name = '';
       this.count = 0;
     }
-    console.log('count = ' + this.count);
     this.callParentEvent();
 
   }
@@ -90,7 +89,6 @@ export class SeleccionarProveedoresComponent implements OnInit {
       this.idProviderSelected = '';
       this.name = '';
     }
-    console.log('this.name ' + this.name);
     this.callParentEvenSocial();
   }
 
@@ -107,7 +105,6 @@ export class SeleccionarProveedoresComponent implements OnInit {
     this.request.socialReason = forma.form.value.proveedor;
 
     this.providersService.getProveedorById(this.request).subscribe( (resp) => {
-      // console.log('Form resasd : ' + JSON.parse(resp));
       this.providers = resp;
     }, ( errorServicio ) => {
       this.providers = [];

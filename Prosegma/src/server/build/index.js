@@ -14,6 +14,7 @@ const documentacionRoutes_1 = __importDefault(require("./routes/documentacionRou
 const evaluationRoutes_1 = __importDefault(require("./routes/evaluationRoutes"));
 const criteriosRoutes_1 = __importDefault(require("./routes/criteriosRoutes"));
 const providersRoutes_1 = __importDefault(require("./routes/providersRoutes"));
+const transactionsRoutes_1 = __importDefault(require("./routes/transactionsRoutes"));
 class Server {
     constructor() {
         this.app = express();
@@ -38,6 +39,7 @@ class Server {
         this.app.use('/api/evaluation', evaluationRoutes_1.default);
         this.app.use('/api/criterios', criteriosRoutes_1.default);
         this.app.use('/api/provider', providersRoutes_1.default);
+        this.app.use('/api/materials', transactionsRoutes_1.default);
         // tslint:disable-next-line: no-console
     }
     start() {

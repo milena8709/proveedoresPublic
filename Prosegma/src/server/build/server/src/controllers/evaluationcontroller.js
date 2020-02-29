@@ -58,16 +58,52 @@ class EvaluationController {
     }
     getEvaluation(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params.idProvider;
-            const razon_social = req.params.name;
-            const year = req.params.date;
-            const semester = req.params.semester;
+            console.log('-----------------');
+            let id = req.params.id;
+            if (id === ' ') {
+                id = '';
+            }
+            let razon_social = req.params.razon_social;
+            if (razon_social === ' ') {
+                razon_social = '';
+            }
+            let year = req.params.year;
+            if (year === ' ') {
+                year = '';
+            }
+            let semester = req.params.semester;
+            if (semester === ' ') {
+                semester = '';
+            }
             console.log('id = ' + id + 'name = ' + razon_social + 'year = ' + year + 'semester = ' + semester);
-            const proveedor = yield database_1.default.query('SELECT eva.titulo, eva.descripcion, cri.criterio, cri.peso, dat.calificacion_criterio, eva.fecha_creacion, pro.razon_social, pro.idproveedor, eva.calificacion_total, TRUNCATE(((MONTH(eva.fecha_creacion) - 1) / 6) + 1,0) AS semestre FROM prosegma.criterios_evaluacion cri, prosegma.datos_evaluacion dat, prosegma.evaluacion_proveedor eva, prosegma.proveedor pro HAVING pro.idproveedor LIKE %?% AND pro.razon_social LIKE %?% AND YEAR(eva.fecha_creacion) LIKE %?% AND semestre LIKE %?%', [id, razon_social, year, semester]);
+            const proveedor = yield database_1.default.query(`SELECT eva.titulo, eva.descripcion, cri.criterio, cri.peso, dat.calificacion_criterio, eva.fecha_creacion, pro.razon_social, pro.idproveedor, eva.calificacion_total, IF(MONTH(eva.fecha_creacion) < 7, 1, 2) semester FROM prosegma.datos_evaluacion dat INNER JOIN prosegma.evaluacion_proveedor eva, prosegma.proveedor pro, prosegma.criterios_evaluacion cri WHERE dat.id_evaluacion = eva.id AND eva.id_proveedor = pro.idproveedor AND dat.id_criterio = cri.id AND eva.id_proveedor LIKE '%${id}%' AND  pro.razon_social LIKE '%${razon_social}%' AND YEAR(eva.fecha_creacion) LIKE '%${year}%' GROUP BY eva.id_proveedor HAVING semester LIKE '%${semester}%'`);
             if (proveedor.length > 0) {
                 return res.json(proveedor);
             }
-            res.status(404).json({ text: 'La evaluacion no existe' });
+            return res.status(404).json({ text: 'La evaluacion no existe' });
+        });
+    }
+    getEvaluationByDetail(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log('-----------------');
+            let id = req.params.id;
+            if (id === ' ') {
+                id = '';
+            }
+            let titulo = req.params.titulo;
+            if (titulo === ' ') {
+                titulo = '';
+            }
+            let year = req.params.year;
+            if (year === ' ' || year === null) {
+                year = '';
+            }
+            console.log('id = ' + id + 'name = ' + titulo + 'year = ' + year);
+            const proveedor = yield database_1.default.query(`SELECT eva.titulo, eva.descripcion, cri.criterio, cri.peso, dat.calificacion_criterio, eva.fecha_creacion, pro.razon_social, pro.idproveedor, eva.calificacion_total, eva.fecha_creacion, IF((dat.calificacion_criterio) < 4, 'Bajo Rendimiento', IF((dat.calificacion_criterio) BETWEEN 5 AND 8  ,'Rendimiento Medio','Alto Rendimiento')) AS mensaje,IF((eva.calificacion_total) < 4, 'Bajo Rendimiento', IF((eva.calificacion_total) BETWEEN 5 AND 8  ,'Rendimiento Medio','Alto Rendimiento')) AS mensajeTotal FROM prosegma.datos_evaluacion dat INNER JOIN prosegma.evaluacion_proveedor eva, prosegma.proveedor pro, prosegma.criterios_evaluacion cri WHERE dat.id_evaluacion = eva.id AND eva.id_proveedor = pro.idproveedor AND dat.id_criterio = cri.id AND eva.id_proveedor LIKE '%${id}%' AND  eva.titulo LIKE '%${titulo}%' AND YEAR(eva.fecha_creacion) LIKE '%${year}%' GROUP BY cri.criterio`);
+            if (proveedor.length > 0) {
+                return res.json(proveedor);
+            }
+            return res.status(404).json({ text: 'La evaluacion no existe' });
         });
     }
 }

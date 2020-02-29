@@ -15,6 +15,7 @@ import { AhpComponent } from '../../ahp/ahp.component';
 import { MatClassificationComponent } from '../../mat-classification/mat-classification.component';
 import { TransactionComponent } from '../../transaction/transaction.component';
 import { MaterialdetailComponent } from '../../materialdetail/materialdetail.component';
+import { GestionarTransaccionComponent } from '../../gestionar-transaccion/gestionar-transaccion.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -31,5 +32,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'AhpComponent',        component: AhpComponent },
     { path: 'matclassification',        component: MatClassificationComponent },
     { path: 'transaction',        component: TransactionComponent },
-    { path: 'materialdetail',        component: MaterialdetailComponent }
+    { path: 'materialdetail',        component: MaterialdetailComponent },
+    { path: 'transaction/:id',        component: GestionarTransaccionComponent }
 ];
