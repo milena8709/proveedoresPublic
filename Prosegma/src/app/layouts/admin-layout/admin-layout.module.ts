@@ -26,6 +26,9 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CamposproveedorService } from '../../../services/camposproveedor.service';
+import { NewuserComponent } from '../../newuser/newuser.component';
+import { ResultSeleccionComponent } from '../../result-seleccion/result-seleccion.component';
+
 import { EvaluationService } from '../../../services/evaluation.service';
 
 import { BuscarEvaluacionesComponent } from '../../table-list/buscar-evaluaciones/buscar-evaluaciones.component';
@@ -74,6 +77,8 @@ import { GestionarTransaccionComponent } from '../../gestionar-transaccion/gesti
     MatClassificationComponent,
     TransactionComponent,
     MaterialdetailComponent,
+    NewuserComponent,
+    ResultSeleccionComponent,
     BuscarEvaluacionesComponent,
     SeleccionarProveedoresComponent,
     CriteriosEvalauacionComponent,

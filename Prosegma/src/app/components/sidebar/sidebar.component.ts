@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { type } from 'os';
+import { CamposproveedorService } from '../../../services/camposproveedor.service';
 
 declare interface RouteInfo {
     path: string;
@@ -16,8 +17,15 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'Selección Proveedor',  icon: 'users_single-02', class: '' },
     { path: '/table-list', title: 'Evaluación Proveedor',  icon: 'design_bullet-list-67', class: '' },
     { path: '/typography', title: 'Entrada Materiales',  icon: 'text_caps-small', class: '' },
-    { path: '/upgrade', title: 'Revisión Proveedores',  icon: 'objects_spaceship', class: 'active active-pro' }
-];
+    { path: '/upgrade', title: 'Revisión Proveedores',  icon: 'objects_spaceship', class: '' }
+   // { path: '/newuser', title: 'Nuevo Usuario',  icon: 'objects_spaceship', class: 'active active-pro' }
+   // { path: '/resultSeleccion', title: 'Resultado Selección',  icon: 'objects_spaceship', class: 'active active-pro' }
+
+  ];
+
+  export const ROUTES_LOGOUT: RouteInfo[] = [
+    { path: '/dashboard', title: 'Principal',  icon: 'design_app', class: '' }
+  ];
 
 @Component({
   selector: 'app-sidebar',
@@ -26,11 +34,15 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  public randomNumber: number;
+  exampleParent:string;
 
-  constructor() { }
+
+  constructor(private services: CamposproveedorService) { }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+
+    this.menuItems = this.services.getMenuShow();
   }
   isMobileMenu() {
       if ( window.innerWidth > 991) {
@@ -38,4 +50,10 @@ export class SidebarComponent implements OnInit {
       }
       return true;
   };
+
+
+
+
+
+
 }

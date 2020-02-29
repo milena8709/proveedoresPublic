@@ -1,0 +1,44 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Registro de usuario</h5>
+                    <label class="col-md-12 pr-1">Ingrese todos los datos solicitados:</label>
+                </div>
+                <br>
+                <div class="card-body">
+                    <form #newUser="ngForm" (ngSubmit)="saveUser(newUser)">
+                        <div class="col-md-12 pr-1">
+                            <label class="col-md-12 pr-1">NIT/CC, ingrese su NIT  o su cédula si es persona natural:</label>
+                            <input type="text" class="form-control" name="nit" [(ngModel)]="identificacion" value="" required>
+
+                        </div>
+                        <div class="col-md-12 pr-1">
+                            <label class="col-md-12 pr-1">Nombre de la empresa o nombre de la persona  (si es persona natural)
+                            </label>
+                            <input type="text" class="form-control" name="razon_social" [(ngModel)]="nombre" value="" required>
+                        </div>
+                        <div class="col-md-12 pr-1">
+                            <label class="col-md-12 pr-1">Correo:</label>
+                            <input type="text" class="form-control" name="correo" [(ngModel)]="correo" value="" required>
+                        </div>
+                        <div class="col-md-12 pr-1">
+                            <label class="col-md-12 pr-1">Contraseña de mínimo 8 caracteres:</label>
+                            <input type="password" class="form-control" name="clave" [(ngModel)]="password" value="" required>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-md-4  pl-1">
+                            <button class="btn btn-primary btn-block">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

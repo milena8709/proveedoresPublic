@@ -13,22 +13,55 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const app = express();
+app.use(bodyParser.json());
 class DocumentacionController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('listar usuarios documentacion');
             const usuarios = yield database_1.default.query('SELECT * FROM usuarios');
             return res.json(usuarios);
         });
     }
-    getCamposById(req, res) {
+    getsolicitudCamposById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            console.log(id);
-            const clasificacion = yield database_1.default.query('SELECT * FROM documents where idclasificacion = ?', [id]);
-            if (clasificacion.length > 0) {
-                return res.json(clasificacion);
+            console.log('consultar documentos' + id);
+            const clasificiones = yield database_1.default.query('SELECT * FROM prosegma.clasificacion where idInscripcion  = ?', [id]);
+            if (clasificiones.length > 0) {
+                let documentos = [];
+                console.log('tamdocumento' + documentos.length);
+                for (const clasificacion of clasificiones) {
+                    // if (clasificacion.codigoSegmento !== '') {
+                    // tslint:disable-next-line: prefer-const
+                    // tslint:disable-next-line: max-line-length
+                    let sql = 'SELECT * FROM prosegma.solicitud_documentos where ';
+                    if (clasificacion.codigoSegmento !== '') {
+                        sql = sql + ' codigoSegmento = ' + clasificacion.codigoSegmento;
+                    }
+                    if (clasificacion.codigoFamilia !== '') {
+                        sql = sql + ' OR codigoFamilia = ' + clasificacion.codigoFamilia;
+                    }
+                    if (clasificacion.codigoClase !== '') {
+                        sql = sql + ' OR codigoClase = ' + clasificacion.codigoClase;
+                    }
+                    if (clasificacion.codigoProducto !== '') {
+                        sql = sql + ' OR codigoProducto = ' + clasificacion.codigoProducto;
+                    }
+                    documentos = yield database_1.default.query(sql);
+                }
+                documentos = documentos.filter((valorActual, indiceActual, arreglo) => {
+                    // tslint:disable-next-line: max-line-length
+                    return arreglo.findIndex(valorDelArreglo => JSON.stringify(valorDelArreglo) === JSON.stringify(valorActual)) === indiceActual;
+                });
+                return res.json(documentos);
             }
-            res.status(404).json({ text: 'El campo no existe' });
+            else {
+                res.status(404).json({ text: 'No existen documentos configurados' });
+            }
         });
     }
     getInscripcion(req, res) {
@@ -42,16 +75,19 @@ class DocumentacionController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.body.datos[0]);
-            // tslint:disable-next-line: forin
-            for (const dato of req.body.datos) {
-                console.log("create proveedor" + dato);
-                yield database_1.default.query('INSERT INTO datos SET ?', [dato]);
+            console.log('documentos', req.body[0]);
+            const file = req.body;
+            let idinscripcion;
+            for (let index = 0; index < req.body.length; index++) {
+                const element = req.body[index];
+                if (element !== undefined) {
+                    yield database_1.default.query('INSERT INTO documentos_inscripcion SET ?', [element]);
+                    idinscripcion = element.id_inscripcion;
+                    yield database_1.default.query('UPDATE proveedor SET estado = "2" WHERE idproveedor = (SELECT idproveedor as id FROM inscripcion where idinscripcion = ' + idinscripcion + ')');
+                }
             }
-            var licitacion = { 'nombrelicitacion': req.body.licitacion };
-            yield database_1.default.query('INSERT INTO licitacion SET ?', [licitacion]);
-            yield database_1.default.query('INSERT INTO inscripcion SET ?', [{ 'idProveedor': req.body.idProveedor }]);
-            res.json({ text: 'Usuario guardado exitosamente' });
+            // tslint:disable-next-line: max-line-length
+            res.json({ text: 'documentos_inscripcion guardado exitosamente' });
         });
     }
     delete(req, res) {

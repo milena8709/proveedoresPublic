@@ -2,59 +2,59 @@
 </div>
 <div class="main-content">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Criterios de Aceptación</h4>
+                    <h4 class="card-title">Alternativas Seleccionadas</h4>
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
+                <div class="card-body border-bottom">
+                    <div class="table">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>
+                                    NIT/CC
+                                </th>
+                                <th>
+                                    Nombre
+                                </th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of proveedores">
+                                    <td>
+                                        {{item.nit}}
+                                    </td>
+                                    <td>
+                                        {{item.nombre}}
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="card-header">
+                    <h4 class="card-title">Criterios de selección</h4>
+                </div>
+                <div class="card-body border-bottom">
+                    <div class="table">
                         <table class="table">
                             <thead class=" text-primary">
                                 <th>
                                     Criterio
                                 </th>
                                 <th>
-                                    Peso
+                                    Descripción
                                 </th>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let criterio of criterios">
                                     <td>
-                                        Criterio 1
+                                        {{criterio.criterio}}
                                     </td>
                                     <td>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <input type="number" class="form-control" placeholder="20%">
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Criterio 2
-                                    </td>
-                                    <td>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <input type="number" class="form-control" placeholder="50%">
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Criterio 3
-                                    </td>
-                                    <td>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <input type="number" class="form-control" placeholder="30%">
-                                            </div>
-                                        </div>
+                                        {{criterio.descripcion}}
                                     </td>
 
                                 </tr>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-md-3  pl-1">
-                    <a href="/AhpComponent" class="btn btn-primary btn-block">
+                    <a (click)="siguiente()" class="btn btn-primary btn-block">
                       Siguiente
                   </a>
                 </div>

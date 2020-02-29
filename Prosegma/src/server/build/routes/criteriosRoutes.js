@@ -10,6 +10,8 @@ class CriteriosRoutes {
     }
     config() {
         this.router.get('/', criteriosController_1.criteriosController.getEvaluation);
+        /*this.router.put('/:id', camposProveedorController.update);
+        this.router.delete('/:id', camposProveedorController.delete);*/
     }
 }
 const criteriosRoutes = new CriteriosRoutes();
