@@ -35,7 +35,6 @@ class Server {
     }
     routes() {
         console.log('llega aqui indexddddd.ts');
-        // this.app.use(camposProveedorRoutes);
         this.app.use('/api/campos', camposproveedorRoutes_1.default);
         this.app.use('/api/catalogo', catalogoRoutes_1.default);
         this.app.use('/api/clasificacion', clasificacionRoutes_1.default);
@@ -43,13 +42,10 @@ class Server {
         this.app.use('/api/documentacion/save', documentacionRoutes_1.default);
         this.app.use('/api/seleccion', seleccionRoutes_1.default);
         this.app.use('/api/seleccion/save', saveSeleccionRoutes_1.default);
-        // tslint:disable-next-line: no-console
-        // routes evaluacion
         this.app.use('/api/evaluation', evaluationRoutes_1.default);
         this.app.use('/api/criterios', criteriosRoutes_1.default);
         this.app.use('/api/provider', providersRoutes_1.default);
         this.app.use('/api/materials', transactionsRoutes_1.default);
-        // tslint:disable-next-line: no-console
         this.app.use('/api/usuario', registroUsuario_1.default);
     }
     start() {
