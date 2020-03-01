@@ -7,24 +7,26 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-body">
-                        <p><strong>Buscar Transacciones</strong></p>
-                        <form (ngSubmit)="searchTransaction(form)" #form="ngForm"><!---->
+                        <p><strong>Buscar transacciones</strong></p>
+                        <p>A continuación, busque la transacción que desee ver o gestionar:</p>
+                        <br>
+                        <form (ngSubmit)="searchTransaction(form)" #form="ngForm">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Estado</label>
-                                    <input type="text" class="form-control" placeholder="Pendiente"  name="estado"  [(ngModel)]="transactions.estado" #estado="ngModel"><!---->
+                                    <input type="text" class="form-control" placeholder=""  name="estado"  [(ngModel)]="transactions.estado" #estado="ngModel"><!---->
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Fecha limite de entrega</label>
-                                    <input type="text" class="form-control"  placeholder="2020-12-31" name="fecha_limite_entrega"  [(ngModel)]="transactions.fecha_limite_entrega" #fecha_limite_entrega="ngModel">
+                                    <input type="text" class="form-control"  placeholder="Ejemplo: 2020-12-31" name="fecha_limite_entrega"  [(ngModel)]="transactions.fecha_limite_entrega" #fecha_limite_entrega="ngModel">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>NIT/CC Proveedor</label>
-                                    <input type="text" class="form-control"  placeholder="10293" name="idproveedor"  [(ngModel)]="transactions.idproveedor" #idproveedor="ngModel">
+                                    <input type="text" class="form-control"  placeholder="" name="idproveedor"  [(ngModel)]="transactions.idproveedor" #idproveedor="ngModel">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Id orden de compra</label>
-                                    <input type="text" class="form-control"  placeholder="04932" name="id_orden_compra"  [(ngModel)]="transactions.id_orden_compra" #id_orden_compra="ngModel">
+                                    <input type="text" class="form-control"  placeholder="" name="id_orden_compra"  [(ngModel)]="transactions.id_orden_compra" #id_orden_compra="ngModel">
                                 </div>
                             </div>
                             <div style="text-align: right;">
@@ -67,7 +69,7 @@
                                         </td>
                                         <td>
                                             <a (click)="viewTransaction(transaction.id)" style="color:white;"  class="btn btn-warning mr-1">
-                                                Ver transaccion
+                                                Ver transacción
                                             </a>
                                         </td>
                                     </tr>

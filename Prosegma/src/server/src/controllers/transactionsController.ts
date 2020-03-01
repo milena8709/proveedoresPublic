@@ -24,7 +24,7 @@ class TransactionsController {
         }
         console.log('segmento : ' + segmento);
         console.log('clase : ' + clase);
-        const materiales =  await db.query(`SELECT seg.codigoSegmento, seg.nombreSegmento, fam.codigoFamilia, fam.nombreFamilia, cls.codigoclase, cls.nombreClase, pro.codigoproducto, pro.nombreproducto FROM prosegma.producto pro INNER JOIN prosegma.clase cls ON pro.idclase = cls.codigoclase INNER JOIN prosegma.familia fam ON fam.codigoFamilia = pro.id_familia INNER JOIN prosegma.segmento seg ON seg.codigoSegmento = pro.id_segmento WHERE seg.nombreSegmento LIKE '%${segmento}%' AND fam.nombreFamilia LIKE '%${familia}%' AND cls.nombreClase LIKE '%${clase}%' AND pro.nombreproducto LIKE '%${producto}%'`);
+        const materiales =  await db.query(`SELECT seg.codigoSegmento, seg.nombreSegmento, fam.codigoFamilia, fam.nombreFamilia, cls.codigoclase, cls.nombreClase, pro.codigoproducto, pro.nombreproducto FROM producto pro INNER JOIN clase cls ON pro.idclase = cls.codigoclase INNER JOIN familia fam ON fam.codigoFamilia = pro.id_familia INNER JOIN segmento seg ON seg.codigoSegmento = pro.id_segmento WHERE seg.nombreSegmento LIKE '%${segmento}%' AND fam.nombreFamilia LIKE '%${familia}%' AND cls.nombreClase LIKE '%${clase}%' AND pro.nombreproducto LIKE '%${producto}%'`);
         if (materiales.length > 0) {
             return res.json(materiales);
         }
@@ -33,7 +33,7 @@ class TransactionsController {
 
     public async getMaterials (req: Request, res: Response) {
         console.log('Entra aqui');
-        const materiales =  await db.query('SELECT seg.codigoSegmento, seg.nombreSegmento, fam.codigoFamilia, fam.nombreFamilia, cls.codigoclase, cls.nombreClase, pro.codigoproducto, pro.nombreproducto FROM prosegma.producto pro INNER JOIN prosegma.clase cls ON pro.idclase = cls.codigoclase INNER JOIN prosegma.familia fam ON fam.codigoFamilia = pro.id_familia INNER JOIN prosegma.segmento seg ON seg.codigoSegmento = pro.id_segmento LIMIT 5');
+        const materiales =  await db.query('SELECT seg.codigoSegmento, seg.nombreSegmento, fam.codigoFamilia, fam.nombreFamilia, cls.codigoclase, cls.nombreClase, pro.codigoproducto, pro.nombreproducto FROM producto pro INNER JOIN clase cls ON pro.idclase = cls.codigoclase INNER JOIN familia fam ON fam.codigoFamilia = pro.id_familia INNER JOIN segmento seg ON seg.codigoSegmento = pro.id_segmento LIMIT 5');
         if (materiales.length > 0) {
             return res.json(materiales);
         }

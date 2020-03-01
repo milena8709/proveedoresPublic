@@ -4,7 +4,13 @@
         <div class="col-md-12">
 
             <div *ngIf="firstStep" class="card justify-content-center">
+                
                 <form (ngSubmit)="createEvaluation(form)" #form="ngForm">
+                    <div style="padding: 10px;">
+                        <p><strong>Crear nueva evaluación</strong></p>
+                        <p>Ingrese aqui el titulo y la descripcíon de su nueva evaluacion del proveedor:</p>
+                    </div>
+                   
                     <div class="card-header">
                         
                         <div class="form-group row">
@@ -60,8 +66,8 @@
                     <div class="card-body">
                         <hr>
                     <!-- <app-calificacion-criterio></app-calificacion-criterio> -->
-                        <p><strong>Calificación Criterios</strong></p>
-
+                        <p><strong>Calificación criterios</strong></p>
+                        <p>A continuación, usted debe calificar de 1 a 10 al proveedor.</p>
                         <div class="container m-5">
                             
                                 <div style="width: 50%;" *ngFor="let criterio of criterios; let i = index;" class="form-group row">

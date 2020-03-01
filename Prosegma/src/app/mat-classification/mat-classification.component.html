@@ -7,6 +7,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-header">
+                            <p><strong>Creación de nueva transacción</strong></p>
+                            <p>A continuación, ingrese los datos solicitados para su nueva transacción:</p>
+                            <br>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Descripción</label>
                                 <div class="col-sm-10">
@@ -16,13 +19,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Fecha limite de entrega</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="2020-12-31" name="fechalimite"  [(ngModel)]="transaccion.fechalimite" #fechalimite="ngModel" >
+                                    <input type="text" class="form-control" placeholder="Ejemplo: 2020-12-31" name="fechalimite"  [(ngModel)]="transaccion.fechalimite" #fechalimite="ngModel" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">ID orden de compra</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="49370" name="idorden"  [(ngModel)]="transaccion.idorden" #idorden="ngModel" >
+                                    <input type="text" class="form-control" placeholder="" name="idorden"  [(ngModel)]="transaccion.idorden" #idorden="ngModel" >
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -52,6 +55,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="card-body">
+                                <p>A continuación, busque y seleccione los materiales relacionados a la orden de compra:</p>
+                                <br>
                                 <p><strong>Buscar materiales</strong></p>
                                 <form (ngSubmit)="searchProducto(form)" #form="ngForm">
                                     <div class="form-row">
@@ -61,22 +66,21 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Clase</label>
-                                            <input type="text" class="form-control"  placeholder="Nombre del proveedor" name="clase"  [(ngModel)]="product.clase" #clase="ngModel">
+                                            <input type="text" class="form-control"  placeholder="Nombre de la clase" name="clase"  [(ngModel)]="product.clase" #clase="ngModel">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Familia</label>
-                                            <input type="text" class="form-control"  placeholder="Nombre del proveedor" name="familia"  [(ngModel)]="product.familia" #familia="ngModel">
+                                            <input type="text" class="form-control"  placeholder="Nombre de la familia" name="familia"  [(ngModel)]="product.familia" #familia="ngModel">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Producto</label>
-                                            <input type="text" class="form-control"  placeholder="Nombre del proveedor" name="producto"  [(ngModel)]="product.producto" #producto="ngModel">
+                                            <input type="text" class="form-control"  placeholder="Nombre del producto" name="producto"  [(ngModel)]="product.producto" #producto="ngModel">
                                         </div>
                                     </div>
                                     <div style="text-align: right;">
                                         <button type="submit" class="btn btn-primary btn-sm"><small>Buscar</small></button>
                                     </div>
                                 </form>
-                                <hr>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
