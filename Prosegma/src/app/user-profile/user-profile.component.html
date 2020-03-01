@@ -6,6 +6,10 @@
             <div class="card">
                 <div class="card-body">
                     <form>
+                        <h5 class="title">Creación de nueva selección de proveedor</h5>
+                        <div>En esta sección usted debe buscar y seleccionar los proveedores que participarán en la selección.<br> Ingrese el título y la descripción de la selección:
+                        </div>
+                        <br>
                         <div class="col-md-12">
                             <div>
                                 <label>Titulo de selección</label>
@@ -15,13 +19,15 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <input type="text" class="form-control" placeholder="descripcion" name="descripcionSelec" [(ngModel)]="descripcion">
+                                <input type="text" class="form-control" name="descripcionSelec" [(ngModel)]="descripcion">
                             </div>
                         </div>
                     </form>
 
                     <div class="card-header">
-                        <h5 class="title">Buscar Proveedor</h5>
+                        <h5 class="title"> Buscar Proveedor</h5>
+                        <div>A continuación, ingrese el código del segmento, familia, clase y/o producto para encontrar los proveedores relacionados a estos:</div>
+                        <br>
                     </div>
                     <div class="card-body">
                         <form #formulario="ngForm">
@@ -29,28 +35,28 @@
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <i class="fas fa-search" aria-hidden="true"></i><label>Segmento</label>
-                                    <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" name="segmento" [(ngModel)]="segmento">
+                                    <input class="form-control form-control-sm ml-3 w-75" type="number" aria-label="Search" name="segmento" [(ngModel)]="segmento">
 
                                 </div>
                             </div>
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <i class="fas fa-search" aria-hidden="true"></i><label>Familia</label>
-                                    <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" name="familia" [(ngModel)]="familia">
+                                    <input class="form-control form-control-sm ml-3 w-75" type="number" aria-label="Search" name="familia" [(ngModel)]="familia">
 
                                 </div>
                             </div>
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <i class="fas fa-search" aria-hidden="true"></i><label>Clase</label>
-                                    <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" name="clase" [(ngModel)]="clase">
+                                    <input class="form-control form-control-sm ml-3 w-75" type="number" aria-label="Search" name="clase" [(ngModel)]="clase">
 
                                 </div>
                             </div>
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <i class="fas fa-search" aria-hidden="true"></i><label>Producto</label>
-                                    <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" name="producto" [(ngModel)]="producto">
+                                    <input class="form-control form-control-sm ml-3 w-75" type="number" aria-label="Search" name="producto" [(ngModel)]="producto">
 
                                 </div>
                             </div>
@@ -98,7 +104,8 @@
                 <div class="card ">
                     <div class="card-body ">
                         <div class="card-header ">
-                            <h5 class="title ">Selección Proveedor</h5>
+                            <h5 class="title ">Selección de proveedores</h5>
+
                         </div>
                         <div class="table-responsive ">
                             <table class="table ">
@@ -154,8 +161,8 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-md-3 pl-1 ">
-                        <a (click)="saveSeleccionProveedor()" class="btn btn-primary btn-block text-white">
+                    <div class="col-md-12 pl-1 ">
+                        <a (click)="saveSeleccionProveedor()" class="btn btn-primary float-right text-white">
                           Guardar
                         </a>
                     </div>

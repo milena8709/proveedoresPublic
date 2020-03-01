@@ -25,7 +25,7 @@ class DocumentacionController {
     public async getsolicitudCamposById (req: Request, res: Response) {
         const { id } = req.params;
         console.log('consultar documentos' + id);
-        const clasificiones =  await db.query('SELECT * FROM prosegma.clasificacion where idInscripcion  = ?', [id]);
+        const clasificiones =  await db.query('SELECT * FROM clasificacion where idInscripcion  = ?', [id]);
         if (clasificiones.length > 0) {
            let documentos: any = [];
            console.log('tamdocumento' + documentos.length);
@@ -33,7 +33,7 @@ class DocumentacionController {
                 // if (clasificacion.codigoSegmento !== '') {
                     // tslint:disable-next-line: prefer-const
                     // tslint:disable-next-line: max-line-length
-                    let sql = 'SELECT * FROM prosegma.solicitud_documentos where ';
+                    let sql = 'SELECT * FROM solicitud_documentos where ';
                     if (clasificacion.codigoSegmento !== '') {
                         sql = sql + ' codigoSegmento = ' + clasificacion.codigoSegmento;
                     }
@@ -77,6 +77,7 @@ class DocumentacionController {
         for (let index = 0; index < req.body.length; index++) {
             const element = req.body[index];
             if (element !== undefined) {
+                element.ruta_documento += '/'+ 
                 await db.query('INSERT INTO documentos_inscripcion SET ?', [element]);
                   idinscripcion = element.id_inscripcion;
                   await db.query('UPDATE proveedor SET estado = "2" WHERE idproveedor = (SELECT idproveedor as id FROM inscripcion where idinscripcion = ' + idinscripcion + ')');

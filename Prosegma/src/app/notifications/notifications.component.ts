@@ -85,6 +85,7 @@ export class NotificationsComponent implements OnInit {
   mensaje: 'Debe aceptar las politicas de privacidad, ¿desea aceptarlas?'};
   camposformulario: any[] = [];
   indice: number;
+  usuario: any;
 
   // tslint:disable-next-line: max-line-length
   constructor(private toastr: ToastrService, private camposServices: CamposproveedorService, private dialogService: DialogService, private router: Router) {
@@ -92,6 +93,10 @@ export class NotificationsComponent implements OnInit {
 
 
   ngOnInit() {
+    this.usuario = this.camposServices.getUsuario();
+    console.log('usuario seleccion', this.usuario);
+    this.razonsocial = this.usuario.razon_social;
+    this.identificacion = this.usuario.id_proveedor;
     this.camposServices.getCamposProveedor().subscribe(
       res => {
       this.campos.push(res);
@@ -115,6 +120,7 @@ export class NotificationsComponent implements OnInit {
            this[campo.label] = '';
             break;
           case this.textField:
+            this.itemtextfield = {};
            this.itemtextfield.id = campo.idcamposproveedor;
            this.itemtextfield.label = campo.label;
            this.itemtextfield.nombre =  campo.label;
@@ -141,18 +147,13 @@ export class NotificationsComponent implements OnInit {
             break;
           case this.checkbox:
           //  this.campoCheck.push(campo.label);
+          this.itemcheck = {};
           this.itemcheck.id = campo.idcamposproveedor;
            this.itemcheck.label = campo.label;
-           this.itemcheck.catalogo =  [];
+           this.itemcheck.nombre = campo.idcamposproveedor;
            this.itemcheck.obligatorio = (campo.obligatorio === 1);
-           this.camposServices.getCatalogoById(campo.idcamposproveedor).subscribe(
-            res => {
-              this.itemcheck.catalogo = res;
-            },
-            err => console.error(err)
-            );
             this.campoCheck.push(this.itemcheck);
-            // tslint:disable-next-line: no-unused-expression
+
             this[campo.label] = '';
             break;
           case this.button:
@@ -196,7 +197,7 @@ export class NotificationsComponent implements OnInit {
           if (userForm.valid) {
             if (this.checkpoliticas) {
               let indice = 0;
-              this.proveedor[0].idProveedor = this.camposServices.getUsuario()!==undefined? this.camposServices.getUsuario().id_proveedor : ' 0 ';
+              this.proveedor[0].idProveedor = this.usuario!==undefined? this.usuario.id_proveedor : ' 0 ';
               this.proveedor[0].licitacion = this.licitacion;
               this.proveedor[0].razonsocial = this.razonsocial;
               this.proveedor[0].identicicacion = this.identificacion;
@@ -227,10 +228,16 @@ export class NotificationsComponent implements OnInit {
             }
 
             // tslint:disable-next-line: forin
-            /*for (const i in this.campoCheck) {
-              this.proveedor.datos[indice] = i;
-              this.indice++;
-            }*/
+            for (const i of this.campoCheck) {
+              this.proveedor[0].datos[indice] = {
+                dato: '',
+                idcamposproveedor: 0,
+                idinscripcion: 0
+              };
+              this.proveedor[0].datos[indice].dato = i.nombre;
+              this.proveedor[0].datos[indice].idcamposproveedor = i.id;
+              indice++;
+            }
 
             // tslint:disable-next-line: forin
             for (const i of this.campoCombo) {

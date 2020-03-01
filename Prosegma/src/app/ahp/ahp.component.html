@@ -6,6 +6,11 @@
             <div class="card">
                 <div class="card-body">
                     <form>
+                        <div class="card-header">
+                            <h5 class="title">Calificación de selección</h5>
+                            <div>A continuación, usted debe calificar los proveedores a través del AHP:</div>
+                        </div>
+                        <br>
                         <div class="col-md-12">
                             <div>
                                 <label>Titulo de selección</label>
@@ -39,20 +44,20 @@
                                     <th>
                                         {{item.criterio}}
                                     </th>
-                                    <th class="text-left" *ngFor="let proveedor of proveedores">
+                                    <th class="text-left text-black-50" *ngFor="let proveedor of proveedores">
                                         {{proveedor.nombre}}
                                     </th>
 
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let item of proveedores; let h=index ">
-                                        <td class="text-primary">
+                                        <td class="text-black-50">
                                             <b>{{item.nombre}}</b>
                                         </td>
                                         <td *ngFor="let proveedor of proveedores; let j=index">
                                             <div class="col-md-8">
                                                 <div class="form-group">
-                                                    <input type="number" class="form-control" placeholder="" name="ind" [(ngModel)]="j" required>
+                                                    <input type="number" class="form-control" placeholder="" name="ind" [(ngModel)]="dato" required>
                                                 </div>
                                             </div>
                                         </td>
@@ -85,13 +90,13 @@
                             <table class="table ">
                                 <thead class=" text-primary ">
                                     <th>Criterios</th>
-                                    <th *ngFor=" let item of criterios; let i=index ">
+                                    <th class="text-black-50" *ngFor=" let item of criterios; let i=index ">
                                         {{item.criterio}}
                                     </th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor=" let item of criterios; let i=index ">
-                                        <td class="text-primary">
+                                        <td class="text-black-50">
                                             <b> {{item.criterio}}</b>
                                         </td>
                                         <td *ngFor=" let item of criterios; let i=index ">
@@ -121,8 +126,8 @@
 
                 </div>
             </div>
-            <div class="col-md-3 pl-1 ">
-                <a (click)="saveSeleccionProveedor() " class="btn btn-primary btn-block text-white ">
+            <div class="col-md-12 pl-1 ">
+                <a (click)="saveSeleccionProveedor() " class="btn btn-primary float-right text-white">
                   Guardar
                 </a>
             </div>

@@ -18,7 +18,7 @@ class UsuarioController {
         const { password } = req.params;
 
         console.log('usuario -', 'SELECT * FROM usuarios where usuario = "' + usuario + '" and clave = "' + password + '"');
-        const usuarios =  await db.query('SELECT * FROM usuarios where usuario = "' + usuario + '" and clave = "' + password + '"');
+        const usuarios =  await db.query('SELECT * FROM usuarios u INNER JOIN proveedor p on u.id_proveedor = p.idproveedor  where u.usuario = "' + usuario + '" and u.clave = "' + password + '"');
         if (usuarios.length > 0) {
             return res.json(usuarios[0]);
         } else {
@@ -40,9 +40,12 @@ class UsuarioController {
    public async create (req: Request, res: Response): Promise<void> {
         console.log(req.body);
         // tslint:disable-next-line: max-line-length
-        await db.query('INSERT INTO proveedor (idproveedor, razon_social, estado) values ("' + req.body.nit + '","' + req.body.razon_social + '", "1")');
-        // tslint:disable-next-line: max-line-length
-        await db.query('INSERT INTO usuarios (usuario, clave, idperfil,id_proveedor,correo) values ("' + req.body.nit + '", "' + req.body.clave + '",1, "' + req.body.nit + '", "'+req.body.correo+'")');
+        const proveedor = await db.query('INSERT INTO proveedor (idproveedor, razon_social, estado) values ("' + req.body.nit + '","' + req.body.razon_social + '", "1")');
+        console.log('proveedor insertado', proveedor);
+        if (proveedor != null) {
+            // tslint:disable-next-line: max-line-length
+            await db.query('INSERT INTO usuarios (usuario, clave, idperfil, id_proveedor, correo) values ("' + req.body.nit + '", "' + req.body.clave + '",1, "' + req.body.nit + '", "' + req.body.correo + '")');
+        }
         res.json({text: 'Usuario guardado exitosamente'});
     }
 

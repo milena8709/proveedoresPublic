@@ -30,7 +30,7 @@ class DocumentacionController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             console.log('consultar documentos' + id);
-            const clasificiones = yield database_1.default.query('SELECT * FROM prosegma.clasificacion where idInscripcion  = ?', [id]);
+            const clasificiones = yield database_1.default.query('SELECT * FROM clasificacion where idInscripcion  = ?', [id]);
             if (clasificiones.length > 0) {
                 let documentos = [];
                 console.log('tamdocumento' + documentos.length);
@@ -38,7 +38,7 @@ class DocumentacionController {
                     // if (clasificacion.codigoSegmento !== '') {
                     // tslint:disable-next-line: prefer-const
                     // tslint:disable-next-line: max-line-length
-                    let sql = 'SELECT * FROM prosegma.solicitud_documentos where ';
+                    let sql = 'SELECT * FROM solicitud_documentos where ';
                     if (clasificacion.codigoSegmento !== '') {
                         sql = sql + ' codigoSegmento = ' + clasificacion.codigoSegmento;
                     }
@@ -81,7 +81,8 @@ class DocumentacionController {
             for (let index = 0; index < req.body.length; index++) {
                 const element = req.body[index];
                 if (element !== undefined) {
-                    yield database_1.default.query('INSERT INTO documentos_inscripcion SET ?', [element]);
+                    element.ruta_documento += '/' +
+                        (yield database_1.default.query('INSERT INTO documentos_inscripcion SET ?', [element]));
                     idinscripcion = element.id_inscripcion;
                     yield database_1.default.query('UPDATE proveedor SET estado = "2" WHERE idproveedor = (SELECT idproveedor as id FROM inscripcion where idinscripcion = ' + idinscripcion + ')');
                 }

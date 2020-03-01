@@ -21,8 +21,8 @@ class DocumentacionRoutes {
         this.router.get('/:id', documentacionController_1.documentacionController.getsolicitudCamposById);
         this.router.put('/:id', documentacionController_1.documentacionController.update);
         this.router.delete('/:id', documentacionController_1.documentacionController.delete);
-        this.router.post('/', documentacionController_1.documentacionController.create);
         this.router.post('/', this.multipartMidlewaren, (req, res) => {
+            console.log();
             const file = req.body.file;
             const name = req.body.name;
         });

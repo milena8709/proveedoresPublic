@@ -6,6 +6,11 @@
             <div class="card">
                 <div class="card-body">
                     <form>
+                        <div class="card-header ">
+                            <h5 class="title ">Resultado de la selección</h5>
+                            <div>A continuación, se muestran los resultados de la selección:</div>
+                            <br>
+                        </div>
                         <div class="col-md-12">
                             <div>
                                 <label>Titulo de selección</label>
@@ -15,7 +20,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Descripción</label>
-                                <input type="text" class="form-control" placeholder="descripcion" name="descripcionSelec" [(ngModel)]="descripcion" disabled>
+                                <input type="text" class="form-control" placeholder="" name="descripcionSelec" [(ngModel)]="descripcion" disabled>
                             </div>
                         </div>
                     </form>
@@ -56,15 +61,17 @@
                                 </tbody>
 
                             </table>
-                            <div class="col-md-3 pl-1 ">
-                                <a (click)="saveResultadoProveedor() " class="btn btn-primary btn-block text-white ">
-                                  Guardar
-                                </a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-12 pl-1 ">
+                <a (click)="saveResultadoProveedor() " class="btn btn-primary float-right text-white">
+                  Guardar
+                </a>
+            </div>
+
         </div>
     </div>
 </div>

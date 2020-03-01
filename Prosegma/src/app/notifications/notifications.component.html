@@ -17,37 +17,40 @@
                             </div>
                             <div class="form-group">
                                 <label>Razón Social</label>
-                                <input type="text" class="form-control" [(ngModel)]="razonsocial" name="razonsocial" placeholder="Ingrese razon social" value="" required #nombre="ngModel">
+                                <input type="text" class="form-control" [(ngModel)]="razonsocial" name="razonsocial" placeholder="Ingrese razon social" value="" required #nombre="ngModel" disabled>
                             </div>
                             <div class="form-group">
                                 <label>NIT/CC</label>
-                                <input type="text" class="form-control" [(ngModel)]="identificacion" name="identificacion" placeholder="Ingrese el número de la identificacion si aplica" value="" required #id="ngModel">
+                                <input type="text" class="form-control" [(ngModel)]="identificacion" name="identificacion" placeholder="Ingrese el número de la identificacion si aplica" value="" required #id="ngModel" disabled>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group" *ngFor="let orderText of campoTextField; let i = index">
-                                <label>{{orderText.label}}</label>
                                 <div *ngIf="orderText.obligatorio; else notShow">
-                                    <input type="text" class="form-control" name="i" [(ngModel)]="orderText.nombre" value="" required #i="ngModel">
+                                    <label>{{orderText.label}} *</label>
+                                    <input type="text" class="form-control" name="i" [(ngModel)]="orderText.nombre" placeholder="" required #i="ngModel">
                                 </div>
 
                                 <ng-template #notShow>
-                                    <input type="text" class="form-control" name="i" [(ngModel)]="orderText.nombre" value="">
+                                    <label>{{orderText.label}}</label>
+                                    <input type="text" class="form-control" name="i" [(ngModel)]="orderText.nombre" placeholder="" value="">
                                 </ng-template>
 
                             </div>
                         </div>
+                        <!--campos tipo combo-->
                         <div class="col-md-12">
                             <div *ngFor="let orderCombo of campoCombo; let ix = index">
                                 <div>
-                                    <label>{{orderCombo.label}}</label>
                                     <div *ngIf="orderCombo.obligatorio; else notShow_combo">
+                                        <label>{{orderCombo.label}} *</label>
                                         <select class="form-control" (ngModelChange)="selectChange($event, orderCombo.id)" [(ngModel)]="orderCombo.nombre" name="orderCombo.label" required #dat="ngModel">
                                             <option *ngFor="let itemCatalogo of orderCombo.catalogo; let idx = index">{{itemCatalogo.nombre}}</option>
                                         </select>
                                     </div>
 
                                     <ng-template #notShow_combo>
+                                        <label>{{orderCombo.label}}</label>
                                         <select class="form-control" (ngModelChange)="selectChange($event, orderCombo.id)" [(ngModel)]="orderCombo.nombre" name="ix" #dat="ngModel">
                                             <option *ngFor="let itemCatalogo of orderCombo.catalogo; let idx = index">{{itemCatalogo.nombre}}</option>
                                         </select>
@@ -55,25 +58,33 @@
                                 </div>
                             </div>
                         </div>
+                        <!--campos tipo textoArea-->
                         <div class="col-md-12">
                             <div class="form-group" *ngFor="let texto of campoTexto; let i = index">
                                 <label>{{texto.label}}</label>
-                                <input type="text" class="form-control" [(ngModel)]="texto.nombre" name="texto.label" placeholder="" value="">
+                                <input type="text" class="form-control" [(ngModel)]="texto.nombre" name="i">
                             </div>
                         </div>
-                        <!--
+                        <!--campos tipo check-->
                         <div class="col-md-12">
-                            <div class="form-group" *ngFor="let order of campoCheck; let i = index">
-                                <div>
-                                    <label>{{order.label}}</label>
-                                    <select class="form-control">
-                                        <option value="i" *ngFor="let itemCatalogo of order.catalogo; let i = index">{{itemCatalogo.nombre}}</option>
-                                        
-                                    </select> </div>
+                            <div class="form-group" *ngFor="let check of campoCheck; let i = index">
+                                <div *ngIf="check.obligatorio; else notShow_check">
+                                    <div>
+                                        <br>
+                                        <label>{{check.label}} *&nbsp;&nbsp;</label>
+                                        <input type="checkbox" id="checkdata" [(ngModel)]="checkdata" name="i" [checked]="checkdata" required #checki="ngModel">
+                                    </div>
+                                </div>
+                                <ng-template #notShow_check>
+                                    <div>
+                                        <label>{{check.label}}&nbsp;&nbsp;</label>
+                                        <input type="checkbox" id="checkdata" [(ngModel)]="checkdata" name="i" [checked]="checkdata">
+                                    </div>
+                                </ng-template>
 
 
                             </div>
-                        </div>*/-->
+                        </div>
 
                         <span></span>
                         <div class="col-md-12">
@@ -84,7 +95,7 @@
                         </div>
                         <div class="col-md-12  pl-1">
 
-                            <button class="btn btn-primary float-right">guardar</button>
+                            <button class="btn btn-primary float-right">Guardar</button>
                         </div>
                     </form>
 

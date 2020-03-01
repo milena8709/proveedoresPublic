@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit{
     this.usuario = this.services.getUsuario();
     if (this.usuario !== undefined) {
       this.autenticado = true;
-      this.title = 'Bienvenido Usuario ' + this.usuario.usuario;
+      this.title = 'Bienvenido, a la izquierda encontrará el menú de opciones.';
     } else {
       this.autenticado = false;
     }
@@ -43,14 +43,14 @@ export class DashboardComponent implements OnInit{
   }
 
   login(userForm: NgForm) {
-    console.log('login', userForm);
+    
 
     if (userForm.valid) {
       this.services.logIn(userForm.value).subscribe(
         res => {
           this.usuario = res;
           console.log('usuario respuesta');
-          this.title = 'Bienvenido Usuario ' + this.usuario.usuario;
+          this.title = 'Bienvenido, a la izquierda encontrará el menú de opciones.';
           // tslint:disable-next-line: no-unused-expression
           this.autenticado = true;
           this.services.setUsuario(this.usuario);

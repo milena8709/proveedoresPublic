@@ -45,7 +45,6 @@ export class ResultSeleccionComponent implements OnInit {
       return 0;
     });
     this.proveedores[0].nombre = this.proveedores[0].nombre + ' (Seleccionado)';
-    
   }
 
 
@@ -60,7 +59,7 @@ export class ResultSeleccionComponent implements OnInit {
     this.service.saveResultProveedores(this.proveedores, this.value).subscribe(
       res => {
         // tslint:disable-next-line: no-unused-expression
-        this.router.navigateByUrl('/dashboard', );
+        this.router.navigateByUrl('/user-profile', );
         this.showNotification('Información', 'Datos Guardados exitosamente');
       },
       err => {

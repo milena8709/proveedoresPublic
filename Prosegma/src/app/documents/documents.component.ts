@@ -21,6 +21,7 @@ export class DocumentsComponent implements OnInit {
   documento: {};
   documentos: any[];
    contador = 0;
+  usuario: any;
 
 // tslint:disable-next-line: member-ordering
 
@@ -35,6 +36,7 @@ export class DocumentsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.usuario = this.service.getUsuario();
     this.values = this.route
     .queryParams
     .subscribe(params => {
@@ -83,7 +85,8 @@ export class DocumentsComponent implements OnInit {
     this.documento = {
       ruta_documento : '/file',
       id_inscripcion: this.value,
-      id_documento: e.target.name
+      id_documento: e.target.name,
+      id_proveedor:this.usuario.id_proveedor
     };
     if (this.documentos === undefined) {
       this.documentos = new Array<any>();
@@ -104,6 +107,7 @@ export class DocumentsComponent implements OnInit {
   public saveFile() {
 
       for (let index = 0; index < this.uploadedFiles.length; index++) {
+        console.log('archivo -- ' + this.uploadedFiles[index].name);
       const formData = new FormData();
         formData.append('uploads[]', this.uploadedFiles[index], this.uploadedFiles[index].name);
         this.http.post('http://localhost:3010/api/documentacion', formData, ).subscribe((d) => {});
