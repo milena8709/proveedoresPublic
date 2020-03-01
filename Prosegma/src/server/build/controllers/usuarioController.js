@@ -34,13 +34,13 @@ class UsuarioController {
             }
         });
     }
-    getUsuarioById(req, res) {
+    getProveedorById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             console.log(id);
-            const usuarios = yield database_1.default.query('SELECT * FROM usuarios where idusuario = ?', [id]);
-            if (usuarios.length > 0) {
-                return res.json(usuarios[0]);
+            const proveedor = yield database_1.default.query('SELECT * FROM prosegma.proveedor p inner join usuarios u on u.id_proveedor = p.idproveedor where u.idusuario = ?', [id]);
+            if (proveedor.length > 0) {
+                return res.json(proveedor[0]);
             }
             res.status(404).json({ text: 'El usuario no existe' });
         });
@@ -49,7 +49,7 @@ class UsuarioController {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.body);
             // tslint:disable-next-line: max-line-length
-            yield database_1.default.query('INSERT INTO proveedor (idproveedor, razon_social) values ("' + req.body.nit + '","' + req.body.razon_social + '")');
+            yield database_1.default.query('INSERT INTO proveedor (idproveedor, razon_social, estado) values ("' + req.body.nit + '","' + req.body.razon_social + '", "1")');
             // tslint:disable-next-line: max-line-length
             yield database_1.default.query('INSERT INTO usuarios (usuario, clave, idperfil,id_proveedor,correo) values ("' + req.body.nit + '", "' + req.body.clave + '",1, "' + req.body.nit + '", "' + req.body.correo + '")');
             res.json({ text: 'Usuario guardado exitosamente' });
@@ -59,7 +59,13 @@ class UsuarioController {
         res.json({ text: 'eliminando usuario' });
     }
     update(req, res) {
-        res.json({ text: 'actualizando usuario ' + req.params.id });
+        return __awaiter(this, void 0, void 0, function* () {
+            const { idusuario } = req.params;
+            console.log('UPDATE usuarios SET clave = "' + req.body.clave + '" WHERE id_proveedor = ' + idusuario);
+            // tslint:disable-next-line: max-line-length
+            const usuarios = yield database_1.default.query('UPDATE usuarios SET clave = "' + req.body.clave + '" WHERE idusuario = ' + idusuario);
+            res.json({ text: 'Usuario actualizado' });
+        });
     }
 }
 exports.usuarioController = new UsuarioController();

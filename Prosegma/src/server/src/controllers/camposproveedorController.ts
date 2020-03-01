@@ -25,8 +25,7 @@ class CamposProveedorController {
 
 
    public async create (req: Request, res: Response): Promise<void> {
-
-    console.log('dato-' + req.body.datos);
+    console.log('dato-', req.body.datos);
         await db.query('INSERT INTO inscripcion SET ?', [{'idProveedor': req.body.idProveedor}]);
         const id =  await db.query('SELECT MAX(idinscripcion) as id FROM inscripcion');
         for (const dato of req.body.datos) {

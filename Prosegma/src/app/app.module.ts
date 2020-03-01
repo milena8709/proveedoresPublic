@@ -22,6 +22,7 @@ import { DialogOkTemplateComponent } from './dialog-ok-template/dialog-ok-templa
 import { DocumentsComponent } from './documents/documents.component';
 
 import { MostrarEvaluacionesComponent } from './table-list/mostrar-evaluaciones/mostrar-evaluaciones.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -49,7 +50,9 @@ import { MostrarEvaluacionesComponent } from './table-list/mostrar-evaluaciones/
     AppComponent,
     AdminLayoutComponent,
     DialogTemplateComponent,
-    DialogOkTemplateComponent  ],
+    DialogOkTemplateComponent,
+    LoginComponent
+    ],
 
 
   providers: [],

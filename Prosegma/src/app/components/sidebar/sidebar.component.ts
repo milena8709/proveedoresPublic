@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { type } from 'os';
+import { Component, OnInit } from '@angular/core';
 import { CamposproveedorService } from '../../../services/camposproveedor.service';
+
 
 declare interface RouteInfo {
     path: string;
@@ -21,11 +21,9 @@ export const ROUTES: RouteInfo[] = [
    // { path: '/newuser', title: 'Nuevo Usuario',  icon: 'objects_spaceship', class: 'active active-pro' }
    // { path: '/resultSeleccion', title: 'Resultado Selección',  icon: 'objects_spaceship', class: 'active active-pro' }
 
-  ];
+   ];
 
-  export const ROUTES_LOGOUT: RouteInfo[] = [
-    { path: '/dashboard', title: 'Principal',  icon: 'design_app', class: '' }
-  ];
+
 
 @Component({
   selector: 'app-sidebar',
@@ -33,24 +31,29 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  menuItems: any[];
+  menuItems: RouteInfo[];
+
+
+  constructor(private service: CamposproveedorService) { }
+
+
   public randomNumber: number;
-  exampleParent:string;
+  exampleParent: string;
 
-
-  constructor(private services: CamposproveedorService) { }
+  menuShow: string;
 
   ngOnInit() {
-
-    this.menuItems = this.services.getMenuShow();
+   this.menuItems = (ROUTES.filter(menuItem => menuItem));
   }
+  
+
+
   isMobileMenu() {
       if ( window.innerWidth > 991) {
           return false;
       }
       return true;
-  };
-
+  }
 
 
 

@@ -7,6 +7,7 @@ import camposProveedorRoutes from './routes/camposproveedorRoutes';
 import catalogoRoutes from './routes/catalogoRoutes';
 import clasificacionRoutes from './routes/clasificacionRoutes';
 import documentacionRoutes from './routes/documentacionRoutes';
+import documentacionSaveRoutes from './routes/documentacionSaveRoutes';
 
 import { Application } from 'express';
 import seleccionRoutes from './routes/seleccionRoutes';
@@ -48,7 +49,7 @@ routes(): void {
     this.app.use('/api/clasificacion', clasificacionRoutes);
     this.app.use('/api/documentacion', documentacionRoutes);
 
-    this.app.use('/api/documentacion/save', documentacionRoutes);
+    this.app.use('/api/documentacion/save', documentacionSaveRoutes);
     this.app.use('/api/seleccion', seleccionRoutes);
 
     this.app.use('/api/seleccion/save', saveSeleccionRoutes);

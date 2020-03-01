@@ -10,6 +10,7 @@ const camposproveedorRoutes_1 = __importDefault(require("./routes/camposproveedo
 const catalogoRoutes_1 = __importDefault(require("./routes/catalogoRoutes"));
 const clasificacionRoutes_1 = __importDefault(require("./routes/clasificacionRoutes"));
 const documentacionRoutes_1 = __importDefault(require("./routes/documentacionRoutes"));
+const documentacionSaveRoutes_1 = __importDefault(require("./routes/documentacionSaveRoutes"));
 const seleccionRoutes_1 = __importDefault(require("./routes/seleccionRoutes"));
 const saveSeleccionRoutes_1 = __importDefault(require("./routes/saveSeleccionRoutes"));
 const evaluationRoutes_1 = __importDefault(require("./routes/evaluationRoutes"));
@@ -39,7 +40,7 @@ class Server {
         this.app.use('/api/catalogo', catalogoRoutes_1.default);
         this.app.use('/api/clasificacion', clasificacionRoutes_1.default);
         this.app.use('/api/documentacion', documentacionRoutes_1.default);
-        this.app.use('/api/documentacion/save', documentacionRoutes_1.default);
+        this.app.use('/api/documentacion/save', documentacionSaveRoutes_1.default);
         this.app.use('/api/seleccion', seleccionRoutes_1.default);
         this.app.use('/api/seleccion/save', saveSeleccionRoutes_1.default);
         // tslint:disable-next-line: no-console

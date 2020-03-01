@@ -8,25 +8,25 @@
                     <h5 class="title">Cambiar contraseña</h5>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form #changePsw="ngForm" (ngSubmit)="updatePsw(changePsw)">
                         <div class="row">
                             <div class="col-md-5 pr-1">
                                 <div class="form-group">
                                     <label>Contraseña anterior</label>
-                                    <input type="password" class="form-control" placeholder="Ingrese contraseña anterior" value="">
+                                    <input type="password" class="form-control" placeholder="Ingrese contraseña anterior" value="" required [(ngModel)]="passwordOld" name="claveOld">
                                 </div>
                             </div>
                             <div class="col-md-5 px-1">
                                 <div class="form-group">
                                     <label>Contraseña nueva</label>
-                                    <input type="password" class="form-control" placeholder="Ingrese contraseña nueva" value="">
+                                    <input type="password" class="form-control" placeholder="Ingrese contraseña nueva" value="" required [(ngModel)]="password" name="clave">
                                 </div>
                             </div>
 
                             <div class="col-md-5 pr-1">
                                 <div class="form-group">
                                     <label>Estado</label>
-                                    <input type="text" disabled="" class="form-control" placeholder="En Proceso" value="">
+                                    <input type="text" disabled="" class="form-control" [(ngModel)]="estado" name="estadoProveedor">
                                 </div>
                             </div>
                         </div>

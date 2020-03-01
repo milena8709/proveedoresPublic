@@ -35,7 +35,7 @@ class CamposProveedorController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('dato-' + req.body.datos);
+            console.log('dato-', req.body.datos);
             yield database_1.default.query('INSERT INTO inscripcion SET ?', [{ 'idProveedor': req.body.idProveedor }]);
             const id = yield database_1.default.query('SELECT MAX(idinscripcion) as id FROM inscripcion');
             for (const dato of req.body.datos) {

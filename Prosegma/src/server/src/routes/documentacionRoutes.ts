@@ -34,7 +34,7 @@ class DocumentacionRoutes {
        this.router.post('/', this.multipartMidlewaren, (req, res) => {
         const file = req.body.file;
         const name = req.body.name;
-    });
+        });
     }
 
 }

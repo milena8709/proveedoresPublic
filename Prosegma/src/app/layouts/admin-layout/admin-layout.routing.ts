@@ -18,6 +18,7 @@ import { MaterialdetailComponent } from '../../materialdetail/materialdetail.com
 import { GestionarTareaComponent } from '../../upgrade/gestionar-tarea/gestionar-tarea.component';
 import { NewuserComponent } from '../../newuser/newuser.component';
 import { ResultSeleccionComponent } from '../../result-seleccion/result-seleccion.component';
+import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },

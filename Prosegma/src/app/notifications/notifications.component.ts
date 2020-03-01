@@ -42,8 +42,8 @@ const rutas: Routes = [
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
-  [x: string]: any;
-  @HostBinding('class') classes = 'row';
+
+  @HostBinding('class') classes = 'div';
   checkpoliticas: any;
   formulario: any;
 
@@ -84,6 +84,7 @@ export class NotificationsComponent implements OnInit {
   constantes: Constantes = { politica: 'POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES    En cumplimiento de la ley 1581 de 2012, Colombia Compra Eficiente publica la política de protección de Datos Personales y aclara lo siguiente:   Las Entidades Públicas son las Responsables del Tratamiento de los Datos Personales asociada a sus procesos de contratación en el SECOP. Colombia Compra Eficiente, como dueño y administrador de los sistemas de información de la Compra Publica, cumple el rol de Encargado de Tratamiento definido en la Ley 1581 de 2012, donde se limita a publicar la información registrada por las Entidades Públicas y, por ende, no tiene poder de decisión para la eliminación o modificación de los Datos Personales.    En dado caso de que una persona considere que se está afectando su derecho de Privacidad por el mal Tratamiento de Datos Personales, debe hacer un reclamo a la Entidad dueña del proceso de contratación para que cambie la información u oculte los Datos Personales en los documentos cargados en el SECOP. Si la Entidad no sabe o no puede cambiar la información en los sistemas de información, la entidad puede comunicarse con la mesa de servicio de Colombia Compra Eficiente para brindarle el apoyo correspondiente.    Los nombres, apellidos y numero de cedula o identificación de contratistas al igual que el monto del valor del contrato no podrán en ningún caso ser ocultados, dado que constituyen información vital para el cumplimiento del principio de Transparencia.  Las Entidades Públicas no requieren de una autorización para la recolección y tratamiento de Datos Personales cuando estos son necesarios para el ejercicio de sus funciones.    Colombia Compra Eficiente presenta la clasificación de Datos Personales y algunos ejemplos brindados por la Superintendencia de Industria y Comercio:    Dato Público: Dato que no es semiprivado, privado o sensible (Ej. Datos relativos al estado civil de las personas, su profesión u oficio, su calidad de comerciante o servidor público y aquellos que pueden obtenerse sin reserva alguna).    Dato semiprivado: Dato que no tiene naturaleza íntima, reservada, ni pública y cuyo conocimiento interesa al titular y a cierto sector o grupo de personas o a la sociedad en general (Ej. Datos financieros y crediticios, dirección, teléfono, correo electrónico personal).    Datos privados:  Dato que solo es relevante para su titular (Ej. fotografías, videos, Datos relacionados con su estilo de vida.) Datos sensibles: Aquellos Datos que afectan la intimidad de las personas o cuyo uso indebido puede generar discriminación. (Ej. Origen racial o étnico, orientación política, convicciones filosóficas o religiosas, pertenencia a sindicatos u organizaciones sociales o de derechos humanos, datos de salud, vida sexual y biométricos).  Por último, Colombia Compra Eficiente recuerda que no es la encargada de atender los reclamos asociados a la protección de Datos Personales de procesos de contratación que no sea dueño. En dado caso de querer hacer un reclamo sobre Datos Personales, dirigirla a la entidad Responsable del Tratamiento.', 
   mensaje: 'Debe aceptar las politicas de privacidad, ¿desea aceptarlas?'};
   camposformulario: any[] = [];
+  indice: number;
 
   // tslint:disable-next-line: max-line-length
   constructor(private toastr: ToastrService, private camposServices: CamposproveedorService, private dialogService: DialogService, private router: Router) {
@@ -195,6 +196,7 @@ export class NotificationsComponent implements OnInit {
           if (userForm.valid) {
             if (this.checkpoliticas) {
               let indice = 0;
+              this.proveedor[0].idProveedor = this.camposServices.getUsuario()!==undefined? this.camposServices.getUsuario().id_proveedor : ' 0 ';
               this.proveedor[0].licitacion = this.licitacion;
               this.proveedor[0].razonsocial = this.razonsocial;
               this.proveedor[0].identicicacion = this.identificacion;

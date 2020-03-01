@@ -33,8 +33,7 @@ const rutas: Routes = [
 })
 export class ClassificationComponent implements OnInit {
 
-
-  @HostBinding('class') classes = 'row';
+  @HostBinding('class') classes = 'div';
 
   segmento: string;
   familia: string;

@@ -10,11 +10,12 @@ class RegistroUsuario {
     config() {
         this.router.get('/:usuario/:password', usuarioController_1.usuarioController.getUsuario);
         this.router.post('/', usuarioController_1.usuarioController.create);
-        /*  this.router.get('/', usuarioController.list);
-          this.router.get('/:id', usuarioController.getUsuarioById);
-          this.router.post('/', usuarioController.create);
-          this.router.put('/:id', usuarioController.update);
-          this.router.delete('/:id', usuarioController.delete);*/
+        this.router.put('/:idusuario', usuarioController_1.usuarioController.update);
+        this.router.get('/:id', usuarioController_1.usuarioController.getProveedorById);
+        // this.router.get('/', usuarioController.);
+        /*this.router.post('/', usuarioController.create);
+        this.router.put('/:id', usuarioController.update);
+        this.router.delete('/:id', usuarioController.delete);*/
     }
 }
 const registroUsuario = new RegistroUsuario();

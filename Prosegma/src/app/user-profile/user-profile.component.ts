@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  @HostBinding('class') classes = 'row';
+  @HostBinding('class') classes = 'div';
 
 
 

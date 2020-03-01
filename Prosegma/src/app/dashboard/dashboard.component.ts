@@ -12,27 +12,35 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit{
   @HostBinding('class') classes = 'div';
-  @Output() exampleOutput = new EventEmitter<string>();
+
+
 
   sesion: Form;
   autenticado: boolean;
   title = 'Iniciar Sesión';
   usuario: any;
   exampleChild = 'ejemplo angular';
+  message: string;
+  changePsw:NgForm;
 
 
-  ngOnInit(): void {
-
-  }
 
   // tslint:disable-next-line: max-line-length
   constructor(private modalService: NgbModal, private services: CamposproveedorService, private dialogService: DialogService, private router: Router) {
-
   }
 
+  ngOnInit(): void {
+    this.usuario = this.services.getUsuario();
+    if (this.usuario !== undefined) {
+      this.autenticado = true;
+      this.title = 'Bienvenido Usuario ' + this.usuario.usuario;
+    } else {
+      this.autenticado = false;
+    }
 
+  }
 
   login(userForm: NgForm) {
     console.log('login', userForm);
@@ -45,28 +53,19 @@ export class DashboardComponent implements OnInit {
           this.title = 'Bienvenido Usuario ' + this.usuario.usuario;
           // tslint:disable-next-line: no-unused-expression
           this.autenticado = true;
-          this.services.setMenuShow(true);
-          this.router.navigateByUrl('/dashboard');
-         this.exampleOutput.emit(this.exampleChild);
+          this.services.setUsuario(this.usuario);
         },
         err => {
           this.dialogService.openModalOk('Error', err.error.text, () => {
             // tslint:disable-next-line: no-unused-expression
             this.autenticado = false;
           });
-        }
-        );
+        });
     } else {
       this.dialogService.openModalOk('Error', 'Por favor diligenciar todos los campos obligatorios', () => {
         // tslint:disable-next-line: no-unused-expression
       });
     }
   }
-  /*constructor(private camposServices: CamposproveedorService) {
-}
-
-  ngOnInit() {
-
-  }*/
-
+  
 }

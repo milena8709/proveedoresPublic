@@ -42,19 +42,22 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3  pl-1">
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-block" (click)="buscar()">Buscar</button>
+                        <div>
+
+                            <div>
+                                <div class="form-group">
+                                    <a href="/notifications" class="btn btn-primary float-right">atrás   </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3  pl-1">
-                            <div class="form-group">
-                                <a (click)="clear(formulario)" class="btn btn-primary btn-block text-white">Limpiar</a>
+                            <div>
+                                <div class="form-group">
+                                    <a (click)="clear(formulario)" class="btn btn-primary float-right text-white">Limpiar</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3  pl-1">
-                            <div class="form-group">
-                                <a href="/notifications" class="btn btn-primary btn-block">atrás</a>
+                            <div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary float-right" (click)="buscar()">Buscar</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -144,8 +147,8 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-md-3  pl-1">
-                        <a (click)="guardarClasificacion()" class="btn btn-primary btn-block text-white">
+                    <div class="col-md-12  pl-1">
+                        <a (click)="guardarClasificacion()" class="btn btn-primary float-right text-white">
                             Guardar
                         </a>
                     </div>

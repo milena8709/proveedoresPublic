@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Proveedor } from '../app/models/proveedor';
 import { CamposProveedor } from '../app/models/camposproveedor';
+import { SidebarComponent } from '../app/components/sidebar/sidebar.component';
 
 
 
@@ -15,29 +16,14 @@ declare interface RouteInfo {
   class: string;
 }
 
-export const ROUTES: RouteInfo[] = [
-  { path: '/dashboard', title: 'Principal',  icon: 'design_app', class: '' },
-  { path: '/icons', title: 'Cuenta',  icon: 'education_atom', class: '' },
-  { path: '/maps', title: 'Administración cuenta',  icon: 'location_map-big', class: '' },
-  { path: '/notifications', title: 'Inscripcion Proveedor',  icon: 'ui-1_bell-53', class: '' },
 
-  { path: '/user-profile', title: 'Selección Proveedor',  icon: 'users_single-02', class: '' },
-  { path: '/table-list', title: 'Evaluación Proveedor',  icon: 'design_bullet-list-67', class: '' },
-  { path: '/typography', title: 'Entrada Materiales',  icon: 'text_caps-small', class: '' },
-  { path: '/upgrade', title: 'Revisión Proveedores',  icon: 'objects_spaceship', class: '' }
- // { path: '/newuser', title: 'Nuevo Usuario',  icon: 'objects_spaceship', class: 'active active-pro' }
- // { path: '/resultSeleccion', title: 'Resultado Selección',  icon: 'objects_spaceship', class: 'active active-pro' }
 
-];
-
-export const ROUTES_LOGOUT: RouteInfo[] = [
-  { path: '/dashboard', title: 'Principal',  icon: 'design_app', class: '' }
-];
 @Injectable({
   providedIn: 'root'
 })
 
 export class CamposproveedorService {
+  
 
   API_URI_CAMPOS = 'http://localhost:3010/api/campos';
   API_URI_CATALOGO = 'http://localhost:3010/api/catalogo';
@@ -51,6 +37,9 @@ export class CamposproveedorService {
 
   proveedores: any = [];
   showMenu: boolean;
+  menu: any = [];
+  usuario: any;
+ 
 
 
   constructor(private http: HttpClient) {
@@ -72,7 +61,6 @@ export class CamposproveedorService {
 
 
    saveProveedor(proveedor: Proveedor): Observable<any>  {
-    console.log('proveedor: ', [proveedor]);
     return this.http.post(`${this.API_URI_CAMPOS}`, proveedor);
    }
 
@@ -128,31 +116,36 @@ saveUsuario(usuario: any): Observable<object>  {
   return this.http.post(`${this.API_URI_USUARIO}`, usuario);
 }
 
+
+updatePassword(updatePassword: any, idusuario: any){
+  return this.http.put(`${this.API_URI_USUARIO}/${idusuario}`, updatePassword);
+}
+
+
+getProveedorById(id: any) {
+  return this.http.get(`${this.API_URI_USUARIO}/${id}`);
+}
+
+
 // ******************************************* /
 
 setProveedores(proveedoresConAHP: any) {
   this.proveedores = proveedoresConAHP;
 }
 
+setUsuario(usuario: any) {
+  this.usuario = usuario;
+}
+
+getUsuario() {
+  return this.usuario;
+}
+
 getProveedores() {
   return this.proveedores;
 }
 
-setMenuShow(menuShow: boolean) {
-  this.showMenu = menuShow;
-  if (!this.showMenu) {
-    return ROUTES_LOGOUT.filter(menuItem => menuItem);
-  } else {
-    return ROUTES.filter(menuItem => menuItem);
-  }
-}
 
-getMenuShow() {
-  /*if (this.showMenu === undefined) {
-    return ROUTES_LOGOUT.filter(menuItem => menuItem);
-  } else {*/
-    return ROUTES.filter(menuItem => menuItem);
- // }
-}
+
 
 }
