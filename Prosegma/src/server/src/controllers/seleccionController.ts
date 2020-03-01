@@ -90,8 +90,9 @@ class SeleccionController {
                 // tslint:disable-next-line: max-line-length
                 // tslint:disable-next-line: max-line-length
                 await db.query('UPDATE datos_seleccion set calificacion_proveedor = "' + element.porcentaje + '", ranking_proveedor = "' + (index + 1) + '" WHERE id_seleccion = ' + id + ' AND id_proveedor = ' + element.nit);
-                await db.query('UPDATE proveedor set estado = "' + 3 + '" WHERE idproveedor = ' + element.nit);
-
+               if(index !== 0){
+                    await db.query('UPDATE proveedor set estado = "' + 3 + '" WHERE idproveedor = ' + element.nit);
+               }
             }
         }
         res.json({text: 'eliminando usuario'});
