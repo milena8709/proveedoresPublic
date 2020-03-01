@@ -6,18 +6,24 @@ class ProvidersController {
 
 
     public async getProveedorById (req: Request, res: Response) {
-        const id  = req.params.id;
-        const name  = req.params.name;
+        let id  = req.params.id;
+        let name  = req.params.name;
+        if ( name === ' ') {
+            name = '';
+        }
+        if ( id === ' ' ) {
+            id = '';
+        }
         console.log('id : ' + id);
         console.log('name : ' + name);
         console.log('Entra aqui');
-        
         // const proveedor =  await db.query('SELECT * FROM proveedor WHERE idproveedor LIKE %?% AND razon_social LIKE %?%', [ id, name ]);
-        const proveedor =  await db.query('SELECT * FROM proveedor WHERE idproveedor = 1 ');
+        // const proveedor =  await db.query(`SELECT * FROM proveedor WHERE idproveedor LIKE %?%`, [id] );
+        const proveedor =  await db.query(`SELECT * FROM proveedor WHERE idproveedor LIKE '%${id}%' AND razon_social LIKE '%${name}%'`);
         if (proveedor.length > 0) {
             return res.json(proveedor);
         }
-        res.status(404).json({text: 'El proveedor no existe'});
+        return res.status(404).json({text: 'El proveedor no existe'});
     }
 
 

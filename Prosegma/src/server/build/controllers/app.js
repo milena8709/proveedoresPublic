@@ -12,4 +12,4 @@ app.post('/upload', (req, res) => {
         return res.status(200).send({ message: 'File upload' });
     });
 });
-app.listen(3000, () => console.log('Corriendo'));
+app.listen(3010, () => console.log('Corriendo'));

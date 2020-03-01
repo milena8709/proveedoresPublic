@@ -458,6 +458,86 @@ ALTER TABLE `prosegma`.`evaluacion_proveedor`
 CHANGE COLUMN `fecha_creacion` `fecha_creacion` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ;
 
 
+CREATE TABLE `prosegma`.`transacciones` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `descripcion` VARCHAR(45) NULL,
+  `fecha_creacion` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `fecha_limite_entrega` DATETIME NULL,
+  `id_orden_compra` INT NULL,
+  `ruta_orden_compra` VARCHAR(100) NULL,
+  `estado` VARCHAR(100) NULL,
+  `observacion` VARCHAR(500) NULL,
+  `id_proveedor` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `id_proveedor_idx` (`id_proveedor` ASC) VISIBLE,
+  CONSTRAINT `id_provider`
+    FOREIGN KEY (`id_proveedor`)
+    REFERENCES `prosegma`.`proveedor` (`idproveedor`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+CREATE TABLE `prosegma`.`datos_transaccion` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_transaccion` INT NULL,
+  `id_producto` INT NULL,
+  `cantidad_esperada` DOUBLE NULL,
+  `cantidad_recibida` DOUBLE NULL,
+  `unidades` VARCHAR(50) NULL,
+  `aprobacion_calidad` VARCHAR(100) NULL,
+  `observacion` VARCHAR(500) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `id_transaccion_idx` (`id_transaccion` ASC) VISIBLE,
+  INDEX `id_producto_idx` (`id_producto` ASC) VISIBLE,
+  CONSTRAINT `id_transaccion`
+    FOREIGN KEY (`id_transaccion`)
+    REFERENCES `prosegma`.`transacciones` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `id_producto`
+    FOREIGN KEY (`id_producto`)
+    REFERENCES `prosegma`.`producto` (`codigoproducto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+    ALTER TABLE `prosegma`.`clase` 
+    ADD COLUMN `idsegmento` INT NULL AFTER `idfamilia`,
+    ADD INDEX `id_segmento_idx` (`idsegmento` ASC) VISIBLE;
+    ;
+    ALTER TABLE `prosegma`.`clase` 
+    ADD CONSTRAINT `id_segmento`
+    FOREIGN KEY (`idsegmento`)
+    REFERENCES `prosegma`.`segmento` (`codigoSegmento`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
+
+    ALTER TABLE `prosegma`.`producto` 
+ADD COLUMN `id_familia` INT NULL AFTER `idclase`,
+ADD COLUMN `id_segmento` INT NULL AFTER `id_familia`,
+ADD INDEX `id_segmento_idxs` (`id_segmento` ASC) VISIBLE,
+ADD INDEX `id_familia_idxs` (`id_familia` ASC) VISIBLE;
+;
+ALTER TABLE `prosegma`.`producto` 
+ADD CONSTRAINT `id_familia`
+  FOREIGN KEY (`id_familia`)
+  REFERENCES `prosegma`.`familia` (`codigoFamilia`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `id_segmento_pro`
+  FOREIGN KEY (`id_segmento`)
+  REFERENCES `prosegma`.`segmento` (`codigoSegmento`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `prosegma`.`producto` 
+DROP COLUMN `idsegmento`,
+DROP COLUMN `idfamilia`,
+DROP INDEX `id_familia_idx` ,
+DROP INDEX `id_segmento_idx` ;
+ALTER TABLE `prosegma`.`producto` ALTER INDEX `id_segmento_idxs` INVISIBLE;
+ALTER TABLE `prosegma`.`producto` ALTER INDEX `id_familia_idxs` INVISIBLE;
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

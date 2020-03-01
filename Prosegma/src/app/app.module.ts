@@ -20,8 +20,6 @@ import { MatDialogModule, MatButtonModule } from '@angular/material';
 import { DialogTemplateComponent } from './dialog-template/dialog-template.component';
 import { DialogOkTemplateComponent } from './dialog-ok-template/dialog-ok-template.component';
 import { DocumentsComponent } from './documents/documents.component';
-
-import { MostrarEvaluacionesComponent } from './table-list/mostrar-evaluaciones/mostrar-evaluaciones.component';
 import { LoginComponent } from './login/login.component';
 
 

@@ -1,10 +1,10 @@
-<p><strong>Buscar Evaluaciones</strong></p>
-
+<p><strong>Buscar evaluaciones</strong></p>
+<p>Si usted desea buscar una evaluación existente, ingrese los siguientes datos y presione buscar:</p>
 <form (ngSubmit)="seachEvaluation(form)" #form="ngForm">
     <div class="form-row">
         <div class="form-group col-md-3">
             <label for="inputEmail4">NIT/CC</label>
-            <input type="text" class="form-control" placeholder="NIT/CC" name="id"  [(ngModel)]="evaluation.id" #id="ngModel">
+            <input type="text" class="form-control" placeholder="NIT/CC" name="id"  [(ngModel)]="evaluation.idProvider" #id="ngModel">
         </div>
         <div class="form-group col-md-3">
             <label for="inputPassword4">Nombre proveedor</label>
@@ -24,9 +24,9 @@
     </div>
 </form>
 
-<p><strong>Evaluaciones Realizadas</strong></p>
+<p *ngIf="showComponentTwo" ><strong>Evaluaciones realizadas</strong></p>
 
-<div class="table-responsive">
+<div *ngIf="showComponentTwo" class="table-responsive">
     <table class="table">
         <thead class=" text-primary">
             <th>
@@ -46,25 +46,81 @@
             </th>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let evalua of evaluations; let i = index">
                 <td>
-                    123
+                    {{ evalua.idproveedor }}
                 </td>
                 <td>
-                    Jacobo
+                    {{ evalua.razon_social }}
                 </td>
                 <td>
-                    2020
+                    {{ evalua.fecha_creacion | date:'yyyy' }}
                 </td>
                 <td>
-                    1
+                    {{ evalua.semester }}
                 </td>
                 <td>
-                    <button class="btn btn-warning mr-1">
+                    <a style="color:white;" (click)="openModalDetalles(evalua.idproveedor,evalua.titulo,evalua.fecha_creacion)" class="btn btn-warning mr-1">
                         Detalle
-                    </button>
+                    </a>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<!-- Dialog template #2 -->
+<ng-template #secondDialog>
+    <p>{{ evaluationsByDetail[0].titulo }}</p>
+    <hr>
+    <p>Proveedor: <b> {{ evaluationsByDetail[0].razon_social }}</b></p>
+    <p>NIT/CC: <b> {{ evaluationsByDetail[0].idproveedor }}</b></p>
+    <p>Fecha evaluacion: <b> {{ evaluationsByDetail[0].fecha_creacion | date}}</b></p>
+    <table class="table">
+        <thead class=" text-primary">
+            <th>
+                Criterios
+            </th>
+            <th>
+                Pesos
+            </th>
+            <th>
+                Puntuación
+            </th>
+            <th>
+                Mensaje
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let evaluaByDetail of evaluationsByDetail; let i = index">
+                <td>
+                    {{ evaluaByDetail.criterio }}
+                </td>
+                <td>
+                    {{ evaluaByDetail.peso }}
+                </td>
+                <td>
+                    {{ evaluaByDetail.calificacion_criterio }}
+                </td>
+                <td>
+                    {{ evaluaByDetail.mensaje }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    TOTAL
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    {{ evaluationsByDetail[0].calificacion_total | number : '1.2-2'}}
+                </td>
+                <td>
+                    {{ evaluationsByDetail[0].mensajeTotal}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" type="button" onclick="javascript:window.print()">Imprimir</button>
+</ng-template>

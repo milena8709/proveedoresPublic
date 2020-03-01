@@ -6,6 +6,7 @@ import { EventEmitter } from '@angular/core';
 import { Proveedor } from '../../models/proveedor';
 import { Provider } from '../../models/provider';
 import { ProvidersService } from '../../../services/proveedores.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-seleccionar-proveedores',
@@ -37,7 +38,8 @@ export class SeleccionarProveedoresComponent implements OnInit {
 
    count = 0;
    checked = false;
-  constructor(private evaluationService: EvaluationService, private providersService: ProvidersService, private router: Router) {
+   
+  constructor(private toastr: ToastrService,private evaluationService: EvaluationService, private providersService: ProvidersService, private router: Router) {
   }
 
   ngOnInit() {
@@ -54,20 +56,33 @@ export class SeleccionarProveedoresComponent implements OnInit {
       this.count += 1;
       if ( this.count === 2) {
         this.checked = false;
+        this.showNotification('top', 'center');
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/table-list']);
+      });
       }
     } else {
       this.idProviderSelected = '';
       this.name = '';
       this.count = 0;
     }
-   /* this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/table-list']);
-  });*/
     console.log('count = ' + this.count);
     this.callParentEvent();
 
   }
 
+  showNotification(from: string, align: string) {
+
+    const color = Math.floor((Math.random() * 5) + 1);
+
+      this.toastr.error('<span class="now-ui-icons ui-1_bell-53"></span> No puede seleccionar mas de dos <b>Proveedores</b>.', '', {
+         timeOut: 2000,
+         closeButton: true,
+         enableHtml: true,
+         toastClass: 'alert alert-error alert-with-icon',
+         positionClass: 'toast-' + from + '-' +  align
+       });
+    }
   selectedName(social_reason: string, input: boolean) {
     if ( input ) {
       this.name = social_reason;
@@ -92,8 +107,10 @@ export class SeleccionarProveedoresComponent implements OnInit {
     this.request.socialReason = forma.form.value.proveedor;
 
     this.providersService.getProveedorById(this.request).subscribe( (resp) => {
-      console.log('Form resasd : ' + resp);
-      this.proveedores = resp;
+      // console.log('Form resasd : ' + JSON.parse(resp));
+      this.providers = resp;
+    }, ( errorServicio ) => {
+      this.providers = [];
     });
   }
 

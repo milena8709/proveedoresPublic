@@ -1,0 +1,158 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <form><!--(ngSubmit)="createTransaction(form)" #form="ngForm"-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <p><strong>Información de transacción</strong></p>
+                            <br>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Descripción</label>
+                                <div class="col-sm-10"> 
+                                    <input type="text" class="form-control" [placeholder]="transaction[0].descripcion" readonly> <!-- name="descripcion"  [(ngModel)]="transaccion.description" #descripcion="ngModel" -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Fecha limite de entrega</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" [placeholder]="transaction[0].fecha_limite_entrega" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">ID orden de compra</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" [placeholder]="transaction[0].id_orden_compra" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Descargar orden de compra</label>
+                                <div class="col-sm-10">
+                                    <a style="color: white;" type="text" class="btn btn-info">Descargar orden</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Imprimir transacción </label>
+                                <div class="col-sm-10">
+                                    <a style="color: white;" type="text" class="btn btn-info">Imprimir transacción</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 pl-1">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-body">
+                                <p><strong>Gestionar transacción</strong></p>
+                                <br>
+                                <p>A continuación, seleccione el estado de la transacción e ingrese la cantidad de materiales recibidos y su respectiva aprobación de calidad:</p>
+                                <br>
+                                <form><!--(ngSubmit)="searchProducto(form)" #form="ngForm"-->
+                                    <div class="form-row">
+                                        <label class="col-sm-10 col-form-label">Estado de la transacción:</label>
+                                        <div class="form-group col-md-6">
+                                            <select style="padding: 1%;" class="form-control">
+                                                <option value="finalizada">Finalizada</option>
+                                                <option value="finalizada con observaciones">Finalizada con observaciones</option>
+                                                <option value="rechazada">Rechazada</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                                <br>
+                                <br>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Producto
+                                            </th>
+                                            <th>
+                                                Cantidad
+                                            </th>
+                                            <th>
+                                                Unidades
+                                            </th>
+                                            <th style="text-align: center;">
+                                                Cantidad recibida
+                                            </th>
+                                            <th>
+                                                Calidad
+                                            </th>
+                                            <th>
+                                                Observaciones
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let tran of transaction; let i = index"><!---->
+                                                <td>
+                                                    {{ tran.nombreproducto }}
+                                                </td>
+                                                <td>
+                                                    {{ tran.cantidad_esperada }}
+                                                </td>
+                                                <td>
+                                                    {{ tran.unidades }}
+                                                </td>
+                                                <td>
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <input (change)="agregarCantidad(cantidadRecibida[i],tran.id_producto)" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="" aria-label="Search" >
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                    <input #rolInput class="form-check-input" type="checkbox" (click)="selectQuality(tran.id_producto, rolInput.checked);" [checked]="checked">
+                                                    <span class="form-check-sign"></span>
+                                                    </label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" rows="1"></textarea>
+                                                        </div>
+                                                        <!--<div class="form-group">
+                                                            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Obervaciones" aria-label="Search" >
+                                                        </div>-->
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="form-group">
+                                    <label class="col-sm-10 col-form-label">Observaciones  (opcional):</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="float: right; margin: 10px;" >
+                            <button type="submit" class="btn btn-primary">
+                                Guardar
+                            </button>
+                        </div>
+                        <div style="float: left; margin: 10px;" >
+                            <button (click)="goBack()" class="btn btn-primary">
+                                Atras
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

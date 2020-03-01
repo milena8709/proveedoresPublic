@@ -5,7 +5,7 @@ const documentacionController_1 = require("../controllers/documentacionControlle
 class DocumentacionRoutes {
     constructor() {
         this.router = express_1.Router();
-        console.log('ingreso al router documentacion');
+        console.log('ingreso al router camposProveedor');
         this.config();
     }
     config() {

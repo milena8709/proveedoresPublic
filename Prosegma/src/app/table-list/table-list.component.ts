@@ -50,6 +50,8 @@ export class TableListComponent implements OnInit {
 
   showSearchEvaluation = true;
 
+  showSearchEvaluationComponent = false;
+
   constructor(private evaluationService: EvaluationService, private criteriosService: CriteriosService) { }
 
   ngOnInit() {
@@ -178,9 +180,12 @@ export class TableListComponent implements OnInit {
 
   showSearch(show: boolean) {
     this.showSearchEvaluation = false;
+    this.showSearchEvaluationComponent = true;
+
   }
 
   noShowSearch() {
     this.showSearchEvaluation = true;
+    this.showSearchEvaluationComponent = false;
   }
 }

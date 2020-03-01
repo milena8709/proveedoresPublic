@@ -19,6 +19,7 @@ import { GestionarTareaComponent } from '../../upgrade/gestionar-tarea/gestionar
 import { NewuserComponent } from '../../newuser/newuser.component';
 import { ResultSeleccionComponent } from '../../result-seleccion/result-seleccion.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { GestionarTransaccionComponent } from 'src/app/gestionar-transaccion/gestionar-transaccion.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -38,5 +39,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'materialdetail',        component: MaterialdetailComponent },
     { path: 'gestionartarea',        component: GestionarTareaComponent },
     { path: 'newuser',        component: NewuserComponent },
-    { path: 'resultSeleccion',        component: ResultSeleccionComponent }
+    { path: 'resultSeleccion',        component: ResultSeleccionComponent },
+    { path: 'transaction/:id',        component: GestionarTransaccionComponent }
 ];

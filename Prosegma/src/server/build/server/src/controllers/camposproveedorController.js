@@ -14,12 +14,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
 class CamposProveedorController {
-    getCampos(req, res) {
+    list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('get campos');
-            const campos = yield database_1.default.query('SELECT * FROM camposproveedor');
-            if (campos.length > 0) {
-                return res.json(campos);
+            const usuarios = yield database_1.default.query('SELECT * FROM usuarios');
+            return res.json(usuarios);
+        });
+    }
+    getCamposById(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            console.log(id);
+            const usuarios = yield database_1.default.query('SELECT * FROM camposproveedor where idproveedor = ?', [id]);
+            if (usuarios.length > 0) {
+                return res.json(usuarios);
             }
             res.status(404).json({ text: 'El campo no existe' });
         });
@@ -35,15 +42,15 @@ class CamposProveedorController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO inscripcion SET ?', [{ 'idProveedor': req.body.idProveedor }]);
-            const id = yield database_1.default.query('SELECT MAX(idinscripcion) as id FROM inscripcion');
+            console.log(req.body.datos[0]);
+            // tslint:disable-next-line: forin
             for (const dato of req.body.datos) {
-                console.log('dato' + dato);
-                dato.inscripcion = id;
+                console.log('create proveedor' + dato);
                 yield database_1.default.query('INSERT INTO datos SET ?', [dato]);
             }
-            //  const licitacion = { 'nombrelicitacion': req.body.licitacion};
-            //  await db.query('INSERT INTO licitacion SET ?', [licitacion]);
+            const licitacion = { 'nombrelicitacion': req.body.licitacion };
+            yield database_1.default.query('INSERT INTO licitacion SET ?', [licitacion]);
+            yield database_1.default.query('INSERT INTO inscripcion SET ?', [{ 'idProveedor': req.body.idProveedor }]);
             res.json({ text: 'Usuario guardado exitosamente' });
         });
     }

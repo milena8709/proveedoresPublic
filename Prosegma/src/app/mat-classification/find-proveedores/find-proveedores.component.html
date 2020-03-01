@@ -1,0 +1,55 @@
+<p>A continuación, busque y seleccione el proveedor relacionado a la transacción:</p>
+<br>
+<p><strong>Buscar Proveedores</strong></p>
+<form (ngSubmit)="buscar(forma)" #forma="ngForm">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>NIT/CC</label>
+            <input input type="text" class="form-control" placeholder="NIT/CC" name="id"  [(ngModel)]="usuario.id" #id="ngModel">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Nombre proveedor</label>
+            <input type="text" class="form-control"  placeholder="Nombre del proveedor" name="proveedor"  [(ngModel)]="usuario.name" #name="ngModel">
+        </div>
+    </div>
+    <div style="text-align: right;">
+        <button type="submit" class="btn btn-primary btn-sm"><small>Buscar</small></button>
+    </div>
+</form>
+
+
+<p><strong>Seleccionar Proveedores</strong></p>
+
+<div class="table-responsive">
+        <table class="table">
+            <thead class=" text-primary">
+                <th>
+                    NIT/CC
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Seleccionar
+                </th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pro of providers; let i = index">
+                    <td>
+                        {{pro.idproveedor}}
+                    </td>
+                    <td>
+                        {{ pro.razon_social }}
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input #rolInput class="form-check-input" type="checkbox" (click)="selectProvider(pro.idproveedor, rolInput.checked); selectedName(pro.razon_social,rolInput.checked)" [checked]="checked"/>
+                                <span class="form-check-sign"></span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
