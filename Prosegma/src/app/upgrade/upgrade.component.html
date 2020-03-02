@@ -1,75 +1,85 @@
-<div class="main-content m-3">
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="card">
-
-
-                <p><strong>Buscar proveedores</strong></p>
-                <div class="form-row">
-                    <form (ngSubmit)="seachTask(form)" #form="ngForm">
-                        <div class="form-row">
-                            <div class="form-group col-md-3">
-                                <label for="nitcc">NIT/CC</label>
-                                <input type="text" class="form-control" placeholder="NIT/CC" name="nit"  [(ngModel)]="supplier.id" #id="ngModel">
+                <div class="card-body">
+                    <form>
+                        <h5 class="title">Buscar proveedores</h5>
+                        <br>
+                        <div class="col-md-4">
+                            <div>
+                                <label>NIT/CC</label>
+                                <input type="text" class="form-control" placeholder="" name="identificacion" [(ngModel)]="id">
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="nombreProveedor">Nombre proveedor</label>
-                                <input type="text" class="form-control" placeholder="Nombre del proveedor" name="nombreProveedor"  [(ngModel)]="supplier.name" #name="ngModel">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="estadoTare">Estado</label>
-                                <input type="text" class="form-control" placeholder="Estado" name="estadoTarea"  [(ngModel)]="task.state" #date="ngModel">
-                            </div>
-                        
                         </div>
-                        <div style="text-align: right;">
-                            <button type="submit" class="btn btn-primary btn-sm"><small>Buscar</small></button>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Nombre proveedor</label>
+                                <input type="text" class="form-control" name="nombre" [(ngModel)]="name">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Estado</label>
+                                <input type="text" class="form-control" name="estado" [(ngModel)]="status">
+                            </div>
                         </div>
                     </form>
+
+                    <div class="col-md-12 pl-1 ">
+                        <a href="/gestionartarea" class="btn btn-primary float-right text-white">
+                          Buscar
+                        </a>
+                    </div>
                 </div>
-            
-                
-                <p><strong>Listado de tareas</strong></p>
-                
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead class=" text-primary">
-                            <th>
-                                NIT/CC
-                            </th>
-                            <th>
-                                Nombre
-                            </th>
-                            <th>
-                                Estado
-                            </th>
-                            
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    123
-                                </td>
-                                <td>
-                                    Jacobo
-                                </td>
-                                <td>
-                                    Activa
-                                </td>
-                               
-                                <td>
-                                    <button class="btn btn-warning mr-1">
-                                        Ir a tarea
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-12 pl-1 ">
+        <div class="row ">
+            <div class="col-md-12 ">
+                <div class="card ">
+                    <div class="card-body ">
+                        <div class="card-header ">
+                            <h5 class="title ">Listado de revisiones</h5>
+
+                        </div>
+                        <div class="table-responsive ">
+                            <table class="table ">
+                                <thead class=" text-primary ">
+                                    <th>
+                                        CC/NIT
+                                    </th>
+                                    <th class="text-center ">
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Estado
+                                    </th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of proveedores; let i=index">
+                                        <td>
+                                            {{item.nit}}
+                                        </td>
+                                        <td>
+                                            {{item.nombre}}
+                                        </td>
+                                        <td>
+                                            estado
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-</div>
-
-

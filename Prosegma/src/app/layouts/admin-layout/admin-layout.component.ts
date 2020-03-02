@@ -16,11 +16,12 @@ export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
-  menuShow:string;
+ 
 
   constructor( public location: Location, private router: Router) {}
 
   ngOnInit() {
+      console.log('admin');
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
@@ -38,14 +39,16 @@ export class AdminLayoutComponent implements OnInit {
       });
        this.router.events.subscribe((event:any) => {
           if (event instanceof NavigationStart) {
-             if (event.url != this.lastPoppedUrl)
+             if (event.url !== this.lastPoppedUrl) {
                  this.yScrollStack.push(window.scrollY);
+             }
          } else if (event instanceof NavigationEnd) {
-             if (event.url == this.lastPoppedUrl) {
+             if (event.url === this.lastPoppedUrl) {
                  this.lastPoppedUrl = undefined;
                  window.scrollTo(0, this.yScrollStack.pop());
-             } else
+             } else {
                  window.scrollTo(0, 0);
+             }
          }
       });
       this._router = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {

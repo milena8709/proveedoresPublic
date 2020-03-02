@@ -15,13 +15,15 @@ import { AhpComponent } from '../../ahp/ahp.component';
 import { MatClassificationComponent } from '../../mat-classification/mat-classification.component';
 import { TransactionComponent } from '../../transaction/transaction.component';
 import { MaterialdetailComponent } from '../../materialdetail/materialdetail.component';
-import { GestionarTareaComponent } from '../../upgrade/gestionar-tarea/gestionar-tarea.component';
+import { GestionarTareaComponent } from '../../gestionar-tarea/gestionar-tarea.component';
 import { NewuserComponent } from '../../newuser/newuser.component';
 import { ResultSeleccionComponent } from '../../result-seleccion/result-seleccion.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { GestionarTransaccionComponent } from '../../gestionar-transaccion/gestionar-transaccion.component';
 
+
 export const AdminLayoutRoutes: Routes = [
+
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },

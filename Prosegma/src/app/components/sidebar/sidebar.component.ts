@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CamposproveedorService } from '../../../services/camposproveedor.service';
 
 
@@ -42,10 +42,10 @@ export class SidebarComponent implements OnInit {
 
   menuShow: string;
 
+
   ngOnInit() {
    this.menuItems = (ROUTES.filter(menuItem => menuItem));
   }
-  
 
 
   isMobileMenu() {
