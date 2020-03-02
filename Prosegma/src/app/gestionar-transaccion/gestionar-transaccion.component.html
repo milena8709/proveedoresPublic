@@ -18,7 +18,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Fecha limite de entrega</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" [placeholder]="transaction[0].fecha_limite_entrega" readonly>
+                                    <input type="text" class="form-control" [placeholder]="transaction[0].fecha_limite_entrega | date" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -47,6 +47,7 @@
         <div class="col-md-12 pl-1">
             <div class="row">
                 <div class="col-md-12">
+                    <form (ngSubmit)="createTransaction(form)" #form="ngForm">
                     <div class="card">
                         <div class="card-body">
                             <div class="card-body">
@@ -54,18 +55,16 @@
                                 <br>
                                 <p>A continuación, seleccione el estado de la transacción e ingrese la cantidad de materiales recibidos y su respectiva aprobación de calidad:</p>
                                 <br>
-                                <form><!--(ngSubmit)="searchProducto(form)" #form="ngForm"-->
-                                    <div class="form-row">
-                                        <label class="col-sm-10 col-form-label">Estado de la transacción:</label>
-                                        <div class="form-group col-md-6">
-                                            <select style="padding: 1%;" class="form-control">
-                                                <option value="finalizada">Finalizada</option>
-                                                <option value="finalizada con observaciones">Finalizada con observaciones</option>
-                                                <option value="rechazada">Rechazada</option>
-                                            </select>
-                                        </div>
+                                <div class="form-row">
+                                    <label class="col-sm-10 col-form-label">Estado de la transacción:</label>
+                                    <div class="form-group col-md-6">
+                                        <select [disabled]="transaction[0].estado === 'finalizada' || transaction[0].estado === 'finalizada con observaciones'" style="padding: 1%;" class="form-control" (click)="agregarEstado(estadoTransaccion)"  [name]="estadoTransaccion" [(ngModel)]="transaction[0].estado" class="form-control"  [ngModelOptions]="{standalone: true}">
+                                            <option selected="selected" value="finalizada">Finalizada</option>
+                                            <option value="finalizada con observaciones">Finalizada con observaciones</option>
+                                            <option value="rechazada">Rechazada</option>
+                                        </select>
                                     </div>
-                                </form>
+                                </div>
                                 <br>
                                 <br>
                                 <div class="table-responsive">
@@ -104,14 +103,14 @@
                                                 <td>
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <input (change)="agregarCantidad(cantidadRecibida[i],tran.id_producto)" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="" aria-label="Search" >
+                                                            <input [readonly]="tran.estado === 'Finalizada' || tran.estado === 'Rechazada' " (change)="agregarCantidad(cantidadRecibida[i],tran.id_producto)" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="" aria-label="Search" [name]="cantidadRecibida[i]" [(ngModel)]="cantidadRecibida[i]" [ngModelOptions]="{standalone: true}" >
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                    <input #rolInput class="form-check-input" type="checkbox" (click)="selectQuality(tran.id_producto, rolInput.checked);" [checked]="checked">
+                                                    <input [disabled]="tran.estado === 'Finalizada' || tran.estado === 'Rechazada'" #rolInput class="form-check-input" type="checkbox" (click)="selectQuality(tran.id_producto, rolInput.checked);" [checked]="checked">
                                                     <span class="form-check-sign"></span>
                                                     </label>
                                                     </div>
@@ -119,7 +118,7 @@
                                                 <td>
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <textarea class="form-control" rows="1"></textarea>
+                                                            <textarea [readonly]="tran.estado === 'Finalizada' || tran.estado === 'Rechazada'"  (change)="takeObservation(observaciones[i],tran.id_producto)" [name]="observaciones[i]" [(ngModel)]="observaciones[i]" [ngModelOptions]="{standalone: true}" class="form-control" rows="1"></textarea>
                                                         </div>
                                                         <!--<div class="form-group">
                                                             <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Obervaciones" aria-label="Search" >
@@ -135,7 +134,7 @@
                                 <br>
                                 <div class="form-group">
                                     <label class="col-sm-10 col-form-label">Observaciones  (opcional):</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea  (change)="takeGenenralObservation(observacionesGenerales)" [name]="observacionesGenerales" [(ngModel)]="observacionesGenerales" [ngModelOptions]="{standalone: true}" class="form-control" rows="3" ></textarea>
                                 </div>
                             </div>
                         </div>
@@ -150,6 +149,7 @@
                             </button>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 
 export interface Transaction {
 
+    idTransaction?: string;
     description?: string;
     fechalimite?: Date;
     idorden?: string;

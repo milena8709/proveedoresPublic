@@ -32,8 +32,6 @@ export class TransactionComponent implements OnInit {
   }
 
   viewTransaction(dato: string) {
-
-    //this.showTransaction = true;
     console.log('dato : ' + dato);
 
     const id = dato;

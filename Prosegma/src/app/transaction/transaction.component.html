@@ -14,7 +14,13 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Estado</label>
-                                    <input type="text" class="form-control" placeholder=""  name="estado"  [(ngModel)]="transactions.estado" #estado="ngModel"><!---->
+                                    <select style="padding: 1%;" class="form-control"  name="estado" [(ngModel)]="transactions.estado" class="form-control" #estado="ngModel">
+                                        <option value="finalizada">Finalizada</option>
+                                        <option value="finalizada con observaciones">Finalizada con observaciones</option>
+                                        <option value="rechazada">Rechazada</option>
+                                        <option value="En proceso">En proceso</option>
+                                    </select>
+                                    <!--<input type="text" class="form-control" placeholder=""  name="estado"  [(ngModel)]="transactions.estado" #estado="ngModel">-->
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Fecha limite de entrega</label>

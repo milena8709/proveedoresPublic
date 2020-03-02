@@ -76,6 +76,12 @@ let TransactionService = class TransactionService {
         return this.http.get(`${this.API_URI_MATERIALS}/getTransactionUpdate/${id}`);
     }
 
+    updateTransaction(transaction){
+        console.log(transaction);
+        console.log(this.API_URI_MATERIALS);
+        return this.http.put(`${this.API_URI_MATERIALS}/updateTransaction`, transaction);
+    }
+
     
 };
 TransactionService = __decorate([

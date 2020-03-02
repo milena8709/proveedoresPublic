@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EvaluationService } from '../../services/evaluation.service';
 import { Router } from '@angular/router';
@@ -52,7 +52,7 @@ export class TableListComponent implements OnInit {
 
   showSearchEvaluationComponent = false;
 
-  constructor(private evaluationService: EvaluationService, private criteriosService: CriteriosService) { }
+  constructor(private evaluationService: EvaluationService, private criteriosService: CriteriosService, private route: Router) { }
 
   ngOnInit() {
     this.criteriosService.getEvaluation().subscribe( (resp) => {
@@ -74,6 +74,7 @@ export class TableListComponent implements OnInit {
     } else {
       console.log('no se puede registrar la evaluacion porque no ha seleccioando todos los campos');
     }
+    this.gotoTop();
 
   }
 
@@ -176,6 +177,10 @@ export class TableListComponent implements OnInit {
       this.secondStep = false;
       this.thirdStep = false;
       this.fourStep = false;
+
+      this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.route.navigate(['/table-list']);
+      });
   }
 
   showSearch(show: boolean) {
@@ -187,5 +192,10 @@ export class TableListComponent implements OnInit {
   noShowSearch() {
     this.showSearchEvaluation = true;
     this.showSearchEvaluationComponent = false;
+  }
+
+  gotoTop() {
+      document.getElementById('secondElem').scrollIntoView();
+
   }
 }
