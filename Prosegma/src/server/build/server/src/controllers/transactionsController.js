@@ -148,48 +148,29 @@ class TransactionsController {
     updateTransaction(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             // tslint:disable-next-line: forin
-            console.log(req);
-            let descripcion = req.body.description;
-            if (descripcion == null) {
-                descripcion = '';
+            console.log(req.body.materiales);
+            let estadoGeneral = req.body.estado;
+            if (estadoGeneral == null) {
+                estadoGeneral = '';
             }
-            let fecha = req.body.fechalimite;
-            if (fecha == null) {
-                fecha = '';
+            let observacionGeneral = req.body.observacion;
+            if (observacionGeneral == null) {
+                observacionGeneral = '';
             }
-            let idOrden = req.body.idorden;
-            if (idOrden == null) {
-                idOrden = '';
+            let idTransaction = req.body.idTransaction;
+            console.log('Materiales :: ' + req.body.materiales.length);
+            for (let i = 0; i < req.body.materiales.length; i++) {
+                const cantidad_recibida = req.body.materiales[i].cantidad_recibida;
+                const aprobacion_calidad = req.body.materiales[i].aprobacion_calidad;
+                const observacion = req.body.materiales[i].observacion;
+                // const idtransaccion = req.body.materiales[i].idproducto;
+                const id_producto = req.body.materiales[i].idproducto;
+                //const id = req.body.materiales[i].unidades;
+                // console.log('cantidad_esperada :: ' + cantidad_esperada);
+                // tslint:disable-next-line: max-line-length
+                yield database_1.default.query('UPDATE datos_transaccion, transacciones SET datos_transaccion.cantidad_recibida = ?, datos_transaccion.aprobacion_calidad = ?, datos_transaccion.observacion = ?, transacciones.estado = ? WHERE datos_transaccion.id_transaccion = ? AND datos_transaccion.id_producto = ? AND transacciones.id = ?', [cantidad_recibida, aprobacion_calidad, observacion, estadoGeneral, idTransaction, id_producto, idTransaction]);
             }
-            let idProveedor = req.body.idproveedor;
-            if (idProveedor == null) {
-                idProveedor = '';
-            }
-            let estado = 'pendiente';
-            if (estado == null) {
-                estado = '';
-            }
-            let rutaOrden = 'C:/sf/';
-            if (rutaOrden == null) {
-                rutaOrden = '';
-            }
-            let observacion = '';
-            if (observacion == null) {
-                observacion = '';
-                console.log('Materiales :: ' + req.body.materiales.length);
-                for (let i = 0; i < req.body.materiales.length; i++) {
-                    const cantidad_recibida = '';
-                    const aprobacion_calidad = '';
-                    const observacion = '';
-                    const idtransaccion = req.body.materiales[i].idproducto;
-                    const id_producto = req.body.materiales[i].cantidad_esperada;
-                    const id = req.body.materiales[i].unidades;
-                    // console.log('cantidad_esperada :: ' + cantidad_esperada);
-                    // tslint:disable-next-line: max-line-length
-                    yield database_1.default.query('UPDATE datos_transaccion, transacciones SET datos_transaccion.cantidad_recibida = ?, datos_transaccion.aprobacion_calidad = ?, datos_transaccion.observacion = ?, transacciones.estado = ? WHERE datos_transaccion.id_transaccion = ? AND datos_transaccion.id_producto = ? AND transacciones.id = ?' /*, [id_transacion[0].id, idproducto, cantidad_esperada, unidades]*/);
-                }
-                res.json({ text: 'evaluacion guardado exitosamente' });
-            }
+            res.json({ text: 'evaluacion guardado exitosamente' });
         });
     }
 }

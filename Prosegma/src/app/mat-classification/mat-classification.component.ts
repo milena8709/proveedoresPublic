@@ -5,6 +5,7 @@ import { Materials } from '../models/materials';
 import { NgForm } from '@angular/forms';
 import { MaterialsData } from '../models/materialsData';
 import { Product } from '../models/products';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mat-classification',
@@ -44,7 +45,7 @@ export class MatClassificationComponent implements OnInit {
 
   product: Product [] = [];
 
-  constructor(private transactionService: TransactionService) { }
+  constructor(private transactionService: TransactionService, private route: Router) { }
 
   ngOnInit() {
     this.transactionService.getMaterials().subscribe( (resp) => {
@@ -114,7 +115,7 @@ export class MatClassificationComponent implements OnInit {
     }
 
     console.log('SAFEMATERIALS :: ' + JSON.stringify(this.safeMaterials));
-
+    this.route.navigate(['/typography']);
   }
 
   agregarDato(dato: string, idProducto: string) {
@@ -133,7 +134,7 @@ export class MatClassificationComponent implements OnInit {
     }
   }
 
-  agregarUnidad(dato: string, idProducto: string){
+  agregarUnidad(dato: string, idProducto: string) {
     console.log('Cantidades :: ' + dato + ' - ' + idProducto);
     const data = new MaterialsData();
     data.idproducto = idProducto;
@@ -156,7 +157,7 @@ export class MatClassificationComponent implements OnInit {
     } else {
       const index = this.materiales.findIndex(x => x.idproducto === idProduct);
       console.log('index material : ' + index);
-      this.materiales.splice(index,1);
+      this.materiales.splice(index, 1);
     }
   }
 

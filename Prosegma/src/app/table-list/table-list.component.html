@@ -2,7 +2,7 @@
 <div class="main-content m-3">
     <div class="row">
         <div class="col-md-12">
-
+            <div #secondElem id="secondElem"></div>
             <div *ngIf="firstStep" class="card justify-content-center">
                 
                 <form (ngSubmit)="createEvaluation(form)" #form="ngForm">
@@ -70,12 +70,12 @@
                         <p>A continuación, usted debe calificar de 1 a 10 al proveedor.</p>
                         <div class="container m-5">
                             
-                                <div style="width: 50%;" *ngFor="let criterio of criterios; let i = index;" class="form-group row">
-                                    <label class="col-sm-2 col-form-label">{{ criterio.criterio }}</label>
-                                    <div class="col-sm-10">
+                                <div style="width: 50%; text-align: center;" *ngFor="let criterio of criterios; let i = index;" class="form-group row">
+                                    <label style="text-align: center;" class="col-sm-8 col-form-label">{{ criterio.criterio }}</label>
+                                    <div style="text-align: left;" class="col-sm-4">
                                         <input class="form-control"
                                         type="text"
-                                        placeholder="#"
+                                        placeholder=""
                                         [name]="i + 1"
                                         [(ngModel)]="criteriosDescription[i + 1]"
                                         [ngModelOptions]="{standalone: false}">

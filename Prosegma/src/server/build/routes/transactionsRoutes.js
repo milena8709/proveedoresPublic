@@ -13,9 +13,10 @@ class TransactionsRoutes {
         this.router.get('/getMaterial/:segmento/:familia/:clase/:producto/', transactionsController_1.transactionsController.getMaterialsByFilters);
         this.router.get('/getTransaction', transactionsController_1.transactionsController.getTransactions);
         this.router.post('/', transactionsController_1.transactionsController.createTransaction);
+        // tslint:disable-next-line: max-line-length
         this.router.get('/getTransaction/:estado/:fecha_limite_entrega/:idproveedor/:id_orden_compra/', transactionsController_1.transactionsController.findTransactionByFilter);
         this.router.get('/getTransactionUpdate/:id', transactionsController_1.transactionsController.getTransactionToUpdate);
-        this.router.put('/updateTransaction/:cantidad_recibida/:aprobacion_calidad/:observacion/:estado/:id_transaccion/:id_producto/', transactionsController_1.transactionsController.updateTransaction);
+        this.router.put('/updateTransaction', transactionsController_1.transactionsController.updateTransaction);
         // this.router.get('/id', evaluationController.getProveedorById);
         // this.router.post('/', evaluationController.createEvaluation);
         // this.router.put('/:id', camposProveedorController.update);
