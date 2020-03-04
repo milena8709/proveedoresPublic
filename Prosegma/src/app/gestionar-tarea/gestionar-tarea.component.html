@@ -42,12 +42,14 @@
                     <div class="card-body ">
                         <div class="card-header ">
                             <h5 class="title ">Documentos a revisar</h5>
-
+                            <br>
+                            <div>A continuación, usted podrá aceptar o rechazar un documento del proveedor seleccionado:</div>
+                            <br>
                         </div>
                         <div class="table-responsive ">
                             <table class="table ">
                                 <thead class=" text-primary ">
-                                    <th>
+                                    <th class="text-center ">
                                         Número
                                     </th>
                                     <th class="text-center ">
@@ -60,16 +62,16 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>
+                                        <td class="text-center ">
                                             1
                                         </td>
-                                        <td>
-                                            nombre
+                                        <td class="text-center ">
+                                            Certificado de calidad
                                         </td>
                                         <td>
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" (change)="change(item)" >
+                                              <input class="form-check-input" type="checkbox" (change)="change(item)" checked>
                                               <span class="form-check-sign"></span>
                                             </label>
                                             </div>
@@ -86,7 +88,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div>
-                                    <label>Tipo Usuario</label>
+                                    <label>Cambiar estado de la revisión</label>
                                     <select class="form-control">
                                     <option value="0">Seleccione una opción</option>
                                     <option value="compras">Activa</option>

@@ -6,7 +6,9 @@
             <div class="card">
                 <div class="card-body">
                     <form>
-                        <h5 class="title">Buscar proveedores</h5>
+                        <h5 class="title">Buscar tareas</h5>
+                        <br>
+                        <div>A continuación, encontrará las tareas relacionadas a la revisión de los documentos del proveedor:</div>
                         <br>
                         <div class="col-md-4">
                             <div>
@@ -16,7 +18,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Nombre proveedor</label>
+                                <label>Nombre de proveedor</label>
                                 <input type="text" class="form-control" name="nombre" [(ngModel)]="name">
                             </div>
                         </div>
@@ -26,13 +28,14 @@
                                 <input type="text" class="form-control" name="estado" [(ngModel)]="status">
                             </div>
                         </div>
+                        <div class="col-md-12 pl-1 ">
+                            <a href="/gestionartarea" class="btn btn-primary float-right text-white">
+                              Buscar
+                            </a>
+                        </div>
                     </form>
 
-                    <div class="col-md-12 pl-1 ">
-                        <a href="/gestionartarea" class="btn btn-primary float-right text-white">
-                          Buscar
-                        </a>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -45,7 +48,7 @@
                 <div class="card ">
                     <div class="card-body ">
                         <div class="card-header ">
-                            <h5 class="title ">Listado de revisiones</h5>
+                            <h5 class="title ">Listado de tareas de revisión de documentos</h5>
 
                         </div>
                         <div class="table-responsive ">
@@ -63,17 +66,18 @@
 
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of proveedores; let i=index">
+                                    <tr>
                                         <td>
-                                            {{item.nit}}
+                                            1061701343
                                         </td>
                                         <td>
-                                            {{item.nombre}}
+                                            Andres
                                         </td>
                                         <td>
-                                            estado
+                                            Activa
                                         </td>
                                     </tr>
+
                                 </tbody>
                             </table>
                         </div>
