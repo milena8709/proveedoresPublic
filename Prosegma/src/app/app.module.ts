@@ -21,6 +21,7 @@ import { DialogTemplateComponent } from './dialog-template/dialog-template.compo
 import { DialogOkTemplateComponent } from './dialog-ok-template/dialog-ok-template.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { LoginComponent } from './login/login.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { LoginComponent } from './login/login.component';
     AdminLayoutComponent,
     DialogTemplateComponent,
     DialogOkTemplateComponent,
-    LoginComponent
+    LoginComponent,
+    DialogComponent
     ],
 
 

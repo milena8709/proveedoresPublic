@@ -10,7 +10,7 @@ const core_1 = require("@angular/core");
 let ProvidersService = class ProvidersService {
     constructor(http) {
         this.http = http;
-        API_URI_PROVIDERS = 'http://localhost:3010/api/provider';
+        API_URI_PROVIDERS = 'https://prosegmaprueba.us-3.evennode.com/api/provider';
     }
 
     getProveedorById(reques) {

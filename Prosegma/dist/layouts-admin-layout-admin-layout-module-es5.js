@@ -54073,7 +54073,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Pagina en construcción</h5>\n                </div>\n                <div class=\"card-body\">\n                    <form>\n                        <div class=\"col-md-4  pl-1\">\n                            <a class=\"btn btn-primary btn-block text-white\" (click)=\"showNotification('top','left')\">\n                                Siguiente\n                            </a>\n                        </div>\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <div class=\"card-header\">\r\n                            <h5 class=\"title\">Calificación de selección</h5>\r\n                            <div>A continuación, usted debe calificar los proveedores a través del AHP:</div>\r\n                        </div>\r\n                        <br>\r\n                        <div class=\"col-md-12\">\r\n                            <div>\r\n                                <label>Titulo de selección</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"tituloSeleccion\" [(ngModel)]=\"titulo\" disabled>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\">\r\n                                <label>Descripción</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"descripcion\" name=\"descripcionSelec\" [(ngModel)]=\"descripcion\" disabled>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"main-content pl-1\">\r\n        <div class=\"row\" style=\"background-color: white;\">\r\n            <div class=\"col-md-6\">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Ponderar Alternativas vs Criterios</h5>\r\n                        </div>\r\n                        <div class=\"table\" *ngFor=\" let item of criterios; let i=index \">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>\r\n                                        {{item.criterio}}\r\n                                    </th>\r\n                                    <th class=\"text-left text-black-50\" *ngFor=\"let proveedor of proveedores\">\r\n                                        {{proveedor.nombre}}\r\n                                    </th>\r\n\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of proveedores; let h=index \">\r\n                                        <td class=\"text-black-50\">\r\n                                            <b>{{item.nombre}}</b>\r\n                                        </td>\r\n                                        <td *ngFor=\"let proveedor of proveedores; let j=index\">\r\n                                            <div class=\"col-md-8\">\r\n                                                <div class=\"form-group\">\r\n                                                    <input type=\"number\" class=\"form-control\" placeholder=\"\" name=\"ind\" [(ngModel)]=\"dato\" required>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <!--tr>\r\n                                        <td><label>Total</label></td>\r\n                                        <td *ngFor=\"let proveedor of proveedores; let z=index \">\r\n                                            <div class=\"col-md-6\">\r\n                                                <div class=\"form-group\">\r\n                                                    <label>{{total}}</label>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr-->\r\n\r\n                                </tbody>\r\n\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Ponderar Criterios vs Criterios</h5>\r\n                        </div>\r\n                        <div class=\"table\">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>Criterios</th>\r\n                                    <th class=\"text-black-50\" *ngFor=\" let item of criterios; let i=index \">\r\n                                        {{item.criterio}}\r\n                                    </th>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\" let item of criterios; let i=index \">\r\n                                        <td class=\"text-black-50\">\r\n                                            <b> {{item.criterio}}</b>\r\n                                        </td>\r\n                                        <td *ngFor=\" let item of criterios; let i=index \">\r\n                                            <div class=\"col-md-8\">\r\n                                                <div class=\"form-group\">\r\n                                                    <input type=\"number\" class=\"form-control\" placeholder=\"\" name=\"ind\" [(ngModel)]=\"j\" required>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <!--tr>\r\n                                        <td><label>Total</label></td>\r\n                                        <td *ngFor=\"let proveedor of proveedores; let z=index \">\r\n                                            <div class=\"col-md-6\">\r\n                                                <div class=\"form-group\">\r\n                                                    <label>{{total}}</label>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr-->\r\n\r\n                                </tbody>\r\n\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-12 pl-1 \">\r\n                <a (click)=\"saveSeleccionProveedor() \" class=\"btn btn-primary float-right text-white\">\r\n                  Guardar\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -54093,7 +54093,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Clasificación</h5>\n                </div>\n                <div class=\"col-md-12\">En esta sección usted debe seleccionar todos los productos que ofrezca, ingrese en los siguientes campos el código o el nombre del segmento, familia, clase o producto.</div>\n                <br>\n                <div class=\"card-body\">\n                    <form>\n\n                        <div class=\"col-md-6 pr-1\">\n                            <div class=\"form-group\">\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Segmento</label>\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\" name=\"segmento\" [(ngModel)]=\"segmento\">\n\n                            </div>\n                        </div>\n                        <div class=\"col-md-6 pr-1\">\n                            <div class=\"form-group\">\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Familia</label>\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\" name=\"familia\" [(ngModel)]=\"familia\">\n\n                            </div>\n                        </div>\n                        <div class=\"col-md-6 pr-1\">\n                            <div class=\"form-group\">\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Clase</label>\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\" name=\"clase\" [(ngModel)]=\"clase\">\n\n                            </div>\n                        </div>\n\n                        <div class=\"col-md-6 pr-1\">\n                            <div class=\"form-group\">\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Producto</label>\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\" name=\"producto\" [(ngModel)]=\"producto\">\n\n                            </div>\n                        </div>\n\n                        <div class=\"col-md-3  pl-1\">\n                            <div class=\"form-group\">\n                                <button class=\"btn btn-primary btn-block\" (click)=\"buscar()\">Buscar</button>\n                            </div>\n                        </div>\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-12 pl-1\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <div class=\"table-responsive\">\n                            <table class=\"table\">\n                                <thead class=\" text-primary\">\n                                    <th>\n\n                                        <div class=\"form-check\">\n                                            <label class=\"form-check-label\">\n                                              <input class=\"form-check-input\" type=\"checkbox\" (change)=\"change(item)\" >\n                                              <span class=\"form-check-sign\"></span>\n                                            </label>\n                                        </div>\n\n                                    </th>\n                                    <th>\n                                        Cód. Segmento\n                                    </th>\n                                    <th class=\"text-center\">\n                                        Segmento\n                                    </th>\n                                    <th>\n                                        cód. Familia\n                                    </th>\n                                    <th class=\"text-center\">\n                                        Familia\n                                    </th>\n                                    <th>\n                                        cód. Clase\n                                    </th>\n                                    <th class=\"text-center\">\n                                        Clase\n                                    </th>\n                                    <th>\n                                        cód. Producto\n                                    </th>\n                                    <th class=\"text-center\">\n                                        Producto\n                                    </th>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let item of data\">\n                                        <td>\n                                            <div class=\"form-check\">\n                                                <label class=\"form-check-label\">\n                                              <input class=\"form-check-input\" type=\"checkbox\" (change)=\"change(item)\" >\n                                              <span class=\"form-check-sign\"></span>\n                                            </label>\n                                            </div>\n                                        </td>\n                                        <td>\n                                            {{item.codigoSegmento}}\n                                        </td>\n                                        <td>\n                                            {{item.nombreSegmento}}\n                                        </td>\n                                        <td>\n                                            {{item.codigoFamilia}}\n                                        </td>\n                                        <td>\n                                            {{item.nombreFamilia}}\n                                        </td>\n                                        <td>\n                                            {{item.codigoclase}}\n                                        </td>\n                                        <td>\n                                            {{item.nombreClase}}\n                                        </td>\n                                        <td>\n                                            {{item.codigoproducto}}\n                                        </td>\n                                        <td>\n                                            {{item.nombreproducto}}\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                    <div class=\"col-md-3  pl-1\">\n                        <a (click)=\"guardarClasificacion()\" class=\"btn btn-primary btn-block\">\n                            Guardar\n                        </a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Clasificación</h5>\r\n                </div>\r\n                <div class=\"col-md-12\">En esta sección usted debe seleccionar todos los productos que ofrezca, ingrese en los siguientes campos el código o el nombre del segmento, familia, clase o producto.</div>\r\n                <br>\r\n                <br>\r\n                <div class=\"card-body\">\r\n                    <form #formulario=\"ngForm\">\r\n\r\n                        <div class=\"col-md-6 pr-1\">\r\n                            <div class=\"form-group\">\r\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Segmento</label>\r\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\" name=\"segmento\" [(ngModel)]=\"segmento\">\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-6 pr-1\">\r\n                            <div class=\"form-group\">\r\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Familia</label>\r\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\" name=\"familia\" [(ngModel)]=\"familia\">\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-6 pr-1\">\r\n                            <div class=\"form-group\">\r\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Clase</label>\r\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\" name=\"clase\" [(ngModel)]=\"clase\">\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"col-md-6 pr-1\">\r\n                            <div class=\"form-group\">\r\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Producto</label>\r\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\" name=\"producto\" [(ngModel)]=\"producto\">\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div>\r\n\r\n                            <!--div>\r\n                                <div class=\"form-group\">\r\n                                    <a href=\"/notifications\" class=\"btn btn-primary float-right\">atrás   </a>\r\n                                </div>\r\n                            </div-->\r\n                            <div>\r\n                                <div class=\"form-group\">\r\n                                    <a (click)=\"clear(formulario)\" class=\"btn btn-primary float-right text-white\">Limpiar</a>\r\n                                </div>\r\n                            </div>\r\n                            <div>\r\n                                <div class=\"form-group\">\r\n                                    <button class=\"btn btn-primary float-right\" (click)=\"buscar()\">Buscar</button>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-md-12 pl-1\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-body\">\r\n                        <div class=\"table-responsive\">\r\n                            <table class=\"table\">\r\n                                <thead class=\" text-primary\">\r\n                                    <th>\r\n\r\n                                        <div class=\"form-check\">\r\n                                            <label class=\"form-check-label\">\r\n                                              <input class=\"form-check-input\" type=\"checkbox\" (change)=\"change(item)\" >\r\n                                              <span class=\"form-check-sign\"></span>\r\n                                            </label>\r\n                                        </div>\r\n\r\n                                    </th>\r\n                                    <th>\r\n                                        Cód. Segmento\r\n                                    </th>\r\n                                    <th class=\"text-center\">\r\n                                        Segmento\r\n                                    </th>\r\n                                    <th>\r\n                                        cód. Familia\r\n                                    </th>\r\n                                    <th class=\"text-center\">\r\n                                        Familia\r\n                                    </th>\r\n                                    <th>\r\n                                        cód. Clase\r\n                                    </th>\r\n                                    <th class=\"text-center\">\r\n                                        Clase\r\n                                    </th>\r\n                                    <th>\r\n                                        cód. Producto\r\n                                    </th>\r\n                                    <th class=\"text-center\">\r\n                                        Producto\r\n                                    </th>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of data\">\r\n                                        <td>\r\n                                            <div class=\"form-check\">\r\n                                                <label class=\"form-check-label\">\r\n                                              <input class=\"form-check-input\" type=\"checkbox\" (change)=\"change(item)\" >\r\n                                              <span class=\"form-check-sign\"></span>\r\n                                            </label>\r\n                                            </div>\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.codigoSegmento}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.nombreSegmento}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.codigoFamilia}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.nombreFamilia}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.codigoclase}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.nombreClase}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.codigoproducto}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.nombreproducto}}\r\n                                        </td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-md-12  pl-1\">\r\n                        <a (click)=\"guardarClasificacion()\" class=\"btn btn-primary float-right text-white\">\r\n                            Guardar\r\n                        </a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -54113,7 +54113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h4 class=\"card-title\">Criterios de Aceptación</h4>\n                </div>\n                <div class=\"card-body\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table\">\n                            <thead class=\" text-primary\">\n                                <th>\n                                    Criterio\n                                </th>\n                                <th>\n                                    Peso\n                                </th>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <td>\n                                        Criterio 1\n                                    </td>\n                                    <td>\n                                        <div class=\"col-md-4\">\n                                            <div class=\"form-group\">\n                                                <input type=\"number\" class=\"form-control\" placeholder=\"20%\">\n                                            </div>\n                                        </div>\n                                    </td>\n\n                                </tr>\n                                <tr>\n                                    <td>\n                                        Criterio 2\n                                    </td>\n                                    <td>\n                                        <div class=\"col-md-4\">\n                                            <div class=\"form-group\">\n                                                <input type=\"number\" class=\"form-control\" placeholder=\"50%\">\n                                            </div>\n                                        </div>\n                                    </td>\n\n                                </tr>\n                                <tr>\n                                    <td>\n                                        Criterio 3\n                                    </td>\n                                    <td>\n                                        <div class=\"col-md-4\">\n                                            <div class=\"form-group\">\n                                                <input type=\"number\" class=\"form-control\" placeholder=\"30%\">\n                                            </div>\n                                        </div>\n                                    </td>\n\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n                <div class=\"col-md-3  pl-1\">\n                    <a href=\"/AhpComponent\" class=\"btn btn-primary btn-block\">\n                      Siguiente\n                  </a>\n                </div>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-10\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Proveedores seleccionados</h5>\r\n                    <div>A continuación, se listan los proveedores y los criterios de selección:</div>\r\n                </div>\r\n                <br>\r\n                <div class=\"card-body border-bottom\">\r\n                    <div class=\"table\">\r\n                        <table class=\"table\">\r\n                            <thead class=\" text-primary\">\r\n                                <th>\r\n                                    NIT/CC\r\n                                </th>\r\n                                <th>\r\n                                    Nombre\r\n                                </th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let item of proveedores\">\r\n                                    <td>\r\n                                        {{item.nit}}\r\n                                    </td>\r\n                                    <td>\r\n                                        {{item.nombre}}\r\n                                    </td>\r\n\r\n                                </tr>\r\n\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n\r\n                </div>\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Criterios de selección</h5>\r\n                </div>\r\n                <div class=\"card-body border-bottom\">\r\n                    <div class=\"table\">\r\n                        <table class=\"table\">\r\n                            <thead class=\" text-primary\">\r\n                                <th>\r\n                                    Criterio\r\n                                </th>\r\n                                <th>\r\n                                    Descripción\r\n                                </th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let criterio of criterios\">\r\n                                    <td>\r\n                                        {{criterio.criterio}}\r\n                                    </td>\r\n                                    <td>\r\n                                        {{criterio.descripcion}}\r\n                                    </td>\r\n\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-md-12  pl-1\">\r\n                    <a (click)=\"siguiente()\" class=\"btn btn-primary float-right text-white\">\r\n                      Siguiente\r\n                  </a>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div>";
     /***/
   },
 
@@ -54133,7 +54133,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-lg\">\n    <div class=\"col-lg-4 col-md-6\">\n        <div class=\"card card-chart\">\n            <div class=\"card-header\">\n                <h4 class=\"card-title\">Iniciar Sesión</h4>\n                <div ngbDropdown>\n                    <form>\n                        <div class=\"form-group\">\n                            <label for=\"exampleInputEmail1\">CC/NIT/RUT</label>\n                            <input type=\"number\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"cc/nit/rut\">\n                        </div>\n                        <div class=\"form-group\">\n                            <label for=\"exampleInputPassword1\">Password</label>\n                            <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n                        </div>\n\n                        <button type=\"submit\" class=\"btn btn-primary\">Ingresar</button>\n                    </form>\n\n                </div>\n            </div>\n\n        </div>\n    </div>\n\n</div>\n\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-lg-4\">\n            <div class=\"card card-chart\">\n                <div class=\"card-header\">\n                    <h4 class=\"card-title\">Proveedores</h4>\n                    <div ngbDropdown>\n                        <button type=\"button\" class=\"btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret\" ngbDropdownToggle>\n              <i class=\"now-ui-icons loader_gear\"></i>\n            </button>\n                        <div ngbDropdownMenu class=\"dropdown-menu-right\">\n                            <a class=\"dropdown-item\" href=\"#\">Adicionar</a>\n                            <a class=\"dropdown-item\" href=\"#\">Modificar</a>\n                            <a class=\"dropdown-item text-danger\" href=\"#\">Elimminar</a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body\">\n\n                </div>\n                <div class=\"card-footer\">\n                    <div class=\"stats\">\n                        <i class=\"now-ui-icons arrows-1_refresh-69\"></i> Just Updated\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-4 col-md-6\">\n            <div class=\"card card-chart\">\n                <div class=\"card-header\">\n                    <h4 class=\"card-title\">Materiales</h4>\n                    <div ngbDropdown>\n                        <button type=\"button\" class=\"btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret\" ngbDropdownToggle>\n              <i class=\"now-ui-icons loader_gear\"></i>\n            </button>\n                        <div ngbDropdownMenu class=\"dropdown-menu-right\">\n                            <a class=\"dropdown-item\" href=\"#\">Adicionar</a>\n                            <a class=\"dropdown-item\" href=\"#\">Editar</a>\n                            <a class=\"dropdown-item text-danger\" href=\"#\">Eliminar</a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-body\">\n\n                </div>\n                <div class=\"card-footer\">\n                    <div class=\"stats\">\n                        <i class=\"now-ui-icons arrows-1_refresh-69\"></i> Just Updated\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-4 col-md-6\">\n            <div class=\"card card-chart\">\n                <div class=\"card-header\">\n                    <h4 class=\"card-title\">Cuentas</h4>\n                </div>\n                <div class=\"card-body\">\n\n                </div>\n                <div class=\"card-footer\">\n                    <div class=\"stats\">\n                        <i class=\"now-ui-icons ui-2_time-alarm\"></i> Last 7 days\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">{{title}}</h5>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <form id=\"sesion\" #sesion=\"ngForm\" (ngSubmit)=\"login(sesion)\" [hidden]=\"autenticado\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-8 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Usuario</label>\r\n                                    <span style=\"color:red;\"> * </span>\r\n                                    <input type=\"text\" name=\"usuario\" class=\"form-control\" placeholder=\"Usuario\" ngModel required>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-8 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Contraseña</label>\r\n                                    <span style=\"color:red;\"> * </span>\r\n                                    <input type=\"password\" name=\"password\" class=\"form-control\" placeholder=\"Contraseña\" ngModel required>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group \">\r\n                                    <br>\r\n                                    <a href=\"/newuser \" class=\"text-dark \">¿No tiene cuenta?, registrese aquí</a>\r\n\r\n                                </div>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"col-md-10 pl-1 \">\r\n                            <div class=\"form-group \">\r\n                                <button class=\"btn btn-primary float-right\">Iniciar Sesión</button>\r\n                            </div>\r\n                        </div>\r\n\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n</div>";
     /***/
   },
 
@@ -54153,7 +54153,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Documentos</h5>\n                </div>\n                <div class=\"card-body\">\n                    <form>\n                        <div class=\"col-md-12 pr-1\" *ngFor=\"let orderText of campoTexto; let i = index\">\n                            <label class=\"col-md-12 pr-1\">Documento 1</label>\n                            <div class=\"col-md-12 pr-1\">\n                                <textarea rows=\"2\" cols=\"50\" class=\"form-group\" placeholder=\"descripción\" value=\"\"></textarea>\n                            </div>\n                        </div>\n                        <div class=\"col-md-12 pr-1\">\n                            <input type=\"file\" class=\"/inputfile\" name=\"archivos1[]\" (change)=\"cargandoArchivo($event.target.files)\">\n                        </div>\n\n\n                        <br>\n                        <br>\n                        <div class=\"col-md-4  pl-1\">\n                            <a href=\"\" class=\"btn btn-primary btn-block\" (click)=\"showNotification('top','left')\">\n                                Guardar\n                            </a>\n                        </div>\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Documentos</h5>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <form action=\"api/documentacion\" method=\"POST\" enctype=\"multipart/form-data\">\r\n                        <div class=\"col-md-12 pr-1 border-bottom\" *ngFor=\"let doc of campoTexto; let i = index\">\r\n                            <label>{{doc.label}}</label>\r\n                            <div class=\"col-md-12 pr-1\">\r\n                                <input type=\"file\" enctype=\"multipart/form-data\" class=\"form-control\" (change)=\"uploadFile($event)\" [(name)]=\"doc.id\" required>\r\n                                <br>\r\n                            </div>\r\n                        </div>\r\n                        <br>\r\n                        <br>\r\n                        <div class=\"col-md-12  pl-1\">\r\n                            <a class=\"btn btn-primary float-right text-white\" (click)=\"saveFile()\">\r\n                                Guardar\r\n                            </a>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/gestionar-transaccion/gestionar-transaccion.component.html":
+  /*!******************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/gestionar-transaccion/gestionar-transaccion.component.html ***!
+    \******************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppGestionarTransaccionGestionarTransaccionComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <form><!--(ngSubmit)=\"createTransaction(form)\" #form=\"ngForm\"-->\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <div class=\"card-header\">\n                            <p><strong>Información de transacción</strong></p>\n                            <br>\n                            <div class=\"form-group row\">\n                                <label class=\"col-sm-2 col-form-label\">Descripción</label>\n                                <div class=\"col-sm-10\"> \n                                    <input type=\"text\" class=\"form-control\" [placeholder]=\"transaction[0].descripcion\" readonly> <!-- name=\"descripcion\"  [(ngModel)]=\"transaccion.description\" #descripcion=\"ngModel\" -->\n                                </div>\n                            </div>\n                            <div class=\"form-group row\">\n                                <label class=\"col-sm-2 col-form-label\">Fecha limite de entrega</label>\n                                <div class=\"col-sm-10\">\n                                    <input type=\"text\" class=\"form-control\" [placeholder]=\"transaction[0].fecha_limite_entrega | date\" readonly>\n                                </div>\n                            </div>\n                            <div class=\"form-group row\">\n                                <label class=\"col-sm-2 col-form-label\">ID orden de compra</label>\n                                <div class=\"col-sm-10\">\n                                    <input type=\"text\" class=\"form-control\" [placeholder]=\"transaction[0].id_orden_compra\" readonly>\n                                </div>\n                            </div>\n                            <div class=\"form-group row\">\n                                <label class=\"col-sm-2 col-form-label\">Descargar orden de compra</label>\n                                <div class=\"col-sm-10\">\n                                    <a [href]=\"transaction[0].rutaordencompra\" style=\"color: white;\" type=\"text\" class=\"btn btn-info\">Descargar orden</a>\n                                </div>\n                            </div>\n                            <div class=\"form-group row\">\n                                <label class=\"col-sm-2 col-form-label\">Imprimir transacción </label>\n                                <div class=\"col-sm-10\">\n                                    <a style=\"color: white;\" type=\"text\" class=\"btn btn-info\"  onclick=\"javascript:window.print()\">Imprimir transacción</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-md-12 pl-1\">\n            <div class=\"row\">\n                <div class=\"col-md-12\">\n                    <form (ngSubmit)=\"createTransaction(form)\" #form=\"ngForm\">\n                    <div class=\"card\">\n                        <div class=\"card-body\">\n                            <div class=\"card-body\">\n                                <p><strong>Gestionar transacción</strong></p>\n                                <br>\n                                <p>A continuación, seleccione el estado de la transacción e ingrese la cantidad de materiales recibidos y su respectiva aprobación de calidad:</p>\n                                <br>\n                                <div class=\"form-row\">\n                                    <label class=\"col-sm-10 col-form-label\">Estado de la transacción:</label>\n                                    <div class=\"form-group col-md-6\">\n                                        <select [disabled]=\"transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'\" style=\"padding: 1%;\" class=\"form-control\" (click)=\"agregarEstado(estadoTransaccion)\"  [name]=\"estadoTransaccion\" [(ngModel)]=\"estadoTransaccion\" class=\"form-control\"  [ngModelOptions]=\"{standalone: true}\">\n                                            <option value=\"finalizada\" [selected]=\"true == true\">Finalizada</option>\n                                            <option value=\"finalizada con observaciones\" >Finalizada con observaciones</option>\n                                            <option value=\"rechazada\" >Rechazada</option>\n                                        </select>\n                                    </div>\n                                </div>\n                                <br>\n                                <br>\n                                <div class=\"table-responsive\">\n                                    <table class=\"table\">\n                                        <thead class=\" text-primary\">\n                                            <th>\n                                                Producto\n                                            </th>\n                                            <th>\n                                                Cantidad\n                                            </th>\n                                            <th>\n                                                Unidades\n                                            </th>\n                                            <th style=\"text-align: center;\">\n                                                Cantidad recibida\n                                            </th>\n                                            <th>\n                                                Calidad\n                                            </th>\n                                            <th>\n                                                Observaciones\n                                            </th>\n                                        </thead>\n                                        <tbody>\n                                            <tr *ngFor=\"let tran of transaction; let i = index\">\n                                                <td>\n                                                    {{ tran.nombreproducto }}\n                                                </td>\n                                                <td>\n                                                    {{ tran.cantidad_esperada }}\n                                                </td>\n                                                <td>\n                                                    {{ tran.unidades }}\n                                                </td>\n                                                <td>\n                                                    <div class=\"col\">\n                                                        <div class=\"form-group\">\n                                                            <input [placeholder]=\"tran.cantidad_recibida\" [readonly]=\"transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada' \" (change)=\"agregarCantidad(cantidadRecibidaBack[i],tran.id_producto)\" class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" aria-label=\"Search\" [name]=\"cantidadRecibidaBack[i]\" [(ngModel)]=\"cantidadRecibidaBack[i]\" [ngModelOptions]=\"{standalone: true}\" >\n                                                        </div>\n                                                    </div>\n                                                </td>\n                                                <td>\n                                                    <div class=\"form-check\">\n                                                        <label class=\"form-check-label\">\n                                                    <input [disabled]=\"transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'\" #rolInput class=\"form-check-input\" type=\"checkbox\" (click)=\"selectQuality(tran.id_producto, rolInput.checked);\" [checked]=\"tran.aprobacion_calidad === 'true'\">\n                                                    <span class=\"form-check-sign\"></span>\n                                                    </label>\n                                                    </div>\n                                                </td>\n                                                <td>\n                                                    <div class=\"col\">\n                                                        <div class=\"form-group\">\n                                                            <textarea [placeholder]=\"tran.observacion_dato\" [readonly]=\"transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'\"  (change)=\"takeObservation(observacionesBack[i],tran.id_producto)\" [name]=\"observacionesBack[i]\" [(ngModel)]=\"observacionesBack[i]\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" rows=\"1\"></textarea>\n                                                        </div>\n                                                        <!--<div class=\"form-group\">\n                                                            <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Obervaciones\" aria-label=\"Search\" >\n                                                        </div>-->\n                                                    </div>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                    <hr>\n                                </div>\n                                <br>\n                                <br>\n                                <div class=\"form-group\">\n                                    <label class=\"col-sm-10 col-form-label\">Observaciones  (opcional):</label>\n                                    <textarea [placeholder]=\"transaction[0].observacion_gen\" [readonly]=\"transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'\"  (change)=\"takeGenenralObservation(observacionesGenerales)\" [name]=\"observacionesGenerales\" [(ngModel)]=\"observacionesGenerales\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" rows=\"3\" ></textarea>\n                                </div>\n                            </div>\n                        </div>\n                        <div style=\"float: right; margin: 10px;\" >\n                            <button [disabled]=\"transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'\" type=\"submit\" class=\"btn btn-primary\">\n                                Guardar\n                            </button>\n                        </div>\n                        <div style=\"float: left; margin: 10px;\" >\n                            <button (click)=\"goBack()\" class=\"btn btn-primary\">\n                                Atras\n                            </button>\n                        </div>\n                    </div>\n                </form>\n                </div>\n            </div>\n        </div>\n    </form>\n</div>\n\n";
     /***/
   },
 
@@ -54173,7 +54193,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Cambiar contraseña</h5>\n                </div>\n                <div class=\"card-body\">\n                    <form>\n                        <div class=\"row\">\n                            <div class=\"col-md-5 pr-1\">\n                                <div class=\"form-group\">\n                                    <label>Contraseña anterior</label>\n                                    <input type=\"password\" class=\"form-control\" placeholder=\"Ingrese contraseña anterior\" value=\"\">\n                                </div>\n                            </div>\n                            <div class=\"col-md-5 px-1\">\n                                <div class=\"form-group\">\n                                    <label>Contraseña nueva</label>\n                                    <input type=\"password\" class=\"form-control\" placeholder=\"Ingrese contraseña nueva\" value=\"\">\n                                </div>\n                            </div>\n\n                            <div class=\"col-md-5 pr-1\">\n                                <div class=\"form-group\">\n                                    <label>Estado</label>\n                                    <input type=\"text\" disabled=\"\" class=\"form-control\" placeholder=\"En Proceso\" value=\"\">\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-md-4  pl-1\">\n                            <div class=\"form-group\">\n                                <button class=\"btn btn-primary btn-block\">Guardar</button>\n                            </div>\n                        </div>\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Cambiar contraseña</h5>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <form #changePsw=\"ngForm\" (ngSubmit)=\"updatePsw(changePsw)\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-5 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Contraseña anterior</label>\r\n                                    <input type=\"password\" class=\"form-control\" placeholder=\"Ingrese contraseña anterior\" value=\"\" required [(ngModel)]=\"passwordOld\" name=\"claveOld\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-5 px-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Contraseña nueva</label>\r\n                                    <input type=\"password\" class=\"form-control\" placeholder=\"Ingrese contraseña nueva\" value=\"\" required [(ngModel)]=\"password\" name=\"clave\">\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-5 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Estado</label>\r\n                                    <input type=\"text\" disabled=\"\" class=\"form-control\" [(ngModel)]=\"estado\" name=\"estadoProveedor\">\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-4  pl-1\">\r\n                            <div class=\"form-group\">\r\n                                <button class=\"btn btn-primary btn-block\">Guardar</button>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -54193,7 +54213,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Crear Cuentas</h5>\n                </div>\n                <div class=\"card-body\">\n                    <form>\n                        <div class=\"row\">\n                            <div class=\"col-md-6 pr-1\">\n                                <div>\n                                    <label>Tipo Usuario</label>\n                                    <select class=\"form-control\">\n                                    <option value=\"0\">Seleccione una opción</option>\n                                    <option value=\"compras\">Compras</option>\n                                    <option value=\"almacenista\">Almacenista</option>\n                                    <option value=\"proveedor\">Proveedor</option>\n                                </select> </div>\n                            </div>\n                            <div class=\"col-md-6 pr-1\">\n                                <div class=\"form-group\">\n                                    <label>NIT/RUC/CC</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"NIT/RUC/CC\">\n                                </div>\n                            </div>\n                            <div class=\"col-md-6 pr-1\">\n                                <div class=\"form-group\">\n                                    <label>Nombres</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Nombres\" value=\"\">\n                                </div>\n                            </div>\n                            <div class=\"col-md-6 pr-1\">\n                                <div class=\"form-group\">\n                                    <label>Apellidos</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Apellidos\" value=\"\">\n                                </div>\n                            </div>\n\n                            <div class=\"col-md-6 pr-1\">\n                                <div class=\"form-group\">\n                                    <label>Usuario</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Usuario\" value=\"\">\n                                </div>\n                            </div>\n                            <div class=\"col-md-6 pr-1\">\n                                <div class=\"form-group\">\n                                    <label for=\"email\">Correo electronico</label>\n                                    <input name=\"email\" id=\"email\" type=\"email\" class=\"form-control\" placeholder=\"Correo electronico\">\n                                </div>\n                            </div>\n\n                        </div>\n                        <div class=\"col-md-4  pl-1\">\n                            <div class=\"form-group\">\n                                <button class=\"btn btn-primary btn-block\">Crear cuenta</button>\n                            </div>\n                        </div>\n\n                    </form>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"col-md-6\">\n            <div class=\"main-content\">\n                <div class=\"row\">\n                    <div class=\"col-md-12\">\n                        <div class=\"card\">\n                            <div class=\"card-header\">\n                                <h4 class=\"title\"> Cuentas</h4>\n                            </div>\n                            <div class=\"card-body\">\n                                <div class=\"table-responsive\">\n                                    <table class=\"table\">\n                                        <thead class=\" text-primary\">\n                                            <th>\n                                                usuario\n                                            </th>\n                                            <th>\n                                                Perfil\n                                            </th>\n                                        </thead>\n                                        <tbody>\n                                            <tr>\n                                                <td>\n                                                    Dakota Rice\n                                                </td>\n                                                <td>\n                                                    almacenista\n                                                </td>\n\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    Minerva Hooper\n                                                </td>\n                                                <td>\n                                                    almacenista\n                                                </td>\n\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    Sage Rodriguez\n                                                </td>\n                                                <td>\n                                                    almacenista\n                                                </td>\n\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    Philip Chaney\n                                                </td>\n                                                <td>\n                                                    compras\n                                                </td>\n\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    Doris Greene\n                                                </td>\n                                                <td>\n                                                    almacenista\n                                                </td>\n\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    Mason Porter\n                                                </td>\n                                                <td>\n                                                    compras\n                                                </td>\n\n                                            </tr>\n                                            <tr>\n                                                <td>\n                                                    Jon Porter\n                                                </td>\n                                                <td>\n                                                    almacenista\n                                                </td>\n\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n            </div>\n\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-6\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Crear Cuentas</h5>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div>\r\n                                    <label>Tipo Usuario</label>\r\n                                    <select class=\"form-control\">\r\n                                    <option value=\"0\">Seleccione una opción</option>\r\n                                    <option value=\"compras\">Compras</option>\r\n                                    <option value=\"almacenista\">Almacenista</option>\r\n                                    <option value=\"proveedor\">Proveedor</option>\r\n                                </select> </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Nombres</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Nombres\" value=\"\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Apellidos</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Apellidos\" value=\"\">\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Usuario</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Usuario\" value=\"\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label for=\"email\">Correo electronico</label>\r\n                                    <input name=\"email\" id=\"email\" type=\"email\" class=\"form-control\" placeholder=\"Correo electronico\">\r\n                                </div>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"col-md-4  pl-1\">\r\n                            <div class=\"form-group\">\r\n                                <button class=\"btn btn-primary btn-block\">Crear cuenta</button>\r\n                            </div>\r\n                        </div>\r\n\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-6\">\r\n            <div class=\"main-content\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12\">\r\n                        <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                                <h4 class=\"title\"> Cuentas</h4>\r\n                            </div>\r\n                            <div class=\"card-body\">\r\n                                <div class=\"table-responsive\">\r\n                                    <table class=\"table\">\r\n                                        <thead class=\" text-primary\">\r\n                                            <th>\r\n                                                usuario\r\n                                            </th>\r\n                                            <th>\r\n                                                Perfil\r\n                                            </th>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Dakota Rice\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Minerva Hooper\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Sage Rodriguez\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Philip Chaney\r\n                                                </td>\r\n                                                <td>\r\n                                                    compras\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Doris Greene\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Mason Porter\r\n                                                </td>\r\n                                                <td>\r\n                                                    compras\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Jon Porter\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/mat-classification/find-proveedores/find-proveedores.component.html":
+  /*!***************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/mat-classification/find-proveedores/find-proveedores.component.html ***!
+    \***************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppMatClassificationFindProveedoresFindProveedoresComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>A continuación, busque y seleccione el proveedor relacionado a la transacción:</p>\n<br>\n<p><strong>Buscar Proveedores</strong></p>\n<form (ngSubmit)=\"buscar(forma)\" #forma=\"ngForm\">\n    <div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n            <label>NIT/CC</label>\n            <input input type=\"text\" class=\"form-control\" placeholder=\"NIT/CC\" name=\"id\"  [(ngModel)]=\"usuario.id\" #id=\"ngModel\">\n        </div>\n        <div class=\"form-group col-md-6\">\n            <label>Nombre proveedor</label>\n            <input type=\"text\" class=\"form-control\"  placeholder=\"Nombre del proveedor\" name=\"proveedor\"  [(ngModel)]=\"usuario.name\" #name=\"ngModel\">\n        </div>\n    </div>\n    <div style=\"text-align: right;\">\n        <button type=\"submit\" class=\"btn btn-primary btn-sm\"><small>Buscar</small></button>\n    </div>\n</form>\n\n\n<p><strong>Seleccionar Proveedores</strong></p>\n\n<div class=\"table-responsive\">\n        <table class=\"table\">\n            <thead class=\" text-primary\">\n                <th>\n                    NIT/CC\n                </th>\n                <th>\n                    Nombre\n                </th>\n                <th>\n                    Seleccionar\n                </th>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let pro of providers; let i = index\">\n                    <td>\n                        {{pro.idproveedor}}\n                    </td>\n                    <td>\n                        {{ pro.razon_social }}\n                    </td>\n                    <td>\n                        <div class=\"form-check\">\n                            <label class=\"form-check-label\">\n                                <input #rolInput class=\"form-check-input\" type=\"checkbox\" (click)=\"selectProvider(pro.idproveedor, rolInput.checked); selectedName(pro.razon_social,rolInput.checked)\" [checked]=\"checked\"/>\n                                <span class=\"form-check-sign\"></span>\n                            </label>\n                        </div>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>";
     /***/
   },
 
@@ -54213,7 +54253,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Crear transacción</h5>\n                </div>\n                <div class=\"card-body\">\n                    <form>\n\n                        <div class=\"col-md-6 pr-1\">\n                            <div class=\"form-group\">\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Código</label>\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\n\n                            </div>\n                        </div>\n                        <div class=\"col-md-6 pr-1\">\n                            <div class=\"form-group\">\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Fecha</label>\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"date\" placeholder=\"Search\" aria-label=\"Search\">\n\n                            </div>\n                        </div>\n                        <div class=\"col-md-6 pr-1\">\n                            <div class=\"form-group\">\n                                <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Buscar Manual</label>\n                                <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\n\n                            </div>\n                        </div>\n                        <div class=\"col-md-3  pl-1\">\n                            <div class=\"form-group\">\n                                <button class=\"btn btn-primary btn-block\">Buscar</button>\n                            </div>\n                        </div>\n                    </form>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-12 pl-1\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <div class=\"card\">\n                    <div class=\"card-body\">\n                        <div class=\"table-responsive\">\n                            <table class=\"table\">\n                                <thead class=\" text-primary\">\n                                    <th>\n                                    </th>\n                                    <th>\n                                        Cód. Material\n                                    </th>\n                                    <th>\n                                        Material\n                                    </th>\n                                    <th>\n                                        Cantidad\n                                    </th>\n                                    <th>\n                                        Unidad de Medida\n                                    </th>\n                                </thead>\n                                <tbody>\n                                    <tr>\n                                        <td>\n                                            <div class=\"form-check\">\n                                                <label class=\"form-check-label\">\n                                              <input class=\"form-check-input\" type=\"checkbox\" checked>\n                                              <span class=\"form-check-sign\"></span>\n                                            </label>\n                                            </div>\n                                        </td>\n                                        <td>\n                                            95\n                                        </td>\n                                        <td>\n                                            Material 1\n                                        </td>\n                                        <td>\n                                            <div class=\"col-md-6 pr-1\">\n                                                <div class=\"form-group\">\n                                                    <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"1000\" aria-label=\"Search\">\n\n                                                </div>\n                                            </div>\n                                        </td>\n                                        <td>\n                                            m3\n                                        </td>\n\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            <div class=\"form-check\">\n                                                <label class=\"form-check-label\">\n                                              <input class=\"form-check-input\" type=\"checkbox\" checked>\n                                              <span class=\"form-check-sign\"></span>\n                                            </label>\n                                            </div>\n                                        </td>\n                                        <td>\n                                            96\n                                        </td>\n                                        <td>\n                                            Material 2\n                                        </td>\n                                        <td>\n                                            <div class=\"col-md-6 pr-1\">\n                                                <div class=\"form-group\">\n                                                    <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"500\" aria-label=\"Search\">\n\n                                                </div>\n                                            </div>\n                                        </td>\n                                        <td>\n                                            t\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                    <div class=\"col-md-3  pl-1\">\n                        <a href=\"\" class=\"btn btn-primary btn-block\">\n                            Guardar\n                        </a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <form (ngSubmit)=\"createTransaction(form)\" #form=\"ngForm\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-body\">\r\n                        <div class=\"card-header\">\r\n                            <p><strong>Creación de nueva transacción</strong></p>\r\n                            <p>A continuación, ingrese los datos solicitados para su nueva transacción:</p>\r\n                            <br>\r\n                            <div class=\"form-group row\">\r\n                                <label class=\"col-sm-2 col-form-label\">Descripción</label>\r\n                                <div class=\"col-sm-10\">\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Descripción\" name=\"descripcion\"  [(ngModel)]=\"transaccion.description\" #descripcion=\"ngModel\" >\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group row\">\r\n                                <label class=\"col-sm-2 col-form-label\">Fecha limite de entrega</label>\r\n                                <div class=\"col-sm-10\">\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Ejemplo: 2020-12-31\" name=\"fechalimite\"  [(ngModel)]=\"transaccion.fechalimite\" #fechalimite=\"ngModel\" >\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group row\">\r\n                                <label class=\"col-sm-2 col-form-label\">ID orden de compra</label>\r\n                                <div class=\"col-sm-10\">\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"idorden\"  [(ngModel)]=\"transaccion.idorden\" #idorden=\"ngModel\" >\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group row\">\r\n                                <label class=\"col-sm-2 col-form-label\">Adjuntar orden de compra</label>\r\n                                <div class=\"col-sm-10\">\r\n                                    <input type=\"file\" enctype=\"multipart/form-data\" class=\"form-control\" (change)=\"uploadFile($event)\" required>\r\n                                    <a style=\"color: white;\" class=\"btn btn-primary\">{{ nameValue }}</a>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-12 pl-1\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"card\">\r\n                        <div class=\"card-body\">\r\n                            <app-find-proveedores (sendSocialReason)=\"takeNameProvider($event)\" (sendProvider)=\"selectedProvider($event)\"></app-find-proveedores>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"card\">\r\n                        <div class=\"card-body\">\r\n                            <div class=\"card-body\">\r\n                                <p>A continuación, busque y seleccione los materiales relacionados a la orden de compra:</p>\r\n                                <br>\r\n                                <p><strong>Buscar materiales</strong></p>\r\n                                <form (ngSubmit)=\"searchProducto(form)\" #form=\"ngForm\">\r\n                                    <div class=\"form-row\">\r\n                                        <div class=\"form-group col-md-6\">\r\n                                            <label>Segmento</label>\r\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"NIT/CC\" name=\"segmento\"  [(ngModel)]=\"product.segmento\" #segmento=\"ngModel\">\r\n                                        </div>\r\n                                        <div class=\"form-group col-md-6\">\r\n                                            <label>Clase</label>\r\n                                            <input type=\"text\" class=\"form-control\"  placeholder=\"Nombre de la clase\" name=\"clase\"  [(ngModel)]=\"product.clase\" #clase=\"ngModel\">\r\n                                        </div>\r\n                                        <div class=\"form-group col-md-6\">\r\n                                            <label>Familia</label>\r\n                                            <input type=\"text\" class=\"form-control\"  placeholder=\"Nombre de la familia\" name=\"familia\"  [(ngModel)]=\"product.familia\" #familia=\"ngModel\">\r\n                                        </div>\r\n                                        <div class=\"form-group col-md-6\">\r\n                                            <label>Producto</label>\r\n                                            <input type=\"text\" class=\"form-control\"  placeholder=\"Nombre del producto\" name=\"producto\"  [(ngModel)]=\"product.producto\" #producto=\"ngModel\">\r\n                                        </div>\r\n                                    </div>\r\n                                    <div style=\"text-align: right;\">\r\n                                        <button type=\"submit\" class=\"btn btn-primary btn-sm\"><small>Buscar</small></button>\r\n                                    </div>\r\n                                </form>\r\n                                <div class=\"table-responsive\">\r\n                                    <table class=\"table\">\r\n                                        <thead class=\" text-primary\">\r\n                                            <th>\r\n                                            </th>\r\n                                            <th>\r\n                                                Segmento\r\n                                            </th>\r\n                                            <th>\r\n                                                Familia\r\n                                            </th>\r\n                                            <th>\r\n                                                Clase\r\n                                            </th>\r\n                                            <th>\r\n                                                Cod. Producto\r\n                                            </th>\r\n                                            <th>\r\n                                                Producto\r\n                                            </th>\r\n                                            <th>\r\n                                                Cantidad\r\n                                            </th>\r\n                                            <th>\r\n                                                Unidad\r\n                                            </th>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr *ngFor=\"let evalua of evaluaciones; let i = index\">\r\n                                                <td>\r\n                                                    <div class=\"form-check\">\r\n                                                        <label class=\"form-check-label\">\r\n                                                    <input #rolInput class=\"form-check-input\" type=\"checkbox\" (click)=\"selectMaterial(evalua.codigoproducto, rolInput.checked);\" [checked]=\"checked\">\r\n                                                    <span class=\"form-check-sign\"></span>\r\n                                                    </label>\r\n                                                    </div>\r\n                                                </td>\r\n                                                <td>\r\n                                                    {{ evalua.nombreSegmento }}\r\n                                                </td>\r\n                                                <td>\r\n                                                    {{ evalua.nombreFamilia }}\r\n                                                </td>\r\n                                                <td>\r\n                                                    {{ evalua.nombreClase }}\r\n                                                </td>\r\n                                                <td>\r\n                                                    {{ evalua.codigoproducto }}\r\n                                                </td>\r\n                                                <td>\r\n                                                    {{ evalua.nombreproducto }}\r\n                                                </td>\r\n                                                <td>\r\n                                                    <div class=\"col\">\r\n                                                        <div class=\"form-group\">\r\n                                                            <input (change)=\"agregarUnidad(materials[i],evalua.codigoproducto)\" class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"1000\" aria-label=\"Search\" [name]=\"materials[i]\" [(ngModel)]=\"materials[i]\" [ngModelOptions]=\"{standalone: true}\">\r\n                                                        </div>\r\n                                                    </div>\r\n                                                </td>\r\n                                                <td>\r\n                                                    <div class=\"col\">\r\n                                                       <select (click)=\"agregarDato(unidades[i],evalua.codigoproducto)\"  [name]=\"unidades[i]\" [(ngModel)]=\"unidades[i]\" class=\"form-control\"  [ngModelOptions]=\"{standalone: true}\">\r\n                                                            <option value=\"Kg\">Kg</option>\r\n                                                            <option value=\"Unidad\">Unidad</option>\r\n                                                            <option value=\"cm3\">cm3</option>\r\n                                                            <option value=\"Litros\">Litros</option>\r\n                                                        </select>\r\n                                                       <!--<div class=\"form-group\">\r\n                                                            <input class=\"form-control form-control-sm ml-3 w-75\" type=\"text\" placeholder=\"Kg / Unidad\" aria-label=\"Search\" [name]=\"unidades[i]\" [(ngModel)]=\"unidades[i]\" [ngModelOptions]=\"{standalone: true}\">\r\n                                                        </div>-->\r\n                                                    </div>\r\n                                                </td>\r\n                                            </tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div style=\"float: right; margin: 10px;\" >\r\n                            <button type=\"submit\" class=\"btn btn-primary\">\r\n                                Guardar\r\n                            </button>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </form>\r\n</div>\r\n\r\n";
     /***/
   },
 
@@ -54233,7 +54273,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div>\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h4 class=\"card-title\">Transacción 2</h4>\n                </div>\n\n                <div class=\"table-responsive\">\n                    <table class=\"table\">\n                        <thead class=\" text-primary\">\n                            <th>\n                                Material\n                            </th>\n                            <th>\n                                Cant. Solicitada\n                            </th>\n                            <th>\n                                Cant. Ingresada\n                            </th>\n                            <th>\n                                Unidad de medida\n                            </th>\n                            <th>\n                                Fecha solicitud\n                            </th>\n                            <th class=\"text-center\">\n                                Fecha recibido\n                            </th>\n                            <th class=\"text-center\">\n                                Calidad\n                            </th>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>\n                                    Material 1\n                                </td>\n                                <td class=\"text-center\">\n                                    1000\n                                </td>\n                                <td>\n                                    <div class=\"col-md-6 pr-1\">\n                                        <div>\n                                            <input class=\"form-control\" type=\"number\">\n                                        </div>\n                                    </div>\n                                </td>\n                                <td class=\"text-center\">\n                                    t\n                                </td>\n                                <td class=\"text-center\">\n                                    13/01/2020\n                                </td>\n                                <td class=\"text-center\">\n                                    <div class=\"col-md-12 pr-1\">\n                                        <div class=\"form-group\">\n                                            <input class=\"form-control form-control-sm\" type=\"date\">\n                                        </div>\n                                    </div>\n                                </td>\n                                <td>\n\n                                </td>\n                                <td>\n                                    <div class=\"form-check\">\n                                        <label class=\"form-check-label\">\n                                          <input class=\"form-check-input\" type=\"checkbox\" checked>\n                                          <span class=\"form-check-sign\"></span>\n                                        </label>\n                                    </div>\n                                </td>\n                            </tr>\n                            <tr>\n                                <td>\n                                    Material 2\n                                </td>\n                                <td class=\"text-center\">\n                                    1000\n                                </td>\n                                <td>\n                                    <div class=\"col-md-6 pr-1\">\n                                        <div class=\"form-group\">\n                                            <input class=\"form-control\" type=\"number\">\n                                        </div>\n                                    </div>\n                                </td>\n                                <td class=\"text-center\">\n                                    mg\n                                </td>\n                                <td class=\"text-center\">\n                                    02/01/2020\n                                </td>\n                                <td>\n                                    <div class=\"col-md-12 pr-1\">\n                                        <div class=\"form-group\">\n                                            <input class=\"form-control form-control-sm\" type=\"date\">\n                                        </div>\n                                    </div>\n                                </td>\n                                <td>\n\n                                </td>\n                                <td class=\"text-center\">\n                                    <div class=\"form-check\">\n                                        <label class=\"form-check-label\">\n                                          <input class=\"form-check-input\" type=\"checkbox\" checked>\n                                          <span class=\"form-check-sign\"></span>\n                                        </label>\n                                    </div>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n                <div class=\"col-md-3  pl-1\">\n                    <a href=\"/\" class=\"btn btn-primary btn-block\">\n                        Guardar\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div>\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h4 class=\"card-title\">Transacción 2</h4>\r\n                </div>\r\n\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table\">\r\n                        <thead class=\" text-primary\">\r\n                            <th>\r\n                                Material\r\n                            </th>\r\n                            <th>\r\n                                Cant. Solicitada\r\n                            </th>\r\n                            <th>\r\n                                Cant. Ingresada\r\n                            </th>\r\n                            <th>\r\n                                Unidad de medida\r\n                            </th>\r\n                            <th>\r\n                                Fecha solicitud\r\n                            </th>\r\n                            <th class=\"text-center\">\r\n                                Fecha recibido\r\n                            </th>\r\n                            <th class=\"text-center\">\r\n                                Calidad\r\n                            </th>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr>\r\n                                <td>\r\n                                    Material 1\r\n                                </td>\r\n                                <td class=\"text-center\">\r\n                                    1000\r\n                                </td>\r\n                                <td>\r\n                                    <div class=\"col-md-6 pr-1\">\r\n                                        <div>\r\n                                            <input class=\"form-control\" type=\"number\">\r\n                                        </div>\r\n                                    </div>\r\n                                </td>\r\n                                <td class=\"text-center\">\r\n                                    t\r\n                                </td>\r\n                                <td class=\"text-center\">\r\n                                    13/01/2020\r\n                                </td>\r\n                                <td class=\"text-center\">\r\n                                    <div class=\"col-md-12 pr-1\">\r\n                                        <div class=\"form-group\">\r\n                                            <input class=\"form-control form-control-sm\" type=\"date\">\r\n                                        </div>\r\n                                    </div>\r\n                                </td>\r\n                                <td>\r\n\r\n                                </td>\r\n                                <td>\r\n                                    <div class=\"form-check\">\r\n                                        <label class=\"form-check-label\">\r\n                                          <input class=\"form-check-input\" type=\"checkbox\" checked>\r\n                                          <span class=\"form-check-sign\"></span>\r\n                                        </label>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                            <tr>\r\n                                <td>\r\n                                    Material 2\r\n                                </td>\r\n                                <td class=\"text-center\">\r\n                                    1000\r\n                                </td>\r\n                                <td>\r\n                                    <div class=\"col-md-6 pr-1\">\r\n                                        <div class=\"form-group\">\r\n                                            <input class=\"form-control\" type=\"number\">\r\n                                        </div>\r\n                                    </div>\r\n                                </td>\r\n                                <td class=\"text-center\">\r\n                                    mg\r\n                                </td>\r\n                                <td class=\"text-center\">\r\n                                    02/01/2020\r\n                                </td>\r\n                                <td>\r\n                                    <div class=\"col-md-12 pr-1\">\r\n                                        <div class=\"form-group\">\r\n                                            <input class=\"form-control form-control-sm\" type=\"date\">\r\n                                        </div>\r\n                                    </div>\r\n                                </td>\r\n                                <td>\r\n\r\n                                </td>\r\n                                <td class=\"text-center\">\r\n                                    <div class=\"form-check\">\r\n                                        <label class=\"form-check-label\">\r\n                                          <input class=\"form-check-input\" type=\"checkbox\" checked>\r\n                                          <span class=\"form-check-sign\"></span>\r\n                                        </label>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n                <div class=\"col-md-3  pl-1\">\r\n                    <a href=\"/\" class=\"btn btn-primary btn-block\">\r\n                        Guardar\r\n                    </a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/newuser/newuser.component.html":
+  /*!**************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/newuser/newuser.component.html ***!
+    \**************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppNewuserNewuserComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Registro de usuario</h5>\r\n                    <label class=\"col-md-12 pr-1\">Ingrese todos los datos solicitados:</label>\r\n                </div>\r\n                <br>\r\n                <div class=\"card-body\">\r\n                    <form #newUser=\"ngForm\" (ngSubmit)=\"saveUser(newUser)\">\r\n                        <div class=\"col-md-12 pr-1\">\r\n                            <label class=\"col-md-12 pr-1\">NIT/CC, ingrese su NIT  o su cédula si es persona natural:</label>\r\n                            <input type=\"text\" class=\"form-control\" name=\"nit\" [(ngModel)]=\"identificacion\" value=\"\" required>\r\n\r\n                        </div>\r\n\r\n                        <div class=\"col-md-12 pr-1\">\r\n                            <br>\r\n                            <label class=\"col-md-12 pr-1\">Nombre de la empresa o nombre de la persona  (si es persona natural)\r\n                            </label>\r\n                            <input type=\"text\" class=\"form-control\" name=\"razon_social\" [(ngModel)]=\"nombre\" value=\"\" required>\r\n                        </div>\r\n\r\n                        <div class=\"col-md-12 pr-1\">\r\n                            <br>\r\n                            <label class=\"col-md-12 pr-1\">Correo:</label>\r\n                            <input type=\"text\" class=\"form-control\" name=\"correo\" [(ngModel)]=\"correo\" value=\"\" required>\r\n                        </div>\r\n\r\n                        <div class=\"col-md-12 pr-1\">\r\n                            <br>\r\n                            <label class=\"col-md-12 pr-1\">Contraseña:</label>\r\n                            <input type=\"password\" class=\"form-control\" name=\"clave\" [(ngModel)]=\"password\" value=\"\" required>\r\n                        </div>\r\n                        <br>\r\n                        <br>\r\n                        <div class=\"col-md-12  pl-1\">\r\n                            <button class=\"btn btn-primary float-right\">\r\n                                Guardar\r\n                            </button>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -54253,7 +54313,127 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Inscripción Proveedor</h5>\n                    <div>En esta sección usted debe ingresar todos los campos solicitados</div>\n                </div>\n                <div class=\"card-body\">\n                    <form id=\"formulario\">\n                        <div class=\"col-md-12\">\n                            <div class=\"form-group\">\n                                <label>Cotización</label>\n                                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"licitacion\" name=\"licitacion\" placeholder=\"Ingrese el número de la cotización si aplica\" value=\"\">\n                            </div>\n                            <div class=\"form-group\">\n                                <label>Razón Social</label>\n                                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"razonsocial\" name=\"razonsocial\" placeholder=\"Ingrese razon social\" value=\"\">\n                            </div>\n                            <div class=\"form-group\">\n                                <label>NIT/CC</label>\n                                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"identificacion\" name=\"identificacion\" placeholder=\"Ingrese el número de la identificacion si aplica\" value=\"\">\n                            </div>\n                        </div>\n                        <div class=\"col-md-12\">\n                            <div class=\"form-group\" *ngFor=\"let orderText of campoTextField; let i = index\">\n                                <label>{{orderText.label}}</label>\n                                <input type=\"text\" class=\"form-control\" name=\"i\" [(ngModel)]=\"orderText.nombre\" placeholder=\"dd\" value=\"ddd\" [required]=\"itemCatalogo.obligatorio\">\n                            </div>\n                        </div>\n                        <div class=\"col-md-12\">\n                            <div *ngFor=\"let orderCombo of campoCombo; let ix = index\">\n                                <div>\n                                    <label>{{orderCombo.label}}</label>\n                                    <select class=\"form-control\" (ngModelChange)=\"selectChange($event, orderCombo.id)\" [(ngModel)]=\"orderCombo.nombre\" name=\"ix\" [required]=\"itemCatalogo.obligatorio\">\n                                        <option *ngFor=\"let itemCatalogo of orderCombo.catalogo; let idx = index\">{{itemCatalogo.nombre}}</option>\n                                    </select> </div>\n\n\n                            </div>\n                        </div>\n                        <div class=\"col-md-12\">\n                            <div class=\"form-group\" *ngFor=\"let texto of campoTexto; let i = index\">\n                                <label>{{texto.label}}</label>\n                                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"texto.nombre\" name=\"texto.label\" placeholder=\"\" value=\"\">\n                            </div>\n                        </div>\n                        <!--\n                        <div class=\"col-md-12\">\n                            <div class=\"form-group\" *ngFor=\"let order of campoCheck; let i = index\">\n                                <div>\n                                    <label>{{order.label}}</label>\n                                    <select class=\"form-control\">\n                                        <option value=\"i\" *ngFor=\"let itemCatalogo of order.catalogo; let i = index\">{{itemCatalogo.nombre}}</option>\n                                        \n                                    </select> </div>\n\n\n                            </div>\n                        </div>*/-->\n\n                        <span></span>\n                        <div class=\"col-md-12\">\n                            <div>\n                                <input type=\"checkbox\" id=\"checkpoliticas\" [(ngModel)]=\"checkpoliticas\" name=\"checkpoliticas\" [checked]=\"checkpoliticas\">\n                                <label (click)=\"openModalPoliticas(formulario)\">Aceptar politicas de privacidad</label>\n                            </div>\n                        </div>\n\n\n\n                        <div class=\"col-md-4  pl-1\">\n                            <a (click)=\"guardar()\" class=\"btn btn-primary btn-block\">\n                                Guardar\n                            </a>\n                        </div>\n                    </form>\n\n\n                </div>\n            </div>\n        </div>\n\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Inscripción Proveedor</h5>\r\n                    <div>En esta sección usted debe ingresar todos los campos solicitados</div>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <form id=\"formulario\" #formulario=\"ngForm\" (ngSubmit)=\"saveInscripcion(formulario)\">\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\">\r\n                                <label>Cotización</label>\r\n                                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"licitacion\" name=\"licitacion\" placeholder=\"Ingrese el número de la cotización si aplica\" value=\"\">\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <label>Razón Social</label>\r\n                                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"razonsocial\" name=\"razonsocial\" placeholder=\"Ingrese razon social\" value=\"\" required #nombre=\"ngModel\" disabled>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <label>NIT/CC</label>\r\n                                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"identificacion\" name=\"identificacion\" placeholder=\"Ingrese el número de la identificacion si aplica\" value=\"\" required #id=\"ngModel\" disabled>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\" *ngFor=\"let orderText of campoTextField; let i = index\">\r\n                                <div *ngIf=\"orderText.obligatorio; else notShow\">\r\n                                    <label>{{orderText.label}} *</label>\r\n                                    <input type=\"text\" class=\"form-control\" name=\"i\" [(ngModel)]=\"orderText.nombre\" placeholder=\"\" required #i=\"ngModel\">\r\n                                </div>\r\n\r\n                                <ng-template #notShow>\r\n                                    <label>{{orderText.label}}</label>\r\n                                    <input type=\"text\" class=\"form-control\" name=\"i\" [(ngModel)]=\"orderText.nombre\" placeholder=\"\" value=\"\">\r\n                                </ng-template>\r\n\r\n                            </div>\r\n                        </div>\r\n                        <!--campos tipo combo-->\r\n                        <div class=\"col-md-12\">\r\n                            <div *ngFor=\"let orderCombo of campoCombo; let ix = index\">\r\n                                <div>\r\n                                    <div *ngIf=\"orderCombo.obligatorio; else notShow_combo\">\r\n                                        <label>{{orderCombo.label}} *</label>\r\n                                        <select class=\"form-control\" (ngModelChange)=\"selectChange($event, orderCombo.id)\" [(ngModel)]=\"orderCombo.nombre\" name=\"orderCombo.label\" required #dat=\"ngModel\">\r\n                                            <option *ngFor=\"let itemCatalogo of orderCombo.catalogo; let idx = index\">{{itemCatalogo.nombre}}</option>\r\n                                        </select>\r\n                                    </div>\r\n\r\n                                    <ng-template #notShow_combo>\r\n                                        <label>{{orderCombo.label}}</label>\r\n                                        <select class=\"form-control\" (ngModelChange)=\"selectChange($event, orderCombo.id)\" [(ngModel)]=\"orderCombo.nombre\" name=\"ix\" #dat=\"ngModel\">\r\n                                            <option *ngFor=\"let itemCatalogo of orderCombo.catalogo; let idx = index\">{{itemCatalogo.nombre}}</option>\r\n                                        </select>\r\n                                    </ng-template>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <!--campos tipo textoArea-->\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\" *ngFor=\"let texto of campoTexto; let i = index\">\r\n                                <label>{{texto.label}}</label>\r\n                                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"texto.nombre\" name=\"i\">\r\n                            </div>\r\n                        </div>\r\n                        <!--campos tipo check-->\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\" *ngFor=\"let check of campoCheck; let i = index\">\r\n                                <div *ngIf=\"check.obligatorio; else notShow_check\">\r\n                                    <div>\r\n                                        <br>\r\n                                        <label>{{check.label}} *&nbsp;&nbsp;</label>\r\n                                        <input type=\"checkbox\" id=\"checkdata\" [(ngModel)]=\"checkdata\" name=\"i\" [checked]=\"checkdata\" required #checki=\"ngModel\">\r\n                                    </div>\r\n                                </div>\r\n                                <ng-template #notShow_check>\r\n                                    <div>\r\n                                        <label>{{check.label}}&nbsp;&nbsp;</label>\r\n                                        <input type=\"checkbox\" id=\"checkdata\" [(ngModel)]=\"checkdata\" name=\"i\" [checked]=\"checkdata\">\r\n                                    </div>\r\n                                </ng-template>\r\n\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <span></span>\r\n                        <div class=\"col-md-12\">\r\n                            <div>\r\n                                <input type=\"checkbox\" id=\"checkpoliticas\" [(ngModel)]=\"checkpoliticas\" name=\"checkpoliticas\" [checked]=\"checkpoliticas\">\r\n                                <label (click)=\"openModalPoliticas(formulario)\">Aceptar politicas de privacidad</label>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12  pl-1\">\r\n\r\n                            <button class=\"btn btn-primary float-right\">Guardar</button>\r\n                        </div>\r\n                    </form>\r\n\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/result-seleccion/result-seleccion.component.html":
+  /*!********************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/result-seleccion/result-seleccion.component.html ***!
+    \********************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppResultSeleccionResultSeleccionComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Resultado de la selección</h5>\r\n                            <div>A continuación, se muestran los resultados de la selección:</div>\r\n                            <br>\r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div>\r\n                                <label>Titulo de selección</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"tituloSeleccion\" [(ngModel)]=\"titulo\" disabled>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\">\r\n                                <label>Descripción</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"descripcionSelec\" [(ngModel)]=\"descripcion\" disabled>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"main-content pl-1\">\r\n        <div class=\"row\" style=\"background-color: white;\">\r\n            <div class=\"col-md-6\">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title\">Ponderar Alternativas vs Criterios</h5>\r\n                        </div>\r\n                        <div class=\"table\">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>\r\n                                        Proveedor\r\n                                    </th>\r\n                                    <th class=\"text-left\">\r\n                                        Porcentaje\r\n                                    </th>\r\n\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of proveedores; let h=index \">\r\n                                        <td class=\"text-primary\">\r\n                                            {{item.nombre}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.porcentaje}}%\r\n                                        </td>\r\n                                    </tr>\r\n                                </tbody>\r\n\r\n                            </table>\r\n\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-12 pl-1 \">\r\n                <a (click)=\"saveResultadoProveedor() \" class=\"btn btn-primary float-right text-white\">\r\n                  Guardar\r\n                </a>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.html":
+  /*!*************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.html ***!
+    \*************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppTableListBuscarEvaluacionesBuscarEvaluacionesComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p><strong>Buscar evaluaciones</strong></p>\r\n<p>Si usted desea buscar una evaluación existente, ingrese los siguientes datos y presione buscar:</p>\r\n<form (ngSubmit)=\"seachEvaluation(form)\" #form=\"ngForm\">\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-3\">\r\n            <label for=\"inputEmail4\">NIT/CC</label>\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"NIT/CC\" name=\"id\"  [(ngModel)]=\"evaluation.idProvider\" #id=\"ngModel\">\r\n        </div>\r\n        <div class=\"form-group col-md-3\">\r\n            <label for=\"inputPassword4\">Nombre proveedor</label>\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"Nombre del proveedor\" name=\"name\"  [(ngModel)]=\"evaluation.name\" #name=\"ngModel\">\r\n        </div>\r\n        <div class=\"form-group col-md-3\">\r\n            <label for=\"inputPassword4\">Año</label>\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"2020\" name=\"date\"  [(ngModel)]=\"evaluation.date\" #date=\"ngModel\">\r\n        </div>\r\n        <div class=\"form-group col-md-3\">\r\n            <label for=\"inputPassword4\">Semestre</label>\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"1\" name=\"semester\"  [(ngModel)]=\"evaluation.semester\" #semester=\"ngModel\">\r\n        </div>\r\n    </div>\r\n    <div style=\"text-align: right;\">\r\n        <button type=\"submit\" class=\"btn btn-primary btn-sm\"><small>Buscar</small></button>\r\n    </div>\r\n</form>\r\n\r\n<p *ngIf=\"showComponentTwo\" ><strong>Evaluaciones realizadas</strong></p>\r\n\r\n<div *ngIf=\"showComponentTwo\" class=\"table-responsive\">\r\n    <table class=\"table\">\r\n        <thead class=\" text-primary\">\r\n            <th>\r\n                NIT/CC\r\n            </th>\r\n            <th>\r\n                Nombre\r\n            </th>\r\n            <th>\r\n                Año\r\n            </th>\r\n            <th>\r\n                Semestre\r\n            </th>\r\n            <th>\r\n                Ver detalle\r\n            </th>\r\n        </thead>\r\n        <tbody>\r\n            <tr *ngFor=\"let evalua of evaluations; let i = index\">\r\n                <td>\r\n                    {{ evalua.idproveedor }}\r\n                </td>\r\n                <td>\r\n                    {{ evalua.razon_social }}\r\n                </td>\r\n                <td>\r\n                    {{ evalua.fecha_creacion | date:'yyyy' }}\r\n                </td>\r\n                <td>\r\n                    {{ evalua.semester }}\r\n                </td>\r\n                <td>\r\n                    <a style=\"color:white;\" (click)=\"openModalDetalles(evalua.idproveedor,evalua.titulo,evalua.fecha_creacion)\" class=\"btn btn-warning mr-1\">\r\n                        Detalle\r\n                    </a>\r\n                </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n\r\n<!-- Dialog template #2 -->\r\n<ng-template #secondDialog>\r\n    <p>{{ evaluationsByDetail[0].titulo }}</p>\r\n    <hr>\r\n    <p>Proveedor: <b> {{ evaluationsByDetail[0].razon_social }}</b></p>\r\n    <p>NIT/CC: <b> {{ evaluationsByDetail[0].idproveedor }}</b></p>\r\n    <p>Fecha evaluacion: <b> {{ evaluationsByDetail[0].fecha_creacion | date}}</b></p>\r\n    <table class=\"table\">\r\n        <thead class=\" text-primary\">\r\n            <th>\r\n                Criterios\r\n            </th>\r\n            <th>\r\n                Pesos\r\n            </th>\r\n            <th>\r\n                Puntuación\r\n            </th>\r\n            <th>\r\n                Mensaje\r\n            </th>\r\n        </thead>\r\n        <tbody>\r\n            <tr *ngFor=\"let evaluaByDetail of evaluationsByDetail; let i = index\">\r\n                <td>\r\n                    {{ evaluaByDetail.criterio }}\r\n                </td>\r\n                <td>\r\n                    {{ evaluaByDetail.peso }}\r\n                </td>\r\n                <td>\r\n                    {{ evaluaByDetail.calificacion_criterio }}\r\n                </td>\r\n                <td>\r\n                    {{ evaluaByDetail.mensaje }}\r\n                </td>\r\n            </tr>\r\n            <tr>\r\n                <td>\r\n                    TOTAL\r\n                </td>\r\n                <td>\r\n                    \r\n                </td>\r\n                <td>\r\n                    {{ evaluationsByDetail[0].calificacion_total | number : '1.2-2'}}\r\n                </td>\r\n                <td>\r\n                    {{ evaluationsByDetail[0].mensajeTotal}}\r\n                </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n    <button class=\"btn btn-primary\" type=\"button\" onclick=\"javascript:window.print()\">Imprimir</button>\r\n</ng-template>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/calificacion-criterio/calificacion-criterio.component.html":
+  /*!*****************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/calificacion-criterio/calificacion-criterio.component.html ***!
+    \*****************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppTableListCalificacionCriterioCalificacionCriterioComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p><strong>Calificación Criterios</strong></p>\r\n<p>A continuación, usted debe calificar de 1 a 10 al proveedor.</p>\r\n<div class=\"container m-5\">\r\n    <form>\r\n        <div style=\"width: 50%;\" *ngFor=\"let criterio of criterios; let i = index\" class=\"form-group row\">\r\n            <label class=\"col-sm-2 col-form-label\"> {{ criterio.criterio }}</label>\r\n            <div class=\"col-sm-10\">\r\n                <input class=\"form-control\"\r\n                type=\"text\"\r\n                placeholder=\"peso\"\r\n                required>\r\n            </div>\r\n        </div>\r\n        <div style=\"text-align: right;\">\r\n            <button type=\"submit\" class=\"btn btn-primary\">Siguiente</button>\r\n        </div>\r\n    </form>\r\n</div>\r\n      ";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.html":
+  /*!*****************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.html ***!
+    \*****************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppTableListCriteriosEvalauacionCriteriosEvalauacionComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p><strong>Criterios de evaluación</strong></p>\r\n<p>A continuación, se listan los criterios definidos en el sistema:</p>\r\n<div class=\"table-responsive\">\r\n        <table class=\"table\">\r\n            <thead class=\" text-primary\">\r\n                <th>\r\n                    Criterio\r\n                </th>\r\n                <th>\r\n                    Descripción\r\n                </th>\r\n                <th>\r\n                    Peso\r\n                </th>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let criterio of criterios; let i = index\">\r\n                    <td>\r\n                        {{criterio.criterio}}\r\n                    </td>\r\n                    <td>\r\n                        {{criterio.descripcion}}\r\n                    </td>\r\n                    <td>\r\n                        {{criterio.peso}}\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n      ";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.html":
+  /*!***************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.html ***!
+    \***************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppTableListResultadoEvaluacionResultadoEvaluacionComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p><strong>Resultado total de la evaluación</strong></p>\r\n<p>A continuación, se presenta el resultado parcial y total de la evaluación del proveedor.</p>\r\n\r\n<div class=\"table-responsive\">\r\n    <table class=\"table\">\r\n        <thead class=\" text-primary\">\r\n            <th>\r\n                Atributo\r\n            </th>\r\n            <th>\r\n                Calificación total\r\n            </th>\r\n            <th>\r\n                Notas\r\n            </th>\r\n        </thead>\r\n        <tbody>\r\n            <tr *ngFor=\"let criterio of resultCriteria; let i = index;\">\r\n                <td>\r\n                    {{ criterio.criteria }}\r\n                </td>\r\n                <td>\r\n                    {{ criterio.scoreResult | number : '1.2-2'}}\r\n                </td>\r\n                <td>\r\n                    {{ criterio.notes }}\r\n                </td>\r\n            </tr>\r\n            <tr>\r\n                <td>\r\n                    Total\r\n                </td>\r\n                <td>\r\n                    {{ resultTotal | number : '1.2-2' }}\r\n                </td>\r\n                <td>\r\n                    {{ message }}\r\n                </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n      ";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.html":
+  /*!*********************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.html ***!
+    \*********************************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppTableListSeleccionarProveedoresSeleccionarProveedoresComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>Para su nueva evaluación busque y seleccione un proveedor previamente aprobado:</p>\r\n<p><strong>Buscar proveedores</strong></p>\r\n\r\n<form (ngSubmit)=\"buscar(forma)\" #forma=\"ngForm\">\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <label>NIT/CC</label>\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"NIT/CC\" name=\"id\"  [(ngModel)]=\"usuario.id\" #id=\"ngModel\">\r\n        </div>\r\n        <div class=\"form-group col-md-6\">\r\n            <label>Nombre proveedor</label>\r\n            <input type=\"text\" class=\"form-control\"  placeholder=\"Nombre del proveedor\" name=\"proveedor\"  [(ngModel)]=\"usuario.name\" #name=\"ngModel\">\r\n        </div>\r\n    </div>\r\n    <div style=\"text-align: right;\">\r\n        <button type=\"submit\" class=\"btn btn-primary btn-sm\"><small>Buscar</small></button>\r\n    </div>\r\n</form>\r\n\r\n<p><strong>Seleccionar proveedores</strong></p>\r\n\r\n\r\n<div class=\"table-responsive\">\r\n        <table class=\"table\">\r\n            <thead class=\" text-primary\">\r\n                <th>\r\n                    NIT/CC\r\n                </th>\r\n                <th>\r\n                    Nombre\r\n                </th>\r\n                <th>\r\n                    Seleccionar\r\n                </th>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let proveedor of providers; let i = index\">\r\n                    <td>\r\n                        {{proveedor.idproveedor}}\r\n                    </td>\r\n                    <td>\r\n                        {{proveedor.razon_social}}\r\n                    </td>\r\n                    <td>\r\n                        <div class=\"form-check\">\r\n                            <label class=\"form-check-label\">\r\n                                <input #rolInput class=\"form-check-input\" type=\"checkbox\" (click)=\"selectProvider(proveedor.idproveedor, rolInput.checked); selectedName(proveedor.razon_social,rolInput.checked)\" [checked]=\"checked\">\r\n                                <span class=\"form-check-sign\"></span>\r\n                            </label>\r\n                        </div>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n\r\n\r\n      ";
     /***/
   },
 
@@ -54273,7 +54453,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h4 class=\"card-title\"> PAGINA EN CONSTRUCCION</h4>\n                </div>\n                <div class=\"card-body\">\n                    <div class=\"table-responsive\">\n\n                    </div>\n                </div>\n            </div>\n        </div>\n\n    </div>\n</div>";
+    __webpack_exports__["default"] = "\r\n<div class=\"main-content m-3\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <div #secondElem id=\"secondElem\"></div>\r\n            <div *ngIf=\"firstStep\" class=\"card justify-content-center\">\r\n                \r\n                <form (ngSubmit)=\"createEvaluation(form)\" #form=\"ngForm\">\r\n                    <div style=\"padding: 10px;\">\r\n                        <p><strong>Crear nueva evaluación</strong></p>\r\n                        <p>Ingrese aqui el titulo y la descripcíon de su nueva evaluacion del proveedor:</p>\r\n                    </div>\r\n                   \r\n                    <div class=\"card-header\">\r\n                        \r\n                        <div class=\"form-group row\">\r\n                            <label class=\"col-sm-2 col-form-label\">Titulo de la evaluación</label>\r\n                            <div class=\"col-sm-10\">\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Titulo\"  name=\"tittle\"  [(ngModel)]=\"header.tittle\" #tittle=\"ngModel\">\r\n                            </div>\r\n                            </div>\r\n                            <div class=\"form-group row\">\r\n                                <label class=\"col-sm-2 col-form-label\">Descripción</label>\r\n                            <div class=\"col-sm-10\">\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Descripcion\"  name=\"description\"  [(ngModel)]=\"header.description\" #description=\"ngModel\">\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <hr>\r\n                        <app-buscar-evaluaciones [showComponentTwo]=\"showSearchEvaluationComponent\" (showComponent)=\"showSearch($event)\"></app-buscar-evaluaciones>\r\n                        <hr>\r\n                        <app-seleccionar-proveedores *ngIf=\"showSearchEvaluation\" (sendSocialReason)=\"takeNameProvider($event)\" (sendProvider)=\"selectedProvider($event)\"></app-seleccionar-proveedores>\r\n                    </div>\r\n                    <div *ngIf=\"showSearchEvaluation\" style=\"text-align: right; margin: 10px;\">\r\n                        <button type=\"submit\" class=\"btn btn-primary\">Siguiente</button>\r\n                    </div>\r\n                    <div *ngIf=\"!showSearchEvaluation\" style=\"text-align: left; margin: 10px;\">\r\n                        <button class=\"btn btn-primary\" (click)=\"noShowSearch()\" >Atras</button>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n\r\n           <div class=\"card justify-content-center\" *ngIf=\"secondStep\">\r\n                <div class=\"card-header\">\r\n                    <app-title [show]=\"secondStep\" [titleEvaluation]=\"header.tittle\" [descriptionEvaluation]=\"header.description\"></app-title>\r\n                </div>\r\n\r\n                <div class=\"card-body\">\r\n                    <hr>\r\n                    <app-criterios-evalauacion></app-criterios-evalauacion>\r\n                </div>\r\n                <div style=\"display: flex; justify-content: space-between; width: 100%; padding: 15px;\">\r\n                    <button class=\"btn btn-primary\" (click)=\"changeCard()\">Atras</button>\r\n                    <button class=\"btn btn-primary\" (click)=\"changeCardsecond()\">Siguiente</button>\r\n                </div>\r\n                \r\n            </div>\r\n\r\n            <div class=\"card justify-content-center\" *ngIf=\"thirdStep\">\r\n                <div class=\"card-header\">\r\n                    <app-title [provider]=\"nameProvider\" [showProvider]=\"thirdStep\" [titleEvaluation]=\"header.tittle\" [descriptionEvaluation]=\"header.description\"></app-title>\r\n                </div>\r\n                <form (ngSubmit)=\"createCreteria(formData)\" #formData=\"ngForm\">\r\n                    <div class=\"card-body\">\r\n                        <hr>\r\n                    <!-- <app-calificacion-criterio></app-calificacion-criterio> -->\r\n                        <p><strong>Calificación criterios</strong></p>\r\n                        <p>A continuación, usted debe calificar de 1 a 10 al proveedor.</p>\r\n                        <div class=\"container m-5\">\r\n                            \r\n                                <div style=\"width: 50%; text-align: center;\" *ngFor=\"let criterio of criterios; let i = index;\" class=\"form-group row\">\r\n                                    <label style=\"text-align: center;\" class=\"col-sm-8 col-form-label\">{{ criterio.criterio }}</label>\r\n                                    <div style=\"text-align: left;\" class=\"col-sm-4\">\r\n                                        <input class=\"form-control\"\r\n                                        type=\"text\"\r\n                                        placeholder=\"\"\r\n                                        [name]=\"i + 1\"\r\n                                        [(ngModel)]=\"criteriosDescription[i + 1]\"\r\n                                        [ngModelOptions]=\"{standalone: false}\">\r\n                                    </div>\r\n                                </div>\r\n                            \r\n                        </div>\r\n                    </div>\r\n                    <hr>\r\n                    <div style=\"display: flex; justify-content: space-between; width: 100%; padding: 15px;\">\r\n                        <button class=\"btn btn-primary\" (click)=\"changeCardsecond()\">Atras</button>\r\n                        <button type=\"submit\" class=\"btn btn-primary\">Siguiente</button>\r\n                    </div>\r\n            </form>\r\n            </div>\r\n\r\n            <div class=\"card justify-content-center\" *ngIf=\"fourStep\">\r\n                <div class=\"card-header\">\r\n                    <app-title [provider]=\"nameProvider\" [showProvider]=\"fourStep\" [titleEvaluation]=\"header.tittle\" [descriptionEvaluation]=\"header.description\"></app-title>\r\n                </div>\r\n\r\n                <div class=\"card-body\">\r\n                    <hr>\r\n                    <app-resultado-evaluacion [message]=\"messageData\" [criteriaScore]=\"criterios\" [resultTotal]=\"totalScore\" [resultCriteria]=\"data\"></app-resultado-evaluacion>\r\n                </div>\r\n                <div style=\"display: flex; justify-content: space-between; width: 100%; padding: 15px;\">\r\n                    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"changeCardthird()\">Atras</button>\r\n                    <button (click)=\"guardar()\" type=\"submit\" class=\"btn btn-primary\" >Guardar</button>\r\n                </div>\r\n            </div>\r\n\r\n\r\n        </div>\r\n    </div>\r\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/title/title.component.html":
+  /*!*********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/title/title.component.html ***!
+    \*********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppTableListTitleTitleComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-6\">\n        <p><strong>Titulo de la evaluacion</strong></p>\n    </div>\n    <div class=\"col-md-6\">\n        <p>{{ titleEvaluation }}</p>\n    </div>\n</div>\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <p><strong>Descripción</strong></p>\n    </div>\n    <div class=\"col-md-6\">\n        <p>{{ descriptionEvaluation }}\n        </p>\n    </div>\n</div>\n<div *ngIf=\"show\" class=\"row\">\n    <div class=\"col-md-6\">\n        <p><strong>Semeste</strong></p>\n    </div>\n    <div class=\"col-md-6\">\n        <p>{{ semestre }}\n        </p>\n    </div>\n</div>\n<div class=\"row\" *ngIf=\"showProvider\">\n    <div class=\"col-md-6\">\n        <p><strong>Provedor evaluado</strong></p>\n    </div>\n    <div class=\"col-md-6\">\n        <p>{{ provider }}\n        </p>\n    </div>\n</div>\n";
     /***/
   },
 
@@ -54293,7 +54493,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Transacciones</h5>\n                </div>\n                <div class=\"card-body\">\n                    <div class=\"row\">\n                        <div class=\"col-8\">\n\n                            <div class=\"list-group\" id=\"list-tab\" role=\"tablist\">\n                                <a class=\"list-group-item list-group-item-action active\" id=\"list-home-list\" data-toggle=\"list\" href=\"#list-home\" role=\"tab\" aria-controls=\"home\">Transacción 1</a>\n                                <a class=\"list-group-item list-group-item-action\" id=\"list-profile-list\" data-toggle=\"list\" href=\"#list-profile\" role=\"tab\" aria-controls=\"profile\">Transacción 2</a>\n                                <a class=\"list-group-item list-group-item-action\" id=\"list-messages-list\" data-toggle=\"list\" href=\"#list-messages\" role=\"tab\" aria-controls=\"messages\">Transacción 3</a>\n                                <a class=\"list-group-item list-group-item-action\" id=\"list-settings-list\" data-toggle=\"list\" href=\"#list-settings\" role=\"tab\" aria-controls=\"settings\">Transacción 4</a>\n                            </div>\n                        </div>\n                        <div class=\"col-8\">\n                            <div class=\"tab-content\" id=\"nav-tabContent\">\n                                <div class=\"tab-pane fade show active\" id=\"list-home\" role=\"tabpanel\" aria-labelledby=\"list-home-list\">...</div>\n                                <div class=\"tab-pane fade\" id=\"list-profile\" role=\"tabpanel\" aria-labelledby=\"list-profile-list\">...</div>\n                                <div class=\"tab-pane fade\" id=\"list-messages\" role=\"tabpanel\" aria-labelledby=\"list-messages-list\">...</div>\n                                <div class=\"tab-pane fade\" id=\"list-settings\" role=\"tabpanel\" aria-labelledby=\"list-settings-list\">...</div>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"col-md-4  pl-1\">\n                        <a href=\"/materialdetail\" class=\"btn btn-primary btn-block\">\n                            Editar/Ver\n                        </a>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <div class=\"card-body\">\r\n                        <p><strong>Buscar transacciones</strong></p>\r\n                        <p>A continuación, busque la transacción que desee ver o gestionar:</p>\r\n                        <br>\r\n                        <form (ngSubmit)=\"searchTransaction(form)\" #form=\"ngForm\">\r\n                            <div class=\"form-row\">\r\n                                <div class=\"form-group col-md-6\">\r\n                                    <label>Estado</label>\r\n                                    <select style=\"padding: 1%;\" class=\"form-control\"  name=\"estado\" [(ngModel)]=\"transactions.estado\" class=\"form-control\" #estado=\"ngModel\">\r\n                                        <option value=\"finalizada\">Finalizada</option>\r\n                                        <option value=\"finalizada con observaciones\">Finalizada con observaciones</option>\r\n                                        <option value=\"rechazada\">Rechazada</option>\r\n                                        <option value=\"En proceso\">En proceso</option>\r\n                                    </select>\r\n                                    <!--<input type=\"text\" class=\"form-control\" placeholder=\"\"  name=\"estado\"  [(ngModel)]=\"transactions.estado\" #estado=\"ngModel\">-->\r\n                                </div>\r\n                                <div class=\"form-group col-md-6\">\r\n                                    <label>Fecha limite de entrega</label>\r\n                                    <input type=\"text\" class=\"form-control\"  placeholder=\"Ejemplo: 2020-12-31\" name=\"fecha_limite_entrega\"  [(ngModel)]=\"transactions.fecha_limite_entrega\" #fecha_limite_entrega=\"ngModel\">\r\n                                </div>\r\n                                <div class=\"form-group col-md-6\">\r\n                                    <label>NIT/CC Proveedor</label>\r\n                                    <input type=\"text\" class=\"form-control\"  placeholder=\"\" name=\"idproveedor\"  [(ngModel)]=\"transactions.idproveedor\" #idproveedor=\"ngModel\">\r\n                                </div>\r\n                                <div class=\"form-group col-md-6\">\r\n                                    <label>Id orden de compra</label>\r\n                                    <input type=\"text\" class=\"form-control\"  placeholder=\"\" name=\"id_orden_compra\"  [(ngModel)]=\"transactions.id_orden_compra\" #id_orden_compra=\"ngModel\">\r\n                                </div>\r\n                            </div>\r\n                            <div style=\"text-align: right;\">\r\n                                <button type=\"submit\" class=\"btn btn-primary btn-sm\"><small>Buscar</small></button>\r\n                            </div>\r\n                        </form>\r\n                        <hr>\r\n                        <div class=\"table-responsive\">\r\n                            <table class=\"table\">\r\n                                <thead class=\" text-primary\">\r\n                                    <th>\r\n                                        NIT/CC Proveedor\r\n                                    </th>\r\n                                    <th>\r\n                                        Nombre Proveedor\r\n                                    </th>\r\n                                    <th>\r\n                                        Orden compra\r\n                                    </th>\r\n                                    <th>\r\n                                        Estado transacción\r\n                                    </th>\r\n                                    <th>\r\n                                \r\n                                    </th>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let transaction of transactions; let i = index\"><!---->\r\n                                        <td>\r\n                                            {{ transaction.id_proveedor }}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{ transaction.razon_social }}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{ transaction.id_orden_compra }}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{ transaction.estado }}\r\n                                        </td>\r\n                                        <td>\r\n                                            <a (click)=\"viewTransaction(transaction.id)\" style=\"color:white;\"  class=\"btn btn-warning mr-1\">\r\n                                                Ver transacción\r\n                                            </a>\r\n                                        </td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n";
     /***/
   },
 
@@ -54313,7 +54513,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Gestión de Materiales</h5>\n                </div>\n                <div class=\"card-body\">\n                    <div class=\"col-md-4  pl-1\">\n                        <a href=\"/matclassification\" class=\"btn btn-primary btn-block\">\n                            Crear Transacción \n                        </a>\n                        <a href=\"/transaction\" class=\"btn btn-primary btn-block\">Entrada Transacción </a>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <br>\r\n                    <h5 class=\"title\">Gestión de materiales</h5>\r\n                    <p>Seleccione si usted desea crear una nueva transacción o si desea gestionar una existente:</p>\r\n                </div>\r\n                <div style=\"text-align: center;\" class=\"card-body\">\r\n                    <div class=\"col-md-4  pl-1\">\r\n                        <a href=\"/matclassification\" class=\"btn btn-primary btn-block\">\r\n                            Crear transacción \r\n                        </a>\r\n                        <a href=\"/transaction\" class=\"btn btn-primary btn-block\">Gestion de transacción </a>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -54333,7 +54533,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col\">\n            <div class=\"card card-upgrade\">\n                <div class=\"card-header\">\n                    <h5 class=\"card-title\">PAGINA EN CONSTRUCCION</h5>\n                </div>\n                <div class=\"card-body\">\n                    <div class=\"table-responsive table-upgrade\">\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <h5 class=\"title\">Buscar proveedores</h5>\r\n                        <br>\r\n                        <div class=\"col-md-4\">\r\n                            <div>\r\n                                <label>NIT/CC</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"identificacion\" [(ngModel)]=\"id\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-4\">\r\n                            <div class=\"form-group\">\r\n                                <label>Nombre proveedor</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"nombre\" [(ngModel)]=\"name\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-4\">\r\n                            <div class=\"form-group\">\r\n                                <label>Estado</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"estado\" [(ngModel)]=\"status\">\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n\r\n                    <div class=\"col-md-12 pl-1 \">\r\n                        <a href=\"/gestionartarea\" class=\"btn btn-primary float-right text-white\">\r\n                          Buscar\r\n                        </a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-md-12 pl-1 \">\r\n        <div class=\"row \">\r\n            <div class=\"col-md-12 \">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Listado de revisiones</h5>\r\n\r\n                        </div>\r\n                        <div class=\"table-responsive \">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>\r\n                                        CC/NIT\r\n                                    </th>\r\n                                    <th class=\"text-center \">\r\n                                        Nombre\r\n                                    </th>\r\n                                    <th>\r\n                                        Estado\r\n                                    </th>\r\n\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of proveedores; let i=index\">\r\n                                        <td>\r\n                                            {{item.nit}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.nombre}}\r\n                                        </td>\r\n                                        <td>\r\n                                            estado\r\n                                        </td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -54353,7 +54553,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\n</div>\n<div class=\"main-content\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h5 class=\"title\">Buscar Proveedor</h5>\n                </div>\n                <div class=\"card-body\">\n                    <form>\n\n                        <div class=\"col-md-12 pr-1\">\n                            <div>\n                                <label>Licitación/Orden Compra</label>\n                                <select class=\"form-control\">\n                                <option value=\"0\">Seleccione una opción</option>\n                                <option value=\"licitacion1\">Licitación 1</option>\n                                <option value=\"licitacion2\">Licitación 2</option>\n                                <option value=\"licitacion3\">Licitación 3</option>\n                            </select> </div>\n                        </div>\n                        <div class=\"col-md-12 pr-1\">\n                            <div class=\"form-group\">\n                                <label>Clasificación</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Clasificación\">\n                            </div>\n                        </div>\n                        <div class=\" col-md-3 pl-1 text-white \">\n                            <a class=\"btn btn-primary btn-block \">\n                              Guardar\n                          </a>\n                        </div>\n                    </form>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n    <div class=\"col-md-12 pl-1 \">\n        <div class=\"row \">\n            <div class=\"col-md-12 \">\n                <div class=\"card \">\n                    <div class=\"card-body \">\n                        <div class=\"card-header \">\n                            <h5 class=\"title \">Selección Proveedor</h5>\n                        </div>\n                        <div class=\"table-responsive \">\n                            <table class=\"table \">\n                                <thead class=\" text-primary \">\n                                    <th>\n                                        CC/NIT/RUT\n                                    </th>\n                                    <th class=\"text-center \">\n                                        Nombre\n                                    </th>\n                                    <th>\n                                        Seleccionar\n                                    </th>\n                                </thead>\n                                <tbody>\n                                    <tr>\n                                        <td>\n                                            9500621\n                                        </td>\n                                        <td>\n                                            Proveedor de prueba\n                                        </td>\n                                        <td>\n                                            <div class=\"form-check \">\n                                                <label class=\"form-check-label \">\n                                            <input class=\"form-check-input \" type=\"checkbox\" checked>\n                                            <span class=\"form-check-sign \"></span>\n                                            </label>\n                                            </div>\n                                        </td>\n                                    </tr>\n                                    <tr>\n                                        <td>\n                                            1234567\n                                        </td>\n                                        <td>\n                                            Proveedor de prueba 2\n                                        </td>\n                                        <td>\n                                            <div class=\"form-check \">\n                                                <label class=\"form-check-label \">\n                                          <input class=\"form-check-input \" type=\"checkbox\" checked>\n                                          <span class=\"form-check-sign \"></span>\n                                        </label>\n                                            </div>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                    <div class=\"col-md-3 pl-1 \">\n                        <a href=\"/criterion \" class=\"btn btn-primary btn-block \">\n                          Guardar\n                      </a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <h5 class=\"title\">Creación de nueva selección de proveedor</h5>\r\n                        <div>En esta sección usted debe buscar y seleccionar los proveedores que participarán en la selección.<br> Ingrese el título y la descripción de la selección:\r\n                        </div>\r\n                        <br>\r\n                        <div class=\"col-md-12\">\r\n                            <div>\r\n                                <label>Titulo de selección</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"tituloSeleccion\" [(ngModel)]=\"titulo\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\">\r\n                                <label>Descripción</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"descripcionSelec\" [(ngModel)]=\"descripcion\">\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n\r\n                    <div class=\"card-header\">\r\n                        <h5 class=\"title\"> Buscar Proveedor</h5>\r\n                        <div>A continuación, ingrese el código del segmento, familia, clase y/o producto para encontrar los proveedores relacionados a estos:</div>\r\n                        <br>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <form #formulario=\"ngForm\">\r\n\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Segmento</label>\r\n                                    <input class=\"form-control form-control-sm ml-3 w-75\" type=\"number\" aria-label=\"Search\" name=\"segmento\" [(ngModel)]=\"segmento\">\r\n\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Familia</label>\r\n                                    <input class=\"form-control form-control-sm ml-3 w-75\" type=\"number\" aria-label=\"Search\" name=\"familia\" [(ngModel)]=\"familia\">\r\n\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Clase</label>\r\n                                    <input class=\"form-control form-control-sm ml-3 w-75\" type=\"number\" aria-label=\"Search\" name=\"clase\" [(ngModel)]=\"clase\">\r\n\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <i class=\"fas fa-search\" aria-hidden=\"true\"></i><label>Producto</label>\r\n                                    <input class=\"form-control form-control-sm ml-3 w-75\" type=\"number\" aria-label=\"Search\" name=\"producto\" [(ngModel)]=\"producto\">\r\n\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-12\">\r\n                                <div>\r\n                                    <label>NIT/CC</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"nit_cc\" [(ngModel)]=\"nit\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-12\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Cotización</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"cotizacionSeleccion\" [(ngModel)]=\"cotizacion\">\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-3  pl-1\">\r\n                                <div class=\"form-group\">\r\n                                    <button class=\"btn btn-primary btn-block\" (click)=\"buscar()\">Buscar</button>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-3  pl-1\">\r\n                                <div class=\"form-group\">\r\n                                    <a (click)=\"clear(formulario)\" class=\"btn btn-primary btn-block text-white\">Limpiar</a>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-3  pl-1\">\r\n                                <div class=\"form-group\">\r\n                                    <a href=\"/dashboard\" class=\"btn btn-primary btn-block\">atrás</a>\r\n                                </div>\r\n                            </div>\r\n\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-md-12 pl-1 \">\r\n        <div class=\"row \">\r\n            <div class=\"col-md-12 \">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Selección de proveedores</h5>\r\n\r\n                        </div>\r\n                        <div class=\"table-responsive \">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>\r\n                                        CC/NIT/RUT\r\n                                    </th>\r\n                                    <th class=\"text-center \">\r\n                                        Nombre\r\n                                    </th>\r\n                                    <th>\r\n                                        Adicionar para seleccion AHP\r\n                                    </th>\r\n                                    <th>\r\n                                        Seleccionar proveedor sin AHP\r\n                                    </th>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of proveedores; let i=index\">\r\n                                        <td>\r\n                                            {{item.nit}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.nombre}}\r\n                                        </td>\r\n                                        <td>\r\n                                            <div class=\"form-check \">\r\n                                                <label class=\"form-check-label \">\r\n                                            <input class=\"form-check-input \" type=\"checkbox\"  (change)=\"changeConAHP(item)\" [(ngModel)]=\"item.conAhp\">\r\n                                            <span class=\"form-check-sign \"></span>\r\n                                            </label>\r\n                                            </div>\r\n                                        </td>\r\n                                        <td>\r\n                                            <div class=\"form-check \" *ngIf=\"item.conAhp; else notShow_check\">\r\n                                                <label class=\"form-check-label \">\r\n                                            <input class=\"form-check-input \" type=\"checkbox\" (change)=\"changeSinAHP(item)\"  [(ngModel)]=\"!item.conAhp\" disabled>\r\n                                            <span class=\"form-check-sign \"></span>\r\n                                            </label>\r\n                                            </div>\r\n\r\n                                            <ng-template #notShow_check>\r\n                                                <div class=\"form-check \">\r\n                                                    <label class=\"form-check-label \">\r\n                                                    <input class=\"form-check-input \" type=\"checkbox\" (change)=\"changeSinAHP(item)\"  [(ngModel)]=\"!item.conAhp\" >\r\n                                                    <span class=\"form-check-sign \"></span>\r\n                                                    </label>\r\n                                                </div>\r\n                                            </ng-template>\r\n                                        </td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-md-12 pl-1 \">\r\n                        <a (click)=\"saveSeleccionProveedor()\" class=\"btn btn-primary float-right text-white\">\r\n                          Guardar\r\n                        </a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -54411,7 +54611,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvYWhwL2FocC5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FocC9haHAuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -54452,19 +54652,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ngx_toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ngx-toastr */
     "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../services/camposproveedor.service */
+    "./src/services/camposproveedor.service.ts");
 
     var AhpComponent =
     /*#__PURE__*/
     function () {
-      function AhpComponent(toastr) {
+      // tslint:disable-next-line: max-line-length
+      function AhpComponent(toastr, route, router, service) {
         _classCallCheck(this, AhpComponent);
 
         this.toastr = toastr;
+        this.route = route;
+        this.router = router;
+        this.service = service;
+        this.criterios = [];
+        this.total = 0;
       }
 
       _createClass(AhpComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this7 = this;
+
+          this.proveedores = this.service.getProveedores();
+          this.titulo = this.proveedores[0].titulo;
+          this.descripcion = this.proveedores[0].descripcion;
+          this.service.getCriterios().subscribe(function (res) {
+            _this7.criterios = res;
+          }, function (err) {
+            return console.error(err);
+          });
+        }
+      }, {
+        key: "change",
+        value: function change(e) {}
       }, {
         key: "showNotification",
         value: function showNotification(from, align) {
@@ -54477,6 +54709,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             positionClass: 'toast-' + from + '-' + align
           });
         }
+      }, {
+        key: "saveSeleccionProveedor",
+        value: function saveSeleccionProveedor() {
+          var _this8 = this;
+
+          this.service.saveProveedoresSeleccionados(this.proveedores).subscribe(function (res) {
+            _this8.respuesta = res; // tslint:disable-next-line: no-unused-expression
+            // this.router.navigateByUrl('/criterion');
+
+            _this8.service.setProveedores(_this8.proveedores);
+
+            _this8.router.navigate(['/resultSeleccion'], {
+              queryParams: {
+                id: _this8.respuesta.id
+              }
+            });
+          }, function (err) {
+            _this8.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+          });
+        }
       }]);
 
       return AhpComponent;
@@ -54485,6 +54737,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     AhpComponent.ctorParameters = function () {
       return [{
         type: ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }, {
+        type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_4__["CamposproveedorService"]
       }];
     };
 
@@ -54516,7 +54774,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvY2xhc3NpZmljYXRpb24vY2xhc3NpZmljYXRpb24uY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NsYXNzaWZpY2F0aW9uL2NsYXNzaWZpY2F0aW9uLmNvbXBvbmVudC5zY3NzIn0= */";
     /***/
   },
 
@@ -54569,24 +54827,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _documents_documents_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../documents/documents.component */
     "./src/app/documents/documents.component.ts");
+    /* harmony import */
+
+
+    var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../dialog/dialog.service */
+    "./src/app/dialog/dialog.service.ts");
 
     var rutas = [{
-      path: 'documentation/:clasificacion',
+      path: 'documentation',
       component: _documents_documents_component__WEBPACK_IMPORTED_MODULE_4__["DocumentsComponent"]
     }];
 
     var ClassificationComponent =
     /*#__PURE__*/
     function () {
-      function ClassificationComponent(clasificacionService, router) {
+      function ClassificationComponent(clasificacionService, router, dialogService) {
         _classCallCheck(this, ClassificationComponent);
 
         this.clasificacionService = clasificacionService;
         this.router = router;
-        this.classes = 'row';
+        this.dialogService = dialogService;
+        this.classes = 'div';
         this.check = false;
         this.checkData = false;
         this.data = [];
+        this.respuesta = {
+          text: '',
+          id: 0
+        };
         this.clasificacionDatos = [];
       }
 
@@ -54594,11 +54863,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "ngOnInit",
         value: function ngOnInit() {}
       }, {
+        key: "clear",
+        value: function clear(userForm) {
+          userForm.reset();
+        }
+      }, {
         key: "buscar",
         value: function buscar() {
-          var _this7 = this;
+          var _this9 = this;
 
-          // tslint:disable-next-line: prefer-const
           var parametros = {
             segmento: this.segmento === undefined ? '' : this.segmento,
             familia: this.familia === undefined ? '' : this.familia,
@@ -54607,7 +54880,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }; // tslint:disable-next-line: max-line-length
 
           this.clasificacionService.getClasificacion(parametros).subscribe(function (res) {
-            _this7.data = res;
+            _this9.data = res;
           }, function (err) {
             return console.error(err);
           });
@@ -54626,15 +54899,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "guardarClasificacion",
         value: function guardarClasificacion() {
-          var _this8 = this;
+          var _this10 = this;
 
-          this.clasificacionService.saveClasificacion(this.clasificacionDatos).subscribe(function (res) {
-            console.log(res);
+          if (this.clasificacionDatos.length > 0) {
+            this.clasificacionService.saveClasificacion(this.clasificacionDatos).subscribe(function (res) {
+              console.log(res); // this.router.navigateByUrl('/documentation');
 
-            _this8.router.navigateByUrl('/documentation', _this8.clasificacionDatos);
-          }, function (err) {
-            return console.error(err);
-          });
+              _this10.respuesta = res;
+
+              _this10.router.navigate(['/documentation'], {
+                queryParams: {
+                  id: _this10.respuesta.id
+                }
+              });
+            }, function (err) {
+              return console.error(err);
+            });
+          } else {
+            this.dialogService.openModalOk('Error', 'Existen campos obligatorios, por favor verificar', function () {// tslint:disable-next-line: no-unused-expression
+            });
+          }
         }
       }]);
 
@@ -54646,6 +54930,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_2__["CamposproveedorService"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }, {
+        type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_5__["DialogService"]
       }];
     };
 
@@ -54684,7 +54970,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvY3JpdGVyaW9uL2NyaXRlcmlvbi5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NyaXRlcmlvbi9jcml0ZXJpb24uY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -54719,21 +55005,63 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../services/camposproveedor.service */
+    "./src/services/camposproveedor.service.ts");
 
     var CriterionComponent =
     /*#__PURE__*/
     function () {
-      function CriterionComponent() {
+      function CriterionComponent(route, service, router) {
         _classCallCheck(this, CriterionComponent);
+
+        this.route = route;
+        this.service = service;
+        this.router = router;
+        this.criterios = [];
       }
 
       _createClass(CriterionComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this11 = this;
+
+          this.proveedores = this.service.getProveedores();
+          this.service.getCriterios().subscribe(function (res) {
+            _this11.criterios = res;
+          }, function (err) {
+            return console.error(err);
+          });
+        }
+      }, {
+        key: "siguiente",
+        value: function siguiente() {
+          this.service.setProveedores(this.proveedores);
+          this.router.navigate(['/AhpComponent']);
+        }
       }]);
 
       return CriterionComponent;
     }();
+
+    CriterionComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__["CamposproveedorService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }];
+    };
 
     CriterionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-criterion',
@@ -54763,7 +55091,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyJ9 */";
     /***/
   },
 
@@ -54801,29 +55129,81 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/camposproveedor.service */
+    "./src/services/camposproveedor.service.ts");
+    /* harmony import */
+
+
+    var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../dialog/dialog.service */
     "./src/app/dialog/dialog.service.ts");
     /* harmony import */
 
 
-    var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @ng-bootstrap/ng-bootstrap */
     "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var DashboardComponent =
     /*#__PURE__*/
     function () {
-      function DashboardComponent(modalService, dialogService) {
+      // tslint:disable-next-line: max-line-length
+      function DashboardComponent(modalService, services, dialogService, router) {
         _classCallCheck(this, DashboardComponent);
 
         this.modalService = modalService;
+        this.services = services;
         this.dialogService = dialogService;
+        this.router = router;
+        this.classes = 'div';
+        this.title = 'Iniciar Sesión';
+        this.exampleChild = 'ejemplo angular';
       }
 
       _createClass(DashboardComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.usuario = this.services.getUsuario();
+
+          if (this.usuario !== undefined) {
+            this.autenticado = true;
+            this.title = 'Bienvenido, a la izquierda encontrará el menú de opciones.';
+          } else {
+            this.autenticado = false;
+          }
+        }
+      }, {
+        key: "login",
+        value: function login(userForm) {
+          var _this12 = this;
+
+          if (userForm.valid) {
+            this.services.logIn(userForm.value).subscribe(function (res) {
+              _this12.usuario = res;
+              console.log('usuario respuesta');
+              _this12.title = 'Bienvenido, a la izquierda encontrará el menú de opciones.'; // tslint:disable-next-line: no-unused-expression
+
+              _this12.autenticado = true;
+
+              _this12.services.setUsuario(_this12.usuario);
+            }, function (err) {
+              _this12.dialogService.openModalOk('Error', err.error.text, function () {
+                // tslint:disable-next-line: no-unused-expression
+                _this12.autenticado = false;
+              });
+            });
+          } else {
+            this.dialogService.openModalOk('Error', 'Por favor diligenciar todos los campos obligatorios', function () {// tslint:disable-next-line: no-unused-expression
+            });
+          }
+        }
       }]);
 
       return DashboardComponent;
@@ -54831,12 +55211,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     DashboardComponent.ctorParameters = function () {
       return [{
-        type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"]
+        type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModal"]
       }, {
-        type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_2__["DialogService"]
+        type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_2__["CamposproveedorService"]
+      }, {
+        type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_3__["DialogService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
       }];
     };
 
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('class')], DashboardComponent.prototype, "classes", void 0);
     DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-dashboard',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -54889,7 +55274,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _dialog_ok_template_dialog_ok_template_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../dialog-ok-template/dialog-ok-template.component */
+    "./src/app/dialog-ok-template/dialog-ok-template.component.ts");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/material */
     "./node_modules/@angular/material/esm2015/material.js");
 
@@ -54907,12 +55298,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function openModal(title, message) {
           var yes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
           var no = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
-          var dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogConfig"](); // dialogConfig.disableClose = true;
+          var dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"](); // dialogConfig.disableClose = true;
 
           dialogConfig.autoFocus = true;
           dialogConfig.data = {
             title: title,
             message: message
+          };
+          dialogConfig.minWidth = 400;
+          var dialogRef = this.dialog.open(_dialog_template_dialog_template_component__WEBPACK_IMPORTED_MODULE_2__["DialogTemplateComponent"], dialogConfig);
+          dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+              if (yes) {
+                yes();
+              }
+            } else {
+              if (no) {
+                no();
+              }
+            }
+          });
+        }
+      }, {
+        key: "openModalOk",
+        value: function openModalOk(title, message) {
+          var yes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"](); // dialogConfig.disableClose = true;
+
+          dialogConfig.autoFocus = true;
+          dialogConfig.data = {
+            title: title,
+            message: message
+          };
+          dialogConfig.minWidth = 400;
+          var dialogRef = this.dialog.open(_dialog_ok_template_dialog_ok_template_component__WEBPACK_IMPORTED_MODULE_3__["DialogOkTemplateComponent"], dialogConfig);
+          dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+              if (yes) {
+                yes();
+              }
+            }
+          });
+        }
+      }, {
+        key: "openModalDetalles",
+        value: function openModalDetalles(title, message) {
+          var yes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var no = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+          var dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"](); // dialogConfig.disableClose = true;
+
+          dialogConfig.autoFocus = true;
+          dialogConfig.data = {
+            title: title,
+            message: message[0].criterio
           };
           dialogConfig.minWidth = 400;
           var dialogRef = this.dialog.open(_dialog_template_dialog_template_component__WEBPACK_IMPORTED_MODULE_2__["DialogTemplateComponent"], dialogConfig);
@@ -54935,7 +55373,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     DialogService.ctorParameters = function () {
       return [{
-        type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]
       }];
     };
 
@@ -54961,7 +55399,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvZG9jdW1lbnRzL2RvY3VtZW50cy5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2RvY3VtZW50cy9kb2N1bWVudHMuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -55008,15 +55446,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../../services/camposproveedor.service */
     "./src/services/camposproveedor.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../dialog/dialog.service */
+    "./src/app/dialog/dialog.service.ts");
 
     var DocumentsComponent =
     /*#__PURE__*/
     function () {
-      function DocumentsComponent(toastr, service) {
+      // tslint:disable-next-line: member-ordering
+      // tslint:disable-next-line: max-line-length
+      function DocumentsComponent(dialogService, router, http, toastr, service, route) {
         _classCallCheck(this, DocumentsComponent);
 
+        this.dialogService = dialogService;
+        this.router = router;
+        this.http = http;
         this.toastr = toastr;
         this.service = service;
+        this.route = route;
+        this.contador = 0;
         this.campoField = [];
         this.itemtexto = {};
         this.campoTexto = [];
@@ -55025,12 +55488,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DocumentsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this9 = this;
+          var _this13 = this;
 
-          this.service.getDocumentacion(10).subscribe(function (res) {
-            _this9.campoField = res;
+          this.usuario = this.service.getUsuario();
+          this.values = this.route.queryParams.subscribe(function (params) {
+            // Defaults to 0 if no query param provided.
+            _this13.value = +params['id'] || 0;
+          });
+          console.log('value' + this.value + 'values' + this.values);
+          this.service.getDocumentacion(this.value).subscribe(function (res) {
+            _this13.campoField = res;
 
-            _this9.crearCampos();
+            _this13.crearCampos();
           }, function (err) {
             return console.error(err);
           });
@@ -55046,12 +55515,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           try {
             for (var _iterator = this.campoField[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
               var campo = _step.value;
-              this.itemtexto.id = campo.idcamposproveedor;
-              this.itemtexto.label = campo.label;
-              this.itemtexto.nombre = campo.label;
-              this.campoTexto.push(this.itemtexto);
-              this[campo.label] = '';
-              this.indice++;
+              this.itemtexto = {};
+
+              if (campo !== null) {
+                this.itemtexto.id = campo.iddocumentos;
+                this.itemtexto.label = campo.nombredocumento;
+                this.itemtexto.nombre = campo.nombredocumento;
+                this.itemtexto.obligatorio = campo.obligatorio;
+                this.campoTexto.push(this.itemtexto);
+                this.indice++;
+                this[campo.label] = '';
+              }
             }
           } catch (err) {
             _didIteratorError = true;
@@ -55069,14 +55543,63 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
-        key: "cargandoArchivo",
-        value: function cargandoArchivo(files) {
-          // tslint:disable-next-line: indent
-          this.service.postFileImagen(files[0]).subscribe(function (res) {
-            console.log(res);
-          }, function (error) {
-            console.log(error);
-          });
+        key: "uploadFile",
+        value: function uploadFile(e) {
+          if (this.uploadedFiles === undefined) {
+            this.uploadedFiles = new Array();
+          }
+
+          this.uploadedFiles.push(e.target.files[0]);
+
+          if (this.uploadedFiles.length > 0) {
+            this.documento = {
+              ruta_documento: '/file',
+              id_inscripcion: this.value,
+              id_documento: e.target.name,
+              id_proveedor: this.usuario.id_proveedor
+            };
+
+            if (this.documentos === undefined) {
+              this.documentos = new Array();
+            }
+
+            this.documentos.push(this.documento);
+
+            if (this.documentos.length > 0) {
+              this.documentos = this.documentos.filter(function (valorActual, indiceActual, arreglo) {
+                // tslint:disable-next-line: max-line-length
+                return arreglo.findIndex(function (valorDelArreglo) {
+                  return JSON.stringify(valorDelArreglo) === JSON.stringify(valorActual);
+                }) === indiceActual;
+              });
+            } // this.uploadedFiles.push(e.target.files[0]);
+
+          }
+        }
+      }, {
+        key: "saveFile",
+        value: function saveFile() {
+          var _this14 = this;
+
+          for (var index = 0; index < this.uploadedFiles.length; index++) {
+            console.log('archivo -- ' + this.uploadedFiles[index].name);
+            var formData = new FormData();
+            formData.append('uploads[]', this.uploadedFiles[index], this.uploadedFiles[index].name);
+            this.http.post('https://prosegmaprueba.us-3.evennode.com/api/documentacion', formData).subscribe(function (d) {});
+            this.service.postFileImagen(this.documentos).subscribe(function (res) {
+              _this14.contador++; // tslint:disable-next-line: max-line-length
+
+              if (_this14.contador <= 1) {
+                // tslint:disable-next-line: max-line-length
+                _this14.dialogService.openModalOk('Información', 'Su inscripcion se encuentra en estado: Esperando respuesta de aceptación ', function () {
+                  // tslint:disable-next-line: no-unused-expression
+                  _this14.router.navigateByUrl('/dashboard');
+                });
+              }
+            }, function (err) {
+              _this14.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+            });
+          }
         }
       }, {
         key: "showNotification",
@@ -55097,9 +55620,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     DocumentsComponent.ctorParameters = function () {
       return [{
+        type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_6__["DialogService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }, {
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]
+      }, {
         type: ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"]
       }, {
         type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__["CamposproveedorService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
       }];
     };
 
@@ -55112,6 +55643,415 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./documents.component.scss */
       "./src/app/documents/documents.component.scss")).default]
     })], DocumentsComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/gestionar-transaccion/gestionar-transaccion.component.scss":
+  /*!****************************************************************************!*\
+    !*** ./src/app/gestionar-transaccion/gestionar-transaccion.component.scss ***!
+    \****************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppGestionarTransaccionGestionarTransaccionComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dlc3Rpb25hci10cmFuc2FjY2lvbi9nZXN0aW9uYXItdHJhbnNhY2Npb24uY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/gestionar-transaccion/gestionar-transaccion.component.ts":
+  /*!**************************************************************************!*\
+    !*** ./src/app/gestionar-transaccion/gestionar-transaccion.component.ts ***!
+    \**************************************************************************/
+
+  /*! exports provided: GestionarTransaccionComponent */
+
+  /***/
+  function srcAppGestionarTransaccionGestionarTransaccionComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "GestionarTransaccionComponent", function () {
+      return GestionarTransaccionComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _services_transaction_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../services/transaction.service */
+    "./src/services/transaction.service.ts");
+    /* harmony import */
+
+
+    var _models_materialsData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../models/materialsData */
+    "./src/app/models/materialsData.ts");
+    /* harmony import */
+
+
+    var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ngx-toastr */
+    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+
+    var GestionarTransaccionComponent =
+    /*#__PURE__*/
+    function () {
+      function GestionarTransaccionComponent(toastr, transactionService, router, route) {
+        var _this15 = this;
+
+        _classCallCheck(this, GestionarTransaccionComponent);
+
+        this.toastr = toastr;
+        this.transactionService = transactionService;
+        this.router = router;
+        this.route = route;
+        this.transaction = [{
+          descripcion: 'vacio',
+          fecha_limite_entrega: '0000-00-00',
+          id_orden_compra: 'vacio'
+        }];
+        this.transaccion = {
+          description: null,
+          fechalimite: null,
+          idorden: null,
+          idproveedor: null,
+          rutaordencompra: null,
+          estado: null,
+          observacion: null,
+          materiales: [{}]
+        };
+        this.cantidadRecibida = [];
+        this.cantidadRecibidaBack = [];
+        this.cumplecondiciones = [];
+        this.observaciones = [];
+        this.observacionesBack = [];
+        this.safeMaterials = [];
+        this.estadoFinal = false;
+        this.router.params.subscribe(function (params) {
+          _this15.getTransaction(params.id);
+        });
+      }
+
+      _createClass(GestionarTransaccionComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "getTransaction",
+        value: function getTransaction(id) {
+          var _this16 = this;
+
+          this.transactionService.getTransactionToUpdate(id).subscribe(function (resp) {
+            _this16.transaction = resp;
+
+            if (_this16.transaction[0].estado !== 'En proceso') {
+              console.log('Es diferente a en proceso');
+              _this16.estadoTransaccion = _this16.transaction[0].estado;
+              console.log(_this16.transaction[0].aprobacion_calidad);
+            }
+
+            if (_this16.transaction[0].estado === 'finalizada con observaciones') {
+              for (var i = 0; i < _this16.transaction.length; i++) {
+                var data = new _models_materialsData__WEBPACK_IMPORTED_MODULE_4__["MaterialsData"]();
+                data.idproducto = _this16.transaction[i].id_producto;
+                data.cantidad_recibida = _this16.transaction[i].cantidad_recibida;
+
+                _this16.cantidadRecibida.push(data);
+
+                var data2 = new _models_materialsData__WEBPACK_IMPORTED_MODULE_4__["MaterialsData"]();
+                data2.idproducto = _this16.transaction[i].id_producto;
+                data2.aprobacion_calidad = _this16.transaction[i].aprobacion_calidad;
+
+                _this16.cumplecondiciones.push(data2);
+
+                var data3 = new _models_materialsData__WEBPACK_IMPORTED_MODULE_4__["MaterialsData"]();
+                data3.idproducto = _this16.transaction[i].id_producto;
+                data3.observacion = _this16.transaction[i].observacion_dato;
+
+                _this16.observaciones.push(data3);
+              }
+
+              _this16.transaccion.observacion = _this16.transaction[0].observacion;
+              console.log(JSON.stringify(resp));
+              _this16.estadoFinal = true;
+            }
+
+            console.log('transaction :: ' + JSON.stringify(_this16.transaction));
+          });
+        }
+      }, {
+        key: "goBack",
+        value: function goBack() {
+          this.route.navigate(['/transaction']);
+        }
+      }, {
+        key: "agregarCantidad",
+        value: function agregarCantidad(dato, idProducto) {
+          console.log('Cantidades :: ' + dato);
+          var data = new _models_materialsData__WEBPACK_IMPORTED_MODULE_4__["MaterialsData"]();
+          data.idproducto = idProducto;
+          var index = this.cantidadRecibida.findIndex(function (x) {
+            return x.idproducto === idProducto;
+          });
+          console.log('index cantidades :: ' + index);
+
+          if (index > -1) {
+            this.cantidadRecibida[index].cantidad_recibida = dato;
+            console.log('insdffffff dfdes :: ');
+          } else {
+            data.cantidad_recibida = dato;
+            this.cantidadRecibida.push(data);
+          }
+
+          console.log('Cantidad Recibida ::: ' + JSON.stringify(this.cantidadRecibida));
+        }
+      }, {
+        key: "selectQuality",
+        value: function selectQuality(idProduct, input) {
+          console.log('codigo producto ' + idProduct);
+          var data = new _models_materialsData__WEBPACK_IMPORTED_MODULE_4__["MaterialsData"]();
+          data.idproducto = idProduct;
+
+          if (this.transaction[0].estado === 'finalizada con observaciones') {
+            var index = this.cumplecondiciones.findIndex(function (x) {
+              return x.idproducto === idProduct;
+            });
+
+            if (index > -1) {
+              var dato = 'false';
+
+              if (input) {
+                dato = 'true';
+              }
+
+              return this.cumplecondiciones[index].aprobacion_calidad = dato;
+            }
+          }
+
+          if (input === true) {
+            data.aprobacion_calidad = 'true';
+            this.cumplecondiciones.push(data);
+          } else {
+            data.aprobacion_calidad = 'false';
+
+            var _index = this.cumplecondiciones.findIndex(function (x) {
+              return x.idproducto === idProduct;
+            });
+
+            console.log('index material : ' + _index);
+            this.cumplecondiciones.splice(_index, 1);
+          }
+        }
+      }, {
+        key: "takeObservation",
+        value: function takeObservation(dato, idProduct) {
+          console.log('observacion :: ' + dato + ' - ' + idProduct);
+          var data = new _models_materialsData__WEBPACK_IMPORTED_MODULE_4__["MaterialsData"]();
+          data.idproducto = idProduct; // data.observacion = dato;
+
+          var index = this.observaciones.findIndex(function (x) {
+            return x.idproducto === idProduct;
+          });
+          console.log('index cantidades :: ' + index);
+
+          if (index > -1) {
+            this.observaciones[index].observacion = dato;
+          } else {
+            data.observacion = dato;
+            this.observaciones.push(data);
+          }
+        }
+      }, {
+        key: "takeGenenralObservation",
+        value: function takeGenenralObservation(dato) {
+          console.log('observacion :: ' + dato);
+          this.transaccion.observacion = dato;
+        }
+      }, {
+        key: "agregarEstado",
+        value: function agregarEstado(estado) {
+          console.log(estado);
+          this.estadoTransaccion = estado;
+        }
+      }, {
+        key: "createTransaction",
+        value: function createTransaction(form) {
+          var _this17 = this;
+
+          console.log('cantidadRecibida !! ' + JSON.stringify(this.cantidadRecibida));
+          console.log('cumplecondiciones !! ' + JSON.stringify(this.cumplecondiciones));
+          console.log('observaciones !! ' + JSON.stringify(this.observaciones)); // console.log('1221323  =  '  + JSON.stringify(form.form.value));
+
+          /*if (this.transaccion.description != null && this.transaccion.description !== ''
+            && this.transaccion.fechalimite != null && this.transaccion.idorden != null
+            && this.transaccion.idorden !== '') {*/
+          // this.changeCard();
+          // tslint:disable-next-line: max-line-length
+
+          console.log('this.transaccion.estado : ' + this.estadoTransaccion + ' Observaciones : ' + this.observaciones.length + ' transaction : ' + this.transaction.length); // tslint:disable-next-line: max-line-length
+
+          if ((this.estadoTransaccion === 'rechazada' || this.estadoTransaccion === 'finalizada con observaciones') && this.observaciones.length !== this.transaction.length) {
+            return this.showNotificationObservaciones('top', 'center');
+          }
+
+          var _loop = function _loop(i) {
+            var data = new _models_materialsData__WEBPACK_IMPORTED_MODULE_4__["MaterialsData"]();
+            console.log(' this.transaction.length : ' + _this17.transaction.length);
+            data.idproducto = _this17.transaction[i].id_producto;
+            console.log(' data.idproducto : ' + data.idproducto);
+
+            var indexCantidad = _this17.cantidadRecibida.findIndex(function (x) {
+              return x.idproducto === data.idproducto;
+            });
+
+            var indexCalidad = _this17.cumplecondiciones.findIndex(function (x) {
+              return x.idproducto === data.idproducto;
+            });
+
+            var indexObservaciones = _this17.observaciones.findIndex(function (x) {
+              return x.idproducto === data.idproducto;
+            });
+
+            if (indexCantidad === -1) {
+              console.log('entra a index cantidad');
+              data.cantidad_recibida = '0';
+
+              _this17.cantidadRecibida.push(data);
+            }
+
+            if (indexCalidad === -1) {
+              data.aprobacion_calidad = 'false';
+
+              _this17.cumplecondiciones.push(data);
+            }
+
+            if (indexObservaciones === -1) {
+              data.observacion = '';
+
+              _this17.observaciones.push(data);
+            }
+
+            indexCantidad = _this17.cantidadRecibida.findIndex(function (x) {
+              return x.idproducto === data.idproducto;
+            });
+            indexCalidad = _this17.cumplecondiciones.findIndex(function (x) {
+              return x.idproducto === data.idproducto;
+            });
+            indexObservaciones = _this17.observaciones.findIndex(function (x) {
+              return x.idproducto === data.idproducto;
+            }); // tslint:disable-next-line: max-line-length
+
+            console.log(' indexCantidad : ' + indexCantidad + ' indexCalidad ' + indexCalidad + ' indexObservaciones ' + indexObservaciones);
+
+            if (indexCantidad > -1 && indexCalidad > -1 && indexObservaciones > -1) {
+              data.cantidad_recibida = _this17.cantidadRecibida[indexCantidad].cantidad_recibida;
+              console.log('data.cantidad_recibida = ' + data.cantidad_recibida);
+              console.log('this.cantidadRecibida[indexCantidad].cantidad_recibida = ' + _this17.cantidadRecibida[indexCantidad].cantidad_recibida);
+              data.aprobacion_calidad = _this17.cumplecondiciones[indexCalidad].aprobacion_calidad;
+              data.observacion = _this17.observaciones[indexObservaciones].observacion;
+              console.log('observaciones :: ' + _this17.observaciones[indexObservaciones].observacion);
+
+              _this17.safeMaterials.push(data);
+            }
+          };
+
+          for (var i = 0; i < this.transaction.length; i++) {
+            _loop(i);
+          }
+
+          this.transaccion.materiales = this.safeMaterials;
+
+          if (this.estadoTransaccion !== null && this.estadoTransaccion !== '' && this.estadoTransaccion !== undefined) {
+            this.transaccion.estado = this.estadoTransaccion;
+          } else {
+            this.transaccion.estado = 'finalizada';
+          }
+
+          if (this.transaction[0].estado !== 'finalizada con observaciones' && (this.transaccion.observacion === null || this.transaccion.observacion === '' || this.transaccion.observacion === undefined)) {
+            this.transaccion.observacion = '';
+          }
+
+          this.transaccion.idTransaction = this.transaction[0].id;
+          console.log(JSON.stringify(this.transaccion));
+          this.transactionService.updateTransaction(this.transaccion).subscribe(function (res) {
+            // tslint:disable-next-line: no-unused-expression
+            console.log('Se actualiza transaccion..... ');
+          }, function (err) {
+            return console.error(err);
+          });
+          /*} else {
+            console.log('no se puede registrar la evaluacion porque no ha seleccioando todos los campos');
+          }*/
+
+          console.log('SAFEMATERIALS :: ' + JSON.stringify(this.safeMaterials));
+          this.goBack();
+        }
+      }, {
+        key: "showNotificationObservaciones",
+        value: function showNotificationObservaciones(from, align) {
+          var color = Math.floor(Math.random() * 5 + 1);
+          this.toastr.error('<span class="now-ui-icons ui-1_bell-53"></span>Ingrese las observaciones que no cumplieron con la cantidad o la calidad esperada.', '', {
+            timeOut: 2000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: 'alert alert-error alert-with-icon',
+            positionClass: 'toast-' + from + '-' + align
+          });
+        }
+      }]);
+
+      return GestionarTransaccionComponent;
+    }();
+
+    GestionarTransaccionComponent.ctorParameters = function () {
+      return [{
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]
+      }, {
+        type: _services_transaction_service__WEBPACK_IMPORTED_MODULE_3__["TransactionService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }];
+    };
+
+    GestionarTransaccionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-gestionar-transaccion',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./gestionar-transaccion.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/gestionar-transaccion/gestionar-transaccion.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./gestionar-transaccion.component.scss */
+      "./src/app/gestionar-transaccion/gestionar-transaccion.component.scss")).default]
+    })], GestionarTransaccionComponent);
     /***/
   },
 
@@ -55131,7 +56071,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvaWNvbnMvaWNvbnMuY29tcG9uZW50LmNzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ljb25zL2ljb25zLmNvbXBvbmVudC5jc3MifQ== */";
     /***/
   },
 
@@ -55166,21 +56106,106 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/camposproveedor.service */
+    "./src/services/camposproveedor.service.ts");
+    /* harmony import */
+
+
+    var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-toastr */
+    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var IconsComponent =
     /*#__PURE__*/
     function () {
-      function IconsComponent() {
+      function IconsComponent(toastr, service, router) {
         _classCallCheck(this, IconsComponent);
+
+        this.toastr = toastr;
+        this.service = service;
+        this.router = router;
       }
 
       _createClass(IconsComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this18 = this;
+
+          this.usuario = this.service.getUsuario();
+
+          if (this.usuario !== undefined) {
+            this.service.getProveedorById(this.usuario.idusuario).subscribe(function (res) {
+              // tslint:disable-next-line: no-unused-expression
+              _this18.proveedor = res;
+
+              switch (Number(_this18.proveedor.estado)) {
+                case 0:
+                  _this18.estado = 'En Proceso';
+                  break;
+
+                case 1:
+                  _this18.estado = 'Esperando respuesta de aceptacion';
+                  break;
+
+                case 2:
+                  _this18.estado = 'Rechazado';
+                  break;
+              }
+            }, function (err) {
+              _this18.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+            });
+          }
+        }
+      }, {
+        key: "updatePsw",
+        value: function updatePsw(change) {
+          var _this19 = this;
+
+          if (change.valid) {
+            this.service.updatePassword(change.value, this.usuario.idusuario).subscribe(function (res) {
+              // tslint:disable-next-line: no-unused-expression
+              _this19.router.navigateByUrl('/dashboard');
+            }, function (err) {
+              _this19.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+            });
+          } else {}
+        }
+      }, {
+        key: "showNotification",
+        value: function showNotification(from, align) {
+          var color = Math.floor(Math.random() * 5 + 1);
+          this.toastr.success('<span class="now-ui-icons ui-1_bell-53"></span> Su registro está <b>Pendiente</b> - de aprobación.', '', {
+            timeOut: 8000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: 'alert alert-success alert-with-icon',
+            positionClass: 'toast-' + from + '-' + align
+          });
+        }
       }]);
 
       return IconsComponent;
     }();
+
+    IconsComponent.ctorParameters = function () {
+      return [{
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]
+      }, {
+        type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_2__["CamposproveedorService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }];
+    };
 
     IconsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-icons',
@@ -55369,6 +56394,91 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
     /*! ../../../services/camposproveedor.service */
     "./src/services/camposproveedor.service.ts");
+    /* harmony import */
+
+
+    var _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
+    /*! ../../newuser/newuser.component */
+    "./src/app/newuser/newuser.component.ts");
+    /* harmony import */
+
+
+    var _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
+    /*! ../../result-seleccion/result-seleccion.component */
+    "./src/app/result-seleccion/result-seleccion.component.ts");
+    /* harmony import */
+
+
+    var _services_evaluation_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
+    /*! ../../../services/evaluation.service */
+    "./src/services/evaluation.service.ts");
+    /* harmony import */
+
+
+    var _table_list_buscar_evaluaciones_buscar_evaluaciones_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
+    /*! ../../table-list/buscar-evaluaciones/buscar-evaluaciones.component */
+    "./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.ts");
+    /* harmony import */
+
+
+    var _table_list_seleccionar_proveedores_seleccionar_proveedores_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
+    /*! ../../table-list/seleccionar-proveedores/seleccionar-proveedores.component */
+    "./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.ts");
+    /* harmony import */
+
+
+    var _table_list_criterios_evalauacion_criterios_evalauacion_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
+    /*! ../../table-list/criterios-evalauacion/criterios-evalauacion.component */
+    "./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.ts");
+    /* harmony import */
+
+
+    var _table_list_calificacion_criterio_calificacion_criterio_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
+    /*! ../../table-list/calificacion-criterio/calificacion-criterio.component */
+    "./src/app/table-list/calificacion-criterio/calificacion-criterio.component.ts");
+    /* harmony import */
+
+
+    var _table_list_resultado_evaluacion_resultado_evaluacion_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
+    /*! ../../table-list/resultado-evaluacion/resultado-evaluacion.component */
+    "./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.ts");
+    /* harmony import */
+
+
+    var _table_list_title_title_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
+    /*! ../../table-list/title/title.component */
+    "./src/app/table-list/title/title.component.ts");
+    /* harmony import */
+
+
+    var _services_criterios_service__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
+    /*! ../../../services/criterios.service */
+    "./src/services/criterios.service.ts");
+    /* harmony import */
+
+
+    var _services_proveedores_service__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(
+    /*! ../../../services/proveedores.service */
+    "./src/services/proveedores.service.ts");
+    /* harmony import */
+
+
+    var _mat_classification_find_proveedores_find_proveedores_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(
+    /*! ../../mat-classification/find-proveedores/find-proveedores.component */
+    "./src/app/mat-classification/find-proveedores/find-proveedores.component.ts");
+    /* harmony import */
+
+
+    var _services_transaction_service__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(
+    /*! ../../../services/transaction.service */
+    "./src/services/transaction.service.ts");
+    /* harmony import */
+
+
+    var _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
+    /*! ../../gestionar-transaccion/gestionar-transaccion.component */
+    "./src/app/gestionar-transaccion/gestionar-transaccion.component.ts"); // import { GestionarTareaComponent } from '../../gestionar-tarea/gestionar-tarea.component';
+
 
     var AdminLayoutModule = function AdminLayoutModule() {
       _classCallCheck(this, AdminLayoutModule);
@@ -55376,8 +56486,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AdminLayoutModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_admin_layout_routing__WEBPACK_IMPORTED_MODULE_5__["AdminLayoutRoutes"]), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], ng2_charts__WEBPACK_IMPORTED_MODULE_20__["ChartsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_21__["NgbModule"], ngx_toastr__WEBPACK_IMPORTED_MODULE_22__["ToastrModule"].forRoot(), _angular_common_http__WEBPACK_IMPORTED_MODULE_24__["HttpClientModule"]],
-      providers: [_services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_25__["CamposproveedorService"]],
-      declarations: [_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"], _user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_7__["UserProfileComponent"], _table_list_table_list_component__WEBPACK_IMPORTED_MODULE_8__["TableListComponent"], _upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_23__["UpgradeComponent"], _typography_typography_component__WEBPACK_IMPORTED_MODULE_9__["TypographyComponent"], _icons_icons_component__WEBPACK_IMPORTED_MODULE_10__["IconsComponent"], _maps_maps_component__WEBPACK_IMPORTED_MODULE_11__["MapsComponent"], _notifications_notifications_component__WEBPACK_IMPORTED_MODULE_12__["NotificationsComponent"], _classification_classification_component__WEBPACK_IMPORTED_MODULE_13__["ClassificationComponent"], _documents_documents_component__WEBPACK_IMPORTED_MODULE_14__["DocumentsComponent"], _criterion_criterion_component__WEBPACK_IMPORTED_MODULE_15__["CriterionComponent"], _ahp_ahp_component__WEBPACK_IMPORTED_MODULE_16__["AhpComponent"], _mat_classification_mat_classification_component__WEBPACK_IMPORTED_MODULE_17__["MatClassificationComponent"], _transaction_transaction_component__WEBPACK_IMPORTED_MODULE_18__["TransactionComponent"], _materialdetail_materialdetail_component__WEBPACK_IMPORTED_MODULE_19__["MaterialdetailComponent"]]
+      providers: [_services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_25__["CamposproveedorService"], _services_evaluation_service__WEBPACK_IMPORTED_MODULE_28__["EvaluationService"], _services_criterios_service__WEBPACK_IMPORTED_MODULE_35__["CriteriosService"], _services_proveedores_service__WEBPACK_IMPORTED_MODULE_36__["ProvidersService"], _services_transaction_service__WEBPACK_IMPORTED_MODULE_38__["TransactionService"]],
+      declarations: [_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"], _user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_7__["UserProfileComponent"], _table_list_table_list_component__WEBPACK_IMPORTED_MODULE_8__["TableListComponent"], _upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_23__["UpgradeComponent"], _typography_typography_component__WEBPACK_IMPORTED_MODULE_9__["TypographyComponent"], _icons_icons_component__WEBPACK_IMPORTED_MODULE_10__["IconsComponent"], _maps_maps_component__WEBPACK_IMPORTED_MODULE_11__["MapsComponent"], _notifications_notifications_component__WEBPACK_IMPORTED_MODULE_12__["NotificationsComponent"], _classification_classification_component__WEBPACK_IMPORTED_MODULE_13__["ClassificationComponent"], _documents_documents_component__WEBPACK_IMPORTED_MODULE_14__["DocumentsComponent"], _criterion_criterion_component__WEBPACK_IMPORTED_MODULE_15__["CriterionComponent"], _ahp_ahp_component__WEBPACK_IMPORTED_MODULE_16__["AhpComponent"], _mat_classification_mat_classification_component__WEBPACK_IMPORTED_MODULE_17__["MatClassificationComponent"], _transaction_transaction_component__WEBPACK_IMPORTED_MODULE_18__["TransactionComponent"], _materialdetail_materialdetail_component__WEBPACK_IMPORTED_MODULE_19__["MaterialdetailComponent"], _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_26__["NewuserComponent"], _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_27__["ResultSeleccionComponent"], _table_list_buscar_evaluaciones_buscar_evaluaciones_component__WEBPACK_IMPORTED_MODULE_29__["BuscarEvaluacionesComponent"], _table_list_seleccionar_proveedores_seleccionar_proveedores_component__WEBPACK_IMPORTED_MODULE_30__["SeleccionarProveedoresComponent"], _table_list_criterios_evalauacion_criterios_evalauacion_component__WEBPACK_IMPORTED_MODULE_31__["CriteriosEvalauacionComponent"], _table_list_calificacion_criterio_calificacion_criterio_component__WEBPACK_IMPORTED_MODULE_32__["CalificacionCriterioComponent"], _table_list_resultado_evaluacion_resultado_evaluacion_component__WEBPACK_IMPORTED_MODULE_33__["ResultadoEvaluacionComponent"], _table_list_title_title_component__WEBPACK_IMPORTED_MODULE_34__["TitleComponent"], _mat_classification_find_proveedores_find_proveedores_component__WEBPACK_IMPORTED_MODULE_37__["FindProveedoresComponent"], _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_39__["GestionarTransaccionComponent"] // GestionarTareaComponent
+      ]
     })], AdminLayoutModule);
     /***/
   },
@@ -55497,6 +56608,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _materialdetail_materialdetail_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ../../materialdetail/materialdetail.component */
     "./src/app/materialdetail/materialdetail.component.ts");
+    /* harmony import */
+
+
+    var _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! ../../newuser/newuser.component */
+    "./src/app/newuser/newuser.component.ts");
+    /* harmony import */
+
+
+    var _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    /*! ../../result-seleccion/result-seleccion.component */
+    "./src/app/result-seleccion/result-seleccion.component.ts");
+    /* harmony import */
+
+
+    var _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! ../../gestionar-transaccion/gestionar-transaccion.component */
+    "./src/app/gestionar-transaccion/gestionar-transaccion.component.ts"); // import { GestionarTareaComponent } from '../../gestionar-tarea/gestionar-tarea.component';
+
 
     var AdminLayoutRoutes = [{
       path: 'dashboard',
@@ -55543,6 +56673,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'materialdetail',
       component: _materialdetail_materialdetail_component__WEBPACK_IMPORTED_MODULE_15__["MaterialdetailComponent"]
+    }, // { path: 'gestionartarea',        component: GestionarTareaComponent },
+    {
+      path: 'newuser',
+      component: _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_16__["NewuserComponent"]
+    }, {
+      path: 'resultSeleccion',
+      component: _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_17__["ResultSeleccionComponent"]
+    }, {
+      path: 'transaction/:id',
+      component: _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_18__["GestionarTransaccionComponent"]
     }];
     /***/
   },
@@ -55563,7 +56703,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvbWFwcy9tYXBzLmNvbXBvbmVudC5jc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21hcHMvbWFwcy5jb21wb25lbnQuY3NzIn0= */";
     /***/
   },
 
@@ -55604,115 +56744,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     function () {
       function MapsComponent() {
         _classCallCheck(this, MapsComponent);
+
+        this.classes = 'row';
       }
 
       _createClass(MapsComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {
-          var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
-          var mapOptions = {
-            zoom: 13,
-            center: myLatlng,
-            scrollwheel: false,
-            styles: [{
-              "featureType": "water",
-              "stylers": [{
-                "saturation": 43
-              }, {
-                "lightness": -11
-              }, {
-                "hue": "#0088ff"
-              }]
-            }, {
-              "featureType": "road",
-              "elementType": "geometry.fill",
-              "stylers": [{
-                "hue": "#ff0000"
-              }, {
-                "saturation": -100
-              }, {
-                "lightness": 99
-              }]
-            }, {
-              "featureType": "road",
-              "elementType": "geometry.stroke",
-              "stylers": [{
-                "color": "#808080"
-              }, {
-                "lightness": 54
-              }]
-            }, {
-              "featureType": "landscape.man_made",
-              "elementType": "geometry.fill",
-              "stylers": [{
-                "color": "#ece2d9"
-              }]
-            }, {
-              "featureType": "poi.park",
-              "elementType": "geometry.fill",
-              "stylers": [{
-                "color": "#ccdca1"
-              }]
-            }, {
-              "featureType": "road",
-              "elementType": "labels.text.fill",
-              "stylers": [{
-                "color": "#767676"
-              }]
-            }, {
-              "featureType": "road",
-              "elementType": "labels.text.stroke",
-              "stylers": [{
-                "color": "#ffffff"
-              }]
-            }, {
-              "featureType": "poi",
-              "stylers": [{
-                "visibility": "off"
-              }]
-            }, {
-              "featureType": "landscape.natural",
-              "elementType": "geometry.fill",
-              "stylers": [{
-                "visibility": "on"
-              }, {
-                "color": "#b8cb93"
-              }]
-            }, {
-              "featureType": "poi.park",
-              "stylers": [{
-                "visibility": "on"
-              }]
-            }, {
-              "featureType": "poi.sports_complex",
-              "stylers": [{
-                "visibility": "on"
-              }]
-            }, {
-              "featureType": "poi.medical",
-              "stylers": [{
-                "visibility": "on"
-              }]
-            }, {
-              "featureType": "poi.business",
-              "stylers": [{
-                "visibility": "simplified"
-              }]
-            }]
-          };
-          var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-          var marker = new google.maps.Marker({
-            position: myLatlng,
-            title: "Hello World!"
-          }); // To add the marker to the map, call setMap();
-
-          marker.setMap(map);
-        }
+        value: function ngOnInit() {}
       }]);
 
       return MapsComponent;
     }();
 
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('class')], MapsComponent.prototype, "classes", void 0);
     MapsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-maps',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -55722,6 +56766,229 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./maps.component.css */
       "./src/app/maps/maps.component.css")).default]
     })], MapsComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/mat-classification/find-proveedores/find-proveedores.component.scss":
+  /*!*************************************************************************************!*\
+    !*** ./src/app/mat-classification/find-proveedores/find-proveedores.component.scss ***!
+    \*************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppMatClassificationFindProveedoresFindProveedoresComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21hdC1jbGFzc2lmaWNhdGlvbi9maW5kLXByb3ZlZWRvcmVzL2ZpbmQtcHJvdmVlZG9yZXMuY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/mat-classification/find-proveedores/find-proveedores.component.ts":
+  /*!***********************************************************************************!*\
+    !*** ./src/app/mat-classification/find-proveedores/find-proveedores.component.ts ***!
+    \***********************************************************************************/
+
+  /*! exports provided: FindProveedoresComponent */
+
+  /***/
+  function srcAppMatClassificationFindProveedoresFindProveedoresComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FindProveedoresComponent", function () {
+      return FindProveedoresComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_evaluation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../services/evaluation.service */
+    "./src/services/evaluation.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _models_provider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../models/provider */
+    "./src/app/models/provider.ts");
+    /* harmony import */
+
+
+    var _services_proveedores_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../services/proveedores.service */
+    "./src/services/proveedores.service.ts");
+    /* harmony import */
+
+
+    var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ngx-toastr */
+    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+
+    var FindProveedoresComponent =
+    /*#__PURE__*/
+    function () {
+      function FindProveedoresComponent(toastr, evaluationService, providersService, router) {
+        _classCallCheck(this, FindProveedoresComponent);
+
+        this.toastr = toastr;
+        this.evaluationService = evaluationService;
+        this.providersService = providersService;
+        this.router = router; // @Input() providerSearch: any[] = [];
+
+        this.sendProvider = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.sendSocialReason = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.usuario = {
+          id: null,
+          name: null
+        };
+        this.request = {
+          idProveedor: null,
+          socialReason: null
+        };
+        this.proveedores = [];
+        this.providers = [];
+        this.count = 0;
+        this.checked = false;
+      }
+
+      _createClass(FindProveedoresComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this20 = this;
+
+          var data = new _models_provider__WEBPACK_IMPORTED_MODULE_4__["Provider"]();
+          this.evaluationService.getProveedor().subscribe(function (resp) {
+            _this20.providers = resp;
+          });
+        }
+      }, {
+        key: "selectProvider",
+        value: function selectProvider(id, input) {
+          var _this21 = this;
+
+          if (input) {
+            this.idProviderSelected = id;
+            this.count += 1;
+
+            if (this.count === 2) {
+              this.checked = false;
+              this.showNotification('top', 'center');
+              this.router.navigateByUrl('/', {
+                skipLocationChange: true
+              }).then(function () {
+                _this21.router.navigate(['/matclassification']);
+              });
+            }
+          } else {
+            this.idProviderSelected = '';
+            this.name = '';
+            this.count = 0;
+          }
+
+          this.callParentEvent();
+        }
+      }, {
+        key: "showNotification",
+        value: function showNotification(from, align) {
+          var color = Math.floor(Math.random() * 5 + 1);
+          this.toastr.error('<span class="now-ui-icons ui-1_bell-53"></span> No puede seleccionar mas de dos <b>Proveedores</b>.', '', {
+            timeOut: 2000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: 'alert alert-error alert-with-icon',
+            positionClass: 'toast-' + from + '-' + align
+          });
+        }
+      }, {
+        key: "selectedName",
+        value: function selectedName(social_reason, input) {
+          if (input) {
+            this.name = social_reason;
+          } else {
+            this.idProviderSelected = '';
+            this.name = '';
+          }
+
+          this.callParentEvenSocial();
+        }
+      }, {
+        key: "callParentEvent",
+        value: function callParentEvent() {
+          this.sendProvider.emit(this.idProviderSelected);
+        }
+      }, {
+        key: "callParentEvenSocial",
+        value: function callParentEvenSocial() {
+          this.sendSocialReason.emit(this.name);
+        }
+      }, {
+        key: "buscar",
+        value: function buscar(forma) {
+          var _this22 = this;
+
+          this.request.idProveedor = forma.form.value.id;
+          this.request.socialReason = forma.form.value.proveedor;
+          this.providersService.getProveedorById(this.request).subscribe(function (resp) {
+            _this22.providers = resp;
+          }, function (errorServicio) {
+            _this22.providers = [];
+          });
+        }
+      }]);
+
+      return FindProveedoresComponent;
+    }();
+
+    FindProveedoresComponent.ctorParameters = function () {
+      return [{
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"]
+      }, {
+        type: _services_evaluation_service__WEBPACK_IMPORTED_MODULE_2__["EvaluationService"]
+      }, {
+        type: _services_proveedores_service__WEBPACK_IMPORTED_MODULE_5__["ProvidersService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], FindProveedoresComponent.prototype, "sendProvider", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], FindProveedoresComponent.prototype, "sendSocialReason", void 0);
+    FindProveedoresComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-find-proveedores',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./find-proveedores.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/mat-classification/find-proveedores/find-proveedores.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./find-proveedores.component.scss */
+      "./src/app/mat-classification/find-proveedores/find-proveedores.component.scss")).default]
+    })], FindProveedoresComponent);
     /***/
   },
 
@@ -55741,7 +57008,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvbWF0LWNsYXNzaWZpY2F0aW9uL21hdC1jbGFzc2lmaWNhdGlvbi5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21hdC1jbGFzc2lmaWNhdGlvbi9tYXQtY2xhc3NpZmljYXRpb24uY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -55776,21 +57043,326 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_transaction_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/transaction.service */
+    "./src/services/transaction.service.ts");
+    /* harmony import */
+
+
+    var _models_materialsData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../models/materialsData */
+    "./src/app/models/materialsData.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../services/camposproveedor.service */
+    "./src/services/camposproveedor.service.ts");
+    /* harmony import */
+
+
+    var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../dialog/dialog.service */
+    "./src/app/dialog/dialog.service.ts");
+    /* harmony import */
+
+
+    var ngx_toastr__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ngx-toastr */
+    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
 
     var MatClassificationComponent =
     /*#__PURE__*/
     function () {
-      function MatClassificationComponent() {
+      function MatClassificationComponent(toastr, dialogService, transactionService, route, http, service) {
         _classCallCheck(this, MatClassificationComponent);
+
+        this.toastr = toastr;
+        this.dialogService = dialogService;
+        this.transactionService = transactionService;
+        this.route = route;
+        this.http = http;
+        this.service = service;
+        this.evaluaciones = [];
+        this.transaccion = {
+          description: null,
+          fechalimite: null,
+          idorden: null,
+          idproveedor: null,
+          rutaordencompra: null,
+          estado: null,
+          observacion: null,
+          materiales: [{}]
+        };
+        this.materiales = [];
+        this.cantidades = [];
+        this.units = [];
+        this.safeMaterials = [];
+        this.unidades = [];
+        this.materials = [];
+        this.product = [];
+        this.contador = 0;
+        this.nameValue = 'Adjuntar documento';
       }
 
       _createClass(MatClassificationComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this23 = this;
+
+          this.transactionService.getMaterials().subscribe(function (resp) {
+            _this23.evaluaciones = resp;
+          });
+        }
+      }, {
+        key: "selectedProvider",
+        value: function selectedProvider(id) {
+          if (id != null && id !== '') {
+            this.idProvider = id;
+            this.transaccion.idproveedor = id;
+          }
+
+          console.log('Este es el usuario seleccionado desde el padre ' + id);
+        }
+      }, {
+        key: "takeNameProvider",
+        value: function takeNameProvider(name) {
+          if (name != null && name !== '') {
+            this.nameProvider = name;
+            console.log('Nombre proveedor :: ' + this.nameProvider);
+          }
+        }
+      }, {
+        key: "searchProducto",
+        value: function searchProducto(form) {
+          var _this24 = this;
+
+          console.log(form.form.value);
+          this.transactionService.getEvaluationByDetail(form.form.value).subscribe(function (resp) {
+            _this24.evaluaciones = resp;
+          });
+        }
+      }, {
+        key: "createTransaction",
+        value: function createTransaction(form) {
+          var _this25 = this;
+
+          console.log('Materiales !! ' + JSON.stringify(this.materiales));
+          console.log('units !! ' + JSON.stringify(this.units));
+          console.log('cantidades !! ' + JSON.stringify(this.cantidades)); // console.log('1221323  =  '  + JSON.stringify(form.form.value));
+
+          if (this.transaccion.description != null && this.transaccion.description !== '' && this.transaccion.fechalimite != null && this.transaccion.idorden != null && this.transaccion.idorden !== '') {
+            var _loop2 = function _loop2(i) {
+              var data = new _models_materialsData__WEBPACK_IMPORTED_MODULE_3__["MaterialsData"]();
+              console.log(' this.materiales.length : ' + _this25.materiales.length);
+              data.idproducto = _this25.materiales[i].idproducto;
+              console.log(' data.idproducto : ' + data.idproducto);
+
+              var indexMaterials = _this25.materiales.findIndex(function (x) {
+                return x.idproducto === data.idproducto;
+              });
+
+              var indexCantidades = _this25.cantidades.findIndex(function (x) {
+                return x.idproducto === data.idproducto;
+              });
+
+              var indexunits = _this25.units.findIndex(function (x) {
+                return x.idproducto === data.idproducto;
+              });
+
+              console.log(' indexMaterials : ' + indexMaterials + ' indexCantidades ' + indexCantidades + ' indexunits ' + indexunits);
+
+              if (indexMaterials > -1 && indexCantidades > -1 && indexunits > -1) {
+                data.unidades = _this25.units[indexunits].unidades;
+                data.cantidad_esperada = _this25.cantidades[indexCantidades].cantidad_esperada;
+
+                _this25.safeMaterials.push(data);
+              }
+            };
+
+            // this.changeCard();
+            for (var i = 0; i < this.materiales.length; i++) {
+              _loop2(i);
+            }
+
+            this.transaccion.materiales = this.safeMaterials;
+            console.log(JSON.stringify(this.transaccion));
+            this.transactionService.createTransaction(this.transaccion).subscribe(function (res) {
+              // tslint:disable-next-line: no-unused-expression
+              console.log('Se crea transaccion..... ');
+            }, function (err) {
+              return console.error(err);
+            });
+            this.route.navigate(['/typography']);
+          } else {
+            console.log('no se puede registrar la evaluacion porque no ha seleccioando todos los campos');
+          }
+
+          console.log('SAFEMATERIALS :: ' + JSON.stringify(this.safeMaterials));
+        }
+      }, {
+        key: "agregarDato",
+        value: function agregarDato(dato, idProducto) {
+          console.log('dato   ...   ' + dato);
+          var data = new _models_materialsData__WEBPACK_IMPORTED_MODULE_3__["MaterialsData"]();
+          data.idproducto = idProducto;
+          var index = this.units.findIndex(function (x) {
+            return x.idproducto === idProducto;
+          });
+          console.log('index units :: ' + index);
+
+          if (dato !== null && dato !== '') {
+            if (index > -1) {
+              this.units[index].unidades = dato;
+            } else {
+              data.unidades = dato;
+              this.units.push(data);
+            }
+          }
+        }
+      }, {
+        key: "agregarUnidad",
+        value: function agregarUnidad(dato, idProducto) {
+          console.log('Cantidades :: ' + dato + ' - ' + idProducto);
+          var data = new _models_materialsData__WEBPACK_IMPORTED_MODULE_3__["MaterialsData"]();
+          data.idproducto = idProducto;
+          var index = this.cantidades.findIndex(function (x) {
+            return x.idproducto === idProducto;
+          });
+          console.log('index cantidades :: ' + index);
+
+          if (index > -1) {
+            this.cantidades[index].cantidad_esperada = dato;
+          } else {
+            data.cantidad_esperada = dato;
+            this.cantidades.push(data);
+          }
+        }
+      }, {
+        key: "selectMaterial",
+        value: function selectMaterial(idProduct, input) {
+          console.log('codigo producto ' + idProduct);
+          var data = new _models_materialsData__WEBPACK_IMPORTED_MODULE_3__["MaterialsData"]();
+          data.idproducto = idProduct;
+
+          if (input === true) {
+            this.materiales.push(data);
+          } else {
+            var index = this.materiales.findIndex(function (x) {
+              return x.idproducto === idProduct;
+            });
+            console.log('index material : ' + index);
+            this.materiales.splice(index, 1);
+          }
+        }
+      }, {
+        key: "uploadFile",
+        value: function uploadFile(e) {
+          if (this.uploadedFiles === undefined) {
+            this.uploadedFiles = new Array();
+          }
+
+          this.uploadedFiles.push(e.target.files[0]);
+          console.log(e.target.files[0]);
+
+          if (this.uploadedFiles.length > 0) {
+            this.documento = {
+              ruta_documento: '/file',
+              id_inscripcion: this.value,
+              id_documento: e.target.name // id_proveedor: this.usuario.id_proveedor
+
+            };
+
+            if (this.documentos === undefined) {
+              this.documentos = new Array();
+            }
+
+            this.documentos.push(this.documento);
+
+            if (this.documentos.length > 0) {
+              this.documentos = this.documentos.filter(function (valorActual, indiceActual, arreglo) {
+                // tslint:disable-next-line: max-line-length
+                return arreglo.findIndex(function (valorDelArreglo) {
+                  return JSON.stringify(valorDelArreglo) === JSON.stringify(valorActual);
+                }) === indiceActual;
+              });
+            } // this.uploadedFiles.push(e.target.files[0]);
+
+          }
+
+          this.saveFile();
+        }
+      }, {
+        key: "saveFile",
+        value: function saveFile() {
+          var _this26 = this;
+
+          console.log('archivo -- ' + this.uploadedFiles[0].name);
+          this.nameValue = this.uploadedFiles[0].name;
+          var formData = new FormData();
+          formData.append('uploads', this.uploadedFiles[0], this.uploadedFiles[0].name);
+          console.log('Upload Files = ' + JSON.stringify(formData));
+          this.http.post('https://prosegmaprueba.us-3.evennode.com/api/documentacion', formData).subscribe(function (d) {});
+          this.service.postFileImagen(this.documentos).subscribe(function (res) {
+            _this26.contador++; // tslint:disable-next-line: max-line-length
+
+            if (_this26.contador <= 1) {
+              // tslint:disable-next-line: max-line-length
+              _this26.dialogService.openModalOk('Información', 'Su inscripcion se encuentra en estado: Esperando respuesta de aceptación ', function () {// tslint:disable-next-line: no-unused-expression
+                // this.route.navigate(['/typography']);
+              });
+            }
+          }, function (err) {
+            _this26.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+          });
+        }
+      }, {
+        key: "showNotification",
+        value: function showNotification(from, align) {
+          var color = Math.floor(Math.random() * 5 + 1);
+          this.toastr.success('<span class="now-ui-icons ui-1_bell-53"></span> Usted realizará una selección de proveedor para la licitación/clasificación. <b>123456</b>', '', {
+            timeOut: 8000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: 'alert alert-success alert-with-icon',
+            positionClass: 'toast-' + from + '-' + align
+          });
+        }
       }]);
 
       return MatClassificationComponent;
     }();
+
+    MatClassificationComponent.ctorParameters = function () {
+      return [{
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_8__["ToastrService"]
+      }, {
+        type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_7__["DialogService"]
+      }, {
+        type: _services_transaction_service__WEBPACK_IMPORTED_MODULE_2__["TransactionService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }, {
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"]
+      }, {
+        type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_6__["CamposproveedorService"]
+      }];
+    };
 
     MatClassificationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-mat-classification',
@@ -55820,7 +57392,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvbWF0ZXJpYWxkZXRhaWwvbWF0ZXJpYWxkZXRhaWwuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21hdGVyaWFsZGV0YWlsL21hdGVyaWFsZGV0YWlsLmNvbXBvbmVudC5zY3NzIn0= */";
     /***/
   },
 
@@ -55884,6 +57456,248 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/models/DataEvaluation.ts":
+  /*!******************************************!*\
+    !*** ./src/app/models/DataEvaluation.ts ***!
+    \******************************************/
+
+  /*! exports provided: DataEvaluation */
+
+  /***/
+  function srcAppModelsDataEvaluationTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DataEvaluation", function () {
+      return DataEvaluation;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js"); // tslint:disable-next-line: class-name
+
+
+    var DataEvaluation = function DataEvaluation() {
+      _classCallCheck(this, DataEvaluation);
+    };
+    /***/
+
+  },
+
+  /***/
+  "./src/app/models/materialsData.ts":
+  /*!*****************************************!*\
+    !*** ./src/app/models/materialsData.ts ***!
+    \*****************************************/
+
+  /*! exports provided: MaterialsData */
+
+  /***/
+  function srcAppModelsMaterialsDataTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MaterialsData", function () {
+      return MaterialsData;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js"); // tslint:disable-next-line: class-name
+
+
+    var MaterialsData = function MaterialsData() {
+      _classCallCheck(this, MaterialsData);
+    };
+    /***/
+
+  },
+
+  /***/
+  "./src/app/models/provider.ts":
+  /*!************************************!*\
+    !*** ./src/app/models/provider.ts ***!
+    \************************************/
+
+  /*! exports provided: Provider */
+
+  /***/
+  function srcAppModelsProviderTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Provider", function () {
+      return Provider;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js"); // tslint:disable-next-line: class-name
+
+
+    var Provider = function Provider() {
+      _classCallCheck(this, Provider);
+    };
+    /***/
+
+  },
+
+  /***/
+  "./src/app/newuser/newuser.component.scss":
+  /*!************************************************!*\
+    !*** ./src/app/newuser/newuser.component.scss ***!
+    \************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppNewuserNewuserComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25ld3VzZXIvbmV3dXNlci5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/newuser/newuser.component.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/newuser/newuser.component.ts ***!
+    \**********************************************/
+
+  /*! exports provided: NewuserComponent */
+
+  /***/
+  function srcAppNewuserNewuserComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "NewuserComponent", function () {
+      return NewuserComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var ngx_toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ngx-toastr */
+    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+    /* harmony import */
+
+
+    var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../services/camposproveedor.service */
+    "./src/services/camposproveedor.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+
+    var NewuserComponent =
+    /*#__PURE__*/
+    function () {
+      // tslint:disable-next-line: max-line-length
+      function NewuserComponent(toastr, services, router) {
+        _classCallCheck(this, NewuserComponent);
+
+        this.toastr = toastr;
+        this.services = services;
+        this.router = router;
+      }
+
+      _createClass(NewuserComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          console.log('usuario');
+        }
+      }, {
+        key: "saveUser",
+        value: function saveUser(usuario) {
+          var _this27 = this;
+
+          if (usuario.valid) {
+            this.services.saveUsuario(usuario.value).subscribe(function (res) {
+              // tslint:disable-next-line: no-unused-expression
+              _this27.router.navigateByUrl('/dashboard');
+            }, function (err) {
+              _this27.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+            });
+          }
+        }
+      }, {
+        key: "showNotification",
+        value: function showNotification(from, align) {
+          var color = Math.floor(Math.random() * 5 + 1);
+          this.toastr.success('<span class="now-ui-icons ui-1_bell-53"></span> Su registro está <b>Pendiente</b> - de aprobación.', '', {
+            timeOut: 8000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: 'alert alert-success alert-with-icon',
+            positionClass: 'toast-' + from + '-' + align
+          });
+        }
+      }]);
+
+      return NewuserComponent;
+    }();
+
+    NewuserComponent.ctorParameters = function () {
+      return [{
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"]
+      }, {
+        type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__["CamposproveedorService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }];
+    };
+
+    NewuserComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-newuser',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./newuser.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/newuser/newuser.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./newuser.component.scss */
+      "./src/app/newuser/newuser.component.scss")).default]
+    })], NewuserComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/notifications/notifications.component.css":
   /*!***********************************************************!*\
     !*** ./src/app/notifications/notifications.component.css ***!
@@ -55899,7 +57713,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvbm90aWZpY2F0aW9ucy9ub3RpZmljYXRpb25zLmNvbXBvbmVudC5jc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25vdGlmaWNhdGlvbnMvbm90aWZpY2F0aW9ucy5jb21wb25lbnQuY3NzIn0= */";
     /***/
   },
 
@@ -55973,6 +57787,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var NotificationsComponent =
     /*#__PURE__*/
     function () {
+      // tslint:disable-next-line: max-line-length
       function NotificationsComponent(toastr, camposServices, dialogService, router) {
         _classCallCheck(this, NotificationsComponent);
 
@@ -55980,7 +57795,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.camposServices = camposServices;
         this.dialogService = dialogService;
         this.router = router;
-        this.classes = 'row';
+        this.classes = 'div';
         this.campos = [];
         this.texto = 1;
         this.textField = 2;
@@ -56000,12 +57815,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.proveedor = [{
           idProveedor: 0,
           licitacion: '',
+          razonsocial: '',
+          identicicacion: '',
           datos: [{
             dato: '',
             idcamposproveedor: 0,
-            documento: null
-          }],
-          documento: null
+            idinscripcion: 0
+          }]
         }];
         this.constantes = {
           politica: 'POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES    En cumplimiento de la ley 1581 de 2012, Colombia Compra Eficiente publica la política de protección de Datos Personales y aclara lo siguiente:   Las Entidades Públicas son las Responsables del Tratamiento de los Datos Personales asociada a sus procesos de contratación en el SECOP. Colombia Compra Eficiente, como dueño y administrador de los sistemas de información de la Compra Publica, cumple el rol de Encargado de Tratamiento definido en la Ley 1581 de 2012, donde se limita a publicar la información registrada por las Entidades Públicas y, por ende, no tiene poder de decisión para la eliminación o modificación de los Datos Personales.    En dado caso de que una persona considere que se está afectando su derecho de Privacidad por el mal Tratamiento de Datos Personales, debe hacer un reclamo a la Entidad dueña del proceso de contratación para que cambie la información u oculte los Datos Personales en los documentos cargados en el SECOP. Si la Entidad no sabe o no puede cambiar la información en los sistemas de información, la entidad puede comunicarse con la mesa de servicio de Colombia Compra Eficiente para brindarle el apoyo correspondiente.    Los nombres, apellidos y numero de cedula o identificación de contratistas al igual que el monto del valor del contrato no podrán en ningún caso ser ocultados, dado que constituyen información vital para el cumplimiento del principio de Transparencia.  Las Entidades Públicas no requieren de una autorización para la recolección y tratamiento de Datos Personales cuando estos son necesarios para el ejercicio de sus funciones.    Colombia Compra Eficiente presenta la clasificación de Datos Personales y algunos ejemplos brindados por la Superintendencia de Industria y Comercio:    Dato Público: Dato que no es semiprivado, privado o sensible (Ej. Datos relativos al estado civil de las personas, su profesión u oficio, su calidad de comerciante o servidor público y aquellos que pueden obtenerse sin reserva alguna).    Dato semiprivado: Dato que no tiene naturaleza íntima, reservada, ni pública y cuyo conocimiento interesa al titular y a cierto sector o grupo de personas o a la sociedad en general (Ej. Datos financieros y crediticios, dirección, teléfono, correo electrónico personal).    Datos privados:  Dato que solo es relevante para su titular (Ej. fotografías, videos, Datos relacionados con su estilo de vida.) Datos sensibles: Aquellos Datos que afectan la intimidad de las personas o cuyo uso indebido puede generar discriminación. (Ej. Origen racial o étnico, orientación política, convicciones filosóficas o religiosas, pertenencia a sindicatos u organizaciones sociales o de derechos humanos, datos de salud, vida sexual y biométricos).  Por último, Colombia Compra Eficiente recuerda que no es la encargada de atender los reclamos asociados a la protección de Datos Personales de procesos de contratación que no sea dueño. En dado caso de querer hacer un reclamo sobre Datos Personales, dirigirla a la entidad Responsable del Tratamiento.',
@@ -56017,12 +57833,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(NotificationsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this28 = this;
 
+          this.usuario = this.camposServices.getUsuario();
+          console.log('usuario seleccion', this.usuario);
+          this.razonsocial = this.usuario.razon_social;
+          this.identificacion = this.usuario.id_proveedor;
           this.camposServices.getCamposProveedor().subscribe(function (res) {
-            _this10.campos.push(res);
+            _this28.campos.push(res);
 
-            _this10.crearCampos();
+            _this28.crearCampos();
           }, function (err) {
             return console.error(err);
           });
@@ -56030,7 +57850,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "crearCampos",
         value: function crearCampos() {
-          var _this11 = this;
+          var _this29 = this;
 
           this.indice = 0;
           var _iteratorNormalCompletion2 = true;
@@ -56038,65 +57858,81 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _iteratorError2 = undefined;
 
           try {
-            for (var _iterator2 = this.campos[0][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var _loop3 = function _loop3() {
               var campo = _step2.value;
 
               switch (campo.idtipocampo) {
-                case this.texto:
-                  this.itemtexto.id = campo.idcamposproveedor;
-                  this.itemtexto.label = campo.label;
-                  this.itemtexto.nombre = campo.label;
-                  this.campoTexto.push(this.itemtexto);
-                  this[campo.label] = '';
+                case _this29.texto:
+                  _this29.itemtexto.id = campo.idcamposproveedor;
+                  _this29.itemtexto.label = campo.label;
+                  _this29.itemtexto.nombre = campo.label;
+                  _this29.itemtexto.obligatorio = campo.obligatorio === 1;
+
+                  _this29.campoTexto.push(_this29.itemtexto);
+
+                  _this29[campo.label] = '';
                   break;
 
-                case this.textField:
-                  this.itemtextfield.id = campo.idcamposproveedor;
-                  this.itemtextfield.label = campo.label;
-                  this.itemtextfield.nombre = campo.label;
-                  this.campoTextField.push(this.itemtextfield);
-                  this[campo.label] = '';
+                case _this29.textField:
+                  _this29.itemtextfield = {};
+                  _this29.itemtextfield.id = campo.idcamposproveedor;
+                  _this29.itemtextfield.label = campo.label;
+                  _this29.itemtextfield.nombre = campo.label;
+                  _this29.itemtextfield.obligatorio = campo.obligatorio === 1;
+
+                  _this29.campoTextField.push(_this29.itemtextfield);
+
+                  _this29[campo.label] = '';
                   break;
 
-                case this.combobox:
-                  this.itemcombo.id = campo.idcamposproveedor;
-                  this.itemcombo.label = campo.label;
-                  this.itemcombo.nombre = campo.label;
-                  this.itemcombo.catalogo = [];
-                  this.camposServices.getCatalogoById(campo.idcamposproveedor).subscribe(function (res) {
-                    _this11.itemcombo.catalogo = res;
+                case _this29.combobox:
+                  _this29.camposServices.getCatalogoById(campo.idcamposproveedor).subscribe(function (res) {
+                    _this29.itemcombo = {};
+                    _this29.itemcombo.id = campo.idcamposproveedor;
+                    _this29.itemcombo.label = campo.label;
+                    _this29.itemcombo.nombre = campo.label;
+                    _this29.itemcombo.obligatorio = campo.obligatorio === 1;
+                    _this29.itemcombo.catalogo = [];
+                    _this29.itemcombo.catalogo = res;
+
+                    _this29.campoCombo.push(_this29.itemcombo);
                   }, function (err) {
                     return console.error(err);
-                  });
-                  this.campoCombo.push(this.itemcombo);
-                  this[campo.label] = '';
+                  }); //   this.campoCombo.push(this.itemcombo);
+
+
+                  _this29[campo.label] = '';
                   break;
 
-                case this.checkbox:
+                case _this29.checkbox:
                   //  this.campoCheck.push(campo.label);
-                  this.itemcheck.id = campo.idcamposproveedor;
-                  this.itemcheck.label = campo.label;
-                  this.itemcheck.catalogo = [];
-                  this.camposServices.getCatalogoById(campo.idcamposproveedor).subscribe(function (res) {
-                    _this11.itemcheck.catalogo = res;
-                  }, function (err) {
-                    return console.error(err);
-                  });
-                  this.campoCheck.push(this.itemcheck); // tslint:disable-next-line: no-unused-expression
+                  _this29.itemcheck = {};
+                  _this29.itemcheck.id = campo.idcamposproveedor;
+                  _this29.itemcheck.label = campo.label;
+                  _this29.itemcheck.nombre = campo.idcamposproveedor;
+                  _this29.itemcheck.obligatorio = campo.obligatorio === 1;
 
-                  this[campo.label] = '';
+                  _this29.campoCheck.push(_this29.itemcheck);
+
+                  _this29[campo.label] = '';
                   break;
 
-                case this.button:
-                  this.campoboton.push(campo.label);
-                  this[campo.label] = '';
+                case _this29.button:
+                  _this29.campoboton.push(campo.label);
+
+                  _this29[campo.label] = ''; // crear la variable del campo 
+
                   break;
 
                 default:
                   break;
               }
 
-              this.indice++;
+              _this29.indice++;
+            };
+
+            for (var _iterator2 = this.campos[0][Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+              _loop3();
             }
           } catch (err) {
             _didIteratorError2 = true;
@@ -56128,121 +57964,179 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "openModalPoliticas",
         value: function openModalPoliticas() {
-          var _this12 = this;
+          var _this30 = this;
 
           // tslint:disable-next-line: prefer-const
           var data = null;
           this.dialogService.openModal('Politicas', this.constantes.politica, function () {
             // tslint:disable-next-line: no-unused-expression
-            _this12.checkpoliticas = true;
+            _this30.checkpoliticas = true;
           }, function () {
-            _this12.checkpoliticas = false;
+            _this30.checkpoliticas = false;
           });
         }
       }, {
-        key: "guardar",
-        value: function guardar() {
-          var _this13 = this;
+        key: "saveInscripcion",
+        value: function saveInscripcion(userForm) {
+          var _this31 = this;
 
-          if (this.checkpoliticas) {
-            var indice = 0;
-            this.proveedor[0].licitacion = this.licitacion;
+          if (userForm.valid) {
+            if (this.checkpoliticas) {
+              var indice = 0;
+              this.proveedor[0].idProveedor = this.usuario !== undefined ? this.usuario.id_proveedor : ' 0 ';
+              this.proveedor[0].licitacion = this.licitacion;
+              this.proveedor[0].razonsocial = this.razonsocial;
+              this.proveedor[0].identicicacion = this.identificacion;
 
-            if (this.proveedor[0].datos.length > 0) {
-              indice = this.proveedor[0].datos.length;
-              this.proveedor[0].datos[indice] = {
-                dato: '',
-                idcamposproveedor: 0,
-                documento: null
-              };
-            } // tslint:disable-next-line: forin
-
-
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
-
-            try {
-              for (var _iterator3 = this.campoTexto[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                var i = _step3.value;
-                this.proveedor[0].datos[indice].dato = i.nombre;
-                this.proveedor[0].datos[indice].idcamposproveedor = i.id;
-                indice++;
-              } // tslint:disable-next-line: forin
-
-            } catch (err) {
-              _didIteratorError3 = true;
-              _iteratorError3 = err;
-            } finally {
-              try {
-                if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
-                  _iterator3.return();
-                }
-              } finally {
-                if (_didIteratorError3) {
-                  throw _iteratorError3;
-                }
-              }
-            }
-
-            var _iteratorNormalCompletion4 = true;
-            var _didIteratorError4 = false;
-            var _iteratorError4 = undefined;
-
-            try {
-              for (var _iterator4 = this.campoTextField[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-                var _i = _step4.value;
+              if (this.proveedor[0].datos.length > 0) {
+                // indice = this.proveedor[0].datos.length;
                 this.proveedor[0].datos[indice] = {
                   dato: '',
                   idcamposproveedor: 0,
-                  documento: null
+                  idinscripcion: 0
                 };
-                this.proveedor[0].datos[indice].dato = _i.nombre;
-                this.proveedor[0].datos[indice].idcamposproveedor = _i.id;
-                indice++;
-              }
-            } catch (err) {
-              _didIteratorError4 = true;
-              _iteratorError4 = err;
-            } finally {
+              } // tslint:disable-next-line: forin
+
+
+              var _iteratorNormalCompletion3 = true;
+              var _didIteratorError3 = false;
+              var _iteratorError3 = undefined;
+
               try {
-                if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
-                  _iterator4.return();
-                }
+                for (var _iterator3 = this.campoTexto[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                  var i = _step3.value;
+                  this.proveedor[0].datos[indice].dato = i.nombre;
+                  this.proveedor[0].datos[indice].idcamposproveedor = i.id;
+                  indice++;
+                } // tslint:disable-next-line: forin
+
+              } catch (err) {
+                _didIteratorError3 = true;
+                _iteratorError3 = err;
               } finally {
-                if (_didIteratorError4) {
-                  throw _iteratorError4;
+                try {
+                  if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
+                    _iterator3.return();
+                  }
+                } finally {
+                  if (_didIteratorError3) {
+                    throw _iteratorError3;
+                  }
                 }
               }
+
+              var _iteratorNormalCompletion4 = true;
+              var _didIteratorError4 = false;
+              var _iteratorError4 = undefined;
+
+              try {
+                for (var _iterator4 = this.campoTextField[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                  var _i = _step4.value;
+                  this.proveedor[0].datos[indice] = {
+                    dato: '',
+                    idcamposproveedor: 0,
+                    idinscripcion: 0
+                  };
+                  this.proveedor[0].datos[indice].dato = _i.nombre;
+                  this.proveedor[0].datos[indice].idcamposproveedor = _i.id;
+                  indice++;
+                } // tslint:disable-next-line: forin
+
+              } catch (err) {
+                _didIteratorError4 = true;
+                _iteratorError4 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
+                    _iterator4.return();
+                  }
+                } finally {
+                  if (_didIteratorError4) {
+                    throw _iteratorError4;
+                  }
+                }
+              }
+
+              var _iteratorNormalCompletion5 = true;
+              var _didIteratorError5 = false;
+              var _iteratorError5 = undefined;
+
+              try {
+                for (var _iterator5 = this.campoCheck[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                  var _i2 = _step5.value;
+                  this.proveedor[0].datos[indice] = {
+                    dato: '',
+                    idcamposproveedor: 0,
+                    idinscripcion: 0
+                  };
+                  this.proveedor[0].datos[indice].dato = _i2.nombre;
+                  this.proveedor[0].datos[indice].idcamposproveedor = _i2.id;
+                  indice++;
+                } // tslint:disable-next-line: forin
+
+              } catch (err) {
+                _didIteratorError5 = true;
+                _iteratorError5 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
+                    _iterator5.return();
+                  }
+                } finally {
+                  if (_didIteratorError5) {
+                    throw _iteratorError5;
+                  }
+                }
+              }
+
+              var _iteratorNormalCompletion6 = true;
+              var _didIteratorError6 = false;
+              var _iteratorError6 = undefined;
+
+              try {
+                for (var _iterator6 = this.campoCombo[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+                  var _i3 = _step6.value;
+                  this.proveedor[0].datos[indice] = {
+                    dato: '',
+                    idcamposproveedor: 0,
+                    idinscripcion: 0
+                  };
+                  this.proveedor[0].datos[indice].dato = _i3.nombre;
+                  this.proveedor[0].datos[indice].idcamposproveedor = _i3.id;
+                  indice++;
+                } // tslint:disable-next-line: no-unused-expression
+
+              } catch (err) {
+                _didIteratorError6 = true;
+                _iteratorError6 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
+                    _iterator6.return();
+                  }
+                } finally {
+                  if (_didIteratorError6) {
+                    throw _iteratorError6;
+                  }
+                }
+              }
+
+              this.camposServices.saveProveedor(this.proveedor[0]).subscribe(function (res) {
+                // tslint:disable-next-line: no-unused-expression
+                _this31.router.navigateByUrl('/classification');
+              }, function (err) {
+                _this31.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+              });
+            } else {
+              this.dialogService.openModal('Alerta', this.constantes.mensaje, function () {
+                // tslint:disable-next-line: no-unused-expression
+                _this31.checkpoliticas = true;
+              }, function () {
+                _this31.checkpoliticas = false;
+              });
             }
-
-            indice = 0; // tslint:disable-next-line: forin
-
-            /*for (const i in this.campoCheck) {
-              this.proveedor.datos[indice] = i;
-              this.indice++;
-            }*/
-
-            indice = 0; // tslint:disable-next-line: forin
-
-            /*for (const i in this.campoCombo) {
-              this.proveedor.datos[indice] = i;
-              this.indice++;
-            }*/
-            // tslint:disable-next-line: no-unused-expression
-
-            this.camposServices.saveProveedor(this.proveedor[0]).subscribe(function (res) {
-              // tslint:disable-next-line: no-unused-expression
-              _this13.router.navigateByUrl('/classification');
-            }, function (err) {
-              return console.error(err);
-            });
           } else {
-            this.dialogService.openModal('Alerta', this.constantes.mensaje, function () {
-              // tslint:disable-next-line: no-unused-expression
-              _this13.checkpoliticas = true;
-            }, function () {
-              _this13.checkpoliticas = false;
+            this.dialogService.openModalOk('Error', 'Por favor diligenciar todos los campos obligatorios', function () {// tslint:disable-next-line: no-unused-expression
             });
           }
         }
@@ -56297,6 +58191,925 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/result-seleccion/result-seleccion.component.scss":
+  /*!******************************************************************!*\
+    !*** ./src/app/result-seleccion/result-seleccion.component.scss ***!
+    \******************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppResultSeleccionResultSeleccionComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Jlc3VsdC1zZWxlY2Npb24vcmVzdWx0LXNlbGVjY2lvbi5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/result-seleccion/result-seleccion.component.ts":
+  /*!****************************************************************!*\
+    !*** ./src/app/result-seleccion/result-seleccion.component.ts ***!
+    \****************************************************************/
+
+  /*! exports provided: ResultSeleccionComponent */
+
+  /***/
+  function srcAppResultSeleccionResultSeleccionComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ResultSeleccionComponent", function () {
+      return ResultSeleccionComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-toastr */
+    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+    /* harmony import */
+
+
+    var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../services/camposproveedor.service */
+    "./src/services/camposproveedor.service.ts");
+
+    var ResultSeleccionComponent =
+    /*#__PURE__*/
+    function () {
+      // tslint:disable-next-line: max-line-length
+      function ResultSeleccionComponent(toastr, route, router, service) {
+        _classCallCheck(this, ResultSeleccionComponent);
+
+        this.toastr = toastr;
+        this.route = route;
+        this.router = router;
+        this.service = service;
+      }
+
+      _createClass(ResultSeleccionComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this32 = this;
+
+          this.values = this.route.queryParams.subscribe(function (params) {
+            // Defaults to 0 if no query param provided.
+            _this32.value = +params['id'] || 0;
+          });
+          this.proveedores = this.service.getProveedores();
+
+          for (var index = 0; index < this.proveedores.length; index++) {
+            var element = this.proveedores[index];
+            element.porcentaje = this.getAleatorio();
+          }
+
+          this.titulo = this.proveedores[0].titulo;
+          this.descripcion = this.proveedores[0].descripcion;
+          this.proveedores.sort(function (a, b) {
+            if (a.porcentaje < b.porcentaje) {
+              return 1;
+            }
+
+            if (a.porcentaje > b.porcentaje) {
+              return -1;
+            }
+
+            return 0;
+          });
+          this.proveedores[0].nombre = this.proveedores[0].nombre + ' (Seleccionado)';
+        }
+      }, {
+        key: "getAleatorio",
+        value: function getAleatorio() {
+          return 10 * Math.round(Math.random() * 10);
+        }
+      }, {
+        key: "saveResultadoProveedor",
+        value: function saveResultadoProveedor() {
+          var _this33 = this;
+
+          this.service.saveResultProveedores(this.proveedores, this.value).subscribe(function (res) {
+            // tslint:disable-next-line: no-unused-expression
+            _this33.router.navigateByUrl('/user-profile');
+
+            _this33.showNotification('Información', 'Datos Guardados exitosamente');
+          }, function (err) {
+            _this33.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+          });
+        }
+      }, {
+        key: "showNotification",
+        value: function showNotification(from, align) {
+          var color = Math.floor(Math.random() * 5 + 1);
+          this.toastr.success('<span class="now-ui-icons ui-1_bell-53"></span> Su registro está <b>Pendiente</b> - de aprobación.', '', {
+            timeOut: 8000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: 'alert alert-success alert-with-icon',
+            positionClass: 'toast-' + from + '-' + align
+          });
+        }
+      }]);
+
+      return ResultSeleccionComponent;
+    }();
+
+    ResultSeleccionComponent.ctorParameters = function () {
+      return [{
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_4__["CamposproveedorService"]
+      }];
+    };
+
+    ResultSeleccionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-result-seleccion',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./result-seleccion.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/result-seleccion/result-seleccion.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./result-seleccion.component.scss */
+      "./src/app/result-seleccion/result-seleccion.component.scss")).default]
+    })], ResultSeleccionComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.scss":
+  /*!***********************************************************************************!*\
+    !*** ./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.scss ***!
+    \***********************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppTableListBuscarEvaluacionesBuscarEvaluacionesComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlLWxpc3QvYnVzY2FyLWV2YWx1YWNpb25lcy9idXNjYXItZXZhbHVhY2lvbmVzLmNvbXBvbmVudC5zY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.ts":
+  /*!*********************************************************************************!*\
+    !*** ./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.ts ***!
+    \*********************************************************************************/
+
+  /*! exports provided: BuscarEvaluacionesComponent */
+
+  /***/
+  function srcAppTableListBuscarEvaluacionesBuscarEvaluacionesComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "BuscarEvaluacionesComponent", function () {
+      return BuscarEvaluacionesComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_evaluation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../services/evaluation.service */
+    "./src/services/evaluation.service.ts");
+    /* harmony import */
+
+
+    var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../dialog/dialog.service */
+    "./src/app/dialog/dialog.service.ts");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
+
+    var BuscarEvaluacionesComponent =
+    /*#__PURE__*/
+    function () {
+      function BuscarEvaluacionesComponent(evaluationService, dialogService, dialog) {
+        _classCallCheck(this, BuscarEvaluacionesComponent);
+
+        this.evaluationService = evaluationService;
+        this.dialogService = dialogService;
+        this.dialog = dialog;
+        this.showComponent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.mostrar = false;
+        this.evaluation = {
+          idProvider: null,
+          name: null,
+          date: null,
+          semester: null
+        };
+        this.evaluations = [];
+        this.evaluationsByDetail = [];
+        this.evaluation.idProvider = '';
+        this.evaluation.name = '';
+        this.evaluation.date = '';
+        this.evaluation.semester = '';
+      }
+
+      _createClass(BuscarEvaluacionesComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "seachEvaluation",
+        value: function seachEvaluation(forma) {
+          var _this34 = this;
+
+          if (forma.form.value.id !== null && forma.form.value.id !== '') {
+            this.evaluation.idProvider = forma.form.value.id;
+          } else {
+            this.evaluation.idProvider = '';
+          }
+
+          if (forma.form.value.name !== null && forma.form.value.name !== '') {
+            this.evaluation.name = forma.form.value.name;
+          } else {
+            this.evaluation.name = '';
+          }
+
+          if (forma.form.value.date !== null && forma.form.value.date !== '') {
+            this.evaluation.date = forma.form.value.date;
+          } else {
+            this.evaluation.date = '';
+          }
+
+          if (forma.form.value.semester !== null && forma.form.value.semester !== '') {
+            this.evaluation.semester = forma.form.value.semester;
+          } else {
+            this.evaluation.semester = '';
+          }
+
+          console.log(this.evaluation);
+          this.showSearch();
+          this.evaluationService.getEvaluation(this.evaluation).subscribe(function (resp) {
+            _this34.evaluations = resp;
+            console.log('Estas son las evaluacion ' + resp);
+          }, function (errorServicio) {
+            _this34.evaluations = [];
+          });
+        } // this.showSearch();
+
+      }, {
+        key: "showSearch",
+        value: function showSearch() {
+          this.mostrar = true;
+          this.callParentEvent();
+        }
+      }, {
+        key: "callParentEvent",
+        value: function callParentEvent() {
+          this.showComponent.emit(this.mostrar);
+        }
+      }, {
+        key: "mostrarDetalle",
+        value: function mostrarDetalle() {
+          console.log('moasds');
+        }
+      }, {
+        key: "openModalDetalles",
+        value: function openModalDetalles(id, titulo, year) {
+          var _this35 = this;
+
+          //console.log(id + ' ' + titulo + ' ' + year.substr(0,3));
+          var object = {
+            id: null,
+            titulo: null,
+            year: null
+          };
+          object.id = id;
+          object.titulo = titulo;
+          object.year = year.substr(0, 4);
+          this.evaluationService.getEvaluationByDetail(object).subscribe(function (resp) {
+            _this35.evaluationsByDetail = resp;
+
+            _this35.dialog.open(_this35.secondDialog); // tslint:disable-next-line: prefer-const
+
+            /*this.dialogService.openModalDetalles(this.evaluationsByDetail[0].titulo, this.evaluationsByDetail, () => {
+              // tslint:disable-next-line: no-unused-expression
+              console.log('Entra aqui 1');
+            }, () => {
+              console.log('Entra aqui 2');
+            });*/
+
+
+            console.log('Estas son las evaluacion ' + JSON.stringify(_this35.evaluationsByDetail[0]));
+          }, function (errorServicio) {
+            console.log('Estas son las evaluacion ' + errorServicio);
+          });
+        }
+      }]);
+
+      return BuscarEvaluacionesComponent;
+    }();
+
+    BuscarEvaluacionesComponent.ctorParameters = function () {
+      return [{
+        type: _services_evaluation_service__WEBPACK_IMPORTED_MODULE_2__["EvaluationService"]
+      }, {
+        type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_3__["DialogService"]
+      }, {
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], BuscarEvaluacionesComponent.prototype, "showComponent", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], BuscarEvaluacionesComponent.prototype, "showComponentTwo", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('secondDialog', {
+      static: true
+    })], BuscarEvaluacionesComponent.prototype, "secondDialog", void 0);
+    BuscarEvaluacionesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-buscar-evaluaciones',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./buscar-evaluaciones.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./buscar-evaluaciones.component.scss */
+      "./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.scss")).default]
+    })], BuscarEvaluacionesComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/calificacion-criterio/calificacion-criterio.component.scss":
+  /*!***************************************************************************************!*\
+    !*** ./src/app/table-list/calificacion-criterio/calificacion-criterio.component.scss ***!
+    \***************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppTableListCalificacionCriterioCalificacionCriterioComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlLWxpc3QvY2FsaWZpY2FjaW9uLWNyaXRlcmlvL2NhbGlmaWNhY2lvbi1jcml0ZXJpby5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/calificacion-criterio/calificacion-criterio.component.ts":
+  /*!*************************************************************************************!*\
+    !*** ./src/app/table-list/calificacion-criterio/calificacion-criterio.component.ts ***!
+    \*************************************************************************************/
+
+  /*! exports provided: CalificacionCriterioComponent */
+
+  /***/
+  function srcAppTableListCalificacionCriterioCalificacionCriterioComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CalificacionCriterioComponent", function () {
+      return CalificacionCriterioComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_criterios_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../services/criterios.service */
+    "./src/services/criterios.service.ts");
+
+    var CalificacionCriterioComponent =
+    /*#__PURE__*/
+    function () {
+      function CalificacionCriterioComponent(criteriosService) {
+        _classCallCheck(this, CalificacionCriterioComponent);
+
+        this.criteriosService = criteriosService;
+        this.sendProvider = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.criterios = [];
+      }
+
+      _createClass(CalificacionCriterioComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this36 = this;
+
+          this.criteriosService.getEvaluation().subscribe(function (resp) {
+            _this36.criterios = resp;
+          });
+        }
+      }]);
+
+      return CalificacionCriterioComponent;
+    }();
+
+    CalificacionCriterioComponent.ctorParameters = function () {
+      return [{
+        type: _services_criterios_service__WEBPACK_IMPORTED_MODULE_2__["CriteriosService"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], CalificacionCriterioComponent.prototype, "sendProvider", void 0);
+    CalificacionCriterioComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-calificacion-criterio',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./calificacion-criterio.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/calificacion-criterio/calificacion-criterio.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./calificacion-criterio.component.scss */
+      "./src/app/table-list/calificacion-criterio/calificacion-criterio.component.scss")).default]
+    })], CalificacionCriterioComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.scss":
+  /*!***************************************************************************************!*\
+    !*** ./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.scss ***!
+    \***************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppTableListCriteriosEvalauacionCriteriosEvalauacionComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlLWxpc3QvY3JpdGVyaW9zLWV2YWxhdWFjaW9uL2NyaXRlcmlvcy1ldmFsYXVhY2lvbi5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.ts":
+  /*!*************************************************************************************!*\
+    !*** ./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.ts ***!
+    \*************************************************************************************/
+
+  /*! exports provided: CriteriosEvalauacionComponent */
+
+  /***/
+  function srcAppTableListCriteriosEvalauacionCriteriosEvalauacionComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CriteriosEvalauacionComponent", function () {
+      return CriteriosEvalauacionComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _services_criterios_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../../services/criterios.service */
+    "./src/services/criterios.service.ts");
+
+    var CriteriosEvalauacionComponent =
+    /*#__PURE__*/
+    function () {
+      function CriteriosEvalauacionComponent(criteriosService, router) {
+        _classCallCheck(this, CriteriosEvalauacionComponent);
+
+        this.criteriosService = criteriosService;
+        this.router = router;
+        this.criterios = [];
+      }
+
+      _createClass(CriteriosEvalauacionComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this37 = this;
+
+          this.criteriosService.getEvaluation().subscribe(function (resp) {
+            _this37.criterios = resp;
+          });
+        }
+      }]);
+
+      return CriteriosEvalauacionComponent;
+    }();
+
+    CriteriosEvalauacionComponent.ctorParameters = function () {
+      return [{
+        type: _services_criterios_service__WEBPACK_IMPORTED_MODULE_3__["CriteriosService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }];
+    };
+
+    CriteriosEvalauacionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-criterios-evalauacion',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./criterios-evalauacion.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./criterios-evalauacion.component.scss */
+      "./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.scss")).default]
+    })], CriteriosEvalauacionComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.scss":
+  /*!*************************************************************************************!*\
+    !*** ./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.scss ***!
+    \*************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppTableListResultadoEvaluacionResultadoEvaluacionComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlLWxpc3QvcmVzdWx0YWRvLWV2YWx1YWNpb24vcmVzdWx0YWRvLWV2YWx1YWNpb24uY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.ts":
+  /*!***********************************************************************************!*\
+    !*** ./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.ts ***!
+    \***********************************************************************************/
+
+  /*! exports provided: ResultadoEvaluacionComponent */
+
+  /***/
+  function srcAppTableListResultadoEvaluacionResultadoEvaluacionComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ResultadoEvaluacionComponent", function () {
+      return ResultadoEvaluacionComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var ResultadoEvaluacionComponent =
+    /*#__PURE__*/
+    function () {
+      function ResultadoEvaluacionComponent() {
+        _classCallCheck(this, ResultadoEvaluacionComponent);
+
+        this.criteriaScore = [];
+        this.resultCriteria = [];
+
+        for (var i = 0; i < this.resultCriteria.length; i++) {}
+      }
+
+      _createClass(ResultadoEvaluacionComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          console.log(this.resultCriteria[0].scoreResult);
+        }
+      }]);
+
+      return ResultadoEvaluacionComponent;
+    }();
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ResultadoEvaluacionComponent.prototype, "criteriaScore", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ResultadoEvaluacionComponent.prototype, "resultCriteria", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ResultadoEvaluacionComponent.prototype, "resultTotal", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ResultadoEvaluacionComponent.prototype, "message", void 0);
+    ResultadoEvaluacionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-resultado-evaluacion',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./resultado-evaluacion.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./resultado-evaluacion.component.scss */
+      "./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.scss")).default]
+    })], ResultadoEvaluacionComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.scss":
+  /*!*******************************************************************************************!*\
+    !*** ./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.scss ***!
+    \*******************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppTableListSeleccionarProveedoresSeleccionarProveedoresComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlLWxpc3Qvc2VsZWNjaW9uYXItcHJvdmVlZG9yZXMvc2VsZWNjaW9uYXItcHJvdmVlZG9yZXMuY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.ts":
+  /*!*****************************************************************************************!*\
+    !*** ./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.ts ***!
+    \*****************************************************************************************/
+
+  /*! exports provided: SeleccionarProveedoresComponent */
+
+  /***/
+  function srcAppTableListSeleccionarProveedoresSeleccionarProveedoresComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SeleccionarProveedoresComponent", function () {
+      return SeleccionarProveedoresComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_evaluation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../services/evaluation.service */
+    "./src/services/evaluation.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _models_provider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../models/provider */
+    "./src/app/models/provider.ts");
+    /* harmony import */
+
+
+    var _services_proveedores_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../../../services/proveedores.service */
+    "./src/services/proveedores.service.ts");
+    /* harmony import */
+
+
+    var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ngx-toastr */
+    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+
+    var SeleccionarProveedoresComponent =
+    /*#__PURE__*/
+    function () {
+      function SeleccionarProveedoresComponent(toastr, evaluationService, providersService, router) {
+        _classCallCheck(this, SeleccionarProveedoresComponent);
+
+        this.toastr = toastr;
+        this.evaluationService = evaluationService;
+        this.providersService = providersService;
+        this.router = router; // @Input() providerSearch: any[] = [];
+
+        this.sendProvider = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.sendSocialReason = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.usuario = {
+          id: null,
+          name: null
+        };
+        this.request = {
+          idProveedor: null,
+          socialReason: null
+        };
+        this.proveedores = [];
+        this.providers = [];
+        this.count = 0;
+        this.checked = false;
+      }
+
+      _createClass(SeleccionarProveedoresComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this38 = this;
+
+          var data = new _models_provider__WEBPACK_IMPORTED_MODULE_4__["Provider"]();
+          this.evaluationService.getProveedor().subscribe(function (resp) {
+            _this38.providers = resp;
+            console.log('Estos son los proveedores' + _this38.proveedores[0]);
+          });
+        }
+      }, {
+        key: "selectProvider",
+        value: function selectProvider(id, input) {
+          var _this39 = this;
+
+          if (input) {
+            this.idProviderSelected = id;
+            this.count += 1;
+
+            if (this.count === 2) {
+              this.checked = false;
+              this.showNotification('top', 'center');
+              this.router.navigateByUrl('/', {
+                skipLocationChange: true
+              }).then(function () {
+                _this39.router.navigate(['/table-list']);
+              });
+            }
+          } else {
+            this.idProviderSelected = '';
+            this.name = '';
+            this.count = 0;
+          }
+
+          console.log('count = ' + this.count);
+          this.callParentEvent();
+        }
+      }, {
+        key: "showNotification",
+        value: function showNotification(from, align) {
+          var color = Math.floor(Math.random() * 5 + 1);
+          this.toastr.error('<span class="now-ui-icons ui-1_bell-53"></span> No puede seleccionar mas de dos <b>Proveedores</b>.', '', {
+            timeOut: 2000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: 'alert alert-error alert-with-icon',
+            positionClass: 'toast-' + from + '-' + align
+          });
+        }
+      }, {
+        key: "selectedName",
+        value: function selectedName(social_reason, input) {
+          if (input) {
+            this.name = social_reason;
+          } else {
+            this.idProviderSelected = '';
+            this.name = '';
+          }
+
+          console.log('this.name ' + this.name);
+          this.callParentEvenSocial();
+        }
+      }, {
+        key: "callParentEvent",
+        value: function callParentEvent() {
+          this.sendProvider.emit(this.idProviderSelected);
+        }
+      }, {
+        key: "callParentEvenSocial",
+        value: function callParentEvenSocial() {
+          this.sendSocialReason.emit(this.name);
+        }
+      }, {
+        key: "buscar",
+        value: function buscar(forma) {
+          var _this40 = this;
+
+          this.request.idProveedor = forma.form.value.id;
+          this.request.socialReason = forma.form.value.proveedor;
+          this.providersService.getProveedorById(this.request).subscribe(function (resp) {
+            // console.log('Form resasd : ' + JSON.parse(resp));
+            _this40.providers = resp;
+          }, function (errorServicio) {
+            _this40.providers = [];
+          });
+        }
+      }]);
+
+      return SeleccionarProveedoresComponent;
+    }();
+
+    SeleccionarProveedoresComponent.ctorParameters = function () {
+      return [{
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"]
+      }, {
+        type: _services_evaluation_service__WEBPACK_IMPORTED_MODULE_2__["EvaluationService"]
+      }, {
+        type: _services_proveedores_service__WEBPACK_IMPORTED_MODULE_5__["ProvidersService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], SeleccionarProveedoresComponent.prototype, "sendProvider", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], SeleccionarProveedoresComponent.prototype, "sendSocialReason", void 0);
+    SeleccionarProveedoresComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-seleccionar-proveedores',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./seleccionar-proveedores.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./seleccionar-proveedores.component.scss */
+      "./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.scss")).default]
+    })], SeleccionarProveedoresComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/table-list/table-list.component.css":
   /*!*****************************************************!*\
     !*** ./src/app/table-list/table-list.component.css ***!
@@ -56312,7 +59125,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvdGFibGUtbGlzdC90YWJsZS1saXN0LmNvbXBvbmVudC5jc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlLWxpc3QvdGFibGUtbGlzdC5jb21wb25lbnQuY3NzIn0= */";
     /***/
   },
 
@@ -56347,21 +59160,232 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_evaluation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/evaluation.service */
+    "./src/services/evaluation.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _services_criterios_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../services/criterios.service */
+    "./src/services/criterios.service.ts");
+    /* harmony import */
+
+
+    var _models_DataEvaluation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../models/DataEvaluation */
+    "./src/app/models/DataEvaluation.ts");
 
     var TableListComponent =
     /*#__PURE__*/
     function () {
-      function TableListComponent() {
+      function TableListComponent(evaluationService, criteriosService, route) {
         _classCallCheck(this, TableListComponent);
+
+        this.evaluationService = evaluationService;
+        this.criteriosService = criteriosService;
+        this.route = route;
+        this.header = {
+          tittle: null,
+          description: null,
+          idProvider: null,
+          semester: null
+        };
+        this.proveedorEvalua = {
+          tittle: null,
+          description: null,
+          idProvider: null,
+          totalScore: null,
+          criterios: [{}],
+          data: [{}]
+        };
+        this.criteriosDescription = [{}];
+        this.data = [];
+        this.firstStep = true;
+        this.secondStep = false;
+        this.thirdStep = false;
+        this.fourStep = false;
+        this.criterios = [];
+        this.showSearchEvaluation = true;
+        this.showSearchEvaluationComponent = false;
       }
 
       _createClass(TableListComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this41 = this;
+
+          this.criteriosService.getEvaluation().subscribe(function (resp) {
+            _this41.criterios = resp;
+          });
+        }
+      }, {
+        key: "createEvaluation",
+        value: function createEvaluation(form) {
+          form.form.value.idProvider = this.idProvider;
+          this.proveedorEvalua.tittle = form.form.value.tittle;
+          this.proveedorEvalua.description = form.form.value.description;
+          this.proveedorEvalua.idProvider = form.form.value.idProvider;
+
+          if (this.proveedorEvalua.tittle != null && this.proveedorEvalua.tittle !== '' && this.proveedorEvalua.description != null && this.proveedorEvalua.description !== '' && this.proveedorEvalua.idProvider != null && this.proveedorEvalua.idProvider !== '') {
+            this.changeCard();
+          } else {
+            console.log('no se puede registrar la evaluacion porque no ha seleccioando todos los campos');
+          }
+
+          this.gotoTop();
+        }
+      }, {
+        key: "createCreteria",
+        value: function createCreteria(formData) {
+          // console.log(this.criterios);
+          this.data = [];
+          this.totalScore = 0;
+
+          for (var i = 0; i < this.criterios.length; i++) {
+            var data = new _models_DataEvaluation__WEBPACK_IMPORTED_MODULE_5__["DataEvaluation"]();
+            data.criteria = this.criterios[i].criterio;
+            var number1 = +this.criterios[i].peso;
+            var numer2 = +formData.form.value[i + 1];
+            var total = number1 / 100 * numer2;
+            data.scoreResult = total;
+
+            if (total < 4) {
+              data.notes = 'Rendimiento Bajo';
+            } else if (5 <= total && total < 9) {
+              data.notes = 'Rendimiento Medio';
+            } else if (9 < total) {
+              data.notes = 'Rendimiento alto';
+            }
+
+            this.totalScore += total;
+            this.data.push(data);
+          }
+
+          if (this.totalScore < 4) {
+            this.messageData = 'Rendimiento Bajo';
+          } else if (5 <= this.totalScore && this.totalScore < 9) {
+            this.messageData = 'Rendimiento Medio';
+          } else if (9 < this.totalScore) {
+            this.messageData = 'Rendimiento alto';
+          }
+
+          console.log('data ' + this.data);
+          this.proveedorEvalua.totalScore = this.totalScore;
+          this.proveedorEvalua.criterios = this.criterios;
+          this.proveedorEvalua.data = this.data;
+          this.changeCardthird();
+        }
+      }, {
+        key: "selectedProvider",
+        value: function selectedProvider(id) {
+          if (id != null && id !== '') {
+            this.idProvider = id;
+          } // console.log('Este es el usuario seleccionado desde el padre ' + id );
+
+        }
+      }, {
+        key: "takeNameProvider",
+        value: function takeNameProvider(name) {
+          if (name != null && name !== '') {
+            this.nameProvider = name;
+            console.log('Nombre proveedor :: ' + this.nameProvider);
+          }
+        }
+      }, {
+        key: "changeCard",
+        value: function changeCard() {
+          if (this.firstStep) {
+            this.firstStep = false;
+            this.secondStep = true;
+          } else {
+            this.firstStep = true;
+            this.secondStep = false;
+          }
+        }
+      }, {
+        key: "changeCardsecond",
+        value: function changeCardsecond() {
+          if (this.secondStep) {
+            this.secondStep = false;
+            this.thirdStep = true;
+          } else {
+            this.secondStep = true;
+            this.thirdStep = false;
+          }
+        }
+      }, {
+        key: "changeCardthird",
+        value: function changeCardthird() {
+          if (this.thirdStep) {
+            this.thirdStep = false;
+            this.fourStep = true;
+          } else {
+            this.thirdStep = true;
+            this.fourStep = false;
+          }
+        }
+      }, {
+        key: "guardar",
+        value: function guardar() {
+          var _this42 = this;
+
+          this.evaluationService.createEvaluation(this.proveedorEvalua).subscribe(function (res) {
+            // tslint:disable-next-line: no-unused-expression
+            console.log('Se crea evalaucion..... ');
+          }, function (err) {
+            return console.error(err);
+          });
+          this.firstStep = true;
+          this.secondStep = false;
+          this.thirdStep = false;
+          this.fourStep = false;
+          this.route.navigateByUrl('/', {
+            skipLocationChange: true
+          }).then(function () {
+            _this42.route.navigate(['/table-list']);
+          });
+        }
+      }, {
+        key: "showSearch",
+        value: function showSearch(show) {
+          this.showSearchEvaluation = false;
+          this.showSearchEvaluationComponent = true;
+        }
+      }, {
+        key: "noShowSearch",
+        value: function noShowSearch() {
+          this.showSearchEvaluation = true;
+          this.showSearchEvaluationComponent = false;
+        }
+      }, {
+        key: "gotoTop",
+        value: function gotoTop() {
+          document.getElementById('secondElem').scrollIntoView();
+        }
       }]);
 
       return TableListComponent;
     }();
+
+    TableListComponent.ctorParameters = function () {
+      return [{
+        type: _services_evaluation_service__WEBPACK_IMPORTED_MODULE_2__["EvaluationService"]
+      }, {
+        type: _services_criterios_service__WEBPACK_IMPORTED_MODULE_4__["CriteriosService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }];
+    };
 
     TableListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-table-list',
@@ -56372,6 +59396,108 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./table-list.component.css */
       "./src/app/table-list/table-list.component.css")).default]
     })], TableListComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/title/title.component.scss":
+  /*!*******************************************************!*\
+    !*** ./src/app/table-list/title/title.component.scss ***!
+    \*******************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppTableListTitleTitleComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RhYmxlLWxpc3QvdGl0bGUvdGl0bGUuY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/table-list/title/title.component.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/table-list/title/title.component.ts ***!
+    \*****************************************************/
+
+  /*! exports provided: TitleComponent */
+
+  /***/
+  function srcAppTableListTitleTitleComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "TitleComponent", function () {
+      return TitleComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/fesm2015/common.js");
+
+    var TitleComponent =
+    /*#__PURE__*/
+    function () {
+      function TitleComponent() {
+        _classCallCheck(this, TitleComponent);
+
+        this.myDate = new Date();
+        this.format = 'MM';
+        this.locale = 'en-US';
+        this.formattedDate = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["formatDate"])(this.myDate, this.format, this.locale);
+        console.log('formattedDate : ' + this.formattedDate);
+
+        if (this.formattedDate !== '01' && this.formattedDate !== '02' && this.formattedDate !== '03' && this.formattedDate !== '04' && this.formattedDate !== '05' && this.formattedDate !== '06') {
+          this.semestre = 'Semestre 2';
+        } else {
+          this.semestre = 'Semestre 1';
+        }
+      }
+
+      _createClass(TitleComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return TitleComponent;
+    }();
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], TitleComponent.prototype, "titleEvaluation", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], TitleComponent.prototype, "descriptionEvaluation", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], TitleComponent.prototype, "show", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], TitleComponent.prototype, "showProvider", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], TitleComponent.prototype, "provider", void 0);
+    TitleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-title',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./title.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/table-list/title/title.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./title.component.scss */
+      "./src/app/table-list/title/title.component.scss")).default]
+    })], TitleComponent);
     /***/
   },
 
@@ -56391,7 +59517,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvdHJhbnNhY3Rpb24vdHJhbnNhY3Rpb24uY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RyYW5zYWN0aW9uL3RyYW5zYWN0aW9uLmNvbXBvbmVudC5zY3NzIn0= */";
     /***/
   },
 
@@ -56426,21 +59552,69 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_transaction_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/transaction.service */
+    "./src/services/transaction.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var TransactionComponent =
     /*#__PURE__*/
     function () {
-      function TransactionComponent() {
+      function TransactionComponent(transactionService, router) {
         _classCallCheck(this, TransactionComponent);
+
+        this.transactionService = transactionService;
+        this.router = router;
+        this.transactions = [];
+        this.showTransaction = false;
       }
 
       _createClass(TransactionComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this43 = this;
+
+          this.transactionService.getTransactions().subscribe(function (resp) {
+            _this43.transactions = resp;
+          });
+        }
+      }, {
+        key: "searchTransaction",
+        value: function searchTransaction(form) {
+          var _this44 = this;
+
+          console.log(form.form.value);
+          this.transactionService.findTransactionByFilter(form.form.value).subscribe(function (resp) {
+            _this44.transactions = resp;
+          });
+        }
+      }, {
+        key: "viewTransaction",
+        value: function viewTransaction(dato) {
+          console.log('dato : ' + dato);
+          var id = dato;
+          this.router.navigate(['/transaction', id]);
+        }
       }]);
 
       return TransactionComponent;
     }();
+
+    TransactionComponent.ctorParameters = function () {
+      return [{
+        type: _services_transaction_service__WEBPACK_IMPORTED_MODULE_2__["TransactionService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }];
+    };
 
     TransactionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-transaction',
@@ -56470,7 +59644,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvdHlwb2dyYXBoeS90eXBvZ3JhcGh5LmNvbXBvbmVudC5jc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3R5cG9ncmFwaHkvdHlwb2dyYXBoeS5jb21wb25lbnQuY3NzIn0= */";
     /***/
   },
 
@@ -56549,7 +59723,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvdXBncmFkZS91cGdyYWRlLmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VwZ3JhZGUvdXBncmFkZS5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
@@ -56628,7 +59802,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAvdXNlci1wcm9maWxlL3VzZXItcHJvZmlsZS5jb21wb25lbnQuY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXItcHJvZmlsZS91c2VyLXByb2ZpbGUuY29tcG9uZW50LmNzcyJ9 */";
     /***/
   },
 
@@ -56663,22 +59837,196 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/camposproveedor.service */
+    "./src/services/camposproveedor.service.ts");
+    /* harmony import */
+
+
+    var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../dialog/dialog.service */
+    "./src/app/dialog/dialog.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ngx-toastr */
+    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
 
     var UserProfileComponent =
     /*#__PURE__*/
     function () {
-      function UserProfileComponent() {
+      // tslint:disable-next-line: max-line-length
+      function UserProfileComponent(toastr, service, dialogService, router) {
         _classCallCheck(this, UserProfileComponent);
+
+        this.toastr = toastr;
+        this.service = service;
+        this.dialogService = dialogService;
+        this.router = router;
+        this.classes = 'div';
+        this.filtros = {};
+        this.proveedores = [{}];
+        this.proveedoresConAHP = [];
+        this.proveedoresSinAHP = [];
+        this.proveedoresSave = [];
       }
 
       _createClass(UserProfileComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
+      }, {
+        key: "buscar",
+        value: function buscar() {
+          var _this45 = this;
+
+          this.filtros = {
+            titulo: this.titulo === undefined ? '' : this.titulo,
+            descripcion: this.descripcion === undefined ? '' : this.descripcion,
+            segmento: this.segmento === undefined ? '' : this.segmento,
+            familia: this.familia === undefined ? '' : this.familia,
+            clase: this.clase === undefined ? '' : this.clase,
+            producto: this.producto === undefined ? '' : this.producto,
+            nit: this.nit === undefined ? '' : this.nit,
+            cotizacion: this.cotizacion === undefined ? '' : this.cotizacion
+          };
+          this.service.getSeleccionProveedor(this.filtros).subscribe(function (res) {
+            _this45.proveedores = res;
+            _this45.proveedoresSinAHP = _this45.proveedores;
+          }, function (err) {
+            return console.error(err);
+          });
+        }
+      }, {
+        key: "changeConAHP",
+        value: function changeConAHP(indice) {
+          console.log('changeConAHP ', indice);
+
+          if (this.proveedoresConAHP.indexOf(indice) >= 0) {
+            this.proveedoresConAHP = this.proveedoresConAHP.filter(function (i) {
+              return i !== indice;
+            });
+            this.proveedoresSinAHP.push(indice);
+          } else {
+            if (this.proveedoresSinAHP.indexOf(indice) >= 0) {
+              this.proveedoresSinAHP = this.proveedoresSinAHP.filter(function (i) {
+                return i !== indice;
+              });
+            }
+
+            this.proveedoresConAHP.push(indice);
+          }
+        }
+      }, {
+        key: "changeSinAHP",
+        value: function changeSinAHP(indice) {
+          if (this.proveedoresSinAHP.indexOf(indice) >= 0) {
+            this.proveedoresSinAHP = this.proveedoresSinAHP.filter(function (i) {
+              return i !== indice;
+            });
+            this.proveedoresConAHP.push(indice);
+          } else {
+            this.proveedoresSinAHP.push(indice);
+          }
+        }
+      }, {
+        key: "saveSeleccionProveedor",
+        value: function saveSeleccionProveedor() {
+          var _this46 = this;
+
+          if (this.titulo !== undefined && this.descripcion !== undefined) {
+            var tamProveedoresSelec = this.proveedoresSinAHP.length + this.proveedoresConAHP.length;
+
+            if (tamProveedoresSelec < 2) {
+              this.dialogService.openModalOk('Error', 'Debe seleccionar mínimo 2 proveedores', function () {});
+            } else {
+              if (this.proveedoresSinAHP.length > 0) {
+                this.dialogService.openModal('Alerta', 'Ud seleccionó proveedores sin AHP, ¿Está seguro de guardar?', function () {
+                  // tslint:disable-next-line: no-unused-expression
+                  for (var index = 0; index < _this46.proveedoresSinAHP.length; index++) {
+                    var element = _this46.proveedoresSinAHP[index];
+                    _this46.proveedoresSave[index] = {};
+                    _this46.proveedoresSave[index].titulo = _this46.titulo;
+                    _this46.proveedoresSave[index].descripcion = _this46.descripcion;
+                    _this46.proveedoresSave[index].nit = element.nit;
+                    _this46.proveedoresSave[index].fecha_creacion = new Date().toDateString();
+                  }
+
+                  _this46.service.saveProveedoresSeleccionados(_this46.proveedoresSave).subscribe(function (res) {
+                    // tslint:disable-next-line: no-unused-expression
+                    _this46.router.navigateByUrl('/dashboard');
+                  }, function (err) {
+                    _this46.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+                  });
+                }, function () {});
+              } else {
+                for (var index = 0; index < this.proveedoresConAHP.length; index++) {
+                  var element = this.proveedoresConAHP[index];
+                  this.proveedoresSave[index] = {};
+                  this.proveedoresSave[index].titulo = this.titulo;
+                  this.proveedoresSave[index].descripcion = this.descripcion;
+                  this.proveedoresSave[index].nit = element.nit;
+                  this.proveedoresSave[index].nombre = element.nombre;
+                  this.proveedoresSave[index].fecha_creacion = new Date().toDateString();
+                }
+                /* this.service.saveProveedoresSeleccionados(this.proveedoresSave).subscribe(
+                   res => {
+                     // tslint:disable-next-line: no-unused-expression
+                     // this.router.navigateByUrl('/criterion');*/
+
+
+                this.service.setProveedores(this.proveedoresSave);
+                this.router.navigate(['/criterion']);
+                /*},
+                err => {
+                   this.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
+                }
+                );*/
+              }
+            }
+          } else {
+            this.dialogService.openModalOk('Alerta', 'Debe ingresar los campos título y descripción, campos obligatorios', function () {});
+          }
+        }
+      }, {
+        key: "showNotification",
+        value: function showNotification(from, align) {
+          var color = Math.floor(Math.random() * 5 + 1);
+          this.toastr.success('<span class="now-ui-icons ui-1_bell-53"></span> Su registro está <b>Pendiente</b> - de aprobación.', '', {
+            timeOut: 8000,
+            closeButton: true,
+            enableHtml: true,
+            toastClass: 'alert alert-success alert-with-icon',
+            positionClass: 'toast-' + from + '-' + align
+          });
+        }
       }]);
 
       return UserProfileComponent;
     }();
 
+    UserProfileComponent.ctorParameters = function () {
+      return [{
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]
+      }, {
+        type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_2__["CamposproveedorService"]
+      }, {
+        type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_3__["DialogService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('class')], UserProfileComponent.prototype, "classes", void 0);
     UserProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-user-profile',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -56692,23 +60040,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
-  "./src/services/camposproveedor.service.ts":
-  /*!*************************************************!*\
-    !*** ./src/services/camposproveedor.service.ts ***!
-    \*************************************************/
+  "./src/services/criterios.service.ts":
+  /*!*******************************************!*\
+    !*** ./src/services/criterios.service.ts ***!
+    \*******************************************/
 
-  /*! exports provided: CamposproveedorService */
+  /*! exports provided: CriteriosService */
 
   /***/
-  function srcServicesCamposproveedorServiceTs(module, __webpack_exports__, __webpack_require__) {
+  function srcServicesCriteriosServiceTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CamposproveedorService", function () {
-      return CamposproveedorService;
+    __webpack_require__.d(__webpack_exports__, "CriteriosService", function () {
+      return CriteriosService;
     });
     /* harmony import */
 
@@ -56729,79 +60077,399 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
 
-    var CamposproveedorService =
+    var CriteriosService =
     /*#__PURE__*/
     function () {
-      function CamposproveedorService(http) {
-        _classCallCheck(this, CamposproveedorService);
+      function CriteriosService(http) {
+        _classCallCheck(this, CriteriosService);
 
         this.http = http;
-        this.API_URI_CAMPOS = 'http://localhost:3010/api/campos';
-        this.API_URI_CATALOGO = 'http://localhost:3010/api/catalogo';
-        this.API_URI_CLASIFICACION = 'http://localhost:3010/api/clasificacion';
-        this.API_URI_CLASIFICACION_SAVE = 'http://localhost:3010/api/clasificacion/save';
-        this.API_URI_CLASIFICACION_DOC = 'http://localhost:3010/api/documentacion';
+        this.API_URI_CRITERIOS = 'https://prosegmaprueba.us-3.evennode.com/api/criterios';
       }
 
-      _createClass(CamposproveedorService, [{
-        key: "getCamposProveedor",
-        value: function getCamposProveedor() {
-          console.log(this.API_URI_CAMPOS);
-          return this.http.get("".concat(this.API_URI_CAMPOS));
-        }
-      }, {
-        key: "getCatalogoById",
-        value: function getCatalogoById(id) {
-          return this.http.get("".concat(this.API_URI_CATALOGO, "/").concat(id));
-        }
-      }, {
-        key: "saveProveedor",
-        value: function saveProveedor(proveedor) {
-          return this.http.post("".concat(this.API_URI_CAMPOS), proveedor);
-        }
-      }, {
-        key: "UpdateProveedor",
-        value: function UpdateProveedor(id, proveedor) {
-          this.http.put("".concat(this.API_URI_CAMPOS, "/").concat(id), proveedor);
-        }
-        /*****************CLASIFICACION*******************/
-
-      }, {
-        key: "getClasificacion",
-        value: function getClasificacion(parametros) {
-          return this.http.post("".concat(this.API_URI_CLASIFICACION), parametros);
-        }
-      }, {
-        key: "saveClasificacion",
-        value: function saveClasificacion(clasificacionDatos) {
-          return this.http.post("".concat(this.API_URI_CLASIFICACION_SAVE), clasificacionDatos);
-        }
-        /*******************DOCUMENTACION*********************/
-
-      }, {
-        key: "getDocumentacion",
-        value: function getDocumentacion(id) {
-          return this.http.get("".concat(this.API_URI_CLASIFICACION_DOC, "/").concat(id));
-        }
-      }, {
-        key: "postFileImagen",
-        value: function postFileImagen(file) {
-          return this.http.post("".concat(this.API_URI_CLASIFICACION_DOC), file);
+      _createClass(CriteriosService, [{
+        key: "getEvaluation",
+        value: function getEvaluation() {
+          console.log(this.API_URI_CRITERIOS);
+          return this.http.get("".concat(this.API_URI_CRITERIOS));
         }
       }]);
 
-      return CamposproveedorService;
+      return CriteriosService;
     }();
 
-    CamposproveedorService.ctorParameters = function () {
+    CriteriosService.ctorParameters = function () {
       return [{
         type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
       }];
     };
 
-    CamposproveedorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+    CriteriosService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
-    })], CamposproveedorService);
+    })], CriteriosService);
+    /***/
+  },
+
+  /***/
+  "./src/services/evaluation.service.ts":
+  /*!********************************************!*\
+    !*** ./src/services/evaluation.service.ts ***!
+    \********************************************/
+
+  /*! exports provided: EvaluationService */
+
+  /***/
+  function srcServicesEvaluationServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "EvaluationService", function () {
+      return EvaluationService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+
+    var EvaluationService =
+    /*#__PURE__*/
+    function () {
+      function EvaluationService(http) {
+        _classCallCheck(this, EvaluationService);
+
+        this.http = http;
+        this.API_URI_PROVEEDORES = 'https://prosegmaprueba.us-3.evennode.com/api/evaluation';
+      }
+
+      _createClass(EvaluationService, [{
+        key: "getProveedor",
+        value: function getProveedor() {
+          console.log(this.API_URI_PROVEEDORES);
+          return this.http.get("".concat(this.API_URI_PROVEEDORES));
+        }
+        /*getProveedorById(reques: any):  Observable<any> {
+         // console.log('REQUEST :: ' + JSON.parse(reques));
+         return this.http.get(`${this.API_URI_PROVEEDORES}/id`, reques);
+        }*/
+
+      }, {
+        key: "createEvaluation",
+        value: function createEvaluation(proveedor) {
+          return this.http.post("".concat(this.API_URI_PROVEEDORES), proveedor);
+        }
+      }, {
+        key: "getEvaluation",
+        value: function getEvaluation(evaluation) {
+          console.log(evaluation);
+          var id = evaluation.idProvider;
+          var razon_social = evaluation.name;
+          var year = evaluation.date;
+          var semester = evaluation.semester;
+
+          if (evaluation.idProvider === '' || evaluation.idProvider === null) {
+            id = ' ';
+          }
+
+          if (evaluation.name === '' || evaluation.name === null) {
+            razon_social = ' ';
+          }
+
+          if (evaluation.date === '' || evaluation.date === null) {
+            year = ' ';
+          }
+
+          if (evaluation.semester === '' || evaluation.semester === null) {
+            semester = ' ';
+          }
+
+          return this.http.get("".concat(this.API_URI_PROVEEDORES, "/getEvaluacion/").concat(id, "/").concat(razon_social, "/").concat(year, "/").concat(semester, "/"));
+        }
+      }, {
+        key: "getEvaluationByDetail",
+        value: function getEvaluationByDetail(evaluation) {
+          console.log(evaluation);
+          var id = evaluation.id;
+          var titulo = evaluation.titulo;
+          var year = evaluation.year;
+
+          if (evaluation.idProvider === '' || evaluation.idProvider === null) {
+            id = ' ';
+          }
+
+          if (evaluation.titulo === '' || evaluation.titulo === null) {
+            titulo = ' ';
+          }
+
+          if (evaluation.year === '' || evaluation.year === null) {
+            year = ' ';
+          }
+
+          return this.http.get("".concat(this.API_URI_PROVEEDORES, "/getEvaluacionByDetail/").concat(id, "/").concat(titulo, "/").concat(year, "/"));
+        }
+      }]);
+
+      return EvaluationService;
+    }();
+
+    EvaluationService.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }];
+    };
+
+    EvaluationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], EvaluationService);
+    /***/
+  },
+
+  /***/
+  "./src/services/proveedores.service.ts":
+  /*!*********************************************!*\
+    !*** ./src/services/proveedores.service.ts ***!
+    \*********************************************/
+
+  /*! exports provided: ProvidersService */
+
+  /***/
+  function srcServicesProveedoresServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ProvidersService", function () {
+      return ProvidersService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+
+    var ProvidersService =
+    /*#__PURE__*/
+    function () {
+      function ProvidersService(http) {
+        _classCallCheck(this, ProvidersService);
+
+        this.http = http;
+        this.API_URI_PROVIDERS = 'https://prosegmaprueba.us-3.evennode.com/api/provider';
+      }
+
+      _createClass(ProvidersService, [{
+        key: "getProveedorById",
+        value: function getProveedorById(reques) {
+          console.log('reques1 :: ' + JSON.stringify(reques));
+          var id = reques.idProveedor;
+          var name = reques.socialReason;
+
+          if (reques.idProveedor === '' || reques.idProveedor === null) {
+            id = ' ';
+          }
+
+          if (reques.socialReason === '' || reques.socialReason === null) {
+            name = ' ';
+          }
+
+          return this.http.get("".concat(this.API_URI_PROVIDERS, "/").concat(id, "/").concat(name, "/"));
+        }
+      }]);
+
+      return ProvidersService;
+    }();
+
+    ProvidersService.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }];
+    };
+
+    ProvidersService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ProvidersService);
+    /***/
+  },
+
+  /***/
+  "./src/services/transaction.service.ts":
+  /*!*********************************************!*\
+    !*** ./src/services/transaction.service.ts ***!
+    \*********************************************/
+
+  /*! exports provided: TransactionService */
+
+  /***/
+  function srcServicesTransactionServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "TransactionService", function () {
+      return TransactionService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+
+    var TransactionService =
+    /*#__PURE__*/
+    function () {
+      function TransactionService(http) {
+        _classCallCheck(this, TransactionService);
+
+        this.http = http;
+        this.API_URI_MATERIALS = 'https://prosegmaprueba.us-3.evennode.com/api/materials';
+      }
+
+      _createClass(TransactionService, [{
+        key: "getMaterials",
+        value: function getMaterials() {
+          console.log(this.API_URI_MATERIALS);
+          return this.http.get("".concat(this.API_URI_MATERIALS));
+        }
+      }, {
+        key: "getEvaluationByDetail",
+        value: function getEvaluationByDetail(materials) {
+          console.log(materials);
+          var segmento = materials.segmento;
+          var familia = materials.familia;
+          var clase = materials.clase;
+          var producto = materials.producto;
+
+          if (materials.segmento === '' || materials.segmento === null || materials.segmento == undefined) {
+            segmento = ' ';
+          }
+
+          if (materials.familia === '' || materials.familia === null || materials.familia == undefined) {
+            familia = ' ';
+          }
+
+          if (materials.clase === '' || materials.clase === null || materials.clase == undefined) {
+            clase = ' ';
+          }
+
+          if (materials.producto === '' || materials.producto === null || materials.producto == undefined) {
+            producto = ' ';
+          }
+
+          return this.http.get("".concat(this.API_URI_MATERIALS, "/getMaterial/").concat(segmento, "/").concat(familia, "/").concat(clase, "/").concat(producto, "/"));
+        }
+      }, {
+        key: "createTransaction",
+        value: function createTransaction(transaction) {
+          return this.http.post("".concat(this.API_URI_MATERIALS), transaction);
+        }
+      }, {
+        key: "findTransactionByFilter",
+        value: function findTransactionByFilter(filters) {
+          console.log(filters);
+          var estado = filters.estado;
+          var fecha_limite_entrega = filters.fecha_limite_entrega;
+          var idproveedor = filters.idproveedor;
+          var id_orden_compra = filters.id_orden_compra;
+
+          if (filters.estado === '' || filters.estado === null || filters.estado == undefined) {
+            estado = ' ';
+          }
+
+          if (filters.fecha_limite_entrega === '' || filters.fecha_limite_entrega === null || filters.fecha_limite_entrega == undefined) {
+            fecha_limite_entrega = ' ';
+          }
+
+          if (filters.idproveedor === '' || filters.idproveedor === null || filters.idproveedor == undefined) {
+            idproveedor = ' ';
+          }
+
+          if (filters.id_orden_compra === '' || filters.id_orden_compra === null || filters.id_orden_compra == undefined) {
+            id_orden_compra = ' ';
+          }
+
+          return this.http.get("".concat(this.API_URI_MATERIALS, "/getTransaction/").concat(estado, "/").concat(fecha_limite_entrega, "/").concat(idproveedor, "/").concat(id_orden_compra, "/"));
+        }
+      }, {
+        key: "getTransactions",
+        value: function getTransactions() {
+          console.log(this.API_URI_MATERIALS);
+          return this.http.get("".concat(this.API_URI_MATERIALS, "/getTransaction"));
+        }
+      }, {
+        key: "getTransactionToUpdate",
+        value: function getTransactionToUpdate(filter) {
+          console.log(filter);
+          var id = filter;
+          console.log(this.API_URI_MATERIALS);
+          return this.http.get("".concat(this.API_URI_MATERIALS, "/getTransactionUpdate/").concat(id));
+        }
+      }, {
+        key: "updateTransaction",
+        value: function updateTransaction(transaction) {
+          console.log(transaction);
+          console.log(this.API_URI_MATERIALS);
+          return this.http.put("".concat(this.API_URI_MATERIALS, "/updateTransaction"), transaction);
+        }
+      }]);
+
+      return TransactionService;
+    }();
+
+    TransactionService.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }];
+    };
+
+    TransactionService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], TransactionService);
     /***/
   }
 }]);

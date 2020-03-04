@@ -30,13 +30,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Descargar orden de compra</label>
                                 <div class="col-sm-10">
-                                    <a style="color: white;" type="text" class="btn btn-info">Descargar orden</a>
+                                    <a [href]="transaction[0].rutaordencompra" style="color: white;" type="text" class="btn btn-info">Descargar orden</a>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Imprimir transacción </label>
                                 <div class="col-sm-10">
-                                    <a style="color: white;" type="text" class="btn btn-info">Imprimir transacción</a>
+                                    <a style="color: white;" type="text" class="btn btn-info"  onclick="javascript:window.print()">Imprimir transacción</a>
                                 </div>
                             </div>
                         </div>
@@ -58,10 +58,10 @@
                                 <div class="form-row">
                                     <label class="col-sm-10 col-form-label">Estado de la transacción:</label>
                                     <div class="form-group col-md-6">
-                                        <select [disabled]="transaction[0].estado === 'finalizada' || transaction[0].estado === 'finalizada con observaciones'" style="padding: 1%;" class="form-control" (click)="agregarEstado(estadoTransaccion)"  [name]="estadoTransaccion" [(ngModel)]="transaction[0].estado" class="form-control"  [ngModelOptions]="{standalone: true}">
-                                            <option selected="selected" value="finalizada">Finalizada</option>
-                                            <option value="finalizada con observaciones">Finalizada con observaciones</option>
-                                            <option value="rechazada">Rechazada</option>
+                                        <select [disabled]="transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'" style="padding: 1%;" class="form-control" (click)="agregarEstado(estadoTransaccion)"  [name]="estadoTransaccion" [(ngModel)]="estadoTransaccion" class="form-control"  [ngModelOptions]="{standalone: true}">
+                                            <option value="finalizada" [selected]="true == true">Finalizada</option>
+                                            <option value="finalizada con observaciones" >Finalizada con observaciones</option>
+                                            <option value="rechazada" >Rechazada</option>
                                         </select>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let tran of transaction; let i = index"><!---->
+                                            <tr *ngFor="let tran of transaction; let i = index">
                                                 <td>
                                                     {{ tran.nombreproducto }}
                                                 </td>
@@ -103,14 +103,14 @@
                                                 <td>
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <input [readonly]="tran.estado === 'Finalizada' || tran.estado === 'Rechazada' " (change)="agregarCantidad(cantidadRecibida[i],tran.id_producto)" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="" aria-label="Search" [name]="cantidadRecibida[i]" [(ngModel)]="cantidadRecibida[i]" [ngModelOptions]="{standalone: true}" >
+                                                            <input [placeholder]="tran.cantidad_recibida" [readonly]="transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada' " (change)="agregarCantidad(cantidadRecibidaBack[i],tran.id_producto)" class="form-control form-control-sm ml-3 w-75" type="text" aria-label="Search" [name]="cantidadRecibidaBack[i]" [(ngModel)]="cantidadRecibidaBack[i]" [ngModelOptions]="{standalone: true}" >
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                    <input [disabled]="tran.estado === 'Finalizada' || tran.estado === 'Rechazada'" #rolInput class="form-check-input" type="checkbox" (click)="selectQuality(tran.id_producto, rolInput.checked);" [checked]="checked">
+                                                    <input [disabled]="transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'" #rolInput class="form-check-input" type="checkbox" (click)="selectQuality(tran.id_producto, rolInput.checked);" [checked]="tran.aprobacion_calidad === 'true'">
                                                     <span class="form-check-sign"></span>
                                                     </label>
                                                     </div>
@@ -118,7 +118,7 @@
                                                 <td>
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <textarea [readonly]="tran.estado === 'Finalizada' || tran.estado === 'Rechazada'"  (change)="takeObservation(observaciones[i],tran.id_producto)" [name]="observaciones[i]" [(ngModel)]="observaciones[i]" [ngModelOptions]="{standalone: true}" class="form-control" rows="1"></textarea>
+                                                            <textarea [placeholder]="tran.observacion_dato" [readonly]="transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'"  (change)="takeObservation(observacionesBack[i],tran.id_producto)" [name]="observacionesBack[i]" [(ngModel)]="observacionesBack[i]" [ngModelOptions]="{standalone: true}" class="form-control" rows="1"></textarea>
                                                         </div>
                                                         <!--<div class="form-group">
                                                             <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Obervaciones" aria-label="Search" >
@@ -134,12 +134,12 @@
                                 <br>
                                 <div class="form-group">
                                     <label class="col-sm-10 col-form-label">Observaciones  (opcional):</label>
-                                    <textarea  (change)="takeGenenralObservation(observacionesGenerales)" [name]="observacionesGenerales" [(ngModel)]="observacionesGenerales" [ngModelOptions]="{standalone: true}" class="form-control" rows="3" ></textarea>
+                                    <textarea [placeholder]="transaction[0].observacion_gen" [readonly]="transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'"  (change)="takeGenenralObservation(observacionesGenerales)" [name]="observacionesGenerales" [(ngModel)]="observacionesGenerales" [ngModelOptions]="{standalone: true}" class="form-control" rows="3" ></textarea>
                                 </div>
                             </div>
                         </div>
                         <div style="float: right; margin: 10px;" >
-                            <button type="submit" class="btn btn-primary">
+                            <button [disabled]="transaction[0].estado === 'finalizada' || transaction[0].estado === 'rechazada'" type="submit" class="btn btn-primary">
                                 Guardar
                             </button>
                         </div>

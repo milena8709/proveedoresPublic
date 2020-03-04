@@ -29,7 +29,7 @@ class UsuarioController {
     public async getProveedorById (req: Request, res: Response) {
         const { id } = req.params;
         console.log(id);
-        const proveedor =  await db.query('SELECT * FROM prosegma.proveedor p inner join usuarios u on u.id_proveedor = p.idproveedor where u.idusuario = ?', [id]);
+        const proveedor =  await db.query('SELECT * FROM proveedor p inner join usuarios u on u.id_proveedor = p.idproveedor where u.idusuario = ?', [id]);
         if (proveedor.length > 0) {
             return res.json(proveedor[0]);
         }

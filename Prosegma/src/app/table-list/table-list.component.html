@@ -31,7 +31,6 @@
                         <app-buscar-evaluaciones [showComponentTwo]="showSearchEvaluationComponent" (showComponent)="showSearch($event)"></app-buscar-evaluaciones>
                         <hr>
                         <app-seleccionar-proveedores *ngIf="showSearchEvaluation" (sendSocialReason)="takeNameProvider($event)" (sendProvider)="selectedProvider($event)"></app-seleccionar-proveedores>
-                        <!--<app-mostrar-evaluaciones []=""  *ngIf="!showSearchEvaluation"></app-mostrar-evaluaciones>-->
                     </div>
                     <div *ngIf="showSearchEvaluation" style="text-align: right; margin: 10px;">
                         <button type="submit" class="btn btn-primary">Siguiente</button>

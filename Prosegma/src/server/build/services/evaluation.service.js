@@ -10,7 +10,7 @@ const core_1 = require("@angular/core");
 let EvaluationService = class EvaluationService {
     constructor(http) {
         this.http = http;
-        API_URI_PROVEEDORES = 'http://localhost:3010/api/evaluation';
+        API_URI_PROVEEDORES = 'https://prosegmaprueba.us-3.evennode.com/api/evaluation';
     }
     getCampoProveedor() {
         console.log(this.API_URI_PROVEEDORES);

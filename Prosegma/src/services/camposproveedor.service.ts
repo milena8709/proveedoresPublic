@@ -23,15 +23,14 @@ declare interface RouteInfo {
 })
 
 export class CamposproveedorService {
-  
 
-  API_URI_CAMPOS = 'http://localhost:3010/api/campos';
-  API_URI_CATALOGO = 'http://localhost:3010/api/catalogo';
-  API_URI_CLASIFICACION = 'http://localhost:3010/api/clasificacion';
-  API_URI_CLASIFICACION_SAVE = 'http://localhost:3010/api/clasificacion/save';
-  API_URI_CLASIFICACION_DOC = 'http://localhost:3010/api/documentacion/save';
-  API_URI_SELECCION_PROVEEDOR = 'http://localhost:3010/api/seleccion';
-  API_URI_USUARIO = 'http://localhost:3010/api/usuario';
+  API_URI_CAMPOS = 'https://prosegmaprueba.us-3.evennode.com/api/campos';
+  API_URI_CATALOGO = 'https://prosegmaprueba.us-3.evennode.com/api/catalogo';
+  API_URI_CLASIFICACION = 'https://prosegmaprueba.us-3.evennode.com/api/clasificacion';
+  API_URI_CLASIFICACION_SAVE = 'https://prosegmaprueba.us-3.evennode.com/api/clasificacion/save';
+  API_URI_CLASIFICACION_DOC = 'https://prosegmaprueba.us-3.evennode.com/api/documentacion/save';
+  API_URI_SELECCION_PROVEEDOR = 'https://prosegmaprueba.us-3.evennode.com/api/seleccion';
+  API_URI_USUARIO = 'https://prosegmaprueba.us-3.evennode.com/api/usuario';
 
 
 
@@ -39,7 +38,6 @@ export class CamposproveedorService {
   showMenu: boolean;
   menu: any = [];
   usuario: any;
- 
 
 
   constructor(private http: HttpClient) {

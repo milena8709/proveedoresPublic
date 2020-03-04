@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 export class ProvidersService {
 
-   private API_URI_PROVIDERS = 'http://localhost:3010/api/provider';
+   private API_URI_PROVIDERS = 'https://prosegmaprueba.us-3.evennode.com/api/provider';
 
 
   constructor(private http: HttpClient) {

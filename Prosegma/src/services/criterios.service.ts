@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 export class CriteriosService {
 
-   private API_URI_CRITERIOS = 'http://localhost:3010/api/criterios';
+   private API_URI_CRITERIOS = 'https://prosegmaprueba.us-3.evennode.com/api/criterios';
 
 
   constructor(private http: HttpClient) {

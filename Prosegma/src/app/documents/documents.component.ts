@@ -110,7 +110,7 @@ export class DocumentsComponent implements OnInit {
         console.log('archivo -- ' + this.uploadedFiles[index].name);
       const formData = new FormData();
         formData.append('uploads[]', this.uploadedFiles[index], this.uploadedFiles[index].name);
-        this.http.post('http://localhost:3010/api/documentacion', formData, ).subscribe((d) => {});
+        this.http.post('https://prosegmaprueba.us-3.evennode.com/api/documentacion', formData, ).subscribe((d) => {});
 
 
         this.service.postFileImagen(this.documentos).subscribe(

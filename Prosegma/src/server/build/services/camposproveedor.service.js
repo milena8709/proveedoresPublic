@@ -10,11 +10,11 @@ const core_1 = require("@angular/core");
 let CamposproveedorService = class CamposproveedorService {
     constructor(http) {
         this.http = http;
-        this.API_URI_CAMPOS = 'http://localhost:3010/api/campos';
-        this.API_URI_CATALOGO = 'http://localhost:3010/api/catalogo';
-        this.API_URI_CLASIFICACION = 'http://localhost:3010/api/clasificacion';
-        this.API_URI_CLASIFICACION_SAVE = 'http://localhost:3010/api/clasificacion/save';
-        this.API_URI_CLASIFICACION_DOC = 'http://localhost:3010/api/documentacion';
+        this.API_URI_CAMPOS = 'https://prosegmaprueba.us-3.evennode.com/api/campos';
+        this.API_URI_CATALOGO = 'https://prosegmaprueba.us-3.evennode.com/api/catalogo';
+        this.API_URI_CLASIFICACION = 'https://prosegmaprueba.us-3.evennode.com/api/clasificacion';
+        this.API_URI_CLASIFICACION_SAVE = 'https://prosegmaprueba.us-3.evennode.com/api/clasificacion/save';
+        this.API_URI_CLASIFICACION_DOC = 'https://prosegmaprueba.us-3.evennode.com/api/documentacion';
     }
     getCampoProveedor() {
         console.log(this.API_URI_CAMPOS);

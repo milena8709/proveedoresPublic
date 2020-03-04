@@ -42,7 +42,7 @@ import { ProvidersService } from '../../../services/proveedores.service';
 import { FindProveedoresComponent } from '../../mat-classification/find-proveedores/find-proveedores.component';
 import { TransactionService } from '../../../services/transaction.service';
 import { GestionarTransaccionComponent } from '../../gestionar-transaccion/gestionar-transaccion.component';
-import { GestionarTareaComponent } from '../../gestionar-tarea/gestionar-tarea.component';
+// import { GestionarTareaComponent } from '../../gestionar-tarea/gestionar-tarea.component';
 
 
 @NgModule({
@@ -87,8 +87,8 @@ import { GestionarTareaComponent } from '../../gestionar-tarea/gestionar-tarea.c
     ResultadoEvaluacionComponent,
     TitleComponent,
     FindProveedoresComponent,
-    GestionarTransaccionComponent,
-    GestionarTareaComponent
+    GestionarTransaccionComponent
+    // GestionarTareaComponent
   ]
 })
 

@@ -38,7 +38,7 @@ class UsuarioController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             console.log(id);
-            const proveedor = yield database_1.default.query('SELECT * FROM prosegma.proveedor p inner join usuarios u on u.id_proveedor = p.idproveedor where u.idusuario = ?', [id]);
+            const proveedor = yield database_1.default.query('SELECT * FROM proveedor p inner join usuarios u on u.id_proveedor = p.idproveedor where u.idusuario = ?', [id]);
             if (proveedor.length > 0) {
                 return res.json(proveedor[0]);
             }

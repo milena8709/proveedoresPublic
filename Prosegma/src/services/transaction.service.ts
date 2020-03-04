@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class TransactionService {
 
 
-   private API_URI_MATERIALS = 'http://localhost:3010/api/materials';
+   private API_URI_MATERIALS = 'https://prosegmaprueba.us-3.evennode.com/api/materials';
 
 
   constructor(private http: HttpClient) {
