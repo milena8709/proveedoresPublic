@@ -22,9 +22,9 @@ class DocumentacionRoutes {
         this.router.put('/:id', documentacionController_1.documentacionController.update);
         this.router.delete('/:id', documentacionController_1.documentacionController.delete);
         this.router.post('/', this.multipartMidlewaren, (req, res) => {
-            console.log();
             const file = req.body.file;
             const name = req.body.name;
+            return res.json({ text: 'Documento subido con exito ' + req.params.id });
         });
     }
 }

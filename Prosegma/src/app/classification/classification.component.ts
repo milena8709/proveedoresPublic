@@ -48,16 +48,17 @@ export class ClassificationComponent implements OnInit {
     id: 0
   };
   clasificacionDatos: any = [];
+  usuario: any;
 
   constructor( private clasificacionService: CamposproveedorService, private router: Router, private dialogService: DialogService) { }
 
   ngOnInit() {
+    this.usuario = this.clasificacionService.getUsuario();
   }
 
 
   clear(userForm: NgForm) {
     userForm.reset();
-
   }
 
   buscar() {
@@ -91,7 +92,7 @@ export class ClassificationComponent implements OnInit {
            console.log(res);
            // this.router.navigateByUrl('/documentation');
            this.respuesta = res;
-           this.router.navigate(['/documentation'], { queryParams: { id:  this.respuesta.id } });
+           this.router.navigate(['/documentation'], { queryParams: { id:  this.respuesta.id, estado: ''} });
 
         },
         err => console.error(err)

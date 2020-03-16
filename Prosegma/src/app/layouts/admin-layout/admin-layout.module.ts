@@ -21,7 +21,6 @@ import { MaterialdetailComponent } from '../../materialdetail/materialdetail.com
 import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -43,6 +42,7 @@ import { FindProveedoresComponent } from '../../mat-classification/find-proveedo
 import { TransactionService } from '../../../services/transaction.service';
 import { GestionarTransaccionComponent } from '../../gestionar-transaccion/gestionar-transaccion.component';
 import { GestionarTareaComponent } from '../../gestionar-tarea/gestionar-tarea.component';
+import { BuscarTareasComponent } from '../../buscarTareas/buscarTareas.component';
 
 
 @NgModule({
@@ -66,7 +66,7 @@ import { GestionarTareaComponent } from '../../gestionar-tarea/gestionar-tarea.c
     DashboardComponent,
     UserProfileComponent,
     TableListComponent,
-    UpgradeComponent,
+    BuscarTareasComponent,
     TypographyComponent,
     IconsComponent,
     MapsComponent,

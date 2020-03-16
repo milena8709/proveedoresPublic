@@ -24,6 +24,9 @@ declare interface RouteInfo {
 
 export class CamposproveedorService {
   
+ 
+  
+
 
   API_URI_CAMPOS = 'http://localhost:3010/api/campos';
   API_URI_CATALOGO = 'http://localhost:3010/api/catalogo';
@@ -32,6 +35,10 @@ export class CamposproveedorService {
   API_URI_CLASIFICACION_DOC = 'http://localhost:3010/api/documentacion/save';
   API_URI_SELECCION_PROVEEDOR = 'http://localhost:3010/api/seleccion';
   API_URI_USUARIO = 'http://localhost:3010/api/usuario';
+  API_URI_REVISION = 'http://localhost:3010/api/revision';
+
+  API_URI_REVISION_SAVE = 'http://localhost:3010/api/revision/save';
+  API_URI_PROVEEDOR = 'http://localhost:3010/api/proveedor';
 
 
 
@@ -39,7 +46,7 @@ export class CamposproveedorService {
   showMenu: boolean;
   menu: any = [];
   usuario: any;
- 
+  proveedor: any;
 
 
   constructor(private http: HttpClient) {
@@ -80,8 +87,8 @@ export class CamposproveedorService {
   return this.http.post(`${this.API_URI_CLASIFICACION_SAVE}`, clasificacionDatos);
 }
 /*******************DOCUMENTACION*********************/
-getDocumentacion(id: number):  Observable<any> {
-  return this.http.get(`${this.API_URI_CLASIFICACION_DOC}/${id}`);
+getDocumentacion(id: number, estado: string):  Observable<any> {
+  return this.http.get(`${this.API_URI_CLASIFICACION_DOC}/${id}/${estado}`);
  }
 
  postFileImagen(file:any): Observable<object>  {
@@ -126,11 +133,38 @@ getProveedorById(id: any) {
   return this.http.get(`${this.API_URI_USUARIO}/${id}`);
 }
 
+searchProveedor(values: any) {
+  return this.http.post(`${this.API_URI_REVISION}`, values);
+}
+
+getDocumentosInscripcion(id: any) {
+  return this.http.get(`${this.API_URI_REVISION}/${id}`);
+}
+
+
+saveExistingTask(tarea: any) {
+  console.log('tarea a crear', tarea);
+  return this.http.post(`${this.API_URI_REVISION_SAVE}`, tarea);
+}
+
+
+updateTaskState(revision: any) {
+  return this.http.put(`${this.API_URI_REVISION_SAVE}`, revision);
+}
+
+
+getEstadoProveedor(id: any) {
+  return this.http.get(`${this.API_URI_PROVEEDOR}/${id}`);
+}
 
 // ******************************************* /
 
 setProveedores(proveedoresConAHP: any) {
   this.proveedores = proveedoresConAHP;
+}
+
+setProveedorSeleccionado(proveedor: any) {
+  this.proveedor = proveedor;
 }
 
 setUsuario(usuario: any) {
@@ -145,6 +179,9 @@ getProveedores() {
   return this.proveedores;
 }
 
+getProveedorSeleccionado() {
+  return this.proveedor;
+}
 
 
 

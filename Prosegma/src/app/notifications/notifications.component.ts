@@ -93,10 +93,23 @@ export class NotificationsComponent implements OnInit {
 
 
   ngOnInit() {
+    let respuesta = {};
+
     this.usuario = this.camposServices.getUsuario();
     console.log('usuario seleccion', this.usuario);
     this.razonsocial = this.usuario.razon_social;
     this.identificacion = this.usuario.id_proveedor;
+    this.camposServices.getEstadoProveedor(this.identificacion).subscribe(
+      res => {
+
+        respuesta = res[0].estado;
+     if (respuesta === 'solicitud de cambios en documentos') {
+      this.router.navigate(['/documentation'], { queryParams: { id:  res[0].idinscripcion, estado: 'rechazado'} });
+     }
+      },
+      err => console.error(err)
+      );
+
     this.camposServices.getCamposProveedor().subscribe(
       res => {
       this.campos.push(res);

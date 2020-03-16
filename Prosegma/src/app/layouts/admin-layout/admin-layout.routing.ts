@@ -7,7 +7,6 @@ import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ClassificationComponent } from '../../classification/classification.component';
 import { DocumentsComponent } from '../../documents/documents.component';
 import { CriterionComponent } from '../../criterion/criterion.component';
@@ -20,6 +19,7 @@ import { NewuserComponent } from '../../newuser/newuser.component';
 import { ResultSeleccionComponent } from '../../result-seleccion/result-seleccion.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { GestionarTransaccionComponent } from '../../gestionar-transaccion/gestionar-transaccion.component';
+import { BuscarTareasComponent } from '../../buscarTareas/buscarTareas.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -31,7 +31,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'upgrade',        component: BuscarTareasComponent },
     { path: 'classification',        component: ClassificationComponent },
     { path: 'documentation',        component: DocumentsComponent },
     { path: 'criterion',        component: CriterionComponent },

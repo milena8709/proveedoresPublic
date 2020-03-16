@@ -18,6 +18,9 @@ import criteriosRoutes from './routes/criteriosRoutes';
 import providersRoutes from './routes/providersRoutes';
 import registroUsuario from './routes/registroUsuario';
 import transactionsRoutes from './routes/transactionsRoutes';
+import busquedaProveedorRoutes from './routes/busquedaProveedorRoutes';
+import documentTaskRoutes from './routes/documentTaskRoutes';
+import proveedorRoutes from './routes/proveedorRoutes';
 
 
 class Server {
@@ -56,12 +59,15 @@ routes(): void {
     this.app.use('/api/provider', providersRoutes);
     this.app.use('/api/materials', transactionsRoutes);
     this.app.use('/api/usuario', registroUsuario);
+    this.app.use('/api/revision', busquedaProveedorRoutes);
+    this.app.use('/api/revision/save', documentTaskRoutes);
+    this.app.use('/api/proveedor', proveedorRoutes);
+
 
 }
 
 start(): void {
 this.app.listen(this.app.get('port'), () => {
-
     console.log('Server on Port', this.app.get('port'));
 });
 }

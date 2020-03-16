@@ -1,6 +1,7 @@
 import { Router, Request } from 'express';
 import { documentacionController } from '../controllers/documentacionController';
 import {HttpClientModule } from '@angular/common/http';
+import { json } from 'body-parser';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -31,9 +32,9 @@ class DocumentacionRoutes {
         this.router.delete('/:id', documentacionController.delete);
 
        this.router.post('/', this.multipartMidlewaren, (req, res) => {
-           console.log()
         const file = req.body.file;
         const name = req.body.name;
+        return res.json({text: 'Documento subido con exito ' + req.params.id});
         });
     }
 

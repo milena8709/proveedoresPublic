@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CamposproveedorService } from '../../services/camposproveedor.service';
+import { DialogService } from '../dialog/dialog.service';
 
 @Component({
   selector: 'app-result-seleccion',
@@ -9,17 +10,19 @@ import { CamposproveedorService } from '../../services/camposproveedor.service';
   styleUrls: ['./result-seleccion.component.scss']
 })
 export class ResultSeleccionComponent implements OnInit {
+  @HostBinding('class') classes = 'div';
+
   proveedores: any;
   titulo: any;
   descripcion: any;
   values: any;
   value: number;
+  estado: string;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private toastr: ToastrService, private route: ActivatedRoute, private router: Router, private service: CamposproveedorService) { }
+  constructor(private dialogService: DialogService, private toastr: ToastrService, private route: ActivatedRoute, private router: Router, private service: CamposproveedorService) { }
 
   ngOnInit() {
-
     this.values = this.route
     .queryParams
     .subscribe(params => {
@@ -45,6 +48,19 @@ export class ResultSeleccionComponent implements OnInit {
       return 0;
     });
     this.proveedores[0].nombre = this.proveedores[0].nombre + ' (Seleccionado)';
+
+          // tslint:disable-next-line: prefer-const
+          let tarea: any = {};
+          tarea.id_proveedor = this.proveedores[0].nit,
+          tarea.fecha_creacion = new Date().toString(),
+          tarea.estado = 'activa';
+           this.service.saveExistingTask(tarea).subscribe(res => {
+             console.log('tarea creada');
+           }, err => {
+             this.dialogService.openModalOk('Error', err.error.text, () => {
+             });
+           });
+
   }
 
 

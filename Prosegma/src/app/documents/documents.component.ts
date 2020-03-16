@@ -17,6 +17,7 @@ import { DialogService } from '../dialog/dialog.service';
 export class DocumentsComponent implements OnInit {
   values: any;
   value: any;
+  estado: string;
   uploadedFiles: Array<File>;
   documento: {};
   documentos: any[];
@@ -42,10 +43,11 @@ export class DocumentsComponent implements OnInit {
     .subscribe(params => {
       // Defaults to 0 if no query param provided.
       this.value = +params['id'] || 0;
+      this.estado = params['estado'] || 0;
     });
 
-    console.log('value' + this.value + 'values' + this.values);
-    this.service.getDocumentacion(this.value).subscribe(
+    console.log('value' + this.value + 'values' , this.values);
+    this.service.getDocumentacion(this.value, this.estado).subscribe(
       res => {
       this.campoField = (res);
       this.crearCampos();
@@ -79,15 +81,14 @@ export class DocumentsComponent implements OnInit {
     this.uploadedFiles.push(e.target.files[0]);
 
     if (this.uploadedFiles.length > 0) {
-
-
-
+      let cont = this.uploadedFiles.length - 1;
     this.documento = {
-      ruta_documento : '/file',
+      ruta_documento : '/file/' + this.uploadedFiles[cont].name,
       id_inscripcion: this.value,
       id_documento: e.target.name,
-      id_proveedor:this.usuario.id_proveedor
+      id_proveedor: this.usuario.id_proveedor
     };
+    cont++;
     if (this.documentos === undefined) {
       this.documentos = new Array<any>();
     }
@@ -105,25 +106,25 @@ export class DocumentsComponent implements OnInit {
 }
 
   public saveFile() {
-
+    const formData = new FormData();
       for (let index = 0; index < this.uploadedFiles.length; index++) {
         console.log('archivo -- ' + this.uploadedFiles[index].name);
-      const formData = new FormData();
-        formData.append('uploads[]', this.uploadedFiles[index], this.uploadedFiles[index].name);
-        this.http.post('http://localhost:3010/api/documentacion', formData, ).subscribe((d) => {});
 
+        formData.append('uploads[]', this.uploadedFiles[index], this.uploadedFiles[index].name);
+      }
+        this.http.post('http://localhost:3010/api/documentacion', formData, ).subscribe(
+          res => {
 
         this.service.postFileImagen(this.documentos).subscribe(
-          res => {
-            this.contador++;
+          resp => {
             // tslint:disable-next-line: max-line-length
-            if (this.contador <= 1) {
+
               // tslint:disable-next-line: max-line-length
               this.dialogService.openModalOk('Información', 'Su inscripcion se encuentra en estado: Esperando respuesta de aceptación ', () => {
                 // tslint:disable-next-line: no-unused-expression
                 this.router.navigateByUrl('/dashboard');
               });
-            }
+
 
 
           },
@@ -131,7 +132,14 @@ export class DocumentsComponent implements OnInit {
              this.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
           }
           );
-      }
+          },
+          err => {
+            this.showNotification('Error', 'Ocurrio un error al subir el documento, por favor intente mas tarde');
+          }
+        );
+
+
+   
   }
 
 

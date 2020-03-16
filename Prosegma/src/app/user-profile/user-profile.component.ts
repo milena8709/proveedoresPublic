@@ -61,7 +61,6 @@ proveedoresSave: SeleccionProveedor[] = [];
   }
 
   changeConAHP(indice: any) {
-    console.log('changeConAHP ', indice);
     if ( this.proveedoresConAHP.indexOf(indice) >= 0) {
       this.proveedoresConAHP = this.proveedoresConAHP.filter(function(i) { return i !== indice; });
       this.proveedoresSinAHP.push(indice);
@@ -85,14 +84,14 @@ proveedoresSave: SeleccionProveedor[] = [];
 
   saveSeleccionProveedor() {
     if (this.titulo !== undefined && this.descripcion !== undefined) {
-      const tamProveedoresSelec = this.proveedoresSinAHP.length + this.proveedoresConAHP.length;
-      if ( tamProveedoresSelec < 2 ) {
+
+      if ( this.proveedoresConAHP.length < 2 && this.proveedoresSinAHP.length === 0) {
         this.dialogService.openModalOk('Error', 'Debe seleccionar mínimo 2 proveedores', () => {
         });
       } else {
         if ( this.proveedoresSinAHP.length > 0) {
           this.dialogService.openModal('Alerta', 'Ud seleccionó proveedores sin AHP, ¿Está seguro de guardar?', () => {
-            // tslint:disable-next-line: no-unused-expression
+
             for (let index = 0; index < this.proveedoresSinAHP.length; index++) {
               const element = this.proveedoresSinAHP[index];
               this.proveedoresSave[index] = {};
@@ -100,6 +99,17 @@ proveedoresSave: SeleccionProveedor[] = [];
               this.proveedoresSave[index].descripcion = this.descripcion;
               this.proveedoresSave[index].nit = element.nit;
               this.proveedoresSave[index].fecha_creacion = new Date().toDateString();
+
+              const tarea: any = {};
+              tarea.id_proveedor = element.nit,
+              tarea.fecha_creacion = new Date().toString(),
+              tarea.estado = 'activa';
+               this.service.saveExistingTask(tarea).subscribe(res => {
+                 console.log('tarea creada');
+               }, err => {
+                 this.dialogService.openModalOk('Error', err.error.text, () => {
+                 });
+               });
           }
           this.service.saveProveedoresSeleccionados(this.proveedoresSave).subscribe(
             res => {
@@ -110,7 +120,7 @@ proveedoresSave: SeleccionProveedor[] = [];
                this.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
             }
             );
-         }, () => {
+  }, () => {
           });
         } else {
           for (let index = 0; index < this.proveedoresConAHP.length; index++) {
