@@ -10,7 +10,7 @@ const core_1 = require("@angular/core");
 let CriteriosService = class CriteriosService {
     constructor(http) {
         this.http = http;
-        API_URI_CRITERIOS = 'http://localhost:3010/api/criterios';
+        API_URI_CRITERIOS = 'https://prosegmaprueba.us-3.evennode.com/api/criterios';
     }
 
 

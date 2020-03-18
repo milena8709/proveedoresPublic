@@ -138,7 +138,7 @@ class TransactionsController {
     getTransactionToUpdate(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const id = req.params.id;
-            const transaccion = yield database_1.default.query(`SELECT tra.id, tra.descripcion, tra.fecha_limite_entrega, tra.id_orden_compra, tra.estado, tra.id_proveedor, pro.razon_social, dat.id_producto, elem.nombreproducto, dat.cantidad_esperada, dat.cantidad_recibida, dat.unidades FROM datos_transaccion dat INNER JOIN transacciones tra ON tra.id = dat.id_transaccion INNER JOIN  proveedor pro ON tra.id_proveedor = pro.idproveedor INNER JOIN producto elem ON dat.id_producto = elem.codigoproducto WHERE tra.id = ${id}`);
+            const transaccion = yield database_1.default.query(`SELECT tra.id, tra.descripcion, tra.fecha_limite_entrega, tra.id_orden_compra, tra.estado, tra.id_proveedor, pro.razon_social, dat.id_producto, elem.nombreproducto, dat.cantidad_esperada, dat.cantidad_recibida, dat.unidades, dat.aprobacion_calidad, dat.observacion as observacion_dato, tra.observacion as observacion_gen FROM datos_transaccion dat INNER JOIN transacciones tra ON tra.id = dat.id_transaccion INNER JOIN  proveedor pro ON tra.id_proveedor = pro.idproveedor INNER JOIN producto elem ON dat.id_producto = elem.codigoproducto WHERE tra.id = ${id}`);
             if (transaccion.length > 0) {
                 return res.json(transaccion);
             }
@@ -168,7 +168,7 @@ class TransactionsController {
                 //const id = req.body.materiales[i].unidades;
                 // console.log('cantidad_esperada :: ' + cantidad_esperada);
                 // tslint:disable-next-line: max-line-length
-                yield database_1.default.query('UPDATE datos_transaccion, transacciones SET datos_transaccion.cantidad_recibida = ?, datos_transaccion.aprobacion_calidad = ?, datos_transaccion.observacion = ?, transacciones.estado = ? WHERE datos_transaccion.id_transaccion = ? AND datos_transaccion.id_producto = ? AND transacciones.id = ?', [cantidad_recibida, aprobacion_calidad, observacion, estadoGeneral, idTransaction, id_producto, idTransaction]);
+                yield database_1.default.query('UPDATE datos_transaccion, transacciones SET datos_transaccion.cantidad_recibida = ?, datos_transaccion.aprobacion_calidad = ?, datos_transaccion.observacion = ?, transacciones.estado = ?, transacciones.observacion = ? WHERE datos_transaccion.id_transaccion = ? AND datos_transaccion.id_producto = ? AND transacciones.id = ?', [cantidad_recibida, aprobacion_calidad, observacion, estadoGeneral, observacionGeneral, idTransaction, id_producto, idTransaction]);
             }
             res.json({ text: 'evaluacion guardado exitosamente' });
         });

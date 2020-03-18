@@ -33,13 +33,17 @@ export class GestionarTransaccionComponent implements OnInit {
   };
 
   cantidadRecibida: MaterialsData[] = [];
+  cantidadRecibidaBack: MaterialsData[] = [];
   cumplecondiciones: MaterialsData[] = [];
   observaciones: MaterialsData[] = [];
+  observacionesBack: MaterialsData[] = [];
 
   safeMaterials: MaterialsData[] = [];
 
   estadoTransaccion: string;
   observacionesGenerales: string;
+  estadoFinal = false;
+
 
   constructor(private toastr: ToastrService, private transactionService: TransactionService, private router: ActivatedRoute, private route: Router) {
     this.router.params.subscribe( params => {
@@ -53,6 +57,32 @@ export class GestionarTransaccionComponent implements OnInit {
   getTransaction(id: string ) {
     this.transactionService.getTransactionToUpdate(id).subscribe( (resp) => {
       this.transaction = resp;
+      if(this.transaction[0].estado !== 'En proceso' ) {
+        console.log('Es diferente a en proceso');
+        this.estadoTransaccion = this.transaction[0].estado;
+        console.log(this.transaction[0].aprobacion_calidad);
+      }
+      if (this.transaction[0].estado === 'finalizada con observaciones') {
+        for (let i = 0; i < this.transaction.length; i++ ) {
+          const data = new MaterialsData();
+          data.idproducto = this.transaction[i].id_producto;
+          data.cantidad_recibida = this.transaction[i].cantidad_recibida;
+          this.cantidadRecibida.push(data);
+
+          const data2 = new MaterialsData();
+          data2.idproducto = this.transaction[i].id_producto;
+          data2.aprobacion_calidad = this.transaction[i].aprobacion_calidad;
+          this.cumplecondiciones.push(data2);
+
+          const data3 = new MaterialsData();
+          data3.idproducto = this.transaction[i].id_producto;
+          data3.observacion = this.transaction[i].observacion_dato;
+          this.observaciones.push(data3);
+        }
+        this.transaccion.observacion = this.transaction[0].observacion;
+        console.log(JSON.stringify(resp));
+        this.estadoFinal = true;
+      }
       console.log('transaction :: ' + JSON.stringify(this.transaction));
     });
   }
@@ -61,7 +91,7 @@ export class GestionarTransaccionComponent implements OnInit {
     this.route.navigate(['/transaction']);
   }
 
-  agregarCantidad(dato: string, idProducto: string){
+  agregarCantidad(dato: string, idProducto: string) {
     console.log('Cantidades :: ' + dato);
     const data = new MaterialsData();
     data.idproducto = idProducto;
@@ -77,10 +107,21 @@ export class GestionarTransaccionComponent implements OnInit {
     console.log('Cantidad Recibida ::: ' + JSON.stringify(this.cantidadRecibida));
   }
 
+
   selectQuality(idProduct: string, input: boolean) {
     console.log('codigo producto ' + idProduct);
     const data = new MaterialsData();
     data.idproducto = idProduct;
+    if(this.transaction[0].estado === 'finalizada con observaciones'){
+      const index = this.cumplecondiciones.findIndex(x => x.idproducto === idProduct);
+      if (index > -1) {
+        let dato = 'false';
+        if(input){
+          dato = 'true';
+        }
+        return this.cumplecondiciones[index].aprobacion_calidad = dato;
+      }
+    }
     if (input === true) {
       data.aprobacion_calidad = 'true';
       this.cumplecondiciones.push(data);
@@ -129,10 +170,13 @@ export class GestionarTransaccionComponent implements OnInit {
           // this.changeCard();
 
         // tslint:disable-next-line: max-line-length
-        if ((this.transaccion.estado === 'finalizada' || this.transaccion.estado === 'finalizada con observaciones') && (this.observaciones.length !== this.transaction.length)) {
+        console.log( 'this.transaccion.estado : ' + this.estadoTransaccion + ' Observaciones : ' + this.observaciones.length + ' transaction : ' + this.transaction.length);
+        // tslint:disable-next-line: max-line-length
+        if ((this.estadoTransaccion === 'rechazada' || this.estadoTransaccion === 'finalizada con observaciones') && (this.observaciones.length !== this.transaction.length)) {
           return this.showNotificationObservaciones('top', 'center');
          }
         for (let i = 0; i < this.transaction.length; i++ ) {
+          
           const data = new MaterialsData();
           console.log( ' this.transaction.length : ' + this.transaction.length);
           data.idproducto = this.transaction[i].id_producto;
@@ -174,10 +218,9 @@ export class GestionarTransaccionComponent implements OnInit {
         } else {
           this.transaccion.estado = 'finalizada';
         }
-        if (this.transaccion.observacion === null || this.transaccion.observacion === '' || this.transaccion.observacion === undefined) {
+        if ((this.transaction[0].estado !== 'finalizada con observaciones') && (this.transaccion.observacion === null || this.transaccion.observacion === '' || this.transaccion.observacion === undefined)) {
           this.transaccion.observacion = '';
         }
-
 
         this.transaccion.idTransaction = this.transaction[0].id;
         console.log(JSON.stringify(this.transaccion));
@@ -193,7 +236,7 @@ export class GestionarTransaccionComponent implements OnInit {
       console.log('no se puede registrar la evaluacion porque no ha seleccioando todos los campos');
     }*/
 
-    // 
+    
     console.log('SAFEMATERIALS :: ' + JSON.stringify(this.safeMaterials));
     this.goBack();
   }
@@ -210,6 +253,7 @@ export class GestionarTransaccionComponent implements OnInit {
          positionClass: 'toast-' + from + '-' +  align
        });
     }
+
 
 
 }

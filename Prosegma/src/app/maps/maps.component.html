@@ -8,42 +8,39 @@
                     <h5 class="title">Crear Cuentas</h5>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form id="formulario" #formulario="ngForm" (ngSubmit)="saveCuenta(formulario)">
                         <div class="row">
                             <div class="col-md-6 pr-1">
                                 <div>
                                     <label>Tipo Usuario</label>
-                                    <select class="form-control">
-                                    <option value="0">Seleccione una opción</option>
-                                    <option value="compras">Compras</option>
-                                    <option value="almacenista">Almacenista</option>
-                                    <option value="proveedor">Proveedor</option>
+                                    <select class="form-control" [(ngModel)]="perfiluser" name="perfil" (ngModelChange)="selectChange($event)">
+                                    <option *ngFor="let item of perfiles">{{item.nombre}}</option>
                                 </select> </div>
                             </div>
 
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <label>Nombres</label>
-                                    <input type="text" class="form-control" placeholder="Nombres" value="">
+                                    <input type="text" class="form-control" placeholder="Nombres" value="" [(ngModel)]="nombres" name="nombre">
                                 </div>
                             </div>
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <label>Apellidos</label>
-                                    <input type="text" class="form-control" placeholder="Apellidos" value="">
+                                    <input type="text" class="form-control" placeholder="Apellidos" value="" [(ngModel)]="apellidos" name="apellido">
                                 </div>
                             </div>
 
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <label>Usuario</label>
-                                    <input type="text" class="form-control" placeholder="Usuario" value="">
+                                    <input type="text" class="form-control" placeholder="Usuario" value="" [(ngModel)]="user" name="usuario">
                                 </div>
                             </div>
                             <div class="col-md-6 pr-1">
                                 <div class="form-group">
                                     <label for="email">Correo electronico</label>
-                                    <input name="email" id="email" type="email" class="form-control" placeholder="Correo electronico">
+                                    <input name="email" id="email" type="email" class="form-control" placeholder="Correo electronico" [(ngModel)]="email" name="correo">
                                 </div>
                             </div>
 
@@ -79,66 +76,12 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr *ngFor="let item of usuarios">
                                                 <td>
-                                                    Dakota Rice
+                                                    {{item.nombres}} {{item.apellidos}}
                                                 </td>
                                                 <td>
-                                                    almacenista
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Minerva Hooper
-                                                </td>
-                                                <td>
-                                                    almacenista
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Sage Rodriguez
-                                                </td>
-                                                <td>
-                                                    almacenista
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Philip Chaney
-                                                </td>
-                                                <td>
-                                                    compras
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Doris Greene
-                                                </td>
-                                                <td>
-                                                    almacenista
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Mason Porter
-                                                </td>
-                                                <td>
-                                                    compras
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Jon Porter
-                                                </td>
-                                                <td>
-                                                    almacenista
+                                                    {{item.perfil}}
                                                 </td>
 
                                             </tr>

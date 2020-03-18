@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class UsuarioController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const usuarios = yield database_1.default.query('SELECT * FROM usuarios');
+            const usuarios = yield database_1.default.query('SELECT u.nombres, u.apellidos, p.nombre as perfil FROM usuarios u INNER JOIN perfil p ON p.idperfil = u.idperfil');
             res.json(usuarios);
         });
     }
@@ -30,7 +30,13 @@ class UsuarioController {
                 return res.json(usuarios[0]);
             }
             else {
-                return res.status(404).json({ text: 'El usuario no existe, o sus credenciales no coinciden, por favor revise nuevamente' });
+                const user = yield database_1.default.query('SELECT * FROM usuarios where usuario = "' + usuario + '" and clave = "' + password + '"');
+                if (user.length > 0) {
+                    return res.json(user[0]);
+                }
+                else {
+                    return res.status(404).json({ text: 'El usuario no existe, o sus credenciales no coinciden, por favor revise nuevamente' });
+                }
             }
         });
     }
@@ -38,11 +44,20 @@ class UsuarioController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             console.log(id);
-            const proveedor = yield database_1.default.query('SELECT * FROM prosegma.proveedor p inner join usuarios u on u.id_proveedor = p.idproveedor where u.idusuario = ?', [id]);
+            const proveedor = yield database_1.default.query('SELECT * FROM proveedor p inner join usuarios u on u.id_proveedor = p.idproveedor where u.idusuario = ?', [id]);
             if (proveedor.length > 0) {
                 return res.json(proveedor[0]);
             }
             res.status(404).json({ text: 'El usuario no existe' });
+        });
+    }
+    saveCuenta(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
+            // tslint:disable-next-line: max-line-length
+            yield database_1.default.query('INSERT INTO usuarios (usuario, clave, idperfil, correo, nombres, apellidos) values ("' + req.body.usuario + '", "' + (Math.random() * (3 - 1) + 1) + '","' + req.body.perfil + '" , "' + req.body.correo + '", "' + req.body.nombre + '", "' + req.body.apellido + '")');
+            const usuarios = yield database_1.default.query('SELECT u.nombres, u.apellidos, p.nombre as perfil FROM usuarios u INNER JOIN perfil p ON p.idperfil = u.idperfil');
+            res.json(usuarios);
         });
     }
     create(req, res) {

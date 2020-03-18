@@ -9,7 +9,7 @@ class UsuarioController {
 
 
     public async list (req: Request, res: Response) {
-        const usuarios = await db.query('SELECT * FROM usuarios');
+        const usuarios = await db.query('SELECT u.nombres, u.apellidos, p.nombre as perfil FROM usuarios u INNER JOIN perfil p ON p.idperfil = u.idperfil');
         res.json(usuarios);
     }
 
@@ -22,20 +22,34 @@ class UsuarioController {
         if (usuarios.length > 0) {
             return res.json(usuarios[0]);
         } else {
-            return res.status(404).json({text: 'El usuario no existe, o sus credenciales no coinciden, por favor revise nuevamente'});
+            const user =  await db.query('SELECT * FROM usuarios where usuario = "' + usuario + '" and clave = "' + password + '"');
+            if(user.length > 0){
+                return res.json(user[0]);
+            } else {
+                return res.status(404).json({text: 'El usuario no existe, o sus credenciales no coinciden, por favor revise nuevamente'});
+            }
         }
     }
 
     public async getProveedorById (req: Request, res: Response) {
         const { id } = req.params;
         console.log(id);
-        const proveedor =  await db.query('SELECT * FROM prosegma.proveedor p inner join usuarios u on u.id_proveedor = p.idproveedor where u.idusuario = ?', [id]);
+        const proveedor =  await db.query('SELECT * FROM proveedor p inner join usuarios u on u.id_proveedor = p.idproveedor where u.idusuario = ?', [id]);
         if (proveedor.length > 0) {
             return res.json(proveedor[0]);
         }
         res.status(404).json({text: 'El usuario no existe'});
     }
 
+
+    public async saveCuenta (req: Request, res: Response) {
+        console.log(req.body);
+
+            // tslint:disable-next-line: max-line-length
+            await db.query('INSERT INTO usuarios (usuario, clave, idperfil, correo, nombres, apellidos) values ("' + req.body.usuario + '", "' + (Math.random() * (3 - 1) + 1) + '","' + req.body.perfil + '" , "' + req.body.correo + '", "' + req.body.nombre + '", "' + req.body.apellido + '")');
+            const usuarios = await db.query('SELECT u.nombres, u.apellidos, p.nombre as perfil FROM usuarios u INNER JOIN perfil p ON p.idperfil = u.idperfil');
+            res.json(usuarios);
+    }
 
    public async create (req: Request, res: Response): Promise<void> {
         console.log(req.body);

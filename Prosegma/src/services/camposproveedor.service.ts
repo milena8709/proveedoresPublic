@@ -24,9 +24,6 @@ declare interface RouteInfo {
 
 export class CamposproveedorService {
   
- 
-  
-
 
   API_URI_CAMPOS = 'http://localhost:3010/api/campos';
   API_URI_CATALOGO = 'http://localhost:3010/api/catalogo';
@@ -39,6 +36,8 @@ export class CamposproveedorService {
 
   API_URI_REVISION_SAVE = 'http://localhost:3010/api/revision/save';
   API_URI_PROVEEDOR = 'http://localhost:3010/api/proveedor';
+  API_URI_CUENTA = 'http://localhost:3010/api/cuenta';
+  API_URI_PERFIL = 'http://localhost:3010/api/perfil';
 
 
 
@@ -155,6 +154,18 @@ updateTaskState(revision: any) {
 
 getEstadoProveedor(id: any) {
   return this.http.get(`${this.API_URI_PROVEEDOR}/${id}`);
+}
+
+saveCuenta(cuenta: any) {
+  return this.http.post(`${this.API_URI_CUENTA}`, cuenta);
+}
+
+getCuenta() {
+  return this.http.get(`${this.API_URI_CUENTA}`);
+}
+
+getPerfiles() {
+  return this.http.get(`${this.API_URI_PERFIL}`);
 }
 
 // ******************************************* /

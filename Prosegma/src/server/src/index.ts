@@ -21,6 +21,8 @@ import transactionsRoutes from './routes/transactionsRoutes';
 import busquedaProveedorRoutes from './routes/busquedaProveedorRoutes';
 import documentTaskRoutes from './routes/documentTaskRoutes';
 import proveedorRoutes from './routes/proveedorRoutes';
+import perfilRoutes from './routes/perfilRoutes';
+import usuarioRoutes from './routes/usuarioRoutes';
 
 
 class Server {
@@ -62,6 +64,9 @@ routes(): void {
     this.app.use('/api/revision', busquedaProveedorRoutes);
     this.app.use('/api/revision/save', documentTaskRoutes);
     this.app.use('/api/proveedor', proveedorRoutes);
+    this.app.use('/api/cuenta', usuarioRoutes);
+    this.app.use('/api/perfil', perfilRoutes);
+
 
 
 }

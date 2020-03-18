@@ -21,6 +21,8 @@ const transactionsRoutes_1 = __importDefault(require("./routes/transactionsRoute
 const busquedaProveedorRoutes_1 = __importDefault(require("./routes/busquedaProveedorRoutes"));
 const documentTaskRoutes_1 = __importDefault(require("./routes/documentTaskRoutes"));
 const proveedorRoutes_1 = __importDefault(require("./routes/proveedorRoutes"));
+const perfilRoutes_1 = __importDefault(require("./routes/perfilRoutes"));
+const usuarioRoutes_1 = __importDefault(require("./routes/usuarioRoutes"));
 class Server {
     constructor() {
         this.bodyParser = require('body-parser');
@@ -54,6 +56,8 @@ class Server {
         this.app.use('/api/revision', busquedaProveedorRoutes_1.default);
         this.app.use('/api/revision/save', documentTaskRoutes_1.default);
         this.app.use('/api/proveedor', proveedorRoutes_1.default);
+        this.app.use('/api/cuenta', usuarioRoutes_1.default);
+        this.app.use('/api/perfil', perfilRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

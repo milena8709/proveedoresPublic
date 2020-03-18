@@ -10,7 +10,7 @@ const core_1 = require("@angular/core");
 let TransactionService = class TransactionService {
     constructor(http) {
         this.http = http;
-        API_URI_MATERIALS = 'http://localhost:3010/api/materials';
+        API_URI_MATERIALS = 'https://prosegmaprueba.us-3.evennode.com/api/materials';
     }
 
     getMaterials(){
