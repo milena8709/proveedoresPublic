@@ -48,7 +48,7 @@ export class MapsComponent implements OnInit {
 
   saveCuenta(userForm: NgForm) {
     userForm.value.perfil = this.perfilSeleccionado;
-    this.service.saveCuenta(userForm.value).subscribe(
+    this.service.CreateNewAccounten(userForm.value).subscribe(
       res => {
         this.dialogService.openModalOk('Alerta', 'Cuenta de usuario guardada exitosamente', () => {
           // tslint:disable-next-line: no-unused-expression

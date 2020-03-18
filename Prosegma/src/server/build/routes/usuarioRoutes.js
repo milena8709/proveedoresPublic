@@ -9,7 +9,7 @@ class UsuarioRoutes {
         this.config();
     }
     config() {
-        this.router.post('/', usuarioController_1.usuarioController.saveCuenta);
+        this.router.post('/', usuarioController_1.usuarioController.CreateNewAccounten);
         this.router.get('/', usuarioController_1.usuarioController.list);
     }
 }

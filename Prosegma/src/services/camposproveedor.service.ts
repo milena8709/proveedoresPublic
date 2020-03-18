@@ -156,7 +156,7 @@ getEstadoProveedor(id: any) {
   return this.http.get(`${this.API_URI_PROVEEDOR}/${id}`);
 }
 
-saveCuenta(cuenta: any) {
+CreateNewAccounten(cuenta: any) {
   return this.http.post(`${this.API_URI_CUENTA}`, cuenta);
 }
 

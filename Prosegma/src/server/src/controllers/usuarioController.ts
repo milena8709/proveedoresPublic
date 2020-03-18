@@ -42,7 +42,7 @@ class UsuarioController {
     }
 
 
-    public async saveCuenta (req: Request, res: Response) {
+    public async CreateNewAccounten (req: Request, res: Response) {
         console.log(req.body);
 
             // tslint:disable-next-line: max-line-length

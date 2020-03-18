@@ -51,7 +51,7 @@ class UsuarioController {
             res.status(404).json({ text: 'El usuario no existe' });
         });
     }
-    saveCuenta(req, res) {
+    CreateNewAccounten(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.body);
             // tslint:disable-next-line: max-line-length
