@@ -35,6 +35,9 @@ export class IconsComponent implements OnInit {
             case 2:
               this.estado = 'Rechazado';
             break;
+            default:
+              this.estado = this.proveedor.estado;
+              break;
           }
         },
         err => {
