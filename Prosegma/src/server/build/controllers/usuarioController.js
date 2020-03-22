@@ -20,7 +20,7 @@ class UsuarioController {
             res.json(usuarios);
         });
     }
-    getUsuario(req, res) {
+    login(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { usuario } = req.params;
             const { password } = req.params;
@@ -51,7 +51,7 @@ class UsuarioController {
             res.status(404).json({ text: 'El usuario no existe' });
         });
     }
-    CreateNewAccounten(req, res) {
+    CreateNewAccount(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(req.body);
             // tslint:disable-next-line: max-line-length

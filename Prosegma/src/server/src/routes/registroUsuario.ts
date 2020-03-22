@@ -11,7 +11,7 @@ class RegistroUsuario {
     }
 
     config(): void {
-        this.router.get('/:usuario/:password', usuarioController.getUsuario);
+        this.router.get('/:usuario/:password', usuarioController.login);
         this.router.post('/', usuarioController.create);
         this.router.put('/:idusuario', usuarioController.update);
         this.router.get('/:id', usuarioController.getProveedorById);
