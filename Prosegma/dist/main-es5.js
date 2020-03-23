@@ -2530,6 +2530,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.API_URI_CLASIFICACION_DOC = 'https://prosegmaprueba.us-3.evennode.com/api/documentacion/save';
         this.API_URI_SELECCION_PROVEEDOR = 'https://prosegmaprueba.us-3.evennode.com/api/seleccion';
         this.API_URI_USUARIO = 'https://prosegmaprueba.us-3.evennode.com/api/usuario';
+        this.API_URI_REVISION = 'https://prosegmaprueba.us-3.evennode.com/api/revision';
+        this.API_URI_REVISION_SAVE = 'https://prosegmaprueba.us-3.evennode.com/api/revision/save';
+        this.API_URI_PROVEEDOR = 'https://prosegmaprueba.us-3.evennode.com/api/proveedor';
+        this.API_URI_CUENTA = 'https://prosegmaprueba.us-3.evennode.com/api/cuenta';
+        this.API_URI_PERFIL = 'https://prosegmaprueba.us-3.evennode.com/api/perfil';
         this.proveedores = [];
         this.menu = [];
       }
@@ -2571,8 +2576,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       }, {
         key: "getDocumentacion",
-        value: function getDocumentacion(id) {
-          return this.http.get("".concat(this.API_URI_CLASIFICACION_DOC, "/").concat(id));
+        value: function getDocumentacion(id, estado) {
+          return this.http.get("".concat(this.API_URI_CLASIFICACION_DOC, "/").concat(id, "/").concat(estado));
         }
       }, {
         key: "postFileImagen",
@@ -2618,12 +2623,58 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getProveedorById",
         value: function getProveedorById(id) {
           return this.http.get("".concat(this.API_URI_USUARIO, "/").concat(id));
+        }
+      }, {
+        key: "searchProveedor",
+        value: function searchProveedor(values) {
+          return this.http.post("".concat(this.API_URI_REVISION), values);
+        }
+      }, {
+        key: "getDocumentosInscripcion",
+        value: function getDocumentosInscripcion(id) {
+          return this.http.get("".concat(this.API_URI_REVISION, "/").concat(id));
+        }
+      }, {
+        key: "saveExistingTask",
+        value: function saveExistingTask(tarea) {
+          console.log('tarea a crear', tarea);
+          return this.http.post("".concat(this.API_URI_REVISION_SAVE), tarea);
+        }
+      }, {
+        key: "updateTaskState",
+        value: function updateTaskState(revision) {
+          return this.http.put("".concat(this.API_URI_REVISION_SAVE), revision);
+        }
+      }, {
+        key: "getEstadoProveedor",
+        value: function getEstadoProveedor(id) {
+          return this.http.get("".concat(this.API_URI_PROVEEDOR, "/").concat(id));
+        }
+      }, {
+        key: "CreateNewAccounten",
+        value: function CreateNewAccounten(cuenta) {
+          return this.http.post("".concat(this.API_URI_CUENTA), cuenta);
+        }
+      }, {
+        key: "getCuenta",
+        value: function getCuenta() {
+          return this.http.get("".concat(this.API_URI_CUENTA));
+        }
+      }, {
+        key: "getPerfiles",
+        value: function getPerfiles() {
+          return this.http.get("".concat(this.API_URI_PERFIL));
         } // ******************************************* /
 
       }, {
         key: "setProveedores",
         value: function setProveedores(proveedoresConAHP) {
           this.proveedores = proveedoresConAHP;
+        }
+      }, {
+        key: "setProveedorSeleccionado",
+        value: function setProveedorSeleccionado(proveedor) {
+          this.proveedor = proveedor;
         }
       }, {
         key: "setUsuario",
@@ -2639,6 +2690,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getProveedores",
         value: function getProveedores() {
           return this.proveedores;
+        }
+      }, {
+        key: "getProveedorSeleccionado",
+        value: function getProveedorSeleccionado() {
+          return this.proveedor;
         }
       }]);
 

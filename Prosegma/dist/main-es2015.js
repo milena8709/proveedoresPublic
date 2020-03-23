@@ -1416,6 +1416,11 @@ let CamposproveedorService = class CamposproveedorService {
         this.API_URI_CLASIFICACION_DOC = 'https://prosegmaprueba.us-3.evennode.com/api/documentacion/save';
         this.API_URI_SELECCION_PROVEEDOR = 'https://prosegmaprueba.us-3.evennode.com/api/seleccion';
         this.API_URI_USUARIO = 'https://prosegmaprueba.us-3.evennode.com/api/usuario';
+        this.API_URI_REVISION = 'https://prosegmaprueba.us-3.evennode.com/api/revision';
+        this.API_URI_REVISION_SAVE = 'https://prosegmaprueba.us-3.evennode.com/api/revision/save';
+        this.API_URI_PROVEEDOR = 'https://prosegmaprueba.us-3.evennode.com/api/proveedor';
+        this.API_URI_CUENTA = 'https://prosegmaprueba.us-3.evennode.com/api/cuenta';
+        this.API_URI_PERFIL = 'https://prosegmaprueba.us-3.evennode.com/api/perfil';
         this.proveedores = [];
         this.menu = [];
     }
@@ -1440,8 +1445,8 @@ let CamposproveedorService = class CamposproveedorService {
         return this.http.post(`${this.API_URI_CLASIFICACION_SAVE}`, clasificacionDatos);
     }
     /*******************DOCUMENTACION*********************/
-    getDocumentacion(id) {
-        return this.http.get(`${this.API_URI_CLASIFICACION_DOC}/${id}`);
+    getDocumentacion(id, estado) {
+        return this.http.get(`${this.API_URI_CLASIFICACION_DOC}/${id}/${estado}`);
     }
     postFileImagen(file) {
         return this.http.post(`${this.API_URI_CLASIFICACION_DOC}`, file);
@@ -1470,9 +1475,37 @@ let CamposproveedorService = class CamposproveedorService {
     getProveedorById(id) {
         return this.http.get(`${this.API_URI_USUARIO}/${id}`);
     }
+    searchProveedor(values) {
+        return this.http.post(`${this.API_URI_REVISION}`, values);
+    }
+    getDocumentosInscripcion(id) {
+        return this.http.get(`${this.API_URI_REVISION}/${id}`);
+    }
+    saveExistingTask(tarea) {
+        console.log('tarea a crear', tarea);
+        return this.http.post(`${this.API_URI_REVISION_SAVE}`, tarea);
+    }
+    updateTaskState(revision) {
+        return this.http.put(`${this.API_URI_REVISION_SAVE}`, revision);
+    }
+    getEstadoProveedor(id) {
+        return this.http.get(`${this.API_URI_PROVEEDOR}/${id}`);
+    }
+    CreateNewAccounten(cuenta) {
+        return this.http.post(`${this.API_URI_CUENTA}`, cuenta);
+    }
+    getCuenta() {
+        return this.http.get(`${this.API_URI_CUENTA}`);
+    }
+    getPerfiles() {
+        return this.http.get(`${this.API_URI_PERFIL}`);
+    }
     // ******************************************* /
     setProveedores(proveedoresConAHP) {
         this.proveedores = proveedoresConAHP;
+    }
+    setProveedorSeleccionado(proveedor) {
+        this.proveedor = proveedor;
     }
     setUsuario(usuario) {
         this.usuario = usuario;
@@ -1482,6 +1515,9 @@ let CamposproveedorService = class CamposproveedorService {
     }
     getProveedores() {
         return this.proveedores;
+    }
+    getProveedorSeleccionado() {
+        return this.proveedor;
     }
 };
 CamposproveedorService.ctorParameters = () => [

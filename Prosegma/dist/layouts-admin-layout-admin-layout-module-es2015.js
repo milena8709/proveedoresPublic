@@ -52440,7 +52440,20 @@ function monkeyPatchChartJsTooltip() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <div class=\"card-header\">\r\n                            <h5 class=\"title\">Calificación de selección</h5>\r\n                            <div>A continuación, usted debe calificar los proveedores a través del AHP:</div>\r\n                        </div>\r\n                        <br>\r\n                        <div class=\"col-md-12\">\r\n                            <div>\r\n                                <label>Titulo de selección</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"tituloSeleccion\" [(ngModel)]=\"titulo\" disabled>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\">\r\n                                <label>Descripción</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"descripcion\" name=\"descripcionSelec\" [(ngModel)]=\"descripcion\" disabled>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"main-content pl-1\">\r\n        <div class=\"row\" style=\"background-color: white;\">\r\n            <div class=\"col-md-6\">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Ponderar Alternativas vs Criterios</h5>\r\n                        </div>\r\n                        <div class=\"table\" *ngFor=\" let item of criterios; let i=index \">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>\r\n                                        {{item.criterio}}\r\n                                    </th>\r\n                                    <th class=\"text-left text-black-50\" *ngFor=\"let proveedor of proveedores\">\r\n                                        {{proveedor.nombre}}\r\n                                    </th>\r\n\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of proveedores; let h=index \">\r\n                                        <td class=\"text-black-50\">\r\n                                            <b>{{item.nombre}}</b>\r\n                                        </td>\r\n                                        <td *ngFor=\"let proveedor of proveedores; let j=index\">\r\n                                            <div class=\"col-md-8\">\r\n                                                <div class=\"form-group\">\r\n                                                    <input type=\"number\" class=\"form-control\" placeholder=\"\" name=\"ind\" [(ngModel)]=\"dato\" required>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <!--tr>\r\n                                        <td><label>Total</label></td>\r\n                                        <td *ngFor=\"let proveedor of proveedores; let z=index \">\r\n                                            <div class=\"col-md-6\">\r\n                                                <div class=\"form-group\">\r\n                                                    <label>{{total}}</label>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr-->\r\n\r\n                                </tbody>\r\n\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Ponderar Criterios vs Criterios</h5>\r\n                        </div>\r\n                        <div class=\"table\">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>Criterios</th>\r\n                                    <th class=\"text-black-50\" *ngFor=\" let item of criterios; let i=index \">\r\n                                        {{item.criterio}}\r\n                                    </th>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\" let item of criterios; let i=index \">\r\n                                        <td class=\"text-black-50\">\r\n                                            <b> {{item.criterio}}</b>\r\n                                        </td>\r\n                                        <td *ngFor=\" let item of criterios; let i=index \">\r\n                                            <div class=\"col-md-8\">\r\n                                                <div class=\"form-group\">\r\n                                                    <input type=\"number\" class=\"form-control\" placeholder=\"\" name=\"ind\" [(ngModel)]=\"j\" required>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <!--tr>\r\n                                        <td><label>Total</label></td>\r\n                                        <td *ngFor=\"let proveedor of proveedores; let z=index \">\r\n                                            <div class=\"col-md-6\">\r\n                                                <div class=\"form-group\">\r\n                                                    <label>{{total}}</label>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr-->\r\n\r\n                                </tbody>\r\n\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-12 pl-1 \">\r\n                <a (click)=\"saveSeleccionProveedor() \" class=\"btn btn-primary float-right text-white\">\r\n                  Guardar\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <div class=\"card-header\">\r\n                            <h5 class=\"title\">Calificación de selección</h5>\r\n                            <div>A continuación, usted debe calificar los proveedores a través del AHP:</div>\r\n                        </div>\r\n                        <br>\r\n                        <div class=\"col-md-12\">\r\n                            <div>\r\n                                <label>Titulo de selección</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"tituloSeleccion\" [(ngModel)]=\"titulo\" disabled>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\">\r\n                                <label>Descripción</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"descripcion\" name=\"descripcionSelec\" [(ngModel)]=\"descripcion\" disabled>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n    <br>\r\n    <div class=\"main-content pl-1\">\r\n        <div class=\"row\" style=\"background-color: white;\">\r\n            <div class=\"col-md-6\">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Ponderar Alternativas vs Criterios</h5>\r\n                        </div>\r\n                        <div class=\"table\" *ngFor=\" let item of criterios; let i=index \">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>\r\n                                        {{item.criterio}}\r\n                                    </th>\r\n                                    <th class=\"text-left text-black-50\" *ngFor=\"let proveedor of proveedores\">\r\n                                        {{proveedor.nombre}}\r\n                                    </th>\r\n\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of proveedores; let h=index \">\r\n                                        <td class=\"text-black-50\">\r\n                                            <b>{{item.nombre}}</b>\r\n                                        </td>\r\n                                        <td *ngFor=\"let proveedor of proveedores; let j=index\">\r\n                                            <div class=\"col-md-8\">\r\n                                                <div class=\"form-group\">\r\n                                                    <input type=\"number\" class=\"form-control webkit-outer-spin-button\" placeholder=\"\" name=\"ind\" [(ngModel)]=\"dato\" required>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <!--tr>\r\n                                        <td><label>Total</label></td>\r\n                                        <td *ngFor=\"let proveedor of proveedores; let z=index \">\r\n                                            <div class=\"col-md-6\">\r\n                                                <div class=\"form-group\">\r\n                                                    <label>{{total}}</label>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr-->\r\n\r\n                                </tbody>\r\n\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Ponderar Criterios vs Criterios</h5>\r\n                        </div>\r\n                        <div class=\"table\">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>Criterios</th>\r\n                                    <th class=\"text-black-50\" *ngFor=\" let item of criterios; let i=index \">\r\n                                        {{item.criterio}}\r\n                                    </th>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\" let item of criterios; let i=index \">\r\n                                        <td class=\"text-black-50\">\r\n                                            <b> {{item.criterio}}</b>\r\n                                        </td>\r\n                                        <td *ngFor=\" let item of criterios; let i=index \">\r\n                                            <div class=\"col-md-8\">\r\n                                                <div class=\"form-group\">\r\n                                                    <input type=\"number\" class=\"form-control\" placeholder=\"\" name=\"ind\" [(ngModel)]=\"j\" required>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <!--tr>\r\n                                        <td><label>Total</label></td>\r\n                                        <td *ngFor=\"let proveedor of proveedores; let z=index \">\r\n                                            <div class=\"col-md-6\">\r\n                                                <div class=\"form-group\">\r\n                                                    <label>{{total}}</label>\r\n                                                </div>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr-->\r\n\r\n                                </tbody>\r\n\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-12 pl-1 \">\r\n                <a (click)=\"saveSeleccionProveedor() \" class=\"btn btn-primary float-right text-white\">\r\n                  Guardar\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/buscarTareas/buscarTareas.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/buscarTareas/buscarTareas.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <form id=\"buscar\" #buscar=\"ngForm\" (ngSubmit)=\"searchProveedor(buscar)\">\r\n                        <h5 class=\"title\">Buscar tareas</h5>\r\n                        <br>\r\n                        <div>A continuación, encontrará las tareas relacionadas a la revisión de los documentos del proveedor:</div>\r\n                        <br>\r\n                        <div class=\"col-md-4\">\r\n                            <div>\r\n                                <label>NIT/CC</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"identificacion\" [(ngModel)]=\"id\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-4\">\r\n                            <div class=\"form-group\">\r\n                                <label>Nombre de proveedor</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"nombre\" [(ngModel)]=\"name\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-4\">\r\n                            <div class=\"form-group\">\r\n                                <label>Estado</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"estado\" [(ngModel)]=\"status\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12 pl-1 \">\r\n                            <button class=\"btn btn-primary float-right text-white\">\r\n                              Buscar\r\n                            </button>\r\n                        </div>\r\n                    </form>\r\n\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-md-12 pl-1 \">\r\n        <div class=\"row \">\r\n            <div class=\"col-md-12 \">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Listado de tareas de revisión de documentos</h5>\r\n\r\n                        </div>\r\n                        <div class=\"table-responsive \">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th></th>\r\n                                    <th>\r\n                                        CC/NIT\r\n                                    </th>\r\n                                    <th>\r\n                                        Nombre\r\n                                    </th>\r\n                                    <th>\r\n                                        Estado\r\n                                    </th>\r\n\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let proveedor of proveedores; let ix = index\">\r\n                                        <td>\r\n                                            <div class=\"form-check\">\r\n                                                <label class=\"form-check-label\">\r\n                                              <input class=\"form-check-input\" type=\"checkbox\" (change)=\"selectionProveedor(proveedor)\" >\r\n                                              <span class=\"form-check-sign\"></span>\r\n                                            </label>\r\n                                            </div>\r\n                                        </td>\r\n                                        <td>\r\n                                            {{proveedor.nit}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{proveedor.nombre}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{proveedor.estado}}\r\n                                        </td>\r\n                                    </tr>\r\n\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -52496,6 +52509,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/gestionar-tarea/gestionar-tarea.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/gestionar-tarea/gestionar-tarea.component.html ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <h5 class=\"title\">Revisión de documentos</h5>\r\n                        <br>\r\n                        <div class=\"col-md-12\">\r\n                            <div>\r\n                                <label>NIT/CC</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"identificacion\" [(ngModel)]=\"id\" disabled>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\">\r\n                                <label>Nombre del proveedor</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"nombre\" [(ngModel)]=\"name\" disabled>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"form-group\">\r\n                                <label>Estado de la revisión</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"estado\" [(ngModel)]=\"status\" disabled>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n\r\n                    <br>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-md-12 pl-1 \">\r\n        <div class=\"row \">\r\n            <div class=\"col-md-12 \">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Documentos a revisar</h5>\r\n                            <br>\r\n                            <div>A continuación, usted podrá aceptar o rechazar un documento del proveedor seleccionado:</div>\r\n                            <br>\r\n                        </div>\r\n                        <div class=\"table-responsive \">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th class=\"text-center \">\r\n                                        Número\r\n                                    </th>\r\n                                    <th class=\"text-center \">\r\n                                        Descargar documento\r\n                                    </th>\r\n                                    <th>\r\n                                        Aceptar/Rechazar\r\n                                    </th>\r\n                                    <th>\r\n                                        Comentario\r\n                                    </th>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of documentos\">\r\n                                        <td class=\"text-center \">\r\n                                            {{item.id}}\r\n                                        </td>\r\n                                        <td class=\"text-center \">\r\n                                            {{item.nombredocumento}}\r\n                                        </td>\r\n                                        <td *ngIf=\"item.estado=='aceptado'; else notShow\">\r\n                                            <div class=\"form-check\">\r\n                                                <label class=\"form-check-label\">\r\n                                              <input class=\"form-check-input\" type=\"checkbox\" (change)=\"change(item)\" checked>\r\n                                              <span class=\"form-check-sign\"></span>\r\n                                            </label>\r\n                                            </div>\r\n\r\n                                        </td>\r\n                                        <ng-template #notShow>\r\n                                            <td>\r\n                                                <div class=\"form-check\">\r\n                                                    <label class=\"form-check-label\">\r\n                                              <input class=\"form-check-input\" type=\"checkbox\" (change)=\"change(item)\" >\r\n                                              <span class=\"form-check-sign\"></span>\r\n                                            </label>\r\n                                                </div>\r\n                                            </td>\r\n\r\n                                        </ng-template>\r\n\r\n                                        <td>\r\n                                            <div class=\"form-check\">\r\n                                                <label class=\"form-text\">\r\n                                              <input class=\"form-text\" type=\"text\" name=\"comentario\">\r\n                                              \r\n                                            </label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                        <div class=\"card-body\">\r\n                            <div class=\"col-md-4 pl-1 \">\r\n                                <a href=\"/upgrade\" class=\"btn btn-primary text-white\">\r\n                                  Atrás\r\n                                </a>\r\n                            </div>\r\n                            <div class=\"col-md-4\">\r\n                                <div>\r\n                                    <label>Cambiar estado de la revisión</label>\r\n                                    <select class=\"form-control\" [(ngModel)]=\"estado\" name=\"estadoRevision\">\r\n                                    <option value=\"0\">Seleccione una opción</option>\r\n                                    <option value=\"activa\">Activa</option>\r\n                                    <option value=\"reproceso\">Reproceso</option>\r\n                                    <option value=\"finalizada\">Finalizada</option>\r\n                                </select> </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-4 pl-1 \">\r\n                                <a (click)=\"updateRejectedDocuments()\" class=\"btn btn-primary float-right text-white\">\r\n                                  Guardar\r\n                                </a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/gestionar-transaccion/gestionar-transaccion.component.html":
 /*!******************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/gestionar-transaccion/gestionar-transaccion.component.html ***!
@@ -52531,7 +52557,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-6\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Crear Cuentas</h5>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div>\r\n                                    <label>Tipo Usuario</label>\r\n                                    <select class=\"form-control\">\r\n                                    <option value=\"0\">Seleccione una opción</option>\r\n                                    <option value=\"compras\">Compras</option>\r\n                                    <option value=\"almacenista\">Almacenista</option>\r\n                                    <option value=\"proveedor\">Proveedor</option>\r\n                                </select> </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Nombres</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Nombres\" value=\"\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Apellidos</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Apellidos\" value=\"\">\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Usuario</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Usuario\" value=\"\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label for=\"email\">Correo electronico</label>\r\n                                    <input name=\"email\" id=\"email\" type=\"email\" class=\"form-control\" placeholder=\"Correo electronico\">\r\n                                </div>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"col-md-4  pl-1\">\r\n                            <div class=\"form-group\">\r\n                                <button class=\"btn btn-primary btn-block\">Crear cuenta</button>\r\n                            </div>\r\n                        </div>\r\n\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-6\">\r\n            <div class=\"main-content\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12\">\r\n                        <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                                <h4 class=\"title\"> Cuentas</h4>\r\n                            </div>\r\n                            <div class=\"card-body\">\r\n                                <div class=\"table-responsive\">\r\n                                    <table class=\"table\">\r\n                                        <thead class=\" text-primary\">\r\n                                            <th>\r\n                                                usuario\r\n                                            </th>\r\n                                            <th>\r\n                                                Perfil\r\n                                            </th>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Dakota Rice\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Minerva Hooper\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Sage Rodriguez\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Philip Chaney\r\n                                                </td>\r\n                                                <td>\r\n                                                    compras\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Doris Greene\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Mason Porter\r\n                                                </td>\r\n                                                <td>\r\n                                                    compras\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                            <tr>\r\n                                                <td>\r\n                                                    Jon Porter\r\n                                                </td>\r\n                                                <td>\r\n                                                    almacenista\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-6\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    <h5 class=\"title\">Crear Cuentas</h5>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <form id=\"formulario\" #formulario=\"ngForm\" (ngSubmit)=\"saveCuenta(formulario)\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div>\r\n                                    <label>Tipo Usuario</label>\r\n                                    <select class=\"form-control\" [(ngModel)]=\"perfiluser\" name=\"perfil\" (ngModelChange)=\"selectChange($event)\">\r\n                                    <option *ngFor=\"let item of perfiles\">{{item.nombre}}</option>\r\n                                </select> </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Nombres</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Nombres\" value=\"\" [(ngModel)]=\"nombres\" name=\"nombre\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Apellidos</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Apellidos\" value=\"\" [(ngModel)]=\"apellidos\" name=\"apellido\">\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label>Usuario</label>\r\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Usuario\" value=\"\" [(ngModel)]=\"user\" name=\"usuario\">\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6 pr-1\">\r\n                                <div class=\"form-group\">\r\n                                    <label for=\"email\">Correo electronico</label>\r\n                                    <input name=\"email\" id=\"email\" type=\"email\" class=\"form-control\" placeholder=\"Correo electronico\" [(ngModel)]=\"email\" name=\"correo\">\r\n                                </div>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"col-md-4  pl-1\">\r\n                            <div class=\"form-group\">\r\n                                <button class=\"btn btn-primary btn-block\">Crear cuenta</button>\r\n                            </div>\r\n                        </div>\r\n\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-md-6\">\r\n            <div class=\"main-content\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12\">\r\n                        <div class=\"card\">\r\n                            <div class=\"card-header\">\r\n                                <h4 class=\"title\"> Cuentas</h4>\r\n                            </div>\r\n                            <div class=\"card-body\">\r\n                                <div class=\"table-responsive\">\r\n                                    <table class=\"table\">\r\n                                        <thead class=\" text-primary\">\r\n                                            <th>\r\n                                                usuario\r\n                                            </th>\r\n                                            <th>\r\n                                                Perfil\r\n                                            </th>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr *ngFor=\"let item of usuarios\">\r\n                                                <td>\r\n                                                    {{item.nombres}} {{item.apellidos}}\r\n                                                </td>\r\n                                                <td>\r\n                                                    {{item.perfil}}\r\n                                                </td>\r\n\r\n                                            </tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -52730,19 +52756,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/upgrade/upgrade.component.html":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/upgrade/upgrade.component.html ***!
-  \**************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"panel-header panel-header-sm\">\r\n</div>\r\n<div class=\"main-content\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8\">\r\n            <div class=\"card\">\r\n                <div class=\"card-body\">\r\n                    <form>\r\n                        <h5 class=\"title\">Buscar proveedores</h5>\r\n                        <br>\r\n                        <div class=\"col-md-4\">\r\n                            <div>\r\n                                <label>NIT/CC</label>\r\n                                <input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"identificacion\" [(ngModel)]=\"id\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-4\">\r\n                            <div class=\"form-group\">\r\n                                <label>Nombre proveedor</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"nombre\" [(ngModel)]=\"name\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"col-md-4\">\r\n                            <div class=\"form-group\">\r\n                                <label>Estado</label>\r\n                                <input type=\"text\" class=\"form-control\" name=\"estado\" [(ngModel)]=\"status\">\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n\r\n                    <div class=\"col-md-12 pl-1 \">\r\n                        <a href=\"/gestionartarea\" class=\"btn btn-primary float-right text-white\">\r\n                          Buscar\r\n                        </a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"col-md-12 pl-1 \">\r\n        <div class=\"row \">\r\n            <div class=\"col-md-12 \">\r\n                <div class=\"card \">\r\n                    <div class=\"card-body \">\r\n                        <div class=\"card-header \">\r\n                            <h5 class=\"title \">Listado de revisiones</h5>\r\n\r\n                        </div>\r\n                        <div class=\"table-responsive \">\r\n                            <table class=\"table \">\r\n                                <thead class=\" text-primary \">\r\n                                    <th>\r\n                                        CC/NIT\r\n                                    </th>\r\n                                    <th class=\"text-center \">\r\n                                        Nombre\r\n                                    </th>\r\n                                    <th>\r\n                                        Estado\r\n                                    </th>\r\n\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of proveedores; let i=index\">\r\n                                        <td>\r\n                                            {{item.nit}}\r\n                                        </td>\r\n                                        <td>\r\n                                            {{item.nombre}}\r\n                                        </td>\r\n                                        <td>\r\n                                            estado\r\n                                        </td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-profile/user-profile.component.html":
 /*!************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user-profile/user-profile.component.html ***!
@@ -52798,7 +52811,7 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FocC9haHAuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("input[type=number]::-webkit-inner-spin-button,\ninput[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n\ninput[type=number] {\n  -moz-appearance: textfield;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWhwL0M6XFxKYWNvYm9Fc2NvYmFyXFxHaXQtUmVwb3NcXFBST1NFR01BXFxQcm9zZWdtYS9zcmNcXGFwcFxcYWhwXFxhaHAuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FocC9haHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0VBRUksd0JBQUE7RUFDQSxTQUFBO0FDQ0o7O0FERUE7RUFDSSwwQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvYWhwL2FocC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlucHV0W3R5cGU9bnVtYmVyXTo6LXdlYmtpdC1pbm5lci1zcGluLWJ1dHRvbixcclxuaW5wdXRbdHlwZT1udW1iZXJdOjotd2Via2l0LW91dGVyLXNwaW4tYnV0dG9uIHtcclxuICAgIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcclxuICAgIG1hcmdpbjogMDtcclxufVxyXG5cclxuaW5wdXRbdHlwZT1udW1iZXJdIHtcclxuICAgIC1tb3otYXBwZWFyYW5jZTogdGV4dGZpZWxkO1xyXG59IiwiaW5wdXRbdHlwZT1udW1iZXJdOjotd2Via2l0LWlubmVyLXNwaW4tYnV0dG9uLFxuaW5wdXRbdHlwZT1udW1iZXJdOjotd2Via2l0LW91dGVyLXNwaW4tYnV0dG9uIHtcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiBub25lO1xuICBtYXJnaW46IDA7XG59XG5cbmlucHV0W3R5cGU9bnVtYmVyXSB7XG4gIC1tb3otYXBwZWFyYW5jZTogdGV4dGZpZWxkO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -52882,6 +52895,109 @@ AhpComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/buscarTareas/buscarTareas.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/buscarTareas/buscarTareas.component.scss ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2J1c2NhclRhcmVhcy9idXNjYXJUYXJlYXMuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/buscarTareas/buscarTareas.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/buscarTareas/buscarTareas.component.ts ***!
+  \********************************************************/
+/*! exports provided: BuscarTareasComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BuscarTareasComponent", function() { return BuscarTareasComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/camposproveedor.service */ "./src/services/camposproveedor.service.ts");
+/* harmony import */ var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dialog/dialog.service */ "./src/app/dialog/dialog.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+
+
+let BuscarTareasComponent = class BuscarTareasComponent {
+    // tslint:disable-next-line: max-line-length
+    constructor(modalService, services, dialogService, router) {
+        this.modalService = modalService;
+        this.services = services;
+        this.dialogService = dialogService;
+        this.router = router;
+        this.proveedores = [];
+    }
+    ngOnInit() {
+        console.log('Buscar tareas');
+    }
+    searchProveedor(search) {
+        this.services.searchProveedor(search.value).subscribe(res => {
+            console.log('proveedor respuesta');
+            this.proveedores = res;
+        }, err => {
+            this.dialogService.openModalOk('Error', err.error.text, () => {
+                // tslint:disable-next-line: no-unused-expression
+            });
+        });
+    }
+    selectionProveedor(indice) {
+        const item = indice;
+        console.log('seleccion proveedor doc');
+        if (indice.estado !== '3' && indice.estado.toUpperCase() !== 'finalizada'.toUpperCase()) {
+            if (this.proveedorSeleccionado !== null && this.proveedorSeleccionado !== undefined) {
+                if (this.proveedorSeleccionado.indexOf(indice) >= 0) {
+                    this.proveedorSeleccionado = this.proveedorSeleccionado.filter(function (i) { return i !== indice; });
+                }
+                else {
+                    this.proveedorSeleccionado.push(indice);
+                }
+                this.services.setProveedorSeleccionado(this.proveedorSeleccionado);
+                // tslint:disable-next-line: prefer-const
+                this.router.navigateByUrl('/gestionartarea');
+            }
+            else {
+                this.proveedorSeleccionado = indice;
+                this.services.setProveedorSeleccionado(this.proveedorSeleccionado);
+                this.router.navigateByUrl('/gestionartarea');
+            }
+        }
+        else {
+            this.dialogService.openModalOk('Error', 'El proveedor ya ha sido finalizado', () => {
+                // tslint:disable-next-line: no-unused-expression
+            });
+        }
+    }
+};
+BuscarTareasComponent.ctorParameters = () => [
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"] },
+    { type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__["CamposproveedorService"] },
+    { type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_4__["DialogService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+];
+BuscarTareasComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-upgrade',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./buscarTareas.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/buscarTareas/buscarTareas.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./buscarTareas.component.scss */ "./src/app/buscarTareas/buscarTareas.component.scss")).default]
+    })
+], BuscarTareasComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/classification/classification.component.scss":
 /*!**************************************************************!*\
   !*** ./src/app/classification/classification.component.scss ***!
@@ -52936,6 +53052,7 @@ let ClassificationComponent = class ClassificationComponent {
         this.clasificacionDatos = [];
     }
     ngOnInit() {
+        this.usuario = this.clasificacionService.getUsuario();
     }
     clear(userForm) {
         userForm.reset();
@@ -52966,7 +53083,7 @@ let ClassificationComponent = class ClassificationComponent {
                 console.log(res);
                 // this.router.navigateByUrl('/documentation');
                 this.respuesta = res;
-                this.router.navigate(['/documentation'], { queryParams: { id: this.respuesta.id } });
+                this.router.navigate(['/documentation'], { queryParams: { id: this.respuesta.id, estado: '' } });
             }, err => console.error(err));
         }
         else {
@@ -53333,9 +53450,10 @@ let DocumentsComponent = class DocumentsComponent {
             .subscribe(params => {
             // Defaults to 0 if no query param provided.
             this.value = +params['id'] || 0;
+            this.estado = params['estado'] || 0;
         });
-        console.log('value' + this.value + 'values' + this.values);
-        this.service.getDocumentacion(this.value).subscribe(res => {
+        console.log('value' + this.value + 'values', this.values);
+        this.service.getDocumentacion(this.value, this.estado).subscribe(res => {
             this.campoField = (res);
             this.crearCampos();
         }, err => console.error(err));
@@ -53361,12 +53479,14 @@ let DocumentsComponent = class DocumentsComponent {
         }
         this.uploadedFiles.push(e.target.files[0]);
         if (this.uploadedFiles.length > 0) {
+            let cont = this.uploadedFiles.length - 1;
             this.documento = {
-                ruta_documento: '/file',
+                ruta_documento: '/file/' + this.uploadedFiles[cont].name,
                 id_inscripcion: this.value,
                 id_documento: e.target.name,
                 id_proveedor: this.usuario.id_proveedor
             };
+            cont++;
             if (this.documentos === undefined) {
                 this.documentos = new Array();
             }
@@ -53381,25 +53501,25 @@ let DocumentsComponent = class DocumentsComponent {
         }
     }
     saveFile() {
+        const formData = new FormData();
         for (let index = 0; index < this.uploadedFiles.length; index++) {
             console.log('archivo -- ' + this.uploadedFiles[index].name);
-            const formData = new FormData();
             formData.append('uploads[]', this.uploadedFiles[index], this.uploadedFiles[index].name);
-            this.http.post('https://prosegmaprueba.us-3.evennode.com/api/documentacion', formData).subscribe((d) => { });
-            this.service.postFileImagen(this.documentos).subscribe(res => {
-                this.contador++;
+        }
+        this.http.post('https://prosegmaprueba.us-3.evennode.com/api/documentacion', formData).subscribe(res => {
+            this.service.postFileImagen(this.documentos).subscribe(resp => {
                 // tslint:disable-next-line: max-line-length
-                if (this.contador <= 1) {
-                    // tslint:disable-next-line: max-line-length
-                    this.dialogService.openModalOk('Información', 'Su inscripcion se encuentra en estado: Esperando respuesta de aceptación ', () => {
-                        // tslint:disable-next-line: no-unused-expression
-                        this.router.navigateByUrl('/dashboard');
-                    });
-                }
+                // tslint:disable-next-line: max-line-length
+                this.dialogService.openModalOk('Información', 'Su inscripcion se encuentra en estado: Esperando respuesta de aceptación ', () => {
+                    // tslint:disable-next-line: no-unused-expression
+                    this.router.navigateByUrl('/dashboard');
+                });
             }, err => {
                 this.showNotification('Error', 'Ocurrio un error al guardar, por favor intente mas tarde');
             });
-        }
+        }, err => {
+            this.showNotification('Error', 'Ocurrio un error al subir el documento, por favor intente mas tarde');
+        });
     }
     showNotification(from, align) {
         const color = Math.floor((Math.random() * 5) + 1);
@@ -53427,6 +53547,112 @@ DocumentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./documents.component.scss */ "./src/app/documents/documents.component.scss")).default]
     })
 ], DocumentsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/gestionar-tarea/gestionar-tarea.component.scss":
+/*!****************************************************************!*\
+  !*** ./src/app/gestionar-tarea/gestionar-tarea.component.scss ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2dlc3Rpb25hci10YXJlYS9nZXN0aW9uYXItdGFyZWEuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/gestionar-tarea/gestionar-tarea.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/gestionar-tarea/gestionar-tarea.component.ts ***!
+  \**************************************************************/
+/*! exports provided: GestionarTareaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GestionarTareaComponent", function() { return GestionarTareaComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/camposproveedor.service */ "./src/services/camposproveedor.service.ts");
+/* harmony import */ var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dialog/dialog.service */ "./src/app/dialog/dialog.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+
+
+let GestionarTareaComponent = class GestionarTareaComponent {
+    // tslint:disable-next-line: max-line-length
+    constructor(modalService, services, dialogService, router) {
+        this.modalService = modalService;
+        this.services = services;
+        this.dialogService = dialogService;
+        this.router = router;
+        this.classes = 'div';
+        this.documentos = [];
+        this.documentosaceptados = [];
+    }
+    ngOnInit() {
+        this.proveedor = this.services.getProveedorSeleccionado();
+        this.id = this.proveedor.nit;
+        this.name = this.proveedor.nombre;
+        this.status = this.proveedor.estado;
+        this.services.getDocumentosInscripcion(this.proveedor.nit).subscribe(res => {
+            console.log('proveedor respuesta');
+            this.documentos = res;
+        }, err => {
+            this.dialogService.openModalOk('Error', err.error.text, () => {
+                // tslint:disable-next-line: no-unused-expression
+            });
+        });
+    }
+    change(indice) {
+        if (this.documentosaceptados.indexOf(indice) >= 0) {
+            this.documentosaceptados = this.documentosaceptados.filter(function (i) { return i !== indice; });
+        }
+        else {
+            this.documentosaceptados.push(indice);
+        }
+    }
+    updateRejectedDocuments() {
+        // tslint:disable-next-line: prefer-const
+        let revision = {};
+        revision.documentos = this.documentosaceptados;
+        revision.estado = this.estado;
+        revision.id_proveedor = this.proveedor.nit;
+        revision.id = this.proveedor.id;
+        this.services.updateTaskState(revision).subscribe(res => {
+            this.dialogService.openModalOk('Información', 'Documentos actualizados satisfactoriamente', () => {
+                this.router.navigateByUrl('/upgrade');
+            });
+        }, err => {
+            this.dialogService.openModalOk('Error', err.error.text, () => {
+            });
+        });
+    }
+};
+GestionarTareaComponent.ctorParameters = () => [
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"] },
+    { type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_3__["CamposproveedorService"] },
+    { type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_4__["DialogService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('class')
+], GestionarTareaComponent.prototype, "classes", void 0);
+GestionarTareaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-gestionar-tarea',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./gestionar-tarea.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/gestionar-tarea/gestionar-tarea.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./gestionar-tarea.component.scss */ "./src/app/gestionar-tarea/gestionar-tarea.component.scss")).default]
+    })
+], GestionarTareaComponent);
 
 
 
@@ -53836,23 +54062,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ng2-charts */ "./node_modules/ng2-charts/fesm2015/ng2-charts.js");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-/* harmony import */ var _upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../upgrade/upgrade.component */ "./src/app/upgrade/upgrade.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../../services/camposproveedor.service */ "./src/services/camposproveedor.service.ts");
-/* harmony import */ var _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../newuser/newuser.component */ "./src/app/newuser/newuser.component.ts");
-/* harmony import */ var _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../result-seleccion/result-seleccion.component */ "./src/app/result-seleccion/result-seleccion.component.ts");
-/* harmony import */ var _services_evaluation_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../../services/evaluation.service */ "./src/services/evaluation.service.ts");
-/* harmony import */ var _table_list_buscar_evaluaciones_buscar_evaluaciones_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../../table-list/buscar-evaluaciones/buscar-evaluaciones.component */ "./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.ts");
-/* harmony import */ var _table_list_seleccionar_proveedores_seleccionar_proveedores_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../../table-list/seleccionar-proveedores/seleccionar-proveedores.component */ "./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.ts");
-/* harmony import */ var _table_list_criterios_evalauacion_criterios_evalauacion_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../table-list/criterios-evalauacion/criterios-evalauacion.component */ "./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.ts");
-/* harmony import */ var _table_list_calificacion_criterio_calificacion_criterio_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../table-list/calificacion-criterio/calificacion-criterio.component */ "./src/app/table-list/calificacion-criterio/calificacion-criterio.component.ts");
-/* harmony import */ var _table_list_resultado_evaluacion_resultado_evaluacion_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../../table-list/resultado-evaluacion/resultado-evaluacion.component */ "./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.ts");
-/* harmony import */ var _table_list_title_title_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../../table-list/title/title.component */ "./src/app/table-list/title/title.component.ts");
-/* harmony import */ var _services_criterios_service__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../../services/criterios.service */ "./src/services/criterios.service.ts");
-/* harmony import */ var _services_proveedores_service__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../../../services/proveedores.service */ "./src/services/proveedores.service.ts");
-/* harmony import */ var _mat_classification_find_proveedores_find_proveedores_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../mat-classification/find-proveedores/find-proveedores.component */ "./src/app/mat-classification/find-proveedores/find-proveedores.component.ts");
-/* harmony import */ var _services_transaction_service__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../../../services/transaction.service */ "./src/services/transaction.service.ts");
-/* harmony import */ var _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../../gestionar-transaccion/gestionar-transaccion.component */ "./src/app/gestionar-transaccion/gestionar-transaccion.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../../services/camposproveedor.service */ "./src/services/camposproveedor.service.ts");
+/* harmony import */ var _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../newuser/newuser.component */ "./src/app/newuser/newuser.component.ts");
+/* harmony import */ var _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../result-seleccion/result-seleccion.component */ "./src/app/result-seleccion/result-seleccion.component.ts");
+/* harmony import */ var _services_evaluation_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../../services/evaluation.service */ "./src/services/evaluation.service.ts");
+/* harmony import */ var _table_list_buscar_evaluaciones_buscar_evaluaciones_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../table-list/buscar-evaluaciones/buscar-evaluaciones.component */ "./src/app/table-list/buscar-evaluaciones/buscar-evaluaciones.component.ts");
+/* harmony import */ var _table_list_seleccionar_proveedores_seleccionar_proveedores_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../../table-list/seleccionar-proveedores/seleccionar-proveedores.component */ "./src/app/table-list/seleccionar-proveedores/seleccionar-proveedores.component.ts");
+/* harmony import */ var _table_list_criterios_evalauacion_criterios_evalauacion_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../../table-list/criterios-evalauacion/criterios-evalauacion.component */ "./src/app/table-list/criterios-evalauacion/criterios-evalauacion.component.ts");
+/* harmony import */ var _table_list_calificacion_criterio_calificacion_criterio_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../table-list/calificacion-criterio/calificacion-criterio.component */ "./src/app/table-list/calificacion-criterio/calificacion-criterio.component.ts");
+/* harmony import */ var _table_list_resultado_evaluacion_resultado_evaluacion_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../table-list/resultado-evaluacion/resultado-evaluacion.component */ "./src/app/table-list/resultado-evaluacion/resultado-evaluacion.component.ts");
+/* harmony import */ var _table_list_title_title_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../../table-list/title/title.component */ "./src/app/table-list/title/title.component.ts");
+/* harmony import */ var _services_criterios_service__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../../../services/criterios.service */ "./src/services/criterios.service.ts");
+/* harmony import */ var _services_proveedores_service__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../../services/proveedores.service */ "./src/services/proveedores.service.ts");
+/* harmony import */ var _mat_classification_find_proveedores_find_proveedores_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../../mat-classification/find-proveedores/find-proveedores.component */ "./src/app/mat-classification/find-proveedores/find-proveedores.component.ts");
+/* harmony import */ var _services_transaction_service__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../../services/transaction.service */ "./src/services/transaction.service.ts");
+/* harmony import */ var _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../../gestionar-transaccion/gestionar-transaccion.component */ "./src/app/gestionar-transaccion/gestionar-transaccion.component.ts");
+/* harmony import */ var _gestionar_tarea_gestionar_tarea_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../../gestionar-tarea/gestionar-tarea.component */ "./src/app/gestionar-tarea/gestionar-tarea.component.ts");
+/* harmony import */ var _buscarTareas_buscarTareas_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../../buscarTareas/buscarTareas.component */ "./src/app/buscarTareas/buscarTareas.component.ts");
 
 
 
@@ -53893,7 +54120,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { GestionarTareaComponent } from '../../gestionar-tarea/gestionar-tarea.component';
+
 let AdminLayoutModule = class AdminLayoutModule {
 };
 AdminLayoutModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -53905,20 +54132,20 @@ AdminLayoutModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             ng2_charts__WEBPACK_IMPORTED_MODULE_20__["ChartsModule"],
             _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_21__["NgbModule"],
             ngx_toastr__WEBPACK_IMPORTED_MODULE_22__["ToastrModule"].forRoot(),
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_24__["HttpClientModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_23__["HttpClientModule"]
         ],
         providers: [
-            _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_25__["CamposproveedorService"],
-            _services_evaluation_service__WEBPACK_IMPORTED_MODULE_28__["EvaluationService"],
-            _services_criterios_service__WEBPACK_IMPORTED_MODULE_35__["CriteriosService"],
-            _services_proveedores_service__WEBPACK_IMPORTED_MODULE_36__["ProvidersService"],
-            _services_transaction_service__WEBPACK_IMPORTED_MODULE_38__["TransactionService"]
+            _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_24__["CamposproveedorService"],
+            _services_evaluation_service__WEBPACK_IMPORTED_MODULE_27__["EvaluationService"],
+            _services_criterios_service__WEBPACK_IMPORTED_MODULE_34__["CriteriosService"],
+            _services_proveedores_service__WEBPACK_IMPORTED_MODULE_35__["ProvidersService"],
+            _services_transaction_service__WEBPACK_IMPORTED_MODULE_37__["TransactionService"]
         ],
         declarations: [
             _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"],
             _user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_7__["UserProfileComponent"],
             _table_list_table_list_component__WEBPACK_IMPORTED_MODULE_8__["TableListComponent"],
-            _upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_23__["UpgradeComponent"],
+            _buscarTareas_buscarTareas_component__WEBPACK_IMPORTED_MODULE_40__["BuscarTareasComponent"],
             _typography_typography_component__WEBPACK_IMPORTED_MODULE_9__["TypographyComponent"],
             _icons_icons_component__WEBPACK_IMPORTED_MODULE_10__["IconsComponent"],
             _maps_maps_component__WEBPACK_IMPORTED_MODULE_11__["MapsComponent"],
@@ -53930,17 +54157,17 @@ AdminLayoutModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _mat_classification_mat_classification_component__WEBPACK_IMPORTED_MODULE_17__["MatClassificationComponent"],
             _transaction_transaction_component__WEBPACK_IMPORTED_MODULE_18__["TransactionComponent"],
             _materialdetail_materialdetail_component__WEBPACK_IMPORTED_MODULE_19__["MaterialdetailComponent"],
-            _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_26__["NewuserComponent"],
-            _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_27__["ResultSeleccionComponent"],
-            _table_list_buscar_evaluaciones_buscar_evaluaciones_component__WEBPACK_IMPORTED_MODULE_29__["BuscarEvaluacionesComponent"],
-            _table_list_seleccionar_proveedores_seleccionar_proveedores_component__WEBPACK_IMPORTED_MODULE_30__["SeleccionarProveedoresComponent"],
-            _table_list_criterios_evalauacion_criterios_evalauacion_component__WEBPACK_IMPORTED_MODULE_31__["CriteriosEvalauacionComponent"],
-            _table_list_calificacion_criterio_calificacion_criterio_component__WEBPACK_IMPORTED_MODULE_32__["CalificacionCriterioComponent"],
-            _table_list_resultado_evaluacion_resultado_evaluacion_component__WEBPACK_IMPORTED_MODULE_33__["ResultadoEvaluacionComponent"],
-            _table_list_title_title_component__WEBPACK_IMPORTED_MODULE_34__["TitleComponent"],
-            _mat_classification_find_proveedores_find_proveedores_component__WEBPACK_IMPORTED_MODULE_37__["FindProveedoresComponent"],
-            _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_39__["GestionarTransaccionComponent"]
-            // GestionarTareaComponent
+            _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_25__["NewuserComponent"],
+            _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_26__["ResultSeleccionComponent"],
+            _table_list_buscar_evaluaciones_buscar_evaluaciones_component__WEBPACK_IMPORTED_MODULE_28__["BuscarEvaluacionesComponent"],
+            _table_list_seleccionar_proveedores_seleccionar_proveedores_component__WEBPACK_IMPORTED_MODULE_29__["SeleccionarProveedoresComponent"],
+            _table_list_criterios_evalauacion_criterios_evalauacion_component__WEBPACK_IMPORTED_MODULE_30__["CriteriosEvalauacionComponent"],
+            _table_list_calificacion_criterio_calificacion_criterio_component__WEBPACK_IMPORTED_MODULE_31__["CalificacionCriterioComponent"],
+            _table_list_resultado_evaluacion_resultado_evaluacion_component__WEBPACK_IMPORTED_MODULE_32__["ResultadoEvaluacionComponent"],
+            _table_list_title_title_component__WEBPACK_IMPORTED_MODULE_33__["TitleComponent"],
+            _mat_classification_find_proveedores_find_proveedores_component__WEBPACK_IMPORTED_MODULE_36__["FindProveedoresComponent"],
+            _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_38__["GestionarTransaccionComponent"],
+            _gestionar_tarea_gestionar_tarea_component__WEBPACK_IMPORTED_MODULE_39__["GestionarTareaComponent"]
         ]
     })
 ], AdminLayoutModule);
@@ -53967,18 +54194,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icons_icons_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../icons/icons.component */ "./src/app/icons/icons.component.ts");
 /* harmony import */ var _maps_maps_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../maps/maps.component */ "./src/app/maps/maps.component.ts");
 /* harmony import */ var _notifications_notifications_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../notifications/notifications.component */ "./src/app/notifications/notifications.component.ts");
-/* harmony import */ var _upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../upgrade/upgrade.component */ "./src/app/upgrade/upgrade.component.ts");
-/* harmony import */ var _classification_classification_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../classification/classification.component */ "./src/app/classification/classification.component.ts");
-/* harmony import */ var _documents_documents_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../documents/documents.component */ "./src/app/documents/documents.component.ts");
-/* harmony import */ var _criterion_criterion_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../criterion/criterion.component */ "./src/app/criterion/criterion.component.ts");
-/* harmony import */ var _ahp_ahp_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../ahp/ahp.component */ "./src/app/ahp/ahp.component.ts");
-/* harmony import */ var _mat_classification_mat_classification_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../mat-classification/mat-classification.component */ "./src/app/mat-classification/mat-classification.component.ts");
-/* harmony import */ var _transaction_transaction_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../transaction/transaction.component */ "./src/app/transaction/transaction.component.ts");
-/* harmony import */ var _materialdetail_materialdetail_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../materialdetail/materialdetail.component */ "./src/app/materialdetail/materialdetail.component.ts");
-/* harmony import */ var _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../newuser/newuser.component */ "./src/app/newuser/newuser.component.ts");
-/* harmony import */ var _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../result-seleccion/result-seleccion.component */ "./src/app/result-seleccion/result-seleccion.component.ts");
-/* harmony import */ var _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../gestionar-transaccion/gestionar-transaccion.component */ "./src/app/gestionar-transaccion/gestionar-transaccion.component.ts");
-
+/* harmony import */ var _classification_classification_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../classification/classification.component */ "./src/app/classification/classification.component.ts");
+/* harmony import */ var _documents_documents_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../documents/documents.component */ "./src/app/documents/documents.component.ts");
+/* harmony import */ var _criterion_criterion_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../criterion/criterion.component */ "./src/app/criterion/criterion.component.ts");
+/* harmony import */ var _ahp_ahp_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../ahp/ahp.component */ "./src/app/ahp/ahp.component.ts");
+/* harmony import */ var _mat_classification_mat_classification_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../mat-classification/mat-classification.component */ "./src/app/mat-classification/mat-classification.component.ts");
+/* harmony import */ var _transaction_transaction_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../transaction/transaction.component */ "./src/app/transaction/transaction.component.ts");
+/* harmony import */ var _materialdetail_materialdetail_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../materialdetail/materialdetail.component */ "./src/app/materialdetail/materialdetail.component.ts");
+/* harmony import */ var _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../newuser/newuser.component */ "./src/app/newuser/newuser.component.ts");
+/* harmony import */ var _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../result-seleccion/result-seleccion.component */ "./src/app/result-seleccion/result-seleccion.component.ts");
+/* harmony import */ var _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../gestionar-transaccion/gestionar-transaccion.component */ "./src/app/gestionar-transaccion/gestionar-transaccion.component.ts");
+/* harmony import */ var _buscarTareas_buscarTareas_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../buscarTareas/buscarTareas.component */ "./src/app/buscarTareas/buscarTareas.component.ts");
 
 
 
@@ -53998,6 +54224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const AdminLayoutRoutes = [
     { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_1__["DashboardComponent"] },
     { path: 'user-profile', component: _user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_2__["UserProfileComponent"] },
@@ -54006,18 +54233,18 @@ const AdminLayoutRoutes = [
     { path: 'icons', component: _icons_icons_component__WEBPACK_IMPORTED_MODULE_5__["IconsComponent"] },
     { path: 'maps', component: _maps_maps_component__WEBPACK_IMPORTED_MODULE_6__["MapsComponent"] },
     { path: 'notifications', component: _notifications_notifications_component__WEBPACK_IMPORTED_MODULE_7__["NotificationsComponent"] },
-    { path: 'upgrade', component: _upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_8__["UpgradeComponent"] },
-    { path: 'classification', component: _classification_classification_component__WEBPACK_IMPORTED_MODULE_9__["ClassificationComponent"] },
-    { path: 'documentation', component: _documents_documents_component__WEBPACK_IMPORTED_MODULE_10__["DocumentsComponent"] },
-    { path: 'criterion', component: _criterion_criterion_component__WEBPACK_IMPORTED_MODULE_11__["CriterionComponent"] },
-    { path: 'AhpComponent', component: _ahp_ahp_component__WEBPACK_IMPORTED_MODULE_12__["AhpComponent"] },
-    { path: 'matclassification', component: _mat_classification_mat_classification_component__WEBPACK_IMPORTED_MODULE_13__["MatClassificationComponent"] },
-    { path: 'transaction', component: _transaction_transaction_component__WEBPACK_IMPORTED_MODULE_14__["TransactionComponent"] },
-    { path: 'materialdetail', component: _materialdetail_materialdetail_component__WEBPACK_IMPORTED_MODULE_15__["MaterialdetailComponent"] },
+    { path: 'upgrade', component: _buscarTareas_buscarTareas_component__WEBPACK_IMPORTED_MODULE_18__["BuscarTareasComponent"] },
+    { path: 'classification', component: _classification_classification_component__WEBPACK_IMPORTED_MODULE_8__["ClassificationComponent"] },
+    { path: 'documentation', component: _documents_documents_component__WEBPACK_IMPORTED_MODULE_9__["DocumentsComponent"] },
+    { path: 'criterion', component: _criterion_criterion_component__WEBPACK_IMPORTED_MODULE_10__["CriterionComponent"] },
+    { path: 'AhpComponent', component: _ahp_ahp_component__WEBPACK_IMPORTED_MODULE_11__["AhpComponent"] },
+    { path: 'matclassification', component: _mat_classification_mat_classification_component__WEBPACK_IMPORTED_MODULE_12__["MatClassificationComponent"] },
+    { path: 'transaction', component: _transaction_transaction_component__WEBPACK_IMPORTED_MODULE_13__["TransactionComponent"] },
+    { path: 'materialdetail', component: _materialdetail_materialdetail_component__WEBPACK_IMPORTED_MODULE_14__["MaterialdetailComponent"] },
     // { path: 'gestionartarea',        component: GestionarTareaComponent },
-    { path: 'newuser', component: _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_16__["NewuserComponent"] },
-    { path: 'resultSeleccion', component: _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_17__["ResultSeleccionComponent"] },
-    { path: 'transaction/:id', component: _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_18__["GestionarTransaccionComponent"] }
+    { path: 'newuser', component: _newuser_newuser_component__WEBPACK_IMPORTED_MODULE_15__["NewuserComponent"] },
+    { path: 'resultSeleccion', component: _result_seleccion_result_seleccion_component__WEBPACK_IMPORTED_MODULE_16__["ResultSeleccionComponent"] },
+    { path: 'transaction/:id', component: _gestionar_transaccion_gestionar_transaccion_component__WEBPACK_IMPORTED_MODULE_17__["GestionarTransaccionComponent"] }
 ];
 
 
@@ -54048,14 +54275,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapsComponent", function() { return MapsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/camposproveedor.service */ "./src/services/camposproveedor.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dialog/dialog.service */ "./src/app/dialog/dialog.service.ts");
+
+
+
 
 
 let MapsComponent = class MapsComponent {
-    constructor() {
-        this.classes = 'row';
+    constructor(service, router, dialogService) {
+        this.service = service;
+        this.router = router;
+        this.dialogService = dialogService;
+        this.classes = 'div';
     }
-    ngOnInit() { }
+    ngOnInit() {
+        console.log('perfiles');
+        this.service.getPerfiles().subscribe(res => {
+            this.perfiles = res;
+            this.service.getCuenta().subscribe(
+            // tslint:disable-next-line: no-shadowed-variable
+            res => {
+                this.usuarios = res;
+            }, err => console.error(err));
+        }, err => console.error(err));
+    }
+    saveCuenta(userForm) {
+        userForm.value.perfil = this.perfilSeleccionado;
+        this.service.CreateNewAccounten(userForm.value).subscribe(res => {
+            this.dialogService.openModalOk('Alerta', 'Cuenta de usuario guardada exitosamente', () => {
+                // tslint:disable-next-line: no-unused-expression
+                this.usuarios = res;
+                userForm.reset();
+            });
+        }, err => {
+            this.dialogService.openModalOk('Error', 'Error al crear la cuenta', () => {
+                // tslint:disable-next-line: no-unused-expression
+            });
+        });
+    }
+    selectChange($event) {
+        const perfil = this.perfiles.find(fruta => fruta.nombre === $event.toString());
+        this.perfilSeleccionado = perfil.idperfil;
+    }
 };
+MapsComponent.ctorParameters = () => [
+    { type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_2__["CamposproveedorService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_4__["DialogService"] }
+];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('class')
 ], MapsComponent.prototype, "classes", void 0);
@@ -54732,10 +55001,17 @@ let NotificationsComponent = class NotificationsComponent {
         this.camposformulario = [];
     }
     ngOnInit() {
+        let respuesta = {};
         this.usuario = this.camposServices.getUsuario();
         console.log('usuario seleccion', this.usuario);
         this.razonsocial = this.usuario.razon_social;
         this.identificacion = this.usuario.id_proveedor;
+        this.camposServices.getEstadoProveedor(this.identificacion).subscribe(res => {
+            respuesta = res[0].estado;
+            if (respuesta === 'solicitud de cambios en documentos') {
+                this.router.navigate(['/documentation'], { queryParams: { id: res[0].idinscripcion, estado: 'rechazado' } });
+            }
+        }, err => console.error(err));
         this.camposServices.getCamposProveedor().subscribe(res => {
             this.campos.push(res);
             this.crearCampos();
@@ -54966,6 +55242,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
 /* harmony import */ var _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/camposproveedor.service */ "./src/services/camposproveedor.service.ts");
+/* harmony import */ var _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dialog/dialog.service */ "./src/app/dialog/dialog.service.ts");
+
 
 
 
@@ -54973,11 +55251,13 @@ __webpack_require__.r(__webpack_exports__);
 
 let ResultSeleccionComponent = class ResultSeleccionComponent {
     // tslint:disable-next-line: max-line-length
-    constructor(toastr, route, router, service) {
+    constructor(dialogService, toastr, route, router, service) {
+        this.dialogService = dialogService;
         this.toastr = toastr;
         this.route = route;
         this.router = router;
         this.service = service;
+        this.classes = 'div';
     }
     ngOnInit() {
         this.values = this.route
@@ -55003,6 +55283,17 @@ let ResultSeleccionComponent = class ResultSeleccionComponent {
             return 0;
         });
         this.proveedores[0].nombre = this.proveedores[0].nombre + ' (Seleccionado)';
+        // tslint:disable-next-line: prefer-const
+        let tarea = {};
+        tarea.id_proveedor = this.proveedores[0].nit,
+            tarea.fecha_creacion = new Date().toString(),
+            tarea.estado = 'activa';
+        this.service.saveExistingTask(tarea).subscribe(res => {
+            console.log('tarea creada');
+        }, err => {
+            this.dialogService.openModalOk('Error', err.error.text, () => {
+            });
+        });
     }
     getAleatorio() {
         return 10 * Math.round(Math.random() * 10);
@@ -55028,11 +55319,15 @@ let ResultSeleccionComponent = class ResultSeleccionComponent {
     }
 };
 ResultSeleccionComponent.ctorParameters = () => [
+    { type: _dialog_dialog_service__WEBPACK_IMPORTED_MODULE_5__["DialogService"] },
     { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _services_camposproveedor_service__WEBPACK_IMPORTED_MODULE_4__["CamposproveedorService"] }
 ];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('class')
+], ResultSeleccionComponent.prototype, "classes", void 0);
 ResultSeleccionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-result-seleccion',
@@ -55922,50 +56217,6 @@ TypographyComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/upgrade/upgrade.component.scss":
-/*!************************************************!*\
-  !*** ./src/app/upgrade/upgrade.component.scss ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VwZ3JhZGUvdXBncmFkZS5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/upgrade/upgrade.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/upgrade/upgrade.component.ts ***!
-  \**********************************************/
-/*! exports provided: UpgradeComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpgradeComponent", function() { return UpgradeComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let UpgradeComponent = class UpgradeComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-UpgradeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-upgrade',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./upgrade.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/upgrade/upgrade.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./upgrade.component.scss */ "./src/app/upgrade/upgrade.component.scss")).default]
-    })
-], UpgradeComponent);
-
-
-
-/***/ }),
-
 /***/ "./src/app/user-profile/user-profile.component.css":
 /*!*********************************************************!*\
   !*** ./src/app/user-profile/user-profile.component.css ***!
@@ -56033,7 +56284,6 @@ let UserProfileComponent = class UserProfileComponent {
         }, err => console.error(err));
     }
     changeConAHP(indice) {
-        console.log('changeConAHP ', indice);
         if (this.proveedoresConAHP.indexOf(indice) >= 0) {
             this.proveedoresConAHP = this.proveedoresConAHP.filter(function (i) { return i !== indice; });
             this.proveedoresSinAHP.push(indice);
@@ -56056,15 +56306,13 @@ let UserProfileComponent = class UserProfileComponent {
     }
     saveSeleccionProveedor() {
         if (this.titulo !== undefined && this.descripcion !== undefined) {
-            const tamProveedoresSelec = this.proveedoresSinAHP.length + this.proveedoresConAHP.length;
-            if (tamProveedoresSelec < 2) {
+            if (this.proveedoresConAHP.length < 2 && this.proveedoresSinAHP.length === 0) {
                 this.dialogService.openModalOk('Error', 'Debe seleccionar mínimo 2 proveedores', () => {
                 });
             }
             else {
                 if (this.proveedoresSinAHP.length > 0) {
                     this.dialogService.openModal('Alerta', 'Ud seleccionó proveedores sin AHP, ¿Está seguro de guardar?', () => {
-                        // tslint:disable-next-line: no-unused-expression
                         for (let index = 0; index < this.proveedoresSinAHP.length; index++) {
                             const element = this.proveedoresSinAHP[index];
                             this.proveedoresSave[index] = {};
@@ -56072,6 +56320,16 @@ let UserProfileComponent = class UserProfileComponent {
                             this.proveedoresSave[index].descripcion = this.descripcion;
                             this.proveedoresSave[index].nit = element.nit;
                             this.proveedoresSave[index].fecha_creacion = new Date().toDateString();
+                            const tarea = {};
+                            tarea.id_proveedor = element.nit,
+                                tarea.fecha_creacion = new Date().toString(),
+                                tarea.estado = 'activa';
+                            this.service.saveExistingTask(tarea).subscribe(res => {
+                                console.log('tarea creada');
+                            }, err => {
+                                this.dialogService.openModalOk('Error', err.error.text, () => {
+                                });
+                            });
                         }
                         this.service.saveProveedoresSeleccionados(this.proveedoresSave).subscribe(res => {
                             // tslint:disable-next-line: no-unused-expression

@@ -112,7 +112,7 @@ export class DocumentsComponent implements OnInit {
 
         formData.append('uploads[]', this.uploadedFiles[index], this.uploadedFiles[index].name);
       }
-        this.http.post('http://localhost:3010/api/documentacion', formData, ).subscribe(
+        this.http.post('https://prosegmaprueba.us-3.evennode.com/api/documentacion', formData, ).subscribe(
           res => {
 
         this.service.postFileImagen(this.documentos).subscribe(

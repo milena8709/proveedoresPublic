@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit{
   @HostBinding('class') classes = 'div';
 
-
+  @Output() isLoging = new EventEmitter();
 
   sesion: Form;
   autenticado: boolean;
@@ -33,13 +33,17 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit(): void {
     this.usuario = this.services.getUsuario();
-    if (this.usuario !== undefined) {
+    if (this.usuario !== undefined || localStorage.getItem('email')) {
       this.autenticado = true;
       this.title = 'Bienvenido, a la izquierda encontrará el menú de opciones.';
     } else {
       this.autenticado = false;
     }
+  }
 
+  callEventLoging() {
+    this.isLoging.emit(this.autenticado);
+    console.log('emite el evento');
   }
 
   login(userForm: NgForm) {
@@ -53,7 +57,11 @@ export class DashboardComponent implements OnInit{
           this.title = 'Bienvenido, a la izquierda encontrará el menú de opciones.';
           // tslint:disable-next-line: no-unused-expression
           this.autenticado = true;
+          console.log('este es el usuario ' + JSON.stringify(this.usuario));
+          localStorage.setItem('email', this.usuario.usuario);
+          localStorage.setItem('perfil', this.usuario.idperfil);
           this.services.setUsuario(this.usuario);
+          window.location.reload();
         },
         err => {
           this.dialogService.openModalOk('Error', err.error.text, () => {
