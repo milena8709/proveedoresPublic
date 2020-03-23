@@ -1,10 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CamposproveedorService } from '../../services/camposproveedor.service';
 import { DialogService } from '../dialog/dialog.service';
-import { Router } from '@angular/router';
+import { Router, Routes, RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { GestionarTareaComponent } from '../gestionar-tarea/gestionar-tarea.component';
+
+
+const rutas: Routes = [
+  { path: 'gestionartarea', component: GestionarTareaComponent }
+];
+
+@NgModule({
+  imports: [
+    GestionarTareaComponent,
+    RouterModule.forRoot(
+      rutas,
+      { enableTracing: true }
+    )
+  ],
+  declarations: [],
+  exports : [
+    RouterModule
+  ],
+})
 
 @Component({
   selector: 'app-upgrade',
@@ -46,13 +66,13 @@ selectionProveedor(indice: any) {
           this.proveedorSeleccionado.push(indice);
         }
         this.services.setProveedorSeleccionado(this.proveedorSeleccionado);
-       // tslint:disable-next-line: prefer-const
-        this.router.navigateByUrl('/gestionartarea');
       } else {
         this.proveedorSeleccionado = indice;
         this.services.setProveedorSeleccionado(this.proveedorSeleccionado);
-        this.router.navigateByUrl('/gestionartarea');
+
       }
+    // tslint:disable-next-line: no-unused-expression
+    this.router.navigateByUrl('/gestionartarea');
     } else {
       this.dialogService.openModalOk('Error', 'El proveedor ya ha sido finalizado', () => {
         // tslint:disable-next-line: no-unused-expression

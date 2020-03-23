@@ -13,7 +13,7 @@ class UsuarioRoutes {
     }
 
     config(): void {
-        this.router.post('/', usuarioController.CreateNewAccounten);
+        this.router.post('/', usuarioController.CreateNewAccount);
         this.router.get('/', usuarioController.list);
     }
 }

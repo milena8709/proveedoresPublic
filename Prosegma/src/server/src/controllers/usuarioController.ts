@@ -13,7 +13,7 @@ class UsuarioController {
         res.json(usuarios);
     }
 
-    public async getUsuario (req: Request, res: Response) {
+    public async login (req: Request, res: Response) {
         const { usuario } = req.params;
         const { password } = req.params;
 
@@ -42,7 +42,7 @@ class UsuarioController {
     }
 
 
-    public async CreateNewAccounten (req: Request, res: Response) {
+    public async CreateNewAccount (req: Request, res: Response) {
         console.log(req.body);
 
             // tslint:disable-next-line: max-line-length
