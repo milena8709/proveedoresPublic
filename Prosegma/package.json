@@ -26,7 +26,7 @@
     "@angular/router": "8.2.14",
     "@ng-bootstrap/ng-bootstrap": "5.2.1",
     "ahp": "^2.2.2",
-    "ajv": "6.11.0",
+    "ajv": "6.12.3",
     "ajv-keywords": "3.4.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
