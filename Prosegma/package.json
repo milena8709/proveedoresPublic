@@ -34,7 +34,7 @@
     "chartist": "0.11.4",
     "classlist.js": "1.1.20150312",
     "connect-multiparty": "^2.2.0",
-    "copy-webpack-plugin": "5.1.1",
+    "copy-webpack-plugin": "11.0.0",
     "core-js": "3.6.4",
     "crypto": "^1.0.1",
     "express": "^4.17.1",
@@ -57,7 +57,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.23",
+    "@angular-devkit/build-angular": "~15.0.4",
     "@angular/cli": "8.3.23",
     "@angular/compiler-cli": "8.2.14",
     "@angular/language-service": "8.2.14",
